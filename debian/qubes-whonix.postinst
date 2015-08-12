@@ -95,15 +95,6 @@ case "${1}" in
                     /usr/lib/qubes-whonix/replace-ips
                     ;;
 
-                # Desktop Entry Modification - Not shown in Qubes
-                /etc/xdg/autostart/pulseaudio-kde.desktop | \
-                /etc/xdg/autostart/gateway_first_run_notice.desktop | \
-                /etc/xdg/autostart/spice-vdagent.desktop | \
-                /etc/xdg/autostart/whonixsetup.desktop | \
-                /etc/xdg/autostart/whonix-setup-wizard.desktop)
-                    showIn "${trigger}" 'NotShowIn=QUBES;'
-                    ;;
-
                 *)
                     echo "postinst called with unknown trigger \`${2}'" >&2
                     exit 1
