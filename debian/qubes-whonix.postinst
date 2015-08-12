@@ -114,12 +114,6 @@ showIn() {
 
 case "${1}" in
     configure)
-        # Use gdialog as an alternative for dialog
-        if [ ! -L "/usr/bin/dialog" ]; then
-            mv -f /usr/bin/dialog /usr/bin/dialog.dist
-            update-alternatives --force --install /usr/bin/dialog dialog /usr/bin/gdialog 100
-        fi
-
         # make sure user is added to debian-tor group
         groupadd --force debian-tor
         usermod -a --groups debian-tor user
