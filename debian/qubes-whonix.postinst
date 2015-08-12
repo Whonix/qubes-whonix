@@ -128,7 +128,6 @@ case "${1}" in
         disableSystemdUnits \
             qubes-whonix-network \
             qubes-whonix-firewall \
-            network-manager \
             tor
 
         # Re-enable 'Aliased' services
