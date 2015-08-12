@@ -29,56 +29,11 @@
 
 set -e
 
-# Directory that modified desktop entry config files are stored in
-XDG_CONFIG_QUBES="/usr/share/qubes/xdg"
-
-remove_ShowIn() {
-    if [ -e "${1}" ]; then
-        sed -i '/^\(Not\|Only\)ShowIn/d' "${1}"
-    fi
-}
-
-showIn() {
-    desktop_entry="${1}"
-    shown_in="${2}"
-    message="${shown_in:-"Shown in All;"}"
-    desktop_entry_qubes="${XDG_CONFIG_QUBES}/autostart/${desktop_entry##*/}"
-
-    # Make sure Qubes autostart directory exists
-    mkdir -p "${XDG_CONFIG_QUBES}/autostart"
-
-    # Desktop entry exists, so move to Qubes directory and modify it
-    if [ -e "${desktop_entry}" ]; then
-        echo "Desktop Entry Modification - ${message} ${desktop_entry##*/}..."
-        cp -pf "${desktop_entry}" "${desktop_entry_qubes}"
-
-        remove_ShowIn "${desktop_entry_qubes}"
-        sed -i '/^X-GNOME-Autostart-enabled.*[fF0]/d' "${desktop_entry_qubes}"
-
-        # Will only be '' if shown in all
-        if [ ! "${shown_in}x" == "x" ]; then
-            echo "${shown_in}" >> "${desktop_entry_qubes}" || true
-        fi
-
-    # Desktop entry must have been removed, so also remove from Qubes directory
-    else
-        echo "Desktop Entry Modification - Remove: ${desktop_entry##*/}..."
-        rm -f "${desktop_entry_qubes}"
-    fi
-}
-
-
 case "${1}" in
     configure)
         # make sure user is added to debian-tor group
         groupadd --force debian-tor
         usermod -a --groups debian-tor user
-
-        # Modify desktop files not to show in Qubes
-        for item in = /etc/xdg/autostart/pulseaudio-kde.desktop \
-                      /etc/xdg/autostart/spice-vdagent.desktop ; do
-            showIn "${item}" 'NotShowIn=QUBES;'
-        done
 
         # Set timezone to UTC
         timezone='UTC'
