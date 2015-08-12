@@ -76,8 +76,7 @@ case "${1}" in
 
         # Modify desktop files not to show in Qubes
         for item in = /etc/xdg/autostart/pulseaudio-kde.desktop \
-                      /etc/xdg/autostart/spice-vdagent.desktop \
-                      /etc/xdg/autostart/whonix-setup-wizard.desktop ; do
+                      /etc/xdg/autostart/spice-vdagent.desktop ; do
             showIn "${item}" 'NotShowIn=QUBES;'
         done
 
