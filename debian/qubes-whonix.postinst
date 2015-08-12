@@ -27,6 +27,8 @@
 # https://www.debian.org/doc/debian-policy/ch-maintainerscripts.html or
 # the debian-policy package
 
+set -e
+
 # Directory that modified desktop entry config files are stored in
 XDG_CONFIG_QUBES="/usr/share/qubes/xdg"
 

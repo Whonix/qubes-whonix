@@ -37,6 +37,8 @@
 # https://www.debian.org/doc/debian-policy/ch-maintainerscripts.html or
 # the debian-policy package
 
+set -e
+
 if [ "$1" = "remove" ] ; then
     true
 fi
