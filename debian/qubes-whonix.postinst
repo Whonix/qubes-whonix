@@ -37,8 +37,8 @@ case "${1}" in
 
         # Set timezone to UTC
         timezone='UTC'
-        chattr -i /etc/localtime
-        chattr -i /etc/timezone
+        chattr -i /etc/localtime || true
+        chattr -i /etc/timezone || true
         cp -p /usr/share/zoneinfo/${timezone} /etc/localtime || true
         cp -p /usr/share/zoneinfo/${timezone} /etc/localtime.anondist || true
         echo "${timezone}" > /etc/timezone || true
