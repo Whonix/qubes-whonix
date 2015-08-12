@@ -1,1 +1,2 @@
-rm_conffile etc/systemd/system/qubes-whonix-tor.service
+rm_conffile /etc/systemd/system/qubes-whonix-tor.service
+rm_conffile /etc/tmpfiles.d/tor.conf

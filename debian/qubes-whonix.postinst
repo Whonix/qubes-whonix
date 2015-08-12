@@ -121,14 +121,12 @@ case "${1}" in
         # Disable unwanted or manually started applications
         disableSystemdUnits \
             qubes-whonix-network \
-            qubes-whonix-firewall \
-            tor
+            qubes-whonix-firewall
 
         # Re-enable 'Aliased' services
         enableSystemdUnits \
             qubes-whonix-network \
-            qubes-whonix-firewall \
-            qubes-whonix-tor.service
+            qubes-whonix-firewall
 
         # Modify desktop files not to show in Qubes
         for item in = /etc/xdg/autostart/pulseaudio-kde.desktop \
