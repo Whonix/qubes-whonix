@@ -16,7 +16,7 @@ export DH_VERBOSE=1
 export DESTDIR=$(shell pwd)/debian/qubes-whonix
 
 %:
-	dh $@ --with systemd
+	dh $@ --with systemd --with python2
 
 override_dh_installchangelogs:
 	dh_installchangelogs changelog.upstream upstream
