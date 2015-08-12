@@ -32,50 +32,6 @@ set -e
 # Directory that modified desktop entry config files are stored in
 XDG_CONFIG_QUBES="/usr/share/qubes/xdg"
 
-changeSystemdStatus() {
-    unit=${1}
-    disable=${2-0}
-
-    # Check if unit file is currently active (running)
-    systemctl is-active ${unit} > /dev/null 2>&1 && active=true || unset active
-
-    case ${disable} in
-        0)
-            systemctl --quiet enable ${unit} > /dev/null 2>&1 || true
-            ;;
-        1)
-            if [ $active ]; then
-                systemctl --quiet stop ${unit} > /dev/null 2>&1 || true
-            fi
-
-            if [ -f /lib/systemd/system/${unit} ]; then
-                if fgrep -q '[Install]' /lib/systemd/system/${unit}; then
-                    systemctl --quiet disable ${unit} > /dev/null 2>&1 || true
-                else
-                    # Forcibly disable
-                    ln -sf /dev/null /etc/systemd/system/${unit}
-                fi
-            else
-                systemctl --quiet disable ${unit} > /dev/null 2>&1 || true
-            fi
-            ;;
-    esac
-}
-
-# Enable systemd units
-enableSystemdUnits() {
-    for unit in $*; do
-        changeSystemdStatus ${unit} 0 || true
-    done
-}
-
-# Disable systemd units
-disableSystemdUnits() {
-    for unit in $*; do
-        changeSystemdStatus ${unit} 1 || true
-    done
-}
-
 remove_ShowIn() {
     if [ -e "${1}" ]; then
         sed -i '/^\(Not\|Only\)ShowIn/d' "${1}"
@@ -117,16 +73,6 @@ case "${1}" in
         # make sure user is added to debian-tor group
         groupadd --force debian-tor
         usermod -a --groups debian-tor user
-
-        # Disable unwanted or manually started applications
-        disableSystemdUnits \
-            qubes-whonix-network \
-            qubes-whonix-firewall
-
-        # Re-enable 'Aliased' services
-        enableSystemdUnits \
-            qubes-whonix-network \
-            qubes-whonix-firewall
 
         # Modify desktop files not to show in Qubes
         for item in = /etc/xdg/autostart/pulseaudio-kde.desktop \
