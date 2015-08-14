@@ -36,10 +36,6 @@ PROTECTED_FILES=(
     '/etc/timezone'
 )
 
-# Make sure all .anondist files in list are not immutable. Fixes immutable issue
-immutableFilesDisable "${PROTECTED_FILES}"
-immutableFilesDisable "${PROTECTED_FILES}" ".anondist"
-
 for protected_file in "${PROTECTED_FILES[@]}"; do
     # Enable protected services
     if ! grep -q "^${protected_file}$" "${PROTECTED_FILE_LIST}" 2>/dev/null; then

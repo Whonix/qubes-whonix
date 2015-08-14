@@ -48,30 +48,6 @@ PROXY_META='<meta name=\"application-name\" content=\"tor proxy\"\/>'
         PREFIX=''
     fi
 
-# Sets provided list of files ($1) appending optional suffix ($2) to immutable
-immutableFilesEnable() {
-    files="${1}"
-    suffix="${2}"
-
-    for file in "${files[@]}"; do
-        if [ -f "${file}" ] && ! [ -L "${file}" ]; then
-            chattr +i "${file}${suffix}"
-        fi
-    done
-}
-
-# Sets provided list of files ($1) appending optional suffix ($2) to mutable
-immutableFilesDisable() {
-    files="${1}"
-    suffix="${2}"
-
-    for file in "${files[@]}"; do
-        if [ -f "${file}" ] && ! [ -L "${file}" ]; then
-            chattr -i "${file}${suffix}"
-        fi
-    done
-}
-
 # Copies provided list of anondist files ($1)+suffix($2) to original filename.
 #
 # Example:
