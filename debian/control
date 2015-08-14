@@ -35,6 +35,7 @@ Depends: qubes-core-agent (>= 2.1.60),
  xinit,
  xsettingsd,
  xdg-user-dirs,
+ rsync,
  ${python:Depends},
  ${misc:Depends}
 Recommends: nautilus-open-terminal, gnome-packagekit, gnome-terminal, network-manager (>= 0.8.1-1), network-manager-gnome
