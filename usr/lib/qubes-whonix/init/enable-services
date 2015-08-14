@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 # vim: set ts=4 sw=4 sts=4 et :
 #
 # enable-services - Called by systemd before qubes-whonix-sysinit during the
