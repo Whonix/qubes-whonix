@@ -41,7 +41,6 @@ immutableFilesDisable "${PROTECTED_FILES}"
 immutableFilesDisable "${PROTECTED_FILES}" ".anondist"
 
 for protected_file in "${PROTECTED_FILES[@]}"; do
-
     # Enable protected services
     if ! grep -q "^${protected_file}$" "${PROTECTED_FILE_LIST}" 2>/dev/null; then
         echo -e "${protected_file}" >> "${PROTECTED_FILE_LIST}"
@@ -52,9 +51,7 @@ for protected_file in "${PROTECTED_FILES[@]}"; do
     copyAnondist "${protected_file}"
 done
 
-# Gateway
 if [ -e /var/run/qubes-service/whonix-gateway ]; then
-
     # Allow whonix-gateway to act as an update-proxy
     touch /var/run/qubes-service/qubes-updates-proxy
 
