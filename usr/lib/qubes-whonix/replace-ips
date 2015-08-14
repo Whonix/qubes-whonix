@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-`
 # vim: set ts=4 sw=4 sts=4 et :
 '''
-replace-ips - Search and repalce IP address in specified files.
+replace-ips - Search and replace IP address in specified files.
 
-All Whonix configuration files provided are searched for the last known occurance
+All Whonix configuration files provided are searched for the last known occurrence
 of IP address that was used and replaced with the current IP address provided by
 Qubes.
 
 Initially the known IP addresses are 10.152.152.10 and 10.152.152.11 as defaults
 in Whonix configuration files.  They are also checked each time this module is
-run incase the configuration files were modified due to a system update.
+run in case the configuration files were modified due to a system update.
 
 This file is part of Qubes+Whonix.
 Copyright (C) 2014 - 2015 Jason Mehring <nrgaway@gmail.com>
