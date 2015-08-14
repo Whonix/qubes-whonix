@@ -4,7 +4,7 @@
 # enable-services - Called by systemd before qubes-whonix-sysinit during the
 #                   sysinit boot stage
 #
-# Sets the type of whonix mode that is currently running as a Qubes service
+# Sets the type of Whonix mode that is currently running as a Qubes service
 #
 # This file is part of Qubes+Whonix.
 # Copyright (C) 2014 - 2015 Jason Mehring <nrgaway@gmail.com>
