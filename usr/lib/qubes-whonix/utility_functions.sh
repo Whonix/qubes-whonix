@@ -37,16 +37,15 @@ PROXY_META='<meta name=\"application-name\" content=\"tor proxy\"\/>'
 # to the database has changed in Release 3, so these vars will contain the proper
 # program and syntax to use when accessing the database.
 
-    # Qubes R3
-    if which qubesdb-read > /dev/null; then
-        QUBESDB=qubesdb
-        PREFIX='/'
-
-    # Qubes R2
-    else
-        QUBESDB=xenstore
-        PREFIX=''
-    fi
+# Qubes R3
+if which qubesdb-read > /dev/null; then
+    QUBESDB=qubesdb
+    PREFIX='/'
+# Qubes R2
+else
+    QUBESDB=xenstore
+    PREFIX=''
+fi
 
 # Copies provided list of anondist files ($1)+suffix($2) to original filename.
 #
