@@ -4,3 +4,15 @@
 
 rm_conffile /etc/systemd/system/qubes-whonix-tor.service
 rm_conffile /etc/tmpfiles.d/tor.conf
+
+rm_conffile /etc/systemd/system/tor.service.d/40_qubes.conf
+rm_conffile /etc/systemd/system/swap-file-creator.service.d/40_qubes.conf
+rm_conffile /etc/systemd/system/qubes-update-check.service.d/40_qubes.conf
+rm_conffile /etc/systemd/system/NetworkManager.service.d/40_qubes.conf
+rm_conffile /etc/systemd/system/qubes-update-check.timer.d/40_qubes.conf
+rm_conffile /etc/systemd/system/rads.service.d/40_qubes.conf
+rm_conffile /etc/systemd/system/spice-vdagent.service.d/40_qubes.conf
+rm_conffile /etc/systemd/system/sdwdate.service.d/40_qubes.conf
+rm_conffile /etc/systemd/system/whonixcheck.service.d/40_qubes.conf
+rm_conffile /etc/systemd/system/whonix-initializer.service.d/40_qubes.conf
+rm_conffile /etc/systemd/system/swap-file-creator.d/40_qubes.conf
