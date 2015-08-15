@@ -31,7 +31,6 @@ source /usr/lib/qubes-whonix/utility_functions.sh
 # Display alert that firewall was unable to be enabled and poweroff
 if [ -e /var/run/qubes-service/whonix-firewall-failed ]; then
     /usr/lib/qubes-whonix/alert firewall-failed /usr/lib/qubes-whonix/messages.yaml
-    sudo poweroff
 fi
 
 # Gateway
