@@ -11,7 +11,7 @@ Section: admin
 Priority: extra
 Maintainer: Jason Mehring <nrgaway@gmail.com>
 Uploaders: Patrick Schleizer <adrelanos@riseup.net>
-Build-Depends: debhelper (>= 9), faketime, genmkfile, dh-systemd (>= 1.5), python, dh-python
+Build-Depends: debhelper (>= 9), faketime, genmkfile, dh-systemd (>= 1.5), python, dh-python, config-package-dev
 Homepage: https://github.com/Whonix/qubes-whonix
 Vcs-Browser: https://github.com/Whonix/qubes-whonix
 Vcs-Git: https://github.com/Whonix/qubes-whonix.git
@@ -38,6 +38,8 @@ Depends: qubes-core-agent (>= 2.1.60),
  rsync,
  ${python:Depends},
  ${misc:Depends}
+Provides: ${diverted-files}
+Conflicts: ${diverted-files}
 Recommends: nautilus-open-terminal, gnome-packagekit, gnome-terminal, network-manager (>= 0.8.1-1), network-manager-gnome
 Description: Qubes Configuration for Whonix-Gateway and Whonix-Workstation
  This package contains all the scripts and configuration options to be able

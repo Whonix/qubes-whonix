@@ -1,0 +1,5 @@
+#!/bin/bash -e
+
+echo "We do not want dom0 to tell us the time." >&2
+
+exit 1

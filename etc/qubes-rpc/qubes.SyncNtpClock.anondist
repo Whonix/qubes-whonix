@@ -1,0 +1,5 @@
+#!/bin/bash -e
+
+echo "Whonix cannot be used as ClockVM yet. Contributions happily considered. Read more: https://phabricator.whonix.org/T387" >&2
+
+exit 1
