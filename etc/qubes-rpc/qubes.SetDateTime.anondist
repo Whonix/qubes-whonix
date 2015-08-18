@@ -1,5 +1,16 @@
 #!/bin/bash -e
 
+## This file is part of Whonix
+## Copyright (C) 2012 - 2014 Patrick Schleizer <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+## dom0 should not tell us its time.
+## But if it does, create a file, so whonixcheck could warn in case this
+## file exists.
+read timestamp
+mkdir -p "/var/run/qubes-whonix"
+echo "$timestamp" > "/var/run/qubes-whonix/qubes.SetDateTime"
+
 echo "We do not want dom0 to tell us the time." >&2
 
 exit 1
