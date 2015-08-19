@@ -30,7 +30,7 @@ DISTRIBUTION="debian"
 VERBOSE=0
 export LOCAL_REPO="repo"
 
-APT_GET_OPTIONS="-o Dpkg::Options::="--force-confnew" --force-yes --yes"
+APT_GET_OPTIONS="-o Dpkg::Options::="--force-confnew" --yes"
 
 DISTRIBUTION_CAP=$(echo ${DISTRIBUTION} | sed -e 's/^./\U&/';)
 read -r -d '' APT_DISTRIBUTIONS <<EOF || true
@@ -190,7 +190,7 @@ function aptUpdate() {
 # ==============================================================================
 function aptUpgrade() {
     DEBIAN_FRONTEND="noninteractive" DEBIAN_PRIORITY="critical" DEBCONF_NOWARNINGS="yes" \
-        env APT_LISTCHANGES_FRONTEND=none apt-get upgrade -u -y --force-yes
+        env APT_LISTCHANGES_FRONTEND=none apt-get upgrade -u -y
 }
 
 # ==============================================================================
@@ -198,7 +198,7 @@ function aptUpgrade() {
 # ==============================================================================
 function aptDistUpgrade() {
     DEBIAN_FRONTEND="noninteractive" DEBIAN_PRIORITY="critical" DEBCONF_NOWARNINGS="yes" \
-        env APT_LISTCHANGES_FRONTEND=none apt-get dist-upgrade -u -y --force-yes
+        env APT_LISTCHANGES_FRONTEND=none apt-get dist-upgrade -u -y
 }
 
 # ==============================================================================
