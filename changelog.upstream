@@ -1,3 +1,9 @@
+commit 14ddf3c6d4955f0e72c2bdd3619c77e044aec267
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Aug 24 17:36:26 2015 +0000
+
+    changed version scheme; deprecated being build by Qubes builder, now build by Whonix's build script
+
 commit a9f24f5d0b700a0cd710e52eb170875d635c22a9
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Aug 19 23:56:14 2015 +0200
