@@ -35,6 +35,7 @@ Depends: qubes-core-agent (>= 2.1.60),
  xsettingsd,
  xdg-user-dirs,
  rsync,
+ whonix-gw-firewall | whonix-ws-firewall,
  ${python:Depends},
  ${misc:Depends}
 Provides: ${diverted-files}
