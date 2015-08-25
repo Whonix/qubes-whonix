@@ -55,8 +55,4 @@ elif [ -e /var/run/qubes-service/whonix-template ]; then
         /usr/lib/qubes-whonix/alert update /usr/lib/qubes-whonix/messages.yaml
     fi
 
-    # Setup repository
-    if [ ! -e "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done" ]; then
-        XDG_CURRENT_DESKTOP=gnome sudo /usr/bin/whonix-setup-wizard repository -style gtk+
-    fi
 fi
