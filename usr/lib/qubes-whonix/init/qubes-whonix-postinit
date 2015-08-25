@@ -47,11 +47,4 @@ if [ -e /var/run/qubes-service/whonix-gateway ]; then
         fi
     fi
 
-    # Make sure we remove whonixsetup.{skip, done} if Tor is not enabled so
-    # whonix-setup-wizard will prompt to enable
-    grep "^DisableNetwork 0$" /etc/tor/torrc || {
-        rm -f /var/cache/whonix-setup-wizard/status-files/whonixsetup.skip
-        rm -f /var/cache/whonix-setup-wizard/status-files/whonixsetup.done
-    }
-
 fi
