@@ -1,3 +1,48 @@
+commit 105efc3c7cd9a3c59b5c81bb2cd7ef43faf636ec
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Aug 26 02:16:53 2015 +0000
+
+    If Tor is not enabled, use 'whonix-setup-wizard quick', which instantly exits 0 if Tor has been enabled [not already been enabled] so the number of Whonix Setup Wizard pages in Qubes can be reduced to 1.
+
+commit 2e4138689b694707b924142c9e7931b5f169b7e9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Aug 25 19:21:00 2015 +0000
+
+    cleanup, removed
+            rm -f /var/cache/whonix-setup-wizard/status-files/whonixsetup.skip
+            rm -f /var/cache/whonix-setup-wizard/status-files/whonixsetup.done
+    because when whonix-setup-wizard is explicitly run by a script such as /usr/lib/qubes-whonix/init/qubes-whonix-postinit using 'whonix-setup-wizard setup' it will always show the connection wizard.
+
+commit c193176a45797ca8c3bae5881db8388151f2c832
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Aug 25 19:08:52 2015 +0000
+
+    no longer autorun whonix-setup-wizard repository, because stable Whonix apt repository is now enabled by default in qubes-template-whonix
+
+commit 8b37caa3e05c55ebe79beca165f6916452eeb75b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Aug 25 15:50:52 2015 +0000
+
+    cleanup
+
+commit 729607901ba948b7740eec5d6447b08ae5bf19c3
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Aug 25 15:31:49 2015 +0000
+
+    added 'whonix-gw-firewall | whonix-ws-firewall' to 'Depends:' to make sure Whonix's firewall is updated before qubes-whonix package, so newer qubes whonix packages do not trigger older Whonix firewall
+
+commit bebfe8780b0254d5f17f2debf2c5a4e645676933
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Aug 25 15:26:25 2015 +0000
+
+    removed bogus dependency lintian
+
+commit 833d4a34377ddcc16b6a2b3287152fc3f8892a33
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Aug 25 14:08:17 2015 +0000
+
+    bumped changelog version
+
 commit cbbaa08356e92b5eacd9e262fd283ac4211d358e
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Aug 24 17:37:34 2015 +0000
