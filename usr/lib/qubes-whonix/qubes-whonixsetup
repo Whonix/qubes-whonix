@@ -36,9 +36,9 @@ fi
 # Gateway
 if [ -e /var/run/qubes-service/whonix-gateway ]; then
 
-    # If Tor is disabled, start whonix-setup-wizard in setup mode
+    # If Tor is disabled, start whonix-setup-wizard in quick mode
     if grep "^#DisableNetwork 0$" /etc/tor/torrc; then
-        XDG_CURRENT_DESKTOP=gnome sudo /usr/bin/whonix-setup-wizard setup -style gtk+
+        XDG_CURRENT_DESKTOP=gnome sudo /usr/bin/whonix-setup-wizard quick -style gtk+
     fi
 
     # Display alert that 'whonix-tor-disable' service flag is set and it will need to
