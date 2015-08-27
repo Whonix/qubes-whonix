@@ -1,0 +1,5 @@
+## XXX: More generic would be desireable.
+etc/*
+lib/*
+usr/*
+var/*
