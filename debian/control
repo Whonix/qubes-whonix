@@ -9,8 +9,7 @@
 Source: qubes-whonix
 Section: admin
 Priority: extra
-Maintainer: Jason Mehring <nrgaway@gmail.com>
-Uploaders: Patrick Schleizer <adrelanos@riseup.net>
+Maintainer: Patrick Schleizer <adrelanos@riseup.net>
 Build-Depends: debhelper (>= 9), faketime, genmkfile, dh-systemd (>= 1.5), python, dh-python, config-package-dev
 Homepage: https://github.com/Whonix/qubes-whonix
 Vcs-Browser: https://github.com/Whonix/qubes-whonix
