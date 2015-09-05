@@ -63,7 +63,7 @@ Depends: nautilus-open-terminal,
  gnome-themes-standard,
  xsettingsd,
  libnotify-bin,
- mate-notifications-daemon,
+ mate-notification-daemon,
  python-nautilus,
  ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Gateway and Qubes-Whonix-Workstation
