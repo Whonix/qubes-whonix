@@ -20,7 +20,6 @@ interest-noawait /etc/hostname
 # Replace IP adresses
 interest-noawait /etc/apt/apt.conf.d/90whonix
 interest-noawait /etc/cpfpy.d/40_qubes
-interest-noawait /etc/network/interfaces.whonix
 interest-noawait /etc/resolv.conf
 interest-noawait /etc/resolv.conf.anondist
 interest-noawait /etc/rinetd.conf.anondist

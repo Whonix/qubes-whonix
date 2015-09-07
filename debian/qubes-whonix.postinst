@@ -71,7 +71,6 @@ case "${1}" in
                 # Replace IP addresses
                 /etc/apt/apt.conf.d/90whonix | \
                 /etc/cpfpy.d/40_qubes | \
-                /etc/network/interfaces.whonix | \
                 /etc/resolv.conf | \
                 /etc/resolv.conf.anondist | \
                 /etc/rinetd.conf.anondist | \
