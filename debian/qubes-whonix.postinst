@@ -35,15 +35,6 @@ case "${1}" in
         groupadd --force debian-tor
         usermod -a --groups debian-tor user
 
-        # Set timezone to UTC
-        timezone='Etc/UTC'
-        chattr -i /etc/localtime || true
-        chattr -i /etc/timezone || true
-        cp -p /usr/share/zoneinfo/${timezone} /etc/localtime || true
-        cp -p /usr/share/zoneinfo/${timezone} /etc/localtime.anondist || true
-        echo "${timezone}" > /etc/timezone || true
-        echo "${timezone}" > /etc/timezone.anondist || true
-
         ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
