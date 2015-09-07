@@ -36,7 +36,7 @@ case "${1}" in
         usermod -a --groups debian-tor user
 
         # Set timezone to UTC
-        timezone='UTC'
+        timezone='Etc/UTC'
         chattr -i /etc/localtime || true
         chattr -i /etc/timezone || true
         cp -p /usr/share/zoneinfo/${timezone} /etc/localtime || true
