@@ -54,6 +54,7 @@ case "${1}" in
 
                 # Reset back to Whonix defaults
                 /etc/resolv.conf | \
+                /etc/resolv.conf.anondist | \
                 /etc/hosts | \
                 /etc/hostname)
                     /usr/lib/qubes-whonix/init/qubes-whonix-sysinit
