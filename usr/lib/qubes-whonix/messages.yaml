@@ -19,13 +19,12 @@ update:
 firewall-failed:
   icon: Critical
   en:
-    title: Whonix firewall failed to load
+    title: whonix_firewall failed to load
     message: |
-      <p><b>Whonix firewall failed to load!</b></p>
-      <p>The Whonix firewall failed to load for some unknown reason.  This could be
+      <p><b>whonix_firewall failed to load!</b></p>
+      <p>The whonix_firewall failed to load for some unknown reason. This could be
       due to the firewall being mis-configured or race-condition.</p>
       <p>Try restarting the VM to see if this error persists.</p>
-      <p>The virtual machine will now be shutdown!</p>
 
 tor-disabled:
   icon: Warning
@@ -34,10 +33,10 @@ tor-disabled:
     message: |
       <p><b>Tor has been permanently set to disabled!</b></p>
       <p>The qubes service option <b>whonix-tor-disable</b> is currently set which
-      means the Whonix gateway will always start with Tor disabled.</p>
+      means this Whonix-Gateway will always start with Tor disabled.</p>
       <p>This feature is useful to ensure Tor will not start and provide an
       opportunity to configure a proxy before connecting to Tor for the first
-      time. After configuring the Gateway, be sure to remove the
-      <b>whonix-tor-disabled</b> service option before restarting the Gateway
-      which will then proceed to boot the Gateway with whatever settings have been
+      time. After configuring the gateway, be sure to remove the
+      <b>whonix-tor-disabled</b> service option before restarting the gateway
+      which will then proceed to boot the gateway with whatever settings have been
       made and prevent this warning</p>
