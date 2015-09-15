@@ -35,7 +35,6 @@ interest-noawait /usr/bin/whonix_firewall
 interest-noawait /usr/lib/anon-shared-helper-scripts/tor_bootstrap_check.bsh
 interest-noawait /usr/lib/anon-ws-disable-stacked-tor/torbrowser.sh
 interest-noawait /usr/lib/leaktest-workstation/simple_ping.py
-interest-noawait /usr/lib/whonixcheck/preparation
 interest-noawait /usr/share/anon-kde-streamiso/share/config/kioslaverc
 interest-noawait /usr/share/anon-torchat/.torchat/torchat.ini
 interest-noawait /usr/share/tor/tor-service-defaults-torrc.anondist

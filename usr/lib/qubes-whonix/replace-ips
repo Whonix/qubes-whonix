@@ -69,7 +69,6 @@ FILES=[
     '/usr/lib/anon-shared-helper-scripts/tor_bootstrap_check.bsh',
     '/usr/lib/anon-ws-disable-stacked-tor/torbrowser.sh',
     '/usr/lib/leaktest-workstation/simple_ping.py',
-    '/usr/lib/whonixcheck/preparation',
     '/usr/share/anon-kde-streamiso/share/config/kioslaverc',
     '/usr/share/anon-torchat/.torchat/torchat.ini',
     '/usr/share/tor/tor-service-defaults-torrc.anondist',
