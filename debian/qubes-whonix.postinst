@@ -54,7 +54,6 @@ case "${1}" in
 
                 # Replace IP addresses
                 /etc/cpfpy.d/40_qubes | \
-                /etc/resolv.conf | \
                 /etc/resolv.conf.anondist | \
                 /etc/rinetd.conf.anondist | \
                 /etc/sdwdate.d/40_qubes_stream_isolation_plugin | \

@@ -14,7 +14,6 @@ interest-noawait /usr/share/tor/tor-service-defaults-torrc.anondist
 
 # Replace IP adresses
 interest-noawait /etc/cpfpy.d/40_qubes
-interest-noawait /etc/resolv.conf
 interest-noawait /etc/resolv.conf.anondist
 interest-noawait /etc/rinetd.conf.anondist
 interest-noawait /etc/sdwdate.d/40_qubes_stream_isolation_plugin
