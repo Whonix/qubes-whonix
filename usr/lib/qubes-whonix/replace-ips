@@ -159,10 +159,10 @@ def replace_ip(ips, current_ip, files, ip_file):
 
 
 def get_ip_address(filename, default=''):
-    '''Retreive an IP address from a file.
+    '''Retrieve an IP address from a file.
 
     The last know IP address is saved in a file so it can be referenced and used
-    the next time system is booted to assist in a relaiable search and replace.
+    the next time system is booted to assist in a reliable search and replace.
     '''
     if os.path.exists(filename):
         try:
