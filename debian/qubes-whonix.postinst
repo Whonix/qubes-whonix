@@ -75,7 +75,6 @@ case "${1}" in
                 /usr/bin/update-torbrowser | \
                 /usr/bin/uwt | \
                 /usr/bin/whonix_firewall | \
-                /usr/lib/anon-shared-helper-scripts/tor_bootstrap_check.bsh | \
                 /usr/lib/anon-ws-disable-stacked-tor/torbrowser.sh | \
                 /usr/lib/leaktest-workstation/simple_ping.py | \
                 /usr/share/anon-kde-streamiso/share/config/kioslaverc | \
