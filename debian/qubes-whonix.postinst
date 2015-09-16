@@ -45,13 +45,6 @@ case "${1}" in
         for trigger in ${2}; do
             case "${trigger}" in
 
-                # Restart firewall
-                /usr/bin/whonix_firewall | \
-                /usr/share/tor/tor-service-defaults-torrc.anondist)
-                    /usr/lib/qubes-whonix/init/qubes-whonix-sysinit
-                    /usr/lib/qubes-whonix/init/enable-firewall
-                    ;;
-
                 # Replace IP addresses
                 /etc/cpfpy.d/40_qubes | \
                 /etc/resolv.conf.anondist | \
@@ -71,6 +64,13 @@ case "${1}" in
                 /usr/share/tor/tor-service-defaults-torrc.anondist | \
                 /usr/share/xchat-improved-privacy/.xchat2/xchat.conf)
                     /usr/lib/qubes-whonix/replace-ips
+                    ;;
+
+                # Restart firewall
+                /usr/bin/whonix_firewall | \
+                /usr/share/tor/tor-service-defaults-torrc.anondist)
+                    /usr/lib/qubes-whonix/init/qubes-whonix-sysinit
+                    /usr/lib/qubes-whonix/init/enable-firewall
                     ;;
 
                 *)
