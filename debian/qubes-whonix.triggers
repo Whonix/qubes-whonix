@@ -12,11 +12,6 @@
 interest-noawait /usr/bin/whonix_firewall
 interest-noawait /usr/share/tor/tor-service-defaults-torrc.anondist
 
-# Reset back to Whonix defaults
-interest-noawait /etc/resolv.conf
-interest-noawait /etc/hosts
-interest-noawait /etc/hostname
-
 # Replace IP adresses
 interest-noawait /etc/cpfpy.d/40_qubes
 interest-noawait /etc/resolv.conf

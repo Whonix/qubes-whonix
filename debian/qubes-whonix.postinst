@@ -52,14 +52,6 @@ case "${1}" in
                     /usr/lib/qubes-whonix/init/enable-firewall
                     ;;
 
-                # Reset back to Whonix defaults
-                /etc/resolv.conf | \
-                /etc/resolv.conf.anondist | \
-                /etc/hosts | \
-                /etc/hostname)
-                    /usr/lib/qubes-whonix/init/qubes-whonix-sysinit
-                    ;;
-
                 # Replace IP addresses
                 /etc/cpfpy.d/40_qubes | \
                 /etc/resolv.conf | \
