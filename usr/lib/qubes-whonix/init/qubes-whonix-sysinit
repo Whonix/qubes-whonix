@@ -35,6 +35,3 @@ if [ -e /var/run/qubes-service/whonix-gateway ]; then
         sed -i "s/<\/head>/${PROXY_META}\n<\/head>/" "${error_file}"
     }
 fi
-
-# Make sure hostname is correct
-/bin/hostname host
