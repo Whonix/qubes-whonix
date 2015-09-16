@@ -56,6 +56,7 @@ FILES=[
     '/etc/resolv.conf.anondist',
     '/etc/rinetd.conf.anondist',
     '/etc/sdwdate.d/40_qubes_stream_isolation_plugin',
+    '/etc/tor/torrc',
     '/etc/tor/torrc.examples',
     '/etc/whonix_firewall.d/40_qubes',
     '/home/user/.torchat/torchat.ini',
