@@ -39,7 +39,7 @@ elif [ -e /var/run/qubes-service/whonix-template ]; then
     # Check if a secure Tor update server is available
     if [ ! -e /var/run/qubes-service/whonix-secure-proxy ]; then
         curl.anondist-orig --connect-timeout 3 "${PROXY_SERVER}" | grep -q "${PROXY_META}" && {
-            sudo touch /var/run/qubes-service/whonix-secure-proxy
+            touch /var/run/qubes-service/whonix-secure-proxy
         }
     fi
 
