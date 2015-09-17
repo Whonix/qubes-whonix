@@ -26,7 +26,7 @@
 
 source /usr/lib/qubes-whonix/utility_functions.sh
 
-VM_TYPE=$(${QUBESDB}-read ${PREFIX}qubes-vm-type 2> /dev/null)
+VM_TYPE=$(qubesdb-read /qubes-vm-type 2> /dev/null)
 
 # This script should run after qubes-sysinit and should not need to create the
 # qubes-service directory as it should have already been created.  This is only
