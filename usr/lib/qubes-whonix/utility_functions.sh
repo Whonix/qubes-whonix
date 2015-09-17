@@ -36,7 +36,7 @@ PROXY_SERVER='http://10.137.255.254:8082/'
 # 'tinyproxy' replacement text for 'usr/share/tinyproxy/default.html' which is
 # used to determine if the proxy server is a secure Tor proxy server to prevent
 # updates over the regular Qubes firewall VM
-PROXY_META='<meta name=\"application-name\" content=\"tor proxy\"\/>'
+PROXY_META='<meta name="application-name" content="tor proxy"/>'
 
 # QUBESDB and PREFIX are used to access data in Qubes database.  The interfaces
 # to the database has changed in Release 3, so these vars will contain the proper

@@ -31,7 +31,7 @@ if [ -e /var/run/qubes-service/whonix-gateway ]; then
     # Search and replace tinyproxy error files so we can inject code that
     # we can use to identify that it is a Tor proxy so updates are secure.
     error_file=/usr/share/tinyproxy/default.html
-    grep -q "${PROXY_META}" "${error_file}" || {
-        sed -i "s/<\/head>/${PROXY_META}\n<\/head>/" "${error_file}"
-    }
+    if ! grep -q "${PROXY_META}" "${error_file}" ; then
+        sed -i "s#</head>#${PROXY_META}\n</head>#" "${error_file}"
+    fi
 fi
