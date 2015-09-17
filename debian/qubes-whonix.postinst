@@ -13,7 +13,7 @@
 
 # see: dh_installdeb(1)
 #
-# The postint script may be called in the following ways:
+# The postinst script may be called in the following ways:
 #   * <postinst> 'configure' <most-recently-configured-version>
 #   * <old-postinst> 'abort-upgrade' <new version>
 #   * <conflictor's-postinst> 'abort-remove' 'in-favour' <package>
