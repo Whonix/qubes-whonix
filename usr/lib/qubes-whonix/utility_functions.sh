@@ -51,35 +51,3 @@ else
     QUBESDB=xenstore
     PREFIX=''
 fi
-
-# Copies provided list of anondist files ($1)+suffix($2) to original filename.
-#
-# Example:
-#  $1 = '/etc/resolv.conf'
-#  $2 = '.anondist'
-#
-#  1. If softlink exists with the name of '/etc/resolv.conf', it is deleted
-#  2. If a regular file with the name of '/etc/resolv.conf' exists AND
-#     the file differs from the anondist file '/etc/resolv.conf.anondist',
-#     '/etc/resolv.conf' will be deleted and '/etc/resolv.conf.anondist' will
-#     be copied to '/etc/resolv.conf':
-#       cp '/etc/resolv.conf.anondist' '/etc/resolv.conf'
-#  3. If the regular file '/etc/resolv.conf' does not exist, it will copy the
-#     anondist file to it's location as shown in step 2 above.
-copyAnondist() {
-    file="${1}"
-    suffix="${2-.anondist}"
-
-    # Remove any softlinks first
-    if [ -L "${file}" ]; then
-        rm -f "${file}"
-    fi
-
-    if [ -f "${file}" ] && [ -n "$(diff ${file} ${file}${suffix})" ]; then
-        chattr -i "${file}"
-        rm -f "${file}"
-        cp -p "${file}${suffix}" "${file}"
-    elif ! [ -f "${file}" ]; then
-        cp -p "${file}${suffix}" "${file}"
-    fi
-}
