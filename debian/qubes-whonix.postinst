@@ -52,11 +52,9 @@ case "${1}" in
                 /etc/sdwdate.d/40_qubes_stream_isolation_plugin | \
                 /etc/tor/torrc | \
                 /etc/tor/torrc.examples | \
-                /etc/whonix_firewall.d/40_qubes | \
                 /home/user/.torchat/torchat.ini | \
                 /home/user/.xchat2/xchat.conf | \
                 /usr/bin/update-torbrowser | \
-                /usr/bin/whonix_firewall | \
                 /usr/lib/anon-ws-disable-stacked-tor/torbrowser.sh | \
                 /usr/lib/leaktest-workstation/simple_ping.py | \
                 /usr/share/anon-kde-streamiso/share/config/kioslaverc | \

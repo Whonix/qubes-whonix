@@ -16,3 +16,5 @@ rm_conffile /etc/systemd/system/sdwdate.service.d/40_qubes.conf
 rm_conffile /etc/systemd/system/whonixcheck.service.d/40_qubes.conf
 rm_conffile /etc/systemd/system/whonix-initializer.service.d/40_qubes.conf
 rm_conffile /etc/systemd/system/swap-file-creator.d/40_qubes.conf
+
+rm_conffile /etc/whonix_firewall.d/40_qubes
