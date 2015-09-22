@@ -22,14 +22,6 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Stops Qt form using the MIT-SHM X11 Shared Memory Extension
-# Same solution as:
-# https://github.com/marmarek/qubes-core-agent-linux/blob/master/misc/profile.d_qt_x11_no_mitshm.sh
-# Required for whonix-setup-wizard. Otherwise dialogs would be invisible.
-export QT_X11_NO_MITSHM=1
-
-export XDG_CURRENT_DESKTOP=gnome
-
 # 'apt-get' proxy server
 PROXY_SERVER='http://10.137.255.254:8082/'
 
