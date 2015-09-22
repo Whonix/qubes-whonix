@@ -26,7 +26,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Display alert that firewall was unable to be enabled and poweroff
+# Display alert that firewall was unable to be enabled.
 if [ -e /var/run/qubes-service/whonix-firewall-failed ]; then
     /usr/lib/qubes-whonix/alert firewall-failed /usr/lib/qubes-whonix/messages.yaml
 fi
@@ -34,13 +34,13 @@ fi
 # Gateway
 if [ -e /var/run/qubes-service/whonix-gateway ]; then
 
-    # If Tor is disabled, start whonix-setup-wizard in quick mode
+    # If Tor is disabled, start whonix-setup-wizard in quick mode.
     if grep "^#DisableNetwork 0$" /etc/tor/torrc; then
         kdesudo whonix-setup-wizard quick
     fi
 
     # Display alert that 'whonix-tor-disable' service flag is set and it will need to
-    # to manually unset if user wants to be able to boot with Tor enabled
+    # to manually unset if user wants to be able to boot with Tor enabled.
     if [ -e /var/run/qubes-service/whonix-tor-disable ]; then
         /usr/lib/qubes-whonix/alert tor-disabled /usr/lib/qubes-whonix/messages.yaml
     fi
@@ -48,7 +48,7 @@ if [ -e /var/run/qubes-service/whonix-gateway ]; then
 # Template
 elif [ -e /var/run/qubes-service/whonix-template ]; then
 
-    # Display warning that TemplateVM is not connected to a Tor update proxy
+    # Display warning that TemplateVM is not connected to a Tor update proxy.
     if [ ! -e '/var/run/qubes-service/whonix-secure-proxy' ]; then
         /usr/lib/qubes-whonix/alert update /usr/lib/qubes-whonix/messages.yaml
     fi
