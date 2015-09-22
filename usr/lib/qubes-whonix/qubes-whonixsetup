@@ -43,6 +43,21 @@ if [ -e /var/run/qubes-service/whonix-gateway ]; then
     # to manually unset if user wants to be able to boot with Tor enabled.
     if [ -e /var/run/qubes-service/whonix-tor-disable ]; then
         /usr/lib/qubes-whonix/alert tor-disabled /usr/lib/qubes-whonix/messages.yaml
+        exit 0
+    fi
+
+    ## When whonixcheck is automatically started at boot, while Tor is disabled
+    ## in /etc/tor/torrc, whonixcheck exits silently.
+    ## (whonixcheck does this because it is assumed, that in these cases Whonix
+    ## Setup starts.) (Most likely happens at first boot.)
+    ## If Tor has been enabled, restart whonixcheck daemon so whonixcheck will
+    ## check Tor's bootstrap status among other things.
+    if ! grep "^#DisableNetwork 0$" /etc/tor/torrc ; then
+        ## Check if whonixcheck daemon is even running before attempting to
+        ## restart it. This aids systems where whonixcheck is not installed.
+        if sudo service whonixcheck status ; then
+            sudo service whonixcheck restart || true
+        fi
     fi
 
 # Template
