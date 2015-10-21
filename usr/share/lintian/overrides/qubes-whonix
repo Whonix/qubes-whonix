@@ -6,3 +6,4 @@ qubes-whonix: command-with-path-in-maintainer-script postinst:* /usr/bin/update-
 qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/disclaimer.skip
 qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/first_use_check.skip
 qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/whonixsetup.skip
+qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/whonix_repository.skip
