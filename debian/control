@@ -89,6 +89,7 @@ Package: qubes-whonix-workstation-packages-recommended
 Architecture: all
 Depends: qubes-thunderbird,
  qubes-gpg-split,
+ qubes-pdf-converter,
  cups,
  system-config-printer,
  ${misc:Depends}
