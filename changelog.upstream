@@ -1,3 +1,313 @@
+commit 3ec013833450d352a8de45424aebce6786e3681f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Oct 22 23:04:14 2015 +0000
+
+    added qubes-pdf-converter to qubes-whonix-workstation-packages-recommended
+
+commit 693de21616dd7b8abe5b9518352b2c6f41ccbaa9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Oct 21 16:20:15 2015 +0000
+
+    fixed lintian warning
+
+commit 630cbaa6d9d81f8a2cf708213da5f1d9f8ee4873
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Oct 21 14:39:12 2015 +0000
+
+    added var/cache/whonix-setup-wizard/status-files/whonix_repository.skip so Whonix Repository Wizard does not start when starting Whonix Connection Wizard from the start menu
+
+commit 5602cd43b97537ba1279813890ba0819e726978c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Oct 17 18:35:37 2015 +0000
+
+    comment
+
+commit ce953a964bf7c3a9038aef5371cf0d672d28af9a
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Sep 25 17:22:28 2015 +0000
+
+    use drop-in rather than Alias - Thanks to @marmarek - https://groups.google.com/d/msg/qubes-devel/uzgN42uEJpE/hymUCMxoCwAJ
+
+commit a19890a1e585c627976fd1935876ed7efdd14f7c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Sep 22 13:54:27 2015 +0000
+
+    removed obsolete file etc/whonix_firewall.d/40_qubes, no longer required, because Whonix Firewall now has native Qubes support
+
+commit f05708023ff89f3384388d7b2ba11fe306798893
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Sep 22 13:41:01 2015 +0000
+
+    User perspective:
+    Implemented whonixcheck showing a progress bar at first boot while Tor is still bootstrapping and showing a passive popup when successfully done, otherwise an active error popup with troubleshooting instructions.
+    
+    Technical perspective:
+    When whonixcheck is automatically started at boot, while Tor is disabled in /etc/tor/torrc, whonixcheck exits silently.
+    (whonixcheck does this because it is assumed, that in these cases Whonix
+    Setup starts.) (Most likely happens at first boot.)
+    If Tor has been enabled, restart whonixcheck daemon so whonixcheck will
+    check Tor's bootstrap status among other things.
+
+commit c7261235a7c088164adfc4b407cd701b03c9526b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Sep 22 12:25:22 2015 +0000
+
+    comments
+
+commit 2ba296264c6bb57bbb7c681a175b2eb4975fda92
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Sep 22 12:22:27 2015 +0000
+
+    - no longer need to set environment variables XDG_CURRENT_DESKTOP=gnome and QT_X11_NO_MITSHM=1 because that is now fixed in Qubes
+    - use kdesudo rather than sudo (the latter is unsafe in Debian)
+    - no longer need to 'source /usr/lib/qubes-whonix/utility_functions.sh' in qubes-whonixsetup
+
+commit f310828c44ce86bbf8020b3ace52818abb5f27c6
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Sep 19 00:15:34 2015 +0000
+
+    no longer need to IP replace Whonix firewall, because it now has native Qubes support
+
+commit 3665af8ac565e7313f7f3293e59165cc93dcfca9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Sep 17 12:47:13 2015 +0000
+
+    deprecated Qubes R2 support, code simplification
+
+commit 0ec0903ff6b8b5595224c65a78e5462eccb60105
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Sep 17 03:20:10 2015 +0000
+
+    refactoring
+
+commit eb621b6535ac18dc4aed73f3e86e55476f6b88f9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Sep 17 03:17:55 2015 +0000
+
+    comment
+
+commit daabda66ecde0df28531b4cff63837e1523b2cad
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Sep 17 03:09:00 2015 +0000
+
+    comment
+
+commit 3f06a183f2030578259b456836a651cd766ffa37
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Sep 17 03:06:49 2015 +0000
+
+    added missing dependency curl
+
+commit 943d5495f841e163a1e4f88cf785ede229831259
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Sep 17 03:05:13 2015 +0000
+
+    code simplification
+
+commit 09c287bf6db63fa89b043e1af200fb19529ced76
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Sep 17 02:44:07 2015 +0000
+
+    typo
+
+commit deb2d74900c91aefb3d3f04dfa1f814cabc6fa9e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Sep 17 02:42:49 2015 +0000
+
+    cleanup, removed no longer required function copyAnondist
+
+commit c6d91a51cb3d7ff080a2220f77f53ab499b7a044
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Sep 17 02:41:21 2015 +0000
+
+    usr/lib/qubes-whonix/init/enable-firewall:
+    - made work without uwtwrappers installed
+    - added --silent to curl to prevent output of curl ending up in systed logs
+    - enabled errexit
+    - refactoring
+
+commit f28ef3cc5d68af631d7fa554d3804115094f6595
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Sep 17 02:17:33 2015 +0000
+
+    fix, removed superfluous 'sudo' from usr/lib/qubes-whonix/init/enable-firewall, because it is running by root anyhow
+
+commit ee8195c8aeb1d8088f81fe9784af6fb7c9e45db7
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Sep 17 02:16:31 2015 +0000
+
+    cleanup
+
+commit 041e21bb6eb3a3bddf4ed2984a881f7979db901e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Sep 17 02:06:10 2015 +0000
+
+    typo
+
+commit 5330adb683eda2d87bfa97eb6307d9aa4357d40a
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Sep 16 16:37:00 2015 +0000
+
+    refactoring
+
+commit 4c0608e02cb3a211f7097dc4883347030c57985f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Sep 16 16:36:17 2015 +0000
+
+    postinst script fix, replace IP's before restart firewall
+
+commit 642f49f2421455fa809a71b6183425b8ed4a8990
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Sep 16 16:31:49 2015 +0000
+
+    typos
+
+commit e6ef11271af1c602311fdc327cffbae10a2c38da
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Sep 16 16:14:00 2015 +0000
+
+    added /etc/tor/torrc to Qubes ip replacement mechanism to ease running Tor hidden services
+
+commit 0363dad470850b02dc96c352c39467e38cd0ab86
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Sep 16 16:10:24 2015 +0000
+
+    no longer need to trigger /etc/resolv.conf call replace ip script, because /etc/resolv.conf is a symlink to /etc/resolv.conf.anondist, which is already on the list
+
+commit e4ce07ed2218aaa835d46412ede86800e47b67ed
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Sep 16 16:07:56 2015 +0000
+
+    no longer require triggers for /etc/resolv.conf /etc/resolv.conf.anondist /etc/hosts /etc/hostname to call /usr/lib/qubes-whonix/init/qubes-whonix-sysinit because those files are no longer modified by Qubes, thanks to Qubes protected files mechanism
+
+commit 2e0d7c1a54d03acb500c8565f37eaae25e45bca2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Sep 16 16:00:07 2015 +0000
+
+    no more need to set hostname in /usr/lib/qubes-whonix/init/qubes-whonix-sysinit
+
+commit 65d2e5b10df27e232ed1b22b4a9c6550590155c8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Sep 16 15:56:38 2015 +0000
+
+    no need to ip replace /etc/apt/apt.conf.d/90whonix because that file only contains comments
+
+commit f5345e19cc7302986cdd9f83907489615472b0eb
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Sep 16 15:54:30 2015 +0000
+
+    removed uwt from ip replacement because uwt now has native Qubes support
+
+commit 8b47823ed15359ded77a34cd53e57236f2526a9f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Sep 16 12:28:10 2015 +0000
+
+    no longer need to ip replace /usr/lib/anon-shared-helper-scripts/tor_bootstrap_check.bsh because it now has native Qubes support
+
+commit 41a1aef943485d6f5cc73dd3e9b7b57c4e12dcac
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Sep 15 22:49:03 2015 +0000
+
+    ip replacement of /usr/lib/whonixcheck/preparation no longer required since it now has native Qubes support
+
+commit 3a2023cf21d6bfa7bd1bd8217fe9b4cda476ef7e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Sep 10 13:00:25 2015 +0000
+
+    output
+
+commit 579e810629fc48dbf41f32c54790da21051e1387
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Sep 9 16:23:48 2015 +0000
+
+    fix, removed /etc/resolv.conf from replace ips script (breaks because it is a symlink now)
+
+commit d299505b6c7bbf7b2e856e5e2d87b5de4d664f9e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Sep 8 15:44:41 2015 +0000
+
+    fixed 'triggers interest-noawait /etc/resolv.conf will probably not work' - https://phabricator.whonix.org/T173
+
+commit d11e42836f027c00e321c2660e332bbd47bd2670
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Sep 7 12:21:43 2015 +0000
+
+    abolished hack to write to /etc/localtime and /etc/timezone because now using Qubes protected files mechanism
+
+commit 5a944b33b9d1e15a22f1e2756b12584e6e98c884
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Sep 7 12:09:01 2015 +0000
+
+    fix
+
+commit b251a4af0a20738446e1cc16bc31d59f52ba7350
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Sep 7 12:00:57 2015 +0000
+
+    no need to replace ip's in /etc/network/interfaces.whonix - https://phabricator.whonix.org/T347
+
+commit 520479ed66254f5cd93705ef34336e1c7a4b99ef
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Sep 7 11:19:48 2015 +0000
+
+    disabled ifupdown service in Qubes-Whonix, since not required and conflicting with non-Qubes-Whonix /etc/network/interfaces.d/30_non-qubes-whonix
+
+commit 01cf6a1b6ebc73750d3ef859fb189c422b8a1f64
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Sep 5 23:30:10 2015 +0000
+
+    Maintainer
+
+commit e99e2e1b96f3b5a990382e0fa544a2baf77344f1
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Sep 5 23:29:12 2015 +0000
+
+    fixed typo in Depends, mate-notifications-daemon -> mate-notification-daemon
+
+commit 18aad39a901fbe0a2c29698937abb7d7ad4cd4cf
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Aug 27 17:42:17 2015 +0000
+
+    disabled timesync progress bars and popups in Qubes-Whonix as stopgap until the sdwdate-gui replacement is ready
+
+commit e77338e9f59e5177de9c6e9c51c7f898bddd51ae
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Aug 27 17:14:06 2015 +0000
+
+    Disable the upcoming qubes-iptables.service as it would interfere with Whonix's firewall.
+    https://github.com/QubesOS/qubes-issues/issues/1067
+    https://github.com/marmarek/qubes-core-agent-linux/commit/65e9e4c72cbbd188cd5c83f5dab2d63acf5efd4f
+
+commit 4c26397b2cee361c1e1c0061bbc56594fdff75f5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Aug 27 16:50:58 2015 +0000
+
+    introduced meta packages qubes-whonix-shared-packages-recommended, qubes-whonix-gateway-packages-recommended, qubes-whonix-workstation-packages-recommended
+
+commit ef2a5a771152ce50754dced324a1e4148b79d761
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Aug 27 14:48:52 2015 +0000
+
+    minor
+
+commit 283adc54b00f30d177999bf2857491292a848732
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Aug 27 14:47:25 2015 +0000
+
+    replaced dynamically generated protected-files.d mechanism with a static one
+
+commit 0b542338acffba4513594121c2145dbd30a85950
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Aug 27 14:05:38 2015 +0000
+
+    comment
+
+commit b0aac2df4219d29a4528f72296b9bfe30d689cd4
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Aug 26 23:31:58 2015 +0000
+
+    bumped changelog version
+
 commit 105efc3c7cd9a3c59b5c81bb2cd7ef43faf636ec
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Aug 26 02:16:53 2015 +0000
