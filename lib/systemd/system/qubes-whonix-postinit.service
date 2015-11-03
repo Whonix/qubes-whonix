@@ -7,7 +7,7 @@ Description=Qubes+Whonix network-pre init
 ConditionPathExists=|/var/run/qubes-service/whonix-gateway
 ConditionPathExists=|/var/run/qubes-service/whonix-workstation
 Before=qubes-gui-agent.service qubes-whonix-network.service
-After=qubes-mount-home.service
+After=qubes-mount-dirs.service
 
 [Service]
 Type=oneshot
