@@ -1,3 +1,15 @@
+commit bf7d76b10a2b773ac9a81f584230dcfb40961a43
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Nov 4 00:10:42 2015 +0100
+
+    fix, qubes-mount-home.service -> qubes-mount-dirs.service
+
+commit 81b074d0664dd8588f249eca5002a8df79827036
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Oct 22 23:12:37 2015 +0000
+
+    bumped changelog version
+
 commit 3ec013833450d352a8de45424aebce6786e3681f
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Oct 22 23:04:14 2015 +0000
