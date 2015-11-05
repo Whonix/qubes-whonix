@@ -7,6 +7,13 @@ Description=Qubes Whonix firewall updater
 After=qubes-whonix-network.service
 Before=network.target
 
+## Preventing race condition with
+## /etc/xdg/autostart/qubes-whonixsetup.desktop.
+## TODO:
+## Not the most efficient / clean solution.
+## https://phabricator.whonix.org/T424
+Before=qubes-gui-agent.service
+
 [Service]
 Type=oneshot
 RemainAfterExit=yes
