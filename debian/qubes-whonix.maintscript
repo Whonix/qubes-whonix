@@ -18,3 +18,14 @@ rm_conffile /etc/systemd/system/whonix-initializer.service.d/40_qubes.conf
 rm_conffile /etc/systemd/system/swap-file-creator.d/40_qubes.conf
 
 rm_conffile /etc/whonix_firewall.d/40_qubes
+
+## Whonix 11 leftovers
+rm_conffile /etc/systemd/system/qubes-firewall.service
+rm_conffile /etc/systemd/system/tor.service
+rm_conffile /etc/systemd/system/qubes-update-check.service.d/40_qubes.conf
+rm_conffile /etc/systemd/system/qubes-update-check.timer.d/40_qubes.conf
+rm_conffile /etc/systemd/system/multi-user.target.wants/qubes-whonix-tor.service
+
+## Whonix 11 leftover
+## There now is /etc/qubes/protected-files.d/qubes-whonix.conf.
+rm_conffile /etc/qubes/protected-files.d/qubes-whonix
