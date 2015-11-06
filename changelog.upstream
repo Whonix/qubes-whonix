@@ -1,3 +1,45 @@
+commit 790679d88bba74a587dbaedaae1ea166dcdf0989
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Nov 5 19:05:50 2015 +0000
+
+    qubes-whonix-firewall: Preventing race condition with Qubes Whonix Setup.
+
+commit ddfaf59791e01cf2aa0b1129e38c06d588d78612
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Nov 5 15:12:21 2015 +0000
+
+    Whonix 11 upgrade path to Whonix 12, clean up Whonix 11 leftovers
+
+commit 68aefcf629dfffc4ec11b4bb8dfa783dd9832fe0
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Nov 5 15:04:22 2015 +0000
+
+    comment
+
+commit 6a5ebfd89faa42e9dbd1c378c80fbb21531203ff
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Nov 5 15:01:43 2015 +0000
+
+    do not run control-port-filter-proxy-python inside TemplateVM
+
+commit cafba138f4ed7915c769a0543138654b16c7ebfa
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Nov 5 14:55:52 2015 +0000
+
+    debugging, enabled xtrace for qubes-whonix-postinist and bind-directories
+
+commit 9e20a6e653e1c0cf17f8b9e538bfcd7c73ac513c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Nov 5 14:53:53 2015 +0000
+
+    fix qubes-whonix-postinit systemd unit, added After=qubes-mount-home.service for backwards compatibility
+
+commit 4f0de50d32edf993f80035414806ece9d59950fd
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Nov 4 00:11:41 2015 +0100
+
+    bumped changelog version
+
 commit bf7d76b10a2b773ac9a81f584230dcfb40961a43
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Nov 4 00:10:42 2015 +0100
