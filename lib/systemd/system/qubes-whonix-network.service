@@ -3,8 +3,11 @@
 # License: GPL-2+
 
 [Unit]
-Description=Qubes Whonix network proxy setup
+Description=sets up Qubes-Whonix-Gateway external and internal network interface
+## Does nothing on Whonix-Workstation.
+
 Before=network.target qubes-update-check.service qubes-update-check.timer
+
 ## There is no iptables.service as of Debian jessie.
 After=iptables.service
 

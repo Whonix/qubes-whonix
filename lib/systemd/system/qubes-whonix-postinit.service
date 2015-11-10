@@ -2,6 +2,16 @@
 # Copyright (C) 2015 Jason Mehring <nrgaway@gmail.com>
 # License: GPL-2+
 
+## On Whonix-Gateway or Whonix-Workstation (if /var/run/qubes-service/whonix-gateway or
+## /var/run/qubes-service/whonix-workstation exists),
+## - binds Whonix directories to allow changes to persist (/usr/lib/qubes-whonix/bind-directories).
+## - replaces IPs (/usr/lib/qubes-whonix/replace-ips)
+##
+## If running on Whonix-Gateway (if file status file
+## /var/run/qubes-service/whonix-gateway) exits, and if
+## /var/run/qubes-service/whonix-tor-enable or /var/run/qubes-service/whonix-tor-disable exists,
+## act accordingly on /etc/tor/torrc.
+
 [Unit]
 Description=Qubes+Whonix network-pre init
 ConditionPathExists=|/var/run/qubes-service/whonix-gateway
