@@ -19,4 +19,11 @@ StandardOutput=syslog
 
 [Install]
 WantedBy=multi-user.target
+
+## This is important.
+## This disables qubes-network.service. Otherwise, the following would run:
+## qubes-network.service -> /usr/lib/qubes/init/network-proxy-setup.sh -> /usr/lib/qubes/qubes-setup-dnat-to-ns
+## And /usr/lib/qubes/qubes-setup-dnat-to-ns contains:
+## (echo "*nat"; echo "$RULE1"; echo "$RULE2"; echo COMMIT) | iptables-restore -n
+## Which could interfere with Whonix firewall rules.
 Alias=qubes-network.service
