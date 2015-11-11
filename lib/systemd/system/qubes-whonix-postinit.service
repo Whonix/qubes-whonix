@@ -13,11 +13,27 @@
 ## act accordingly on /etc/tor/torrc.
 
 [Unit]
-Description=Qubes+Whonix network-pre init
+Description=Qubes-Whonix post init
 ConditionPathExists=|/var/run/qubes-service/whonix-gateway
 ConditionPathExists=|/var/run/qubes-service/whonix-workstation
-Before=qubes-gui-agent.service qubes-whonix-network.service
+
+Before=qubes-whonix-network.service
+
+## So changes to for example,
+## - /usr/share/anon-kde-streamiso/share/config/kioslaverc or
+## - /home/user/.torchat/torchat.ini are applied before these start.
+Before=qubes-gui-agent.service
+
+Before=tor.service
+Before=rinetd.service
+Before=control-port-filter-python.service
+Before=qubes-whonix-firewall.service
+Before=whonixcheck.service
+Before=sdwdate.service
+Before=anon-ws-disable-stacked-tor.service
+
 After=qubes-mount-dirs.service
+After=qubes-whonix-sysinit.service
 
 ## qubes-mount-home.service was renamed to qubes-mount-dirs.service.
 ## Keeping qubes-mount-home.service because not everyone has updated yet.
