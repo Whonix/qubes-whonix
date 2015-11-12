@@ -23,6 +23,9 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+## TODO: upstream bind-directories functionality to Qubes
+## https://phabricator.whonix.org/T414
+
 set -x
 
 # Don't run if started as a template
