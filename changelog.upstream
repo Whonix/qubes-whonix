@@ -1,3 +1,45 @@
+commit fd0bb6627039e5cf1a896ae308edc698e84ccb02
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Nov 12 19:56:38 2015 +0000
+
+    comment
+
+commit d386885db0e666f4011f892e2be8c2049de3b077
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Nov 12 16:54:36 2015 +0100
+
+    prevent qubes-updates-proxy.service from possibly modifying Whonix's firewall
+    
+    https://phabricator.whonix.org/T427
+
+commit e1ec07d10dea497ed0840ea68103820fedfa7183
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Nov 11 13:29:48 2015 +0000
+
+    Start qubes-whonix-postinit.service and thereby replace-ips early enough.
+    
+    Fixes https://github.com/QubesOS/qubes-issues/issues/1398.
+    
+    Thanks to @qubesuser for reporting this issue!
+
+commit 1d7c2793dbe6aec350f30b56674dd5b9f1b94de4
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Nov 10 19:15:14 2015 +0000
+
+    comment
+
+commit 9ebc18cb21976144a77f41a566413be747111cb1
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Nov 10 13:09:12 2015 +0000
+
+    added more comments to ease fixing https://github.com/QubesOS/qubes-issues/issues/1398
+
+commit 8c0f2b0092eb30ff3230861c414683c5535f1028
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Nov 6 11:56:53 2015 +0000
+
+    bumped changelog version
+
 commit 790679d88bba74a587dbaedaae1ea166dcdf0989
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Nov 5 19:05:50 2015 +0000
