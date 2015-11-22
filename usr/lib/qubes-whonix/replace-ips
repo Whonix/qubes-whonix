@@ -76,11 +76,13 @@ def whonix_mode():
     '''
     mode = None
 
-    if os.path.exists('/var/run/qubes-service/whonix-template'):
+    qubes_vm_type = subprocess.check_output(['qubesdb-read', '/qubes-vm-type']).rstrip()
+
+    if qubes_vm_type == "TemplateVM":
         mode = 'template'
-    elif os.path.exists('/var/run/qubes-service/whonix-gateway'):
+    elif os.path.exists('/usr/share/anon-gw-base-files/gateway'):
         mode = 'gateway'
-    elif os.path.exists('/var/run/qubes-service/whonix-workstation'):
+    elif os.path.exists('/usr/share/anon-ws-base-files/workstation'):
         mode = 'workstation'
 
     return mode
