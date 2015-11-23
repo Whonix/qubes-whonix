@@ -23,9 +23,18 @@
 
 source /usr/lib/qubes-whonix/utility_functions.sh
 
+qubes_vm_type="$(qubesdb-read /qubes-vm-type)"
+
+if [ "$qubes_vm_type" = "TemplateVM" ]; then
+   # Do none of the following in a TemplateVM.
+   exit 0
+fi
+
 INTERFACE="eth1"
 
-if [ -e /var/run/qubes-service/whonix-gateway ]; then
+if [ -e /usr/share/anon-gw-base-files/gateway ]; then
+
+    # XXX: Should check for qubes_vm_type being 'ProxyVM' or 'NetVM'?
 
     # Setup Xen / Qubes proxy
     network=$(qubesdb-read /qubes-netvm-network 2>/dev/null)

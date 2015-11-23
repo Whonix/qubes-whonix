@@ -24,19 +24,21 @@
 
 set -x
 
-# Gateway or Workstation
-if [ -e /var/run/qubes-service/whonix-gateway ] || [ -e /var/run/qubes-service/whonix-workstation ]; then
+qubes_vm_type="$(qubesdb-read /qubes-vm-type)"
 
-    # Bind whonix directories to allow changes to persist
-    /usr/lib/qubes-whonix/bind-directories
-
-    # Replace IP addresses in known configuration files / scripts with
-    # currently discovered IP address
-    /usr/lib/qubes-whonix/replace-ips
-
+if [ "$qubes_vm_type" = "TemplateVM" ]; then
+   # Do none of the following in a TemplateVM.
+   exit 0
 fi
 
-if [ -e /var/run/qubes-service/whonix-gateway ]; then
+# Bind whonix directories to allow changes to persist
+/usr/lib/qubes-whonix/bind-directories
+
+# Replace IP addresses in known configuration files / scripts with
+# currently discovered IP address
+/usr/lib/qubes-whonix/replace-ips
+
+if [ -e /usr/share/anon-gw-base-files/gateway ]; then
 
     # Enable/Disable Tor if qubes-service is enabled
     if [ -e /var/run/qubes-service/whonix-tor-enable ]; then

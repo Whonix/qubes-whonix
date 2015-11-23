@@ -31,8 +31,18 @@ if [ -e /var/run/qubes-service/whonix-firewall-failed ]; then
     /usr/lib/qubes-whonix/alert firewall-failed /usr/lib/qubes-whonix/messages.yaml
 fi
 
+qubes_vm_type="$(qubesdb-read /qubes-vm-type)"
+
+# Template
+if [ "$qubes_vm_type" = "TemplateVM" ]; then
+
+    # Display warning that TemplateVM is not connected to a Tor update proxy.
+    if [ ! -e '/var/run/qubes-service/whonix-secure-proxy' ]; then
+        /usr/lib/qubes-whonix/alert update /usr/lib/qubes-whonix/messages.yaml
+    fi
+
 # Gateway
-if [ -e /var/run/qubes-service/whonix-gateway ]; then
+elif [ -e /usr/share/anon-gw-base-files/gateway ]; then
 
     # If Tor is disabled, start whonix-setup-wizard in quick mode.
     if grep "^#DisableNetwork 0$" /etc/tor/torrc; then
@@ -58,14 +68,6 @@ if [ -e /var/run/qubes-service/whonix-gateway ]; then
         if sudo service whonixcheck status ; then
             sudo service whonixcheck restart || true
         fi
-    fi
-
-# Template
-elif [ -e /var/run/qubes-service/whonix-template ]; then
-
-    # Display warning that TemplateVM is not connected to a Tor update proxy.
-    if [ ! -e '/var/run/qubes-service/whonix-secure-proxy' ]; then
-        /usr/lib/qubes-whonix/alert update /usr/lib/qubes-whonix/messages.yaml
     fi
 
 fi

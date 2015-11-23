@@ -26,7 +26,7 @@
 
 source /usr/lib/qubes-whonix/utility_functions.sh
 
-VM_TYPE=$(qubesdb-read /qubes-vm-type 2> /dev/null)
+qubes_vm_type="$(qubesdb-read /qubes-vm-type)"
 
 # This script should run after qubes-sysinit and should not need to create the
 # qubes-service directory as it should have already been created.  This is only
@@ -35,18 +35,18 @@ VM_TYPE=$(qubesdb-read /qubes-vm-type 2> /dev/null)
 mkdir -p /var/run/qubes-service
 
 # Template
-if [ "${VM_TYPE}" = "TemplateVM" ]; then
+if [ "$qubes_vm_type" = "TemplateVM" ]; then
     touch /var/run/qubes-service/whonix-template
 
 # Gateway
 elif [ -e /usr/share/anon-gw-base-files/gateway ]; then
-    if [ "${VM_TYPE}" = "NetVM" ] || [ "${VM_TYPE}" = "ProxyVM" ]; then
+    if [ "$qubes_vm_type" = "NetVM" ] || [ "$qubes_vm_type" = "ProxyVM" ]; then
         touch /var/run/qubes-service/whonix-gateway
     fi
 
 # Workstation
 elif [ -e /usr/share/anon-ws-base-files/workstation ]; then
-    if [ "${VM_TYPE}" = "AppVM" ]; then
+    if [ "$qubes_vm_type" = "AppVM" ]; then
         touch /var/run/qubes-service/whonix-workstation
     fi
 fi

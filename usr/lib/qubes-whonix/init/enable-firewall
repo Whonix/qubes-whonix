@@ -27,8 +27,10 @@ source /usr/lib/qubes-whonix/utility_functions.sh
 [ -n "$iptables_cmd" ] || iptables_cmd="iptables --wait"
 [ -n "$ip6tables_cmd" ] || ip6tables_cmd="ip6tables --wait"
 
+qubes_vm_type="$(qubesdb-read /qubes-vm-type)"
+
 # Template
-if [ -e /var/run/qubes-service/whonix-template ]; then
+if [ "$qubes_vm_type" = "TemplateVM" ]; then
 
     # Check if a secure Tor update server is available
     if [ ! -e /var/run/qubes-service/whonix-secure-proxy ]; then
@@ -39,7 +41,7 @@ if [ -e /var/run/qubes-service/whonix-template ]; then
     fi
 
 # Gateway or Workstation
-elif [ -e /var/run/qubes-service/whonix-gateway ] || [ -e /var/run/qubes-service/whonix-workstation ]; then
+elif [ -e /usr/share/anon-gw-base-files/gateway ] || [ -e /usr/share/anon-ws-base-files/workstation ]; then
 
     # Load the Whonix firewall
     /usr/bin/whonix_firewall || touch /var/run/qubes-service/whonix-firewall-failed

@@ -24,7 +24,14 @@
 
 source /usr/lib/qubes-whonix/utility_functions.sh
 
-if [ -e /var/run/qubes-service/whonix-gateway ]; then
+qubes_vm_type="$(qubesdb-read /qubes-vm-type)"
+
+if [ "$qubes_vm_type" = "TemplateVM" ]; then
+   # Do none of the following in a TemplateVM.
+   exit 0
+fi
+
+if [ -e /usr/share/anon-gw-base-files/gateway ]; then
     # Allow whonix-gateway to act as an update-proxy.
     touch /var/run/qubes-service/qubes-updates-proxy
 
