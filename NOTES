@@ -16,7 +16,7 @@ Current issues:
     changes will persist apon rebbot eliminating the need to have Whonix be a
     standalone VM.
 
-    The first time an AppVM is started the original content from the root image 
+    The first time an AppVM is started the original content from the root image
     are copied to the users /rw directory (one-time) to make sure any changes
     that have already been made in template are reflected in AppVM.
 
@@ -45,7 +45,7 @@ Build issues:
 =================================================================================
                                 Other Notes
 =================================================================================
-  - tmpfile.d:
+  - tmpfiles.d:
       Files in /etc/tmpfiles.d override files with the same name in
       /usr/lib/tmpfiles.d and /run/tmpfiles.d. Files in /run/tmpfiles.d
       override files with the same name in /usr/lib/tmpfiles.d. Packages
