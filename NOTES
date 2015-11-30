@@ -3,7 +3,7 @@ Current issues:
   - bind-directories...
     'bind-directories' will automatically bind important Whonix configuration
     directories within root image filesystem to the users /rw/ filesystem so the
-    changes will persist apon rebbot eliminating the need to have Whonix be a
+    changes will persist upon reboot eliminating the need to have Whonix be a
     standalone VM.
 
     The first time an AppVM is started the original content from the root image
