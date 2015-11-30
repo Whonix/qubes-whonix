@@ -1,28 +1,5 @@
 Current issues:
 
-  - bind-directories...
-    'bind-directories' will automatically bind important Whonix configuration
-    directories within root image filesystem to the users /rw/ filesystem so the
-    changes will persist upon reboot eliminating the need to have Whonix be a
-    standalone VM.
-
-    The first time an AppVM is started the original content from the root image
-    are copied to the users /rw directory (one-time) to make sure any changes
-    that have already been made in template are reflected in AppVM.
-
-    Any further changes, like enabling 'Tor' are stored directly in the 'rw'
-    filesystem.  For example '/etc/tor' is bound to '/rw/Whonix/etc/tor'.
-
-    If a user then makes any changes in the TemplateVM, those changes will not
-    be reflected in the AppVM after the initial bind which may cause confusion
-    if a user is attempting to make configuration changes in the TemplateVM.
-
-    Possible solutions:
-      - track original date / shasum of files when originally copying defaults to /rw
-      - store that in /rw as .bind-dirs/filename ?
-      - before binding; check for changes; update rw if there are changes; maybe
-        just using file date would work?
-
   - Need a utility to search for files with IP address pattern during installation.
     - consider a FUSE type module that 'intercepts' file open and can change
       output of the configuration file on the fly with something like jinja2.
