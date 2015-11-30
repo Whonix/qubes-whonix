@@ -29,3 +29,11 @@ rm_conffile /etc/systemd/system/multi-user.target.wants/qubes-whonix-tor.service
 ## Whonix 11 leftover
 ## There now is /etc/qubes/protected-files.d/qubes-whonix.conf.
 rm_conffile /etc/qubes/protected-files.d/qubes-whonix
+
+## Added .conf extension.
+rm_conffile /etc/cpfpy.d/40_qubes
+rm_conffile /etc/rads.d/40_qubes
+rm_conffile /etc/sdwdate.d/32_timesync_plugin_disable
+rm_conffile /etc/sdwdate.d/40_qubes_stream_isolation_plugin
+rm_conffile /etc/uwt.d/40_qubes
+rm_conffile /etc/whonix.d/40_qubes

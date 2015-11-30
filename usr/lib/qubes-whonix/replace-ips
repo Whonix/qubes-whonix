@@ -45,16 +45,16 @@ IP_ADDRESS = re.compile(r'(?:[0-9]{1,3}\.){3}[0-9]{1,3}')
 # They do not need to be replaced since they already have an additional
 # configuration file that overrides it.
 #
-#   /etc/cpfpy.d/30_controlportfilt_default
-#   /etc/sdwdate.d/31_anon_dist_stream_isolation_plugin
+#   /etc/cpfpy.d/30_controlportfilt_default.conf
+#   /etc/sdwdate.d/31_anon_dist_stream_isolation_plugin.conf
 
 # This is a list of all Whonix files that contain IP addresses that will
 # be searched and replaces with the current assigned IP address
 FILES=[
-    '/etc/cpfpy.d/40_qubes',
+    '/etc/cpfpy.d/40_qubes.conf',
     '/etc/resolv.conf.anondist',
     '/etc/rinetd.conf.anondist',
-    '/etc/sdwdate.d/40_qubes_stream_isolation_plugin',
+    '/etc/sdwdate.d/40_qubes_stream_isolation_plugin.conf',
     '/etc/tor/torrc',
     '/etc/tor/torrc.examples',
     '/home/user/.torchat/torchat.ini',

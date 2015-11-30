@@ -46,10 +46,10 @@ case "${1}" in
             case "${trigger}" in
 
                 # Replace IP addresses
-                /etc/cpfpy.d/40_qubes | \
+                /etc/cpfpy.d/40_qubes.conf | \
                 /etc/resolv.conf.anondist | \
                 /etc/rinetd.conf.anondist | \
-                /etc/sdwdate.d/40_qubes_stream_isolation_plugin | \
+                /etc/sdwdate.d/40_qubes_stream_isolation_plugin.conf | \
                 /etc/tor/torrc | \
                 /etc/tor/torrc.examples | \
                 /home/user/.torchat/torchat.ini | \
