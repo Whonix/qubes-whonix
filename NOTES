@@ -1,13 +1,3 @@
-=================================================================================
-                       W H O N I X  1 1    N O T E S
-
-           [⏳] = Implemented feature waiting for testing results [23F3]
-           [✓] = Feature Implemented and appears working [2713]
-=================================================================================
-
-=================================================================================
-                          Whonix 11 Checks and Issues
-=================================================================================
 Current issues:
 
   - bind-directories...
@@ -38,39 +28,9 @@ Current issues:
       output of the configuration file on the fly with something like jinja2.
     - Currently the list is manually generated
 
-Build issues:
-  - None
-
-
-=================================================================================
-                                Other Notes
-=================================================================================
-  - tmpfiles.d:
-      Files in /etc/tmpfiles.d override files with the same name in
-      /usr/lib/tmpfiles.d and /run/tmpfiles.d. Files in /run/tmpfiles.d
-      override files with the same name in /usr/lib/tmpfiles.d. Packages
-      should install their configuration files in /usr/lib/tmpfiles.d.
-      Files in /etc/tmpfiles.d are reserved for the local administrator,
-      who may use this logic to override the configuration files installed
-      by vendor packages
-
-
-=================================================================================
-                               Configuration Issues
-=================================================================================
-  - Test obsproxy, etc
-
-
-=================================================================================
-                              Wheezy / Jessie Issues
-=================================================================================
   - Look into kde dialog issue where dialogs do not appear focused
 
+Likely Solved Issues:
 
-=================================================================================
-                               Likely Solved Issues
-=================================================================================
   - qubes-whonixsetup: Add back in check for disabled Tor and run setup again
     on boot if its disabled.  Could be disabled via 'whonix-tor-disable' service
-    - 'qubes-whonix-postinit' will remove 'whonixsetup.done/skip' if 'Tor' has
-      been indicated disabled
