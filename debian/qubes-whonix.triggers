@@ -17,7 +17,6 @@ interest-noawait /etc/tor/torrc
 interest-noawait /etc/tor/torrc.examples
 interest-noawait /home/user/.torchat/torchat.ini
 interest-noawait /home/user/.xchat2/xchat.conf
-interest-noawait /usr/bin/update-torbrowser
 interest-noawait /usr/lib/anon-ws-disable-stacked-tor/torbrowser.sh
 interest-noawait /usr/lib/leaktest-workstation/simple_ping.py
 interest-noawait /usr/share/anon-kde-streamiso/share/config/kioslaverc
