@@ -49,7 +49,6 @@ case "${1}" in
                 /etc/cpfpy.d/40_qubes.conf | \
                 /etc/resolv.conf.anondist | \
                 /etc/rinetd.conf.anondist | \
-                /etc/sdwdate.d/40_qubes_stream_isolation_plugin.conf | \
                 /etc/tor/torrc | \
                 /etc/tor/torrc.examples | \
                 /home/user/.torchat/torchat.ini | \

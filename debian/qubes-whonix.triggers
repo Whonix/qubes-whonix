@@ -12,7 +12,6 @@
 interest-noawait /etc/cpfpy.d/40_qubes.conf
 interest-noawait /etc/resolv.conf.anondist
 interest-noawait /etc/rinetd.conf.anondist
-interest-noawait /etc/sdwdate.d/40_qubes_stream_isolation_plugin.conf
 interest-noawait /etc/tor/torrc
 interest-noawait /etc/tor/torrc.examples
 interest-noawait /home/user/.torchat/torchat.ini
