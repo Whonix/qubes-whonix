@@ -12,6 +12,9 @@ Initially the known IP addresses are 10.152.152.10 and 10.152.152.11 as defaults
 in Whonix configuration files.  They are also checked each time this module is
 run in case the configuration files were modified due to a system update.
 
+Qubes feature request: optional static IP addresses
+https://github.com/QubesOS/qubes-issues/issues/1477
+
 This file is part of Qubes+Whonix.
 Copyright (C) 2014 - 2015 Jason Mehring <nrgaway@gmail.com>
 License: GPL-2+
