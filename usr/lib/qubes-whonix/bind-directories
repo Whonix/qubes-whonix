@@ -35,6 +35,14 @@ if [ "$qubes_vm_type" = "TemplateVM" ]; then
    exit 0
 fi
 
+qubes_vm_persistence="$(qubesdb-read /qubes-vm-persistence)"
+
+if [ "$qubes_vm_persistence" = "none" ]; then
+   # https://github.com/QubesOS/qubes-issues/issues/1328
+   # Do none of the following in a DispVM.
+   exit 0
+fi
+
 # Array of directories to bind
 BINDS=(
     '/rw/srv/whonix/var/lib/tor:/var/lib/tor'
