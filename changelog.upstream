@@ -1,3 +1,175 @@
+commit eb1312b1c3ba698eb4db1b03202efcbf7a248382
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Mar 19 16:19:31 2016 +0100
+
+    no more tabs
+    
+    https://github.com/Whonix/qubes-whonix/pull/1
+
+commit 8b90b035aac8e0c8c2fdeca415a73010c4f7bb92
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Mar 19 16:05:32 2016 +0100
+
+    manually merged pull request '[network-proxy-setup] Permit !CONFIG_MODuLES'
+    
+    by @loveithateit
+    
+    https://github.com/Whonix/qubes-whonix/pull/1
+
+commit a3160466b318acc8e8f2397ac42d287b34b3c617
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Mar 19 15:58:58 2016 +0100
+
+    refactoring, more similarity to Qubes implementation
+    
+    preparation to merge pull request
+    '[network-proxy-setup] Permit !CONFIG_MODuLES'
+    
+    https://github.com/Whonix/qubes-whonix/pull/1
+
+commit 716b4551c67825de13f3fb331a163882c01e1894
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jan 6 23:05:56 2016 +0000
+
+    also exit from bind-directories if file /var/run/qubes-service/qubes-dvm exists
+    
+    Thanks to @marmarek for the suggestion!
+    
+    https://github.com/QubesOS/qubes-issues/issues/1328#issuecomment-169483029
+
+commit 267e26cec9c50aa115af52254629931346766588
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jan 6 19:34:39 2016 +0000
+
+    fixed '/bin/sync hangs forever in whonix-ws-dvm'
+    
+    https://github.com/QubesOS/qubes-issues/issues/1328
+
+commit deabdc2456beaca3fb23ca616608ed59a69b9f77
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 1 22:23:44 2015 +0000
+
+    comment
+
+commit 8b4e05eb92376d9bbd3df1d7779749c8bddd93a0
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 1 22:08:50 2015 +0000
+
+    no need to replace-ip /usr/lib/anon-ws-disable-stacked-tor/torbrowser.sh
+
+commit dfaa794012bdf527082293f10aabab28819727fd
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 1 22:05:40 2015 +0000
+
+    cleanup
+
+commit 77e18868d3b8692754e44bb7a1e51a8e2bc9cbd7
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 1 21:46:42 2015 +0000
+
+    removed update-torbrowser because it now has native Qubes support
+
+commit c48ee7b06d011080cd5f97f4766f9f5f7856bc03
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 1 21:12:04 2015 +0000
+
+    no more need for /etc/sdwdate.d/32_timesync_plugin_disable.conf
+    
+    since sdwdate-python will no longer dispatch hooks to interact with the
+    timesync application
+
+commit 848df6b4eabb781757e1d442cf80c75708fc9fec
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 1 21:11:18 2015 +0000
+
+    no need to reintroduce /etc/sdwdate.d/40_qubes_stream_isolation_plugin.conf
+    
+    because sdwdate-python has native Qubes support
+
+commit b337e3d7c89c5790f63e9e1bbf9e2c702af47610
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 1 21:10:24 2015 +0000
+
+    no need to reintroduce /etc/whonix.d/40_qubes.conf
+
+commit f4f6bd3bd916d571cc59ab6c463fc1b24fe94764
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Nov 30 21:40:26 2015 +0000
+
+    moved bind-directory notes to https://phabricator.whonix.org/T414#7386
+
+commit 0b3952c8aebb16238731002e8f5baac5e8c4e4bf
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Nov 30 21:22:58 2015 +0000
+
+    typo
+
+commit 1c6b7b136c97f4a5dc465d469a0552b9b5ee7983
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Nov 30 19:59:24 2015 +0000
+
+    updated NOTES
+
+commit 7b69731713cbe5e57071056354c8ecd3260c0b33
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Nov 30 19:55:10 2015 +0000
+
+    typo
+
+commit 8282d2cef8cb8a22033594a1164395373e4dfced
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Nov 30 19:43:28 2015 +0000
+
+    Only source configuration files that end with the '.conf' extension.
+    
+    Thanks to @nrgaway for the suggestion!
+    
+    https://phabricator.whonix.org/T286
+
+commit d18ef98206bdbc1a83b3d94b872e66969878c4b5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Nov 23 10:20:54 2015 +0000
+
+    comment
+    
+    https://github.com/marmarek/qubes-core-agent-linux/pull/53
+
+commit 5696071c29eb854dc3161797d7fdcef9377116f5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Nov 23 10:16:17 2015 +0000
+
+    less dependency on /var/run/qubes-service status files
+    
+    https://phabricator.whonix.org/T432
+
+commit 201b50cba24d19639d69cdf172f1f5483897ed5f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Nov 22 23:59:52 2015 +0000
+
+    usr/lib/qubes-whonix/replace-ips: no longer depend on /var/run/qubes-service/
+    
+    https://phabricator.whonix.org/T432
+
+commit 26afe297282f8979db6610b4d3558e1e26641664
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Nov 22 23:49:47 2015 +0000
+
+    typo
+
+commit 8fb3a6e0fb9e879c8d46fa4525aa2d0821c53959
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Nov 22 21:46:51 2015 +0000
+
+    removed unneeded qubes-update-check systemd service Whonix specificness
+    
+    https://phabricator.whonix.org/T433
+
+commit 5c6d7223f4b2d7d540aa69384a6308160aef5b5a
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Nov 13 15:52:08 2015 +0000
+
+    bumped changelog version
+
 commit fd0bb6627039e5cf1a896ae308edc698e84ccb02
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Nov 12 19:56:38 2015 +0000
