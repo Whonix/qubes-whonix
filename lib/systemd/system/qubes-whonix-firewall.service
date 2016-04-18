@@ -2,10 +2,6 @@
 # Copyright (C) 2015 Jason Mehring <nrgaway@gmail.com>
 # License: GPL-2+
 
-## When running in a TemplateVM (if /var/run/qubes-service/whonix-template exists),
-## creates /var/run/qubes-service/whonix-secure-proxy if tinyproxy's http
-## header contains 'tor'.
-##
 ## On Whonix-Gateway or Whonix-Workstation (if /var/run/qubes-service/whonix-gateway or
 ## /var/run/qubes-service/whonix-workstation exists), loads Whonix Firewall.
 ##

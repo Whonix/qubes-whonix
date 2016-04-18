@@ -1,0 +1,22 @@
+# This file is part of Qubes+Whonix.
+# Copyright (C) 2015 Jason Mehring <nrgaway@gmail.com>
+# License: GPL-2+
+
+## When running in a TemplateVM (if /var/run/qubes-service/whonix-template exists),
+## creates /var/run/qubes-service/whonix-secure-proxy if tinyproxy's http
+## header contains 'tor'.
+
+[Unit]
+Description=Qubes Whonix Torified Updates Proxy Check
+After=qubes-whonix-network.service
+After=qubes-whonix-firewall.service
+After=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/lib/qubes-whonix/init/torified-updates-proxy-check
+StandardOutput=syslog
+
+[Install]
+WantedBy=multi-user.target
