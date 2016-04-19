@@ -1,3 +1,29 @@
+commit 738ccedf0b4ad1af8cfab809159b66d0aa83aa0b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Apr 18 22:07:36 2016 +0000
+
+    torified-updates-proxy-check: increased timeout to 10 just in case
+
+commit be3573628279041ead4b62fe63c60c438bcd3cf7
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Apr 18 21:58:23 2016 +0000
+
+    fixed 'Templates incorrectly think they're not connected to a Whonix gateway.'
+    
+    Created qubes-whonix-torified-updates-check.service that runs after the network is up.
+    
+    Thanks to qubenix for this report!
+    
+    https://forums.whonix.org/t/templates-incorrectly-think-theyre-not-connected-to-a-whonix-gateway/2258/7
+    
+    https://phabricator.whonix.org/T496
+
+commit 9bba8f220d42c1fc536c984131d9fe587abe3ad3
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 7 22:54:40 2016 +0000
+
+    bumped changelog version
+
 commit eb1312b1c3ba698eb4db1b03202efcbf7a248382
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Mar 19 16:19:31 2016 +0100
