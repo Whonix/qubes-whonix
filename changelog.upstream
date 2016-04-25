@@ -1,3 +1,57 @@
+commit abd1734a95152d9978e9749ee066aa85efa6f6df
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Apr 25 19:54:24 2016 +0000
+
+    Use Qubes bind-dirs.sh rather than Whonix bind-directories once available.
+    
+    https://phabricator.whonix.org/T501
+
+commit ffa9fe882a3c760290960b791be58c6a481adc97
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Apr 25 19:42:23 2016 +0000
+
+    licensing
+
+commit a738a685c911a816ea4bf9c0ee090edb777ef9e1
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Apr 25 19:41:15 2016 +0000
+
+    SetDateTime / SyncNtpClock do not echo to stderr / exit 1
+    
+    to prevent systemd (logs) getting confused
+    
+    https://phabricator.whonix.org/T384
+
+commit c0c3875c32c2f17358ef7e4a7cbb15ee48d8041d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Apr 25 19:38:26 2016 +0000
+
+    prevent running /usr/lib/qubes/qubes-setup-dnat-to-ns in Qubes-Whonix
+    
+    to stop it from modifying firewall rules
+    
+    https://phabricator.whonix.org/T502
+
+commit 8b07868af03c8db810eec1ccd40b92cfc559759e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Apr 25 21:10:20 2016 +0200
+
+    typo
+
+commit 65fac1f6eb3fd0cfa1d5beb47b757ac4263a5537
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 21 21:38:56 2016 +0000
+
+    made /var/cache/anon-base-files persistent
+    
+    https://phabricator.whonix.org/T419
+
+commit ff93b8f77754e377128947be9042febce378ea04
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Apr 19 19:44:41 2016 +0000
+
+    bumped changelog version
+
 commit 738ccedf0b4ad1af8cfab809159b66d0aa83aa0b
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Apr 18 22:07:36 2016 +0000
