@@ -10,7 +10,3 @@
 read timestamp
 mkdir -p "/var/run/qubes-whonix"
 echo "$timestamp" > "/var/run/qubes-whonix/qubes.SetDateTime"
-
-echo "We do not want dom0 to tell us the time." >&2
-
-exit 1
