@@ -4,3 +4,4 @@
 
 /etc/qubes-rpc/qubes.SyncNtpClock.anondist
 /etc/qubes-rpc/qubes.SetDateTime.anondist
+/usr/lib/qubes/qubes-setup-dnat-to-ns.anondist
