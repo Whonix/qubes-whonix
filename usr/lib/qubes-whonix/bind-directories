@@ -64,6 +64,7 @@ BINDS=(
     '/rw/srv/whonix/var/lib/whonixcheck:/var/lib/whonixcheck'
     '/rw/srv/whonix/var/cache/whonix-setup-wizard:/var/cache/whonix-setup-wizard'
     '/rw/srv/whonix/var/cache/anon-base-files:/var/cache/anon-base-files'
+    '/rw/srv/whonix/var/cache/tb-updater:/var/cache/tb-updater'
     '/rw/srv/qubes-whonix/var/cache/qubes-whonix:/var/cache/qubes-whonix'
     '/rw/srv/whonix/etc/tor:/etc/tor'
 )
