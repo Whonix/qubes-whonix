@@ -61,6 +61,7 @@ FILES=[
     '/etc/tor/torrc.examples',
     '/home/user/.torchat/torchat.ini',
     '/home/user/.xchat2/xchat.conf',
+    '/home/user/.config/hexchat/hexchat.conf',
     '/usr/lib/leaktest-workstation/simple_ping.py',
     '/usr/share/anon-kde-streamiso/share/config/kioslaverc',
     '/usr/share/anon-torchat/.torchat/torchat.ini',
