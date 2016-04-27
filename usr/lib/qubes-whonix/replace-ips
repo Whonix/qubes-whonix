@@ -66,7 +66,6 @@ FILES=[
     '/usr/share/anon-kde-streamiso/share/config/kioslaverc',
     '/usr/share/anon-torchat/.torchat/torchat.ini',
     '/usr/share/tor/tor-service-defaults-torrc.anondist',
-    '/usr/share/xchat-improved-privacy/.xchat2/xchat.conf',
 ]
 
 

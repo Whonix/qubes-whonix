@@ -57,8 +57,7 @@ case "${1}" in
                 /usr/lib/leaktest-workstation/simple_ping.py | \
                 /usr/share/anon-kde-streamiso/share/config/kioslaverc | \
                 /usr/share/anon-torchat/.torchat/torchat.ini | \
-                /usr/share/tor/tor-service-defaults-torrc.anondist | \
-                /usr/share/xchat-improved-privacy/.xchat2/xchat.conf)
+                /usr/share/tor/tor-service-defaults-torrc.anondist)
                     /usr/lib/qubes-whonix/replace-ips
                     ;;
 
