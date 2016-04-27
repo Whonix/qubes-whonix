@@ -1,3 +1,15 @@
+commit 8438d13d75822e9ea800b9eb6024063f476636ff
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Apr 26 05:16:29 2016 +0000
+
+    added /var/cache/tb-updater to bind directories
+
+commit cd7b99b2e30e1d73cf2aa4f5e6dd9f04a96f3f41
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Apr 25 23:27:55 2016 +0000
+
+    bumped changelog version
+
 commit abd1734a95152d9978e9749ee066aa85efa6f6df
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Apr 25 19:54:24 2016 +0000
