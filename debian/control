@@ -55,8 +55,7 @@ Package: qubes-whonix-shared-packages-recommended
 Architecture: all
 ## python-xdg can be removed from "Depends:" at some point:
 ## https://github.com/QubesOS/qubes-issues/issues/1102
-Depends: nautilus-open-terminal,
- gnome-packagekit,
+Depends: gnome-packagekit,
  gnome-terminal,
  network-manager (>= 0.8.1-1),
  network-manager-gnome,
