@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ERR_INVALID_URL</title>
+<!-- Torifying VMs can insert a magic line below -->
+<meta name="application-name" content="tor proxy"/>
+</head>
+<body>
+<p>Invalid URL requested from qubes-updates-cache:</p>
+<p><a href="%U">%U</a></p>
+</body>
+</html>

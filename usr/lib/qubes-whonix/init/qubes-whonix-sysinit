@@ -22,8 +22,6 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-source /usr/lib/qubes-whonix/utility_functions.sh
-
 qubes_vm_type="$(qubesdb-read /qubes-vm-type)"
 
 if [ "$qubes_vm_type" = "TemplateVM" ]; then
@@ -41,16 +39,3 @@ if [   -e /usr/share/anon-gw-base-files/gateway -a \
      ! -e /var/run/qubes-service/qubes-updates-cache ]; then
     touch /var/run/qubes-service/qubes-updates-proxy
 fi
-
-# Insert a magic line into the error pages tinyproxy (from qubes-updates-proxy)
-# and squid (qubes-updates-cache) send when something connects to their proxy
-# port as if it was a web server. Client VMs can (and *Whonix* client VMs *do*)
-# check for the presence of this line, telling them we'll be torifying their
-# package downloads.
-for error_file in /usr/share/tinyproxy/default.html \
-                  /usr/share/qubes-updates-cache/errors/ERR_INVALID_URL; do
-    if [ -e "${error_file}" ]; then
-        grep -qF "${PROXY_META}" "${error_file}" ||
-        sed -i "s#</head>#${PROXY_META}\n</head>#" "${error_file}"
-    fi
-done
