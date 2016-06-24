@@ -31,14 +31,26 @@ if [ "$qubes_vm_type" = "TemplateVM" ]; then
    exit 0
 fi
 
-if [ -e /usr/share/anon-gw-base-files/gateway ]; then
-    # Allow whonix-gateway to act as an update-proxy.
+# Trigger starting the systemd qubes-updates-proxy.service on gateways, unless
+# already configured to trigger starting qubes-updates-cache.service instead.
+# The caching one is heavier, hence the user is supposed to enable it manually
+# with qvm-service or the Qubes VM Manager's Services tab. The same applies if
+# the user wants to enable the non-caching proxy on workstations, so as not to
+# waste 4 MB memory everywhere.
+if [   -e /usr/share/anon-gw-base-files/gateway -a \
+     ! -e /var/run/qubes-service/qubes-updates-cache ]; then
     touch /var/run/qubes-service/qubes-updates-proxy
+fi
 
-    # Search and replace tinyproxy error files so we can inject code that
-    # we can use to identify that it is a Tor proxy so updates are torified.
-    error_file=/usr/share/tinyproxy/default.html
-    if ! grep -q "${PROXY_META}" "${error_file}" ; then
+# Insert a magic line into the error pages tinyproxy (from qubes-updates-proxy)
+# and squid (qubes-updates-cache) send when something connects to their proxy
+# port as if it was a web server. Client VMs can (and *Whonix* client VMs *do*)
+# check for the presence of this line, telling them we'll be torifying their
+# package downloads.
+for error_file in /usr/share/tinyproxy/default.html \
+                  /usr/share/qubes-updates-cache/errors/ERR_INVALID_URL; do
+    if [ -e "${error_file}" ]; then
+        grep -qF "${PROXY_META}" "${error_file}" ||
         sed -i "s#</head>#${PROXY_META}\n</head>#" "${error_file}"
     fi
-fi
+done
