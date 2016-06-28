@@ -1,0 +1,53 @@
+# This file is part of Qubes+Whonix.
+# Copyright (C) 2015 Jason Mehring <nrgaway@gmail.com>
+# License: GPL-2+
+
+## If not running inside a Qubes TemplateVM,
+## and if running inside Whonix-Gateway (i.e. if file /usr/share/anon-gw-base-files/gateway exists),
+## and if qubes-updates-cache is not enabled (i.e. if file /var/run/qubes-service/qubes-updates-cache does not exist),
+## create qubes-updates-proxy (i.e. create file /var/run/qubes-service/qubes-updates-proxy).
+
+[Unit]
+Description=conditionally enable qubes-updates-proxy
+
+Before=qubes-updates-proxy.service
+
+After=qubes-sysinit.service
+
+## Legacy.
+After=qubes-whonix-sysinit.service
+
+## Do not enable qubes-updates-proxy if qubes-updates-cache is already enabled
+## to avoid these conflicting with each other.
+ConditionPathExists=!/var/run/qubes-service/qubes-updates-cache
+
+## Do not needlessly enable qubes-updates-proxy in Qubes TemplateVMs.
+ConditionPathExists=!/var/run/qubes/this-is-templatevm
+
+## Only enable qubes-updates-proxy in sys-whonix.
+ConditionPathExists=/usr/share/anon-gw-base-files/gateway
+
+## Legacy.
+## The following condition can be removed once we can rely on
+## /var/run/qubes/this-is-templatevm i.e. when we can assume that everyone
+## upgraded to Qubes R3.2.
+## (/var/run/qubes-service/whonix-gateway gets created conditionally by
+## qubes-whonix-sysinit.)
+ConditionPathExists=/var/run/qubes-service/whonix-gateway
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+
+# Trigger starting the systemd qubes-updates-proxy.service on gateways, unless
+# already configured to trigger starting qubes-updates-cache.service instead.
+# The caching one is heavier, hence the user is supposed to enable it manually
+# with qvm-service or the Qubes VM Manager's Services tab. The same applies if
+# the user wants to enable the non-caching proxy on workstations, so as not to
+# waste 4 MB memory everywhere.
+ExecStart=/bin/bash -c 'touch /var/run/qubes-service/qubes-updates-proxy'
+
+StandardOutput=syslog
+
+[Install]
+WantedBy=multi-user.target

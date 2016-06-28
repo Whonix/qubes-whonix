@@ -1,9 +1,6 @@
 #!/bin/bash -e
 # vim: set ts=4 sw=4 sts=4 et :
 #
-# qubes-whonix-sysinit - Called by systemd during the sysinit boot stage to
-#                        initialize required configurations for Whonix
-#
 # This file is part of Qubes+Whonix.
 # Copyright (C) 2014 - 2015 Jason Mehring <nrgaway@gmail.com>
 # License: GPL-2+
@@ -24,18 +21,31 @@
 
 qubes_vm_type="$(qubesdb-read /qubes-vm-type)"
 
+# This script should run after qubes-sysinit and should not need to create the
+# qubes-service directory as it should have already been created.  This is only
+# a defensive action since we rely on certain services being present to determine
+# the overall boot status of Whonix, like 'whonix-firewall-failed' notice.
+mkdir -p /var/run/qubes-service
+
+# Template
 if [ "$qubes_vm_type" = "TemplateVM" ]; then
-   # Do none of the following in a TemplateVM.
-   exit 0
+    # Waiting for 'Have qubes-sysinit create /var/run/qubes VM type files.' to
+    # be merged and land in Qubes stable before we can remove the following
+    # status file.
+    # https://github.com/marmarek/qubes-core-agent-linux/pull/53
+    touch /var/run/qubes-service/whonix-template
+
+# Gateway
+elif [ -e /usr/share/anon-gw-base-files/gateway ]; then
+    if [ "$qubes_vm_type" = "NetVM" ] || [ "$qubes_vm_type" = "ProxyVM" ]; then
+        touch /var/run/qubes-service/whonix-gateway
+    fi
+
+# Workstation
+elif [ -e /usr/share/anon-ws-base-files/workstation ]; then
+    if [ "$qubes_vm_type" = "AppVM" ]; then
+        touch /var/run/qubes-service/whonix-workstation
+    fi
 fi
 
-# Trigger starting the systemd qubes-updates-proxy.service on gateways, unless
-# already configured to trigger starting qubes-updates-cache.service instead.
-# The caching one is heavier, hence the user is supposed to enable it manually
-# with qvm-service or the Qubes VM Manager's Services tab. The same applies if
-# the user wants to enable the non-caching proxy on workstations, so as not to
-# waste 4 MB memory everywhere.
-if [   -e /usr/share/anon-gw-base-files/gateway -a \
-     ! -e /var/run/qubes-service/qubes-updates-cache ]; then
-    touch /var/run/qubes-service/qubes-updates-proxy
-fi
+exit 0

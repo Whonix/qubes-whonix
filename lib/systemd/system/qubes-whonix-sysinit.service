@@ -6,10 +6,6 @@
 ## - /var/run/qubes-service/whonix-template
 ## - /var/run/qubes-service/whonix-gateway
 ## - /var/run/qubes-service/whonix-workstation
-##
-## If running on Whonix-Gateway (if file status file
-## /var/run/qubes-service/whonix-gateway) exits, add 'tor' to tinyproxy's
-## http header.
 
 [Unit]
 Description=Init Qubes+Whonix services and settings
@@ -21,7 +17,6 @@ After=proc-xen.mount systemd-modules-load.service qubes-db.service qubes-sysinit
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStartPre=/usr/lib/qubes-whonix/init/enable-services
 ExecStart=/usr/lib/qubes-whonix/init/qubes-whonix-sysinit
 StandardOutput=syslog
 
