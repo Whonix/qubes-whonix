@@ -5,3 +5,5 @@
 /etc/qubes-rpc/qubes.SyncNtpClock.anondist
 /etc/qubes-rpc/qubes.SetDateTime.anondist
 /usr/lib/qubes/qubes-setup-dnat-to-ns.anondist
+/usr/share/tinyproxy/default.html.anondist
+/usr/share/qubes-updates-cache/errors/ERR_INVALID_URL.anondist

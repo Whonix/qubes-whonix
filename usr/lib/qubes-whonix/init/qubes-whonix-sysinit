@@ -22,8 +22,6 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-source /usr/lib/qubes-whonix/utility_functions.sh
-
 qubes_vm_type="$(qubesdb-read /qubes-vm-type)"
 
 if [ "$qubes_vm_type" = "TemplateVM" ]; then
@@ -31,14 +29,13 @@ if [ "$qubes_vm_type" = "TemplateVM" ]; then
    exit 0
 fi
 
-if [ -e /usr/share/anon-gw-base-files/gateway ]; then
-    # Allow whonix-gateway to act as an update-proxy.
+# Trigger starting the systemd qubes-updates-proxy.service on gateways, unless
+# already configured to trigger starting qubes-updates-cache.service instead.
+# The caching one is heavier, hence the user is supposed to enable it manually
+# with qvm-service or the Qubes VM Manager's Services tab. The same applies if
+# the user wants to enable the non-caching proxy on workstations, so as not to
+# waste 4 MB memory everywhere.
+if [   -e /usr/share/anon-gw-base-files/gateway -a \
+     ! -e /var/run/qubes-service/qubes-updates-cache ]; then
     touch /var/run/qubes-service/qubes-updates-proxy
-
-    # Search and replace tinyproxy error files so we can inject code that
-    # we can use to identify that it is a Tor proxy so updates are torified.
-    error_file=/usr/share/tinyproxy/default.html
-    if ! grep -q "${PROXY_META}" "${error_file}" ; then
-        sed -i "s#</head>#${PROXY_META}\n</head>#" "${error_file}"
-    fi
 fi
