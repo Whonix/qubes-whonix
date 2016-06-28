@@ -25,7 +25,9 @@
 # 'apt-get' proxy server
 PROXY_SERVER='http://10.137.255.254:8082/'
 
-# 'tinyproxy' replacement text for 'usr/share/tinyproxy/default.html' which is
-# used to determine if the proxy server is a secure Tor proxy server to prevent
-# updates over the regular Qubes firewall VM
+# A magic line in the error pages tinyproxy (from qubes-updates-proxy) and
+# squid (qubes-updates-cache) send on Whonix when something connects to their
+# proxy port as if it was a web server. Client VMs can (and *Whonix* client VMs
+# *do*) check for the presence of this line, telling them we'll be torifying
+# their package downloads.
 PROXY_META='<meta name="application-name" content="tor proxy"/>'
