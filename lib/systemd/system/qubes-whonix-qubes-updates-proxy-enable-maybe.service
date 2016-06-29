@@ -24,9 +24,6 @@ ConditionPathExists=!/var/run/qubes-service/qubes-updates-cache
 ## Do not needlessly enable qubes-updates-proxy in Qubes TemplateVMs.
 ConditionPathExists=!/var/run/qubes/this-is-templatevm
 
-## Only enable qubes-updates-proxy in sys-whonix.
-ConditionPathExists=/usr/share/anon-gw-base-files/gateway
-
 ConditionPathExists=|/var/run/qubes/this-is-netvm
 ConditionPathExists=|/var/run/qubes/this-is-proxyvm
 ## Legacy.
