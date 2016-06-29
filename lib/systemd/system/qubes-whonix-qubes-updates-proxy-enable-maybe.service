@@ -27,13 +27,15 @@ ConditionPathExists=!/var/run/qubes/this-is-templatevm
 ## Only enable qubes-updates-proxy in sys-whonix.
 ConditionPathExists=/usr/share/anon-gw-base-files/gateway
 
+ConditionPathExists=|/var/run/qubes/this-is-netvm
+ConditionPathExists=|/var/run/qubes/this-is-proxyvm
 ## Legacy.
 ## The following condition can be removed once we can rely on
-## /var/run/qubes/this-is-templatevm i.e. when we can assume that everyone
-## upgraded to Qubes R3.2.
+## /var/run/qubes/this-is-proxyvm / /var/run/qubes/this-is-netvm
+## i.e. when we can assume that everyone upgraded to Qubes R3.2.
 ## (/var/run/qubes-service/whonix-gateway gets created conditionally by
 ## qubes-whonix-sysinit.)
-ConditionPathExists=/var/run/qubes-service/whonix-gateway
+ConditionPathExists=|/var/run/qubes-service/whonix-gateway
 
 [Service]
 Type=oneshot
@@ -45,7 +47,7 @@ RemainAfterExit=yes
 # with qvm-service or the Qubes VM Manager's Services tab. The same applies if
 # the user wants to enable the non-caching proxy on workstations, so as not to
 # waste 4 MB memory everywhere.
-ExecStart=/bin/bash -c 'touch /var/run/qubes-service/qubes-updates-proxy'
+ExecStart=/bin/touch /var/run/qubes-service/qubes-updates-proxy
 
 StandardOutput=syslog
 
