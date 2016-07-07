@@ -188,10 +188,10 @@ def maybe_reload_tor():
 
     if re.search(r'^DisableNetwork 0$', text,  re.MULTILINE):
         try:
-            if subprocess.check_output(['systemctl', 'is-active', 'tor']):
+            if subprocess.check_output(['systemctl', 'is-active', 'tor@default']):
                 # Restarting instead of reloading due to upstream Tor bug
                 # https://trac.torproject.org/projects/tor/ticket/16161
-                subprocess.call(['systemctl', 'restart', 'tor'])
+                subprocess.call(['systemctl', 'restart', 'tor@default'])
         except (subprocess.CalledProcessError):
             pass
 

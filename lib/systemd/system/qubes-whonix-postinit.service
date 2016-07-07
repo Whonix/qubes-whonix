@@ -25,6 +25,7 @@ Before=qubes-whonix-network.service
 Before=qubes-gui-agent.service
 
 Before=tor.service
+Before=tor@default.service
 Before=rinetd.service
 Before=control-port-filter-python.service
 Before=qubes-whonix-firewall.service
