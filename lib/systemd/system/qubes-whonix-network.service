@@ -6,7 +6,7 @@
 Description=sets up Qubes-Whonix-Gateway external and internal network interface
 ## Does nothing on Whonix-Workstation.
 
-Before=network-pre.target qubes-update-check.service qubes-update-check.timer
+Before=network-pre.target
 
 ## There is no iptables.service as of Debian jessie.
 After=iptables.service
