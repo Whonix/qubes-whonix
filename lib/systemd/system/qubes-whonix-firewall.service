@@ -9,8 +9,9 @@
 
 [Unit]
 Description=Qubes Whonix firewall updater
-After=qubes-whonix-network.service
-Before=network.target
+Before=network-pre.target
+Before=qubes-network.service
+Before=qubes-whonix-network.service
 
 ## Preventing race condition with
 ## /etc/xdg/autostart/qubes-whonixsetup.desktop.
