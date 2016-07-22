@@ -25,12 +25,16 @@
 
 set -x
 
+## This script has been upstreamed:
+## upstream bind-directories functionality to Qubes
+## https://phabricator.whonix.org/T414
+## Use Qubes bind-dirs.sh rather than Whonix bind-directories once available.
+## https://phabricator.whonix.org/T501
 if [ -e /usr/lib/qubes/bind-dirs.sh ] || [ -e /usr/lib/qubes/init/bind-dirs.sh ] ; then
-   ## This script has been upstreamed:
-   ## upstream bind-directories functionality to Qubes
-   ## https://phabricator.whonix.org/T414
-   ## Use Qubes bind-dirs.sh rather than Whonix bind-directories once available.
-   ## https://phabricator.whonix.org/T501
+   exit 0
+fi
+qubes_core_agent_version="$(dpkg-query --show --showformat='${Version}' "qubes-core-agent")" || true
+if dpkg --compare-versions "$qubes_core_agent_version" ge "3.2.8-1+deb8u1" ; then
    exit 0
 fi
 
