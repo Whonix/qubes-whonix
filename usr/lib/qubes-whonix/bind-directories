@@ -25,7 +25,7 @@
 
 set -x
 
-if [ -e /usr/lib/qubes/bind-dirs.sh ]; then
+if [ -e /usr/lib/qubes/bind-dirs.sh ] || [ -e /usr/lib/qubes/init/bind-dirs.sh ] ; then
    ## This script has been upstreamed:
    ## upstream bind-directories functionality to Qubes
    ## https://phabricator.whonix.org/T414
