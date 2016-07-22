@@ -22,6 +22,8 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+set -x
+
 qubes_vm_type="$(qubesdb-read /qubes-vm-type)"
 
 if [ ! "$qubes_vm_type" = "TemplateVM" ]; then
