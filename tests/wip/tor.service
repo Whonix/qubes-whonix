@@ -9,7 +9,7 @@
 
 [Unit]
 Description = Whonix Tor anonymizing overlay network for TCP
-After = syslog.target network.target nss-lookup.target
+After = syslog.target network-online.target nss-lookup.target
 
 [Service]
 Type = simple

@@ -10,7 +10,7 @@
 Description=Qubes Whonix Torified Updates Proxy Check
 After=qubes-whonix-network.service
 After=qubes-whonix-firewall.service
-After=network.target
+After=network-online.target
 
 [Service]
 Type=oneshot
