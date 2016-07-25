@@ -1,3 +1,101 @@
+commit 2c376f53e113f8d283c75d2f9d7ea6d28aa09eb5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 24 01:14:18 2016 +0000
+
+    cleanup
+
+commit 313d727d41d1224d7a02bb1f3bd9e86cfe8a6c25
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 24 01:13:37 2016 +0000
+
+    cleanup
+
+commit fc09a9f1985cc80a95da7202b7c3798505a3f9cf
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 24 01:13:21 2016 +0000
+
+    cleanup
+
+commit bbd723891d9ba4a85ee325ab70316e78a73b0a5c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 24 01:12:17 2016 +0000
+
+    cleanup
+
+commit 0f5fee3fb929700c49f1286f7d70476dd0118050
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 24 01:11:23 2016 +0000
+
+    cleanup
+
+commit 781afae4f847bd4e5f1f60ad10f9c6e86c964044
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 24 01:08:19 2016 +0000
+
+    Qubes Whonix Torified Updates Proxy Check: wait for network-online.target
+    
+    rather than network.target
+
+commit fa6fe8cea58706652d0ac15188612f75c3f84f19
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 24 00:46:38 2016 +0000
+
+    override with  || true, just in case
+    
+    https://github.com/QubesOS/qubes-issues/issues/2191
+
+commit cce19fd1fdf08056a428cadddb817365208337f0
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 24 00:44:47 2016 +0000
+
+    bind-dirs.sh legacy snippet: add shebang for syntax highlighting
+    
+    https://github.com/QubesOS/qubes-issues/issues/2191
+
+commit 2660abb14fbf77ec60adebd5207c537542910af5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 24 00:43:03 2016 +0000
+
+    only run bind-dirs.sh legacy function on mount, not on unmount
+    
+    https://github.com/QubesOS/qubes-issues/issues/2191
+
+commit f3acd5d78f28864505a405b5db275aba33876d7a
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 24 00:20:51 2016 +0000
+
+    run bind-dirs.sh legacy function only once
+    
+    https://github.com/QubesOS/qubes-issues/issues/2191
+
+commit 4f09e149ea7e4975037f8389267fb385d5ab3a2b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jul 22 21:03:32 2016 +0000
+
+    qubes-whonix-network.service: remove Before=qubes-update-check.service qubes-update-check.timer
+    
+    for simplification
+    
+    this is up to qubes-update-check
+
+commit e4869c40461c14168531cf83acdb8281cdf302d1
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jul 22 20:18:56 2016 +0000
+
+    Before=network-pre.target
+
+commit 6be0af746b74623502c78b89c6494b0be4bda932
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jul 22 20:13:47 2016 +0000
+
+    removed trailing spaces
+
+commit 0fcbfd1ca440de133546260ab245ecff47375c66
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jul 22 19:49:09 2016 +0200
+
+    bumped changelog version
+
 commit e695bd889fa3a88fd85b931dbabbae3819f8e70e
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Jul 22 19:13:35 2016 +0200
