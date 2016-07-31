@@ -9,9 +9,11 @@
 
 [Unit]
 Description=Qubes Whonix firewall updater
+
+DefaultDependencies=no
+
 Before=network-pre.target
-Before=qubes-network.service
-Before=qubes-whonix-network.service
+Wants=network-pre.target
 
 ## Preventing race condition with
 ## /etc/xdg/autostart/qubes-whonixsetup.desktop.
@@ -19,6 +21,17 @@ Before=qubes-whonix-network.service
 ## Not the most efficient / clean solution.
 ## https://phabricator.whonix.org/T424
 Before=qubes-gui-agent.service
+
+## For /rw/whonix_firewall.d.
+After=local-fs.target
+
+## Why is this needed?
+After=qubes-mount-dirs.service
+
+## Legacy.
+After=qubes-mount-home.service
+
+After=sysinit.target
 
 [Service]
 Type=oneshot

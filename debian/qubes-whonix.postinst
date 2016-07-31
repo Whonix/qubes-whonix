@@ -34,7 +34,6 @@ case "${1}" in
         # make sure user is added to debian-tor group
         groupadd --force debian-tor
         usermod -a --groups debian-tor user
-
         ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

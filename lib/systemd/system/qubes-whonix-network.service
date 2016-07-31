@@ -6,10 +6,17 @@
 Description=sets up Qubes-Whonix-Gateway external and internal network interface
 ## Does nothing on Whonix-Workstation.
 
-Before=network-pre.target
+DefaultDependencies=no
 
 ## There is no iptables.service as of Debian jessie.
-After=iptables.service
+#After=iptables.service
+#After=qubes-whonix-firewall.service
+
+Before=network.target
+Wants=network.target
+
+After=sysinit.target
+After=network-pre.target
 
 [Service]
 Type=oneshot
@@ -27,3 +34,6 @@ WantedBy=multi-user.target
 ## (echo "*nat"; echo "$RULE1"; echo "$RULE2"; echo COMMIT) | iptables-restore -n
 ## Which could interfere with Whonix firewall rules.
 Alias=qubes-network.service
+
+## Prevent systemd ordering cycle.
+Alias=networking.service

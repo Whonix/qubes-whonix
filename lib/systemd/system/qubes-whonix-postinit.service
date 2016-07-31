@@ -17,8 +17,6 @@ Description=Qubes-Whonix post init
 ConditionPathExists=|/var/run/qubes-service/whonix-gateway
 ConditionPathExists=|/var/run/qubes-service/whonix-workstation
 
-Before=qubes-whonix-network.service
-
 ## So changes to for example,
 ## - /usr/share/anon-kde-streamiso/share/config/kioslaverc or
 ## - /home/user/.torchat/torchat.ini are applied before these start.
@@ -28,14 +26,20 @@ Before=tor.service
 Before=tor@default.service
 Before=rinetd.service
 Before=control-port-filter-python.service
-Before=qubes-whonix-firewall.service
 Before=whonixcheck.service
 Before=sdwdate.service
 Before=anon-ws-disable-stacked-tor.service
 
-After=qubes-mount-dirs.service
+## Probably already implicitly added.
 After=qubes-whonix-sysinit.service
 
+## For Qubes R3.2 and above.
+After=local-fs.target
+
+## Legacy. (Versions lower than Qubes R3.2-rc2)
+After=qubes-mount-dirs.service
+
+## Legacy.
 ## qubes-mount-home.service was renamed to qubes-mount-dirs.service.
 ## Keeping qubes-mount-home.service because not everyone has updated yet.
 ## It is curcial to run this service after qubes-mount-[home|dir].service,

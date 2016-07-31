@@ -8,9 +8,15 @@
 
 [Unit]
 Description=Qubes Whonix Torified Updates Proxy Check
-After=qubes-whonix-network.service
-After=qubes-whonix-firewall.service
+
+Before=qubes-updates-proxy.service
+Before=qubes-updates-cache.service
+
+After=network.target
+Wants=network.target
+
 After=network-online.target
+Wants=network-online.target
 
 [Service]
 Type=oneshot
