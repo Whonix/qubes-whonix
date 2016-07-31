@@ -1,3 +1,27 @@
+commit bcdc2e6a15b0f3558ca34407f0716af33dacbebe
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 31 20:03:24 2016 +0000
+
+    Qubes R3.2 compatibility fixes
+    
+    fix systemd dependencies
+    
+    start Qubes-Whonix firewall earlier
+    
+    start qubes-torified-updates-check before qubes-updates-(proxy|cache)
+
+commit bdc51b231790fbc017df02ec6ea4ec18273005b7
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jul 25 20:43:39 2016 +0000
+
+    emable xtrace for usr/lib/qubes-whonix/init/network-proxy-setup
+
+commit 22cf0c630263c10cb72ad8ae369a73c4ac84420c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jul 25 20:04:24 2016 +0000
+
+    bumped changelog version
+
 commit 2c376f53e113f8d283c75d2f9d7ea6d28aa09eb5
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jul 24 01:14:18 2016 +0000
