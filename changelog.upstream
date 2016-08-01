@@ -1,3 +1,19 @@
+commit bbfe3682c718b4fd38907a9165972f8c773b5748
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Aug 1 01:28:10 2016 +0000
+
+    added Conflicts=shutdown.target to qubes-whonix-(firewall|network)
+    
+    since we are now using DefaultDependencies=no
+    
+    https://phabricator.whonix.org/T528
+
+commit f0d3995a70eb3b03f11e22057b45477fb59dd787
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 31 20:05:20 2016 +0000
+
+    bumped changelog version
+
 commit bcdc2e6a15b0f3558ca34407f0716af33dacbebe
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jul 31 20:03:24 2016 +0000
