@@ -33,6 +33,8 @@ After=qubes-mount-home.service
 
 After=sysinit.target
 
+Conflicts=shutdown.target
+
 [Service]
 Type=oneshot
 RemainAfterExit=yes

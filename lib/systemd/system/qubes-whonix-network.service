@@ -18,6 +18,8 @@ Wants=network.target
 After=sysinit.target
 After=network-pre.target
 
+Conflicts=shutdown.target
+
 [Service]
 Type=oneshot
 RemainAfterExit=yes
