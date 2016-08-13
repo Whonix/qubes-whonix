@@ -55,6 +55,8 @@ firewall_lockdown() {
    $iptables_cmd -t nat -X
    $iptables_cmd -t mangle -F
    $iptables_cmd -t mangle -X
+   $iptables_cmd -t raw -F
+   $iptables_cmd -t raw -X
 }
 
 if command -v "qubesdb-read" >/dev/null 2>&1 ; then
