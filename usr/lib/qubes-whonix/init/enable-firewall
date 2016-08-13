@@ -57,6 +57,17 @@ firewall_lockdown() {
    $iptables_cmd -t mangle -X
    $iptables_cmd -t raw -F
    $iptables_cmd -t raw -X
+
+   $ip6tables_cmd -P INPUT DROP
+   $ip6tables_cmd -P OUTPUT DROP
+   $ip6tables_cmd -P FORWARD DROP
+
+   $ip6tables_cmd -F
+   $ip6tables_cmd -X
+   $ip6tables_cmd -t mangle -F
+   $ip6tables_cmd -t mangle -X
+   $ip6tables_cmd -t raw -F
+   $ip6tables_cmd -t raw -X
 }
 
 if command -v "qubesdb-read" >/dev/null 2>&1 ; then
