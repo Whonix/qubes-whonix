@@ -27,7 +27,7 @@
 [ -n "$iptables_cmd" ] || iptables_cmd="iptables --wait"
 [ -n "$ip6tables_cmd" ] || ip6tables_cmd="ip6tables --wait"
 
-on_failure() {
+failed_status_file_create() {
    mkdir -p /var/run/whonix-firewall || true
    touch /var/run/whonix-firewall/failed.status || true
 
@@ -36,10 +36,6 @@ on_failure() {
    ## mkdir is required for simpler Non-Qubes-Whonix code.
    mkdir -p /var/run/qubes-service || true
    touch /var/run/qubes-service/whonix-firewall-failed || true
-
-   firewall_lockdown || true
-
-   exit 1
 }
 
 firewall_lockdown() {
@@ -68,6 +64,12 @@ firewall_lockdown() {
    $ip6tables_cmd -t mangle -X
    $ip6tables_cmd -t raw -F
    $ip6tables_cmd -t raw -X
+}
+
+on_failure() {
+   failed_status_file_create
+   firewall_lockdown || true
+   exit 1
 }
 
 if command -v "qubesdb-read" >/dev/null 2>&1 ; then
