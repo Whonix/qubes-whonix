@@ -37,7 +37,7 @@ on_failure() {
    mkdir -p /var/run/qubes-service || true
    touch /var/run/qubes-service/whonix-firewall-failed || true
 
-   firewall_lockdown
+   firewall_lockdown || true
 
    exit 1
 }
