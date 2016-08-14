@@ -24,7 +24,7 @@ qubes_vm_type="$(qubesdb-read /qubes-vm-type)"
 # This script should run after qubes-sysinit and should not need to create the
 # qubes-service directory as it should have already been created.  This is only
 # a defensive action since we rely on certain services being present to determine
-# the overall boot status of Whonix, like 'whonix-firewall-failed' notice.
+# the overall boot status of Whonix.
 mkdir -p /var/run/qubes-service
 
 # Template
