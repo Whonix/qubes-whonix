@@ -25,7 +25,7 @@ Wants=network-pre.target
 ## https://phabricator.whonix.org/T424
 Before=qubes-gui-agent.service
 
-## For /rw/whonix_firewall.d.
+## For /etc/whonix_firewall.d and Qubes /rw/whonix_firewall.d.
 After=local-fs.target
 
 ## Why is this needed?
