@@ -41,7 +41,7 @@ Conflicts=shutdown.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/lib/qubes-whonix/init/enable-firewall
+ExecStart=/usr/lib/anon-shared-helper-scripts/enable-firewall
 StandardOutput=syslog
 
 [Install]
