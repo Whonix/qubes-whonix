@@ -8,6 +8,12 @@ Description=sets up Qubes-Whonix-Gateway external and internal network interface
 
 DefaultDependencies=no
 
+## Fail Closed Mechanism.
+## When the Whonix firewall systemd service failed, do not bring up the
+## network.
+After=whonix-firewall.service
+Requires=whonix-firewall.service
+
 ## There is no iptables.service as of Debian jessie.
 #After=iptables.service
 
