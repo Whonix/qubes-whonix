@@ -26,11 +26,6 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Display alert that firewall was unable to be enabled.
-if [ -e /var/run/qubes-service/whonix-firewall-failed ]; then
-    /usr/lib/qubes-whonix/alert firewall-failed /usr/lib/qubes-whonix/messages.yaml
-fi
-
 qubes_vm_type="$(qubesdb-read /qubes-vm-type)"
 
 # Template

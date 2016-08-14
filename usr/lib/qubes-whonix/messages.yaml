@@ -16,16 +16,6 @@ update:
       <p>Please ensure that this TemplateVM has a Whonix-Gateway as its NetVM.</p>
       <p>No updates are possible without an active (running) Whonix-Gateway VM.</p>
 
-firewall-failed:
-  icon: Critical
-  en:
-    title: whonix_firewall failed to load
-    message: |
-      <p><b>whonix_firewall failed to load!</b></p>
-      <p>The whonix_firewall failed to load for some unknown reason. This could be
-      due to the firewall being mis-configured or race-condition.</p>
-      <p>Try restarting the VM to see if this error persists.</p>
-
 tor-disabled:
   icon: Warning
   en:
