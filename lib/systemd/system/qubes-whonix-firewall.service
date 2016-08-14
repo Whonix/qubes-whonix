@@ -8,7 +8,7 @@
 ##
 ## (Does nothing inside Qubes TemplateVMs.)
 ##
-## If loading Whonix Firewall fails, creates /var/run/whonix-firewall/failed.status.
+## If loading Whonix Firewall fails, creates /var/run/anon-firewall/failed.status.
 
 [Unit]
 Description=Qubes-Whonix firewall loader
