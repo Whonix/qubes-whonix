@@ -10,7 +10,6 @@ DefaultDependencies=no
 
 ## There is no iptables.service as of Debian jessie.
 #After=iptables.service
-#After=qubes-whonix-firewall.service
 
 Before=network.target
 Wants=network.target
