@@ -39,12 +39,12 @@ failed_status_file_create() {
 }
 
 firewall_lockdown() {
-   # Set secure defaults.
+   ## Set secure defaults.
    $iptables_cmd -P INPUT DROP
    $iptables_cmd -P FORWARD DROP
    $iptables_cmd -P OUTPUT DROP
 
-   # Flush old rules.
+   ## Flush old rules.
    $iptables_cmd -F
    $iptables_cmd -X
    $iptables_cmd -t nat -F
@@ -54,10 +54,12 @@ firewall_lockdown() {
    $iptables_cmd -t raw -F
    $iptables_cmd -t raw -X
 
+   ## Set secure defaults.
    $ip6tables_cmd -P INPUT DROP
    $ip6tables_cmd -P OUTPUT DROP
    $ip6tables_cmd -P FORWARD DROP
 
+   ## Flush old rules.
    $ip6tables_cmd -F
    $ip6tables_cmd -X
    $ip6tables_cmd -t mangle -F

@@ -3,13 +3,15 @@
 # Copyright (C) 2015 - 2016 Patrick Schleizer <adrelanos@riseup.net>
 # License: GPL-2+
 
-## On Whonix-Gateway or Whonix-Workstation (if /var/run/qubes-service/whonix-gateway or
-## /var/run/qubes-service/whonix-workstation exists), loads Whonix Firewall.
+## On Whonix-Gateway or Whonix-Workstation (if /usr/share/anon-gw-base-files/gateway or
+## /usr/share/anon-ws-base-files/workstation exists), loads Whonix Firewall.
 ##
-## If loading Whonix Firewall fails, creates /var/run/qubes-service/whonix-firewall-failed.
+## (Does nothing inside Qubes TemplateVMs.)
+##
+## If loading Whonix Firewall fails, creates /var/run/whonix-firewall/failed.status.
 
 [Unit]
-Description=Qubes Whonix firewall updater
+Description=Qubes-Whonix firewall loader
 
 DefaultDependencies=no
 
