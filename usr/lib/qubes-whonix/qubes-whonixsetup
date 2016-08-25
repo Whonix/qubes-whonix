@@ -39,16 +39,16 @@ if [ "$qubes_vm_type" = "TemplateVM" ]; then
 # Gateway
 elif [ -e /usr/share/anon-gw-base-files/gateway ]; then
 
-    # If Tor is disabled, start whonix-setup-wizard in quick mode.
-    if grep "^#DisableNetwork 0$" /etc/tor/torrc; then
-        kdesudo whonix-setup-wizard quick
-    fi
-
     # Display alert that 'whonix-tor-disable' service flag is set and it will need to
     # to manually unset if user wants to be able to boot with Tor enabled.
     if [ -e /var/run/qubes-service/whonix-tor-disable ]; then
         /usr/lib/qubes-whonix/alert tor-disabled /usr/lib/qubes-whonix/messages.yaml
         exit 0
+    fi
+
+    # If Tor is disabled, start whonix-setup-wizard in quick mode.
+    if grep "^#DisableNetwork 0$" /etc/tor/torrc; then
+        kdesudo whonix-setup-wizard quick
     fi
 
     ## When whonixcheck is automatically started at boot, while Tor is disabled
