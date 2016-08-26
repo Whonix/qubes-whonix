@@ -23,6 +23,7 @@ Wants=network.target
 After=sysinit.target
 After=network-pre.target
 
+Before=shutdown.target
 Conflicts=shutdown.target
 
 [Service]
