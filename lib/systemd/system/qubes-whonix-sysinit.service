@@ -14,6 +14,9 @@ DefaultDependencies=no
 Before=sysinit.target
 After=proc-xen.mount systemd-modules-load.service qubes-db.service qubes-sysinit.service
 
+Before=shutdown.target
+Conflicts=shutdown.target
+
 [Service]
 Type=oneshot
 RemainAfterExit=yes
