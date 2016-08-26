@@ -3,3 +3,4 @@
 ## See the file COPYING for copying conditions.
 
 ALL ALL=NOPASSWD: /usr/sbin/service whonixcheck *
+ALL ALL=NOPASSWD: /usr/sbin/virt-what *
