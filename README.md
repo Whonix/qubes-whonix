@@ -9,6 +9,59 @@ Whonix-Workstation should run as an AppVM.
 
 Template updates over Tor.
 
+Package: qubes-whonix-shared-packages-recommended
+Architecture: all
+## python-xdg can be removed from "Depends:" at some point:
+## https://github.com/QubesOS/qubes-issues/issues/1102
+Depends: gnome-packagekit,
+gnome-terminal,
+network-manager (>= 0.8.1-1),
+network-manager-gnome,
+gnome-themes-standard,
+xsettingsd,
+libnotify-bin,
+mate-notification-daemon,
+python-nautilus,
+${misc:Depends}
+Description: Recommended packages for Qubes-Whonix-Gateway and Qubes-Whonix-Workstation
+# Recommended packages for Qubes-Whonix-Gateway and Qubes-Whonix-Workstation #
+
+A metapackage, which includes recommended packages to ensure, Qubes-Whonix
+standard tools are available and other useful recommended packages.
+
+Safe to remove, if you know what you are doing.
+
+Package: qubes-whonix-gateway-packages-recommended
+Architecture: all
+Depends: network-manager,
+tinyproxy,
+yum,
+yum-utils,
+${misc:Depends}
+Description: Recommended packages for Qubes-Whonix-Gateway
+# Recommended packages for Qubes-Whonix-Gateway #
+
+A metapackage, which installs packages, which are recommended for
+Qubes-Whonix-Gateway.
+
+Safe to remove, if you know what you are doing.
+
+Package: qubes-whonix-workstation-packages-recommended
+Architecture: all
+Depends: qubes-thunderbird,
+qubes-gpg-split,
+qubes-pdf-converter,
+cups,
+system-config-printer,
+${misc:Depends}
+Description: Recommended packages for Qubes-Whonix-Workstation
+# Recommended packages for Qubes-Whonix-Workstation #
+
+A metapackage, which installs packages, which are recommended for
+Qubes-Whonix-Workstation.
+
+Feel free to remove, if you know what you are doing.
+
 (This package description has been [automatically](https://github.com/Whonix/whonix-developer-meta-files/blob/master/debug-steps/packaging-helper-script) extracted and mirrored from `debian/control`.)
 
 # Generic Readme #
@@ -56,7 +109,7 @@ gpg --export 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA | sudo apt-key add -
 3\. Add Whonix's APT repository.
 
 ```
-echo "deb http://sourceforge.net/projects/whonixdevelopermetafiles/files/internal/ wheezy main" > /etc/apt/sources.list.d/whonix.list
+echo "deb http://deb.whonix.org jessie main" > /etc/apt/sources.list.d/whonix.list
 ```
 
 4\. Update your package lists.
