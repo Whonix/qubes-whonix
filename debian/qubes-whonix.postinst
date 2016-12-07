@@ -45,7 +45,7 @@ case "${1}" in
             case "${trigger}" in
 
                 # Replace IP addresses
-                /etc/cpfpy.d/40_qubes.conf | \
+                /usr/share/whonix-gw-network-conf/network_internal_ip.txt | \
                 /etc/resolv.conf.anondist | \
                 /etc/rinetd.conf.anondist | \
                 /etc/tor/torrc | \

@@ -40,3 +40,4 @@ rm_conffile /etc/whonix.d/40_qubes
 
 ## Whonix 13 leftover
 rm_conffile /etc/systemd/system/multi-user.target.wants/qubes-whonix-firewall.service
+rm_conffile /etc/cpfpy.d/40_qubes.conf
