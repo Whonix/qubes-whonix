@@ -178,7 +178,7 @@ def maybe_reload_tor():
         except (IOError):
             return
 
-    if re.search(r'^DisableNetwork 0$', text,  re.MULTILINE):
+    if re.search(r'^DisableNetwork 0$', text, re.MULTILINE):
         try:
             if subprocess.check_output(['systemctl', 'is-active', 'tor@default']):
                 # Restarting instead of reloading due to upstream Tor bug
