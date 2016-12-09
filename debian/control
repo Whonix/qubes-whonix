@@ -19,6 +19,7 @@ Standards-Version: 3.9.6
 Package: qubes-whonix
 Architecture: all
 Depends: qubes-core-agent (>= 2.1.60),
+ qubesdb-vm,
  python-guimessages,
  whonix-setup-wizard,
  ethtool,
