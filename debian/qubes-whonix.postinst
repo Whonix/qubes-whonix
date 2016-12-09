@@ -57,14 +57,16 @@ case "${1}" in
                 /usr/share/anon-kde-streamiso/share/config/kioslaverc | \
                 /usr/share/anon-torchat/.torchat/torchat.ini | \
                 /usr/share/tor/tor-service-defaults-torrc.anondist)
-                    /usr/lib/qubes-whonix/replace-ips
+                    ## Do not break in case qubesdb-vm is also upgraded and not running.
+                    ## https://github.com/QubesOS/qubes-issues/issues/2497
+                    /usr/lib/qubes-whonix/replace-ips || true
                     ;;
 
                 # Restart firewall
                 /usr/bin/whonix_firewall | \
                 /usr/share/tor/tor-service-defaults-torrc.anondist)
-                    /usr/lib/qubes-whonix/init/qubes-whonix-sysinit
-                    /usr/lib/anon-shared-helper-scripts/enable-firewall
+                    /usr/lib/qubes-whonix/init/qubes-whonix-sysinit || true
+                    /usr/lib/anon-shared-helper-scripts/enable-firewall || true
                     ;;
 
                 *)
