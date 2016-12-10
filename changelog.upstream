@@ -1,3 +1,273 @@
+commit e4a2c7c41d7a61f3422259906c8a376211578101
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Dec 9 20:18:20 2016 +0100
+
+    qubes-whonix add dependency on qubesdb-vm
+    
+    https://github.com/QubesOS/qubes-issues/issues/2497
+
+commit 0f1fed96ed94db38822946bd64a75fd81893604e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Dec 9 20:14:59 2016 +0100
+
+    postinst: Do not break in case qubesdb-vm is also upgraded and not running.
+    
+    https://github.com/QubesOS/qubes-issues/issues/2497
+
+commit d054640facbb7df9dfe0b486d7fdbc4b455e40f5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Dec 7 22:51:19 2016 +0000
+
+    Before=tor-controlport-filter.service
+    
+    https://phabricator.whonix.org/T573
+
+commit 1e69c6a34c67ab843444bf21e69ccb1fc8a3692f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Dec 7 22:43:15 2016 +0000
+
+    minor
+
+commit c8668b62c7e1cad281bf0117dd87a10d354a17cb
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Dec 7 22:42:31 2016 +0000
+
+    remove obsolete comment
+
+commit 85e00300e570139a588c1d0d2f0b20b05ecc60aa
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Dec 7 22:40:24 2016 +0000
+
+    - adjust for control port filter by Tails
+    - IP replace /usr/share/whonix-gw-network-conf/network_internal_ip.txt
+    
+    https://phabricator.whonix.org/T573
+
+commit cdf26f1f0ca1fbb7425edcf852b42d73d2e7c6d9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Nov 27 00:58:35 2016 +0100
+
+    sudoers
+    
+    https://github.com/QubesOS/qubes-doc/pull/228#issuecomment-263093115
+
+commit 2cb07ad6b703592240c1b682e0f53c102d3a9b57
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Nov 21 17:42:30 2016 +0000
+
+    readme
+
+commit 92eab9d132a640ca8421949c348e098557be0465
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Sep 9 16:09:14 2016 +0000
+
+    Comment out /var/lib/whonixcheck permission fix.
+    
+    This cannot work the legacy function since it is run before function bind_dirs.
+    
+    Will be reimplemented in whonix-legacy.
+    
+    https://phabricator.whonix.org/T533
+
+commit 920e1592e9d54e213c3a84d06752ea1dc6f238d2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Aug 26 20:08:24 2016 +0000
+
+    qubes-whonix-sysinit.service:
+    Before=shutdown.target
+    Conflicts=shutdown.target
+
+commit 644c0fbbd67bf628100783f688d3a3a5177d98be
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Aug 26 20:07:50 2016 +0000
+
+    qubes-whonix-network.service: Before=shutdown.target
+
+commit a2a9da6775c6a02a9764337f4bbafb34bb25ca1e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Aug 25 16:25:03 2016 +0000
+
+    sudo --non-interactive
+    
+    https://phabricator.whonix.org/T549
+
+commit aedc2574f02e8d73812ea2b7bdab69639ee84b2d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Aug 25 02:37:21 2016 +0000
+
+    fix, do not restart whonixcheck in redundant cases
+    
+    comments
+
+commit 88279e6061eff33dceeb21f92fe27ff13aee8dbe
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Aug 25 02:30:02 2016 +0000
+
+    fix
+
+commit 1c793c84f119a080dd79b0d956fad4bb864d4efa
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Aug 25 01:15:22 2016 +0000
+
+    legacy, change /var/lib/whonixcheck permissions to user 'whonixcheck'
+    
+    https://phabricator.whonix.org/T533
+
+commit e6c261f1a2aba563696b5f8eac10070ca0bad9ab
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 14 23:06:05 2016 +0000
+
+    removed Whonix firewall notice because this was merged into whonixcheck
+    
+    https://phabricator.whonix.org/T488
+
+commit ffe508a7c18bc09be20d4344369fb1114cde38f8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 14 23:02:00 2016 +0000
+
+    comment
+
+commit 70ab3deeba7bcd1695dd86702a7b5656ba0db9be
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 14 22:59:25 2016 +0000
+
+    cleanup
+    
+    no longer required:
+    ConditionPathExists=!/var/run/qubes-service/whonix-firewall-failed
+    
+    because network will no longer come up on Whonix firewall error.
+
+commit edd95e52b935029bca89642bba86f29a59ebbf45
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 14 20:19:00 2016 +0000
+
+    Add Fail Closed Mechanism.
+    
+    When the Whonix firewall systemd service failed, do not bring up the network.
+    
+    After=whonix-firewall.service
+    Requires=whonix-firewall.service
+    
+    Related:
+    https://github.com/QubesOS/qubes-issues/issues/2248
+
+commit d8a439fa8f4364a22918d2c73db39cac6f27eef5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 14 18:02:49 2016 +0000
+
+    comment
+
+commit d041c02e4a6b47cb63f0b1bdd85cd97415125438
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 14 17:58:26 2016 +0000
+
+    clean up /etc/systemd/system/multi-user.target.wants/qubes-whonix-firewall.service
+
+commit ba480ac0b1f40406f36da1b0de04bdcdb97b2482
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 14 18:23:35 2016 +0200
+
+    migrate qubes-whonix-firewall as whonix-frewall systemd service to whonix-(gw|ws)-firewall packages
+
+commit 8bceb986f149b3571eae7dc5fc244cee675a8910
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 14 16:19:05 2016 +0200
+
+    move enable-firewall script to anon-shared-helper-scripts to make it more generic
+
+commit f9fa30066826d5468337b4a515edbe455fcfcde5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 14 16:13:31 2016 +0200
+
+    make it more generic, /var/run/whonix-firewall -> /var/run/anon-firewall
+
+commit fd987814dad7acbab22217407fdf7022896d3263
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 14 16:12:01 2016 +0200
+
+    comment
+
+commit 48a9a00e5dfc6fc1e2813697d14621010f733287
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 14 16:10:20 2016 +0200
+
+    comment
+
+commit 3608631ea62ed158cb3272dee1f590bafbf13ca5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 14 16:07:57 2016 +0200
+
+    comments
+
+commit b1fc6460cb54e621e059ad59a703b90ec9f2f40e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 14 16:03:30 2016 +0200
+
+    copyright
+
+commit d7d34212063e4cf3a330b9ada07b85ffdc03950d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Aug 13 02:13:30 2016 +0200
+
+    refactoring
+
+commit dbcc232cb5bafbc71ae0187a6a9de4b622deb744
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Aug 13 02:07:46 2016 +0200
+
+    use || true on firewall_lockdown function
+
+commit 7fa168de1e13574414ad96c7a722471aae303fe5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Aug 13 02:05:27 2016 +0200
+
+    drop also IPv6 traffic in firewall_lockdown function
+    
+    not required right now, because IPv6 is disabled in Whonix by default, but good to have for the future
+
+commit 5fad8972687a476526c5b99b5c157d34c9a6dd6d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Aug 13 02:04:03 2016 +0200
+
+    flush also raw table in firewall_lockdown function
+
+commit cc2caa9c1d8ba48e7ea9e95d4b4428215928e4f4
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Aug 13 02:01:27 2016 +0200
+
+    refactor enable-firewall script
+    
+    useful to implement firewall on-failure network lockdown feature
+
+commit 233b7fd11c14fec58204d513747d496aaefcb386
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Aug 13 01:46:35 2016 +0200
+
+    copyright
+
+commit 4c5b1736481de2908d4357decc465195df963a0f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Aug 13 01:45:08 2016 +0200
+
+    no longer source utility functions, since no longer required
+
+commit 9875ea0e36bdb3cf17c261c10d98c18e8eb2f65f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Aug 10 14:36:48 2016 +0000
+
+    fix, allow qubes-whonixsetup restarting whonixcheck in /etc/sudoers.d
+    
+    Thanks to @crat0z for reporting this bug!
+    
+    https://github.com/QubesOS/qubes-doc/pull/176
+
+commit 23850a28e5947f81957a249bbeab1fdf3794cbed
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Aug 1 01:31:49 2016 +0000
+
+    bumped changelog version
+
 commit bbfe3682c718b4fd38907a9165972f8c773b5748
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Aug 1 01:28:10 2016 +0000
