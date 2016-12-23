@@ -36,9 +36,17 @@ fi
 
 source /usr/lib/qubes-whonix/utility_functions.sh
 
-## Check if a secure Tor update server is available
-curl_output="$(UWT_DEV_PASSTHROUGH="1" curl --silent --connect-timeout 10 "${PROXY_SERVER}")" || true
+timeout_seconds=120
 
-if echo "$curl_output" | grep -q "${PROXY_META}" ; then
-   touch /var/run/qubes-service/whonix-secure-proxy
-fi
+for (( i=1 ; i<=$timeout_seconds ; i++)); do
+   ## Check if a secure Tor update server is available
+   curl_output="$(UWT_DEV_PASSTHROUGH="1" curl --silent "${PROXY_SERVER}")" || true
+
+   if echo "$curl_output" | grep -q "${PROXY_META}" ; then
+      touch /var/run/qubes-service/whonix-secure-proxy
+      break
+   fi
+
+   sleep 1 &
+   wait "$!"
+done
