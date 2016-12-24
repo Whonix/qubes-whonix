@@ -23,6 +23,7 @@ Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/lib/qubes-whonix/init/torified-updates-proxy-check
 StandardOutput=syslog
+KillSignal=sigkill
 
 [Install]
 WantedBy=multi-user.target

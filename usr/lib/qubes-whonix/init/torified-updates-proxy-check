@@ -40,13 +40,12 @@ timeout_seconds=120
 
 for (( i=1 ; i<=$timeout_seconds ; i++)); do
    ## Check if a secure Tor update server is available
-   curl_output="$(UWT_DEV_PASSTHROUGH="1" curl --silent "${PROXY_SERVER}")" || true
-
-   if echo "$curl_output" | grep -q "${PROXY_META}" ; then
-      touch /var/run/qubes-service/whonix-secure-proxy
+   if curl_output="$(UWT_DEV_PASSTHROUGH="1" curl --silent "${PROXY_SERVER}")" ; then
+      if echo "$curl_output" | grep -q "${PROXY_META}" ; then
+          touch /var/run/qubes-service/whonix-secure-proxy
+      fi
       break
    fi
 
-   sleep 1 &
-   wait "$!"
+   sleep 1
 done
