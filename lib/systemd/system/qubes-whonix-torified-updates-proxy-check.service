@@ -24,6 +24,7 @@ RemainAfterExit=yes
 ExecStart=/usr/lib/qubes-whonix/init/torified-updates-proxy-check
 StandardOutput=syslog
 KillSignal=sigkill
+TimeoutStartSec=120
 
 [Install]
 WantedBy=multi-user.target
