@@ -52,7 +52,6 @@ Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/lib/qubes-whonix/init/qubes-whonix-postinit
 ExecStop=/usr/lib/qubes-whonix/bind-directories umount
-StandardOutput=syslog
 
 [Install]
 WantedBy=multi-user.target

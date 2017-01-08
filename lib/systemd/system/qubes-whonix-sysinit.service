@@ -21,7 +21,6 @@ Conflicts=shutdown.target
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/lib/qubes-whonix/init/qubes-whonix-sysinit
-StandardOutput=syslog
 
 [Install]
 WantedBy=sysinit.target
