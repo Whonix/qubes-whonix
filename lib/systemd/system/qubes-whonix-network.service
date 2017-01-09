@@ -4,6 +4,7 @@
 
 [Unit]
 Description=sets up Qubes-Whonix-Gateway external and internal network interface
+Documentation=https://github.com/Whonix/qubes-whonix
 ## Does nothing on Whonix-Workstation.
 
 DefaultDependencies=no

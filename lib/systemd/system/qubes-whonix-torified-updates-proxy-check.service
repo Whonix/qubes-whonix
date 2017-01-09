@@ -8,6 +8,7 @@
 
 [Unit]
 Description=Qubes Whonix Torified Updates Proxy Check
+Documentation=https://github.com/Whonix/qubes-whonix
 
 Before=qubes-updates-proxy.service
 Before=qubes-updates-cache.service

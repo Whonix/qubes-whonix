@@ -9,6 +9,7 @@
 
 [Unit]
 Description=conditionally enable qubes-updates-proxy
+Documentation=https://github.com/Whonix/qubes-whonix
 
 Before=qubes-updates-proxy.service
 
