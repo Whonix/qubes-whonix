@@ -1,3 +1,73 @@
+commit 9cb5f77eea5072c6210c1f03c6085fe7fb17da6f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jan 9 03:50:59 2017 +0000
+
+    Documentation=https://github.com/Whonix/qubes-whonix
+    
+    to fix stretch lintian warning
+
+commit 6afa69962e5bc1a02ec74e8ac628b8129f881cb6
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jan 8 05:41:46 2017 +0000
+
+    remove StandardOutput=syslog
+
+commit d65d3f37c8512dd7dacb5ef680043fa94d591b7c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Dec 25 02:25:44 2016 +0000
+
+    torified-updates-proxy-check: leave timeout to systemd unit
+    
+    since curl does not timeout and simpler to implement
+    
+    https://phabricator.whonix.org/T533
+
+commit 170fe0941c9c287d0a1c28e5cc9ab32844c728e5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 24 20:12:08 2016 +0100
+
+    torified-updates-proxy-check: fix, instant exit when connected to non-Torified updates proxy
+    
+    Thanks to @marmarek for the suggestion!
+    
+    https://github.com/Whonix/qubes-whonix/commit/1c99edbbce1f375591f2e42aaf679ba7492b4dd8#commitcomment-20288662
+
+commit 1c99edbbce1f375591f2e42aaf679ba7492b4dd8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Dec 23 23:41:54 2016 +0100
+
+    torified-updates-proxy-check: wait up to 120 seconds
+    
+    So it does not timeout if Whonix-Gateway is still in timesync-fail-closed mode.
+    
+    https://phabricator.whonix.org/T533
+
+commit 921754dc39dddab4072be942f8a3374c9c8c16e8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Dec 18 16:23:41 2016 +0100
+
+    fix sdwdate.service.d/40_qubes.conf and whonixcheck.service.d/40_qubes.conf
+    
+    ConditionPathExists=!/var/run/qubes-service/updates-proxy-setup
+    ->
+    ConditionPathExists=!/var/run/qubes/this-is-templatevm
+
+commit 542afe6e26f29d784dad4850fc0aeaedc66e98a8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Dec 18 16:17:53 2016 +0100
+
+    fix, delete lib/systemd/system/swap-file-creator.d/40_qubes.conf
+    
+    ineffective and there is a correct file
+    lib/systemd/system/swap-file-creator.service.d/40_qubes.conf
+    anyhow
+
+commit 988a1c5cbda1167d699339a3b74e5117e0c39300
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 10 02:25:03 2016 +0000
+
+    bumped changelog version
+
 commit e4a2c7c41d7a61f3422259906c8a376211578101
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Dec 9 20:18:20 2016 +0100
