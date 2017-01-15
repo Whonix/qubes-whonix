@@ -14,7 +14,7 @@ Build-Depends: debhelper (>= 9), faketime, genmkfile, dh-systemd (>= 1.5), pytho
 Homepage: https://github.com/Whonix/qubes-whonix
 Vcs-Browser: https://github.com/Whonix/qubes-whonix
 Vcs-Git: https://github.com/Whonix/qubes-whonix.git
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 
 Package: qubes-whonix
 Architecture: all
