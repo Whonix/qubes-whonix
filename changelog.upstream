@@ -1,3 +1,15 @@
+commit eeadf3ca6897a9b2032eccacdfd999b46887a8f0
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jan 15 08:35:39 2017 +0100
+
+    packaging, bumped Standards-Version from 3.9.6 to 3.9.8 for jessie support
+
+commit 8b73815377d3443cd02960cb8c10fc205fe3856c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Jan 12 02:56:13 2017 +0000
+
+    bumped changelog version
+
 commit 9cb5f77eea5072c6210c1f03c6085fe7fb17da6f
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Jan 9 03:50:59 2017 +0000
@@ -1628,7 +1640,7 @@ Date:   Mon Jul 27 15:59:33 2015 -0400
     Merge branch 'Whonix11'
     
     Conflicts:
-    	usr/lib/qubes-whonix/messages.yaml
+            usr/lib/qubes-whonix/messages.yaml
 
 commit df0f58f9f7c47a98ccde5c9343443c4352636af8
 Author: Jason Mehring <nrgaway@gmail.com>
@@ -1663,7 +1675,7 @@ Date:   Tue Jun 30 16:06:01 2015 +0200
 
     improved 'Whonix-Gateway NetVM required for updates' message
     Conflicts:
-    	usr/lib/qubes-whonix/messages.yaml
+            usr/lib/qubes-whonix/messages.yaml
 
 commit f441bd030e7a177ff1a40b4859e464a1ff6fd380
 Merge: 7b45851 d0b78fe
@@ -1716,8 +1728,8 @@ Date:   Tue Jun 23 17:38:04 2015 -0400
     Merge branch 'iptables_wait' of https://github.com/adrelanos/qubes-whonix into adrelanos-iptables_wait
     
     Conflicts:
-    	usr/lib/qubes-whonix/init/enable-firewall
-    	usr/lib/qubes-whonix/init/whonix-firewall-plugin
+            usr/lib/qubes-whonix/init/enable-firewall
+            usr/lib/qubes-whonix/init/whonix-firewall-plugin
 
 commit d660b48617d643f6a766f87f85722d38b88cbfdb
 Author: Jason Mehring <nrgaway@gmail.com>
@@ -2227,22 +2239,22 @@ Date:   Sat May 16 17:37:06 2015 -0400
     
     - Renamed all whonix related configuration files to use 40_qubes scheme.  Files:
         Common files modified
-    	 debian/qubes-whonix.postinst
-    	 debian/qubes-whonix.triggers
-    	 usr/lib/qubes-whonix/init/replace-ips
+             debian/qubes-whonix.postinst
+             debian/qubes-whonix.triggers
+             usr/lib/qubes-whonix/init/replace-ips
     
         Renamed etc/cpfpy.d/32_qubes -> etc/cpfpy.d/40_qubes
         Renamed etc/sdwdate.d/35_qubes_stream_isolation_plugin -> etc/sdwdate.d/40_qubes_stream_isolation_plugin
         Renamed etc/uwt.d/32_qubes -> etc/uwt.d/40_qubes
     
         Renamed etc/whonix_firewall.d/32_qubes -> etc/whonix_firewall.d/40_qubes
-    	 Related: usr/lib/qubes-whonix/init/whonix-firewall
+             Related: usr/lib/qubes-whonix/init/whonix-firewall
     
         Added etc/whonix.d/40_whonixcheck_qubes
-    	WHONIXCHECK_NO_EXIT_ON_UNSUPPORTED_VIRTUALIZER="1"
+            WHONIXCHECK_NO_EXIT_ON_UNSUPPORTED_VIRTUALIZER="1"
     
         Added etc/systemd/system/whonix-initializer.service.d/40_qubes.conf
-    	Prevent startup in Qubes
+            Prevent startup in Qubes
 
 commit 807ce27758786d8673699a7a69d9ef084e4b4229
 Author: Jason Mehring <nrgaway@gmail.com>
@@ -2487,7 +2499,7 @@ Date:   Fri Apr 24 13:00:52 2015 +0000
     Merge remote-tracking branch 'nrgaway/master' into mergetest
     
     Conflicts:
-    	debian/rules
+            debian/rules
 
 commit e6933afac073651016524690759e1483ec884270
 Author: Jason Mehring <nrgaway@gmail.com>
@@ -2768,7 +2780,7 @@ Date:   Sun Feb 22 21:32:31 2015 +0000
     Merge remote-tracking branch 'nrgaway/master'
     
     Conflicts:
-    	debian/changelog
+            debian/changelog
 
 commit 6ff6f30233e2a5d9434691c5b4b910600e20d36f
 Author: Jason Mehring <nrgaway@gmail.com>
