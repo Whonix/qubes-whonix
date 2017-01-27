@@ -9,6 +9,7 @@
 
 [Unit]
 Description=Init Qubes+Whonix services and settings
+Documentation=https://github.com/Whonix/qubes-whonix
 
 DefaultDependencies=no
 Before=sysinit.target
