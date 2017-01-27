@@ -1,3 +1,33 @@
+commit e7e56555a54244bc6fe97bae50e97dffba2096ee
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 27 12:42:05 2017 +0100
+
+    clean up dependencies to resolve issues upgrading to stretch
+    
+    xsettingsd
+    gnome-themes-standard
+    xinit (not up to qubes-whonix)
+    versioned depends (no longer required)
+    python-guimessages (already implicit dependency of whonix-setup-wizard)
+    network-manager
+    network-manager-gnome
+    gnome-packagekit
+    gnome-terminal
+    locales (Whonix firewall already depends on it)
+    iptables (Whonix firewall already depends on it)
+    initscripts (not up to qubes-whonix)
+    xdg-user-dirs (not used)
+    xen-utils-common (Qubes already depends on it)
+    mate-notification-daemon (maybe re-add later)
+    libnotify-bin (maybe re-add later)
+    notify-osd (maybe re-add later)
+
+commit b0eb001a05d1fcbe00b04cfc5ddfb27191366452
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jan 15 15:34:30 2017 +0000
+
+    bumped changelog version
+
 commit eeadf3ca6897a9b2032eccacdfd999b46887a8f0
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jan 15 08:35:39 2017 +0100
