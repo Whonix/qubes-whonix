@@ -1,3 +1,15 @@
+commit 80df0c3add567b911772b98de3e1a5e82ba136f7
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 27 12:15:29 2017 +0000
+
+    add Documentation=https://github.com/Whonix/qubes-whonix to fix lintian warning
+
+commit 80e3c5d7801dcfd33b76f9976b0c7ba0caacb623
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 27 12:13:57 2017 +0000
+
+    bumped changelog version
+
 commit 50a7b477273afc4bd97cbab1b819b57dfcb6825a
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Jan 27 12:13:25 2017 +0000
