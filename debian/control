@@ -10,7 +10,7 @@ Source: qubes-whonix
 Section: admin
 Priority: extra
 Maintainer: Patrick Schleizer <adrelanos@riseup.net>
-Build-Depends: debhelper (>= 9), faketime, genmkfile, dh-systemd (>= 1.5), python, dh-python, config-package-dev
+Build-Depends: debhelper (>= 9), faketime, genmkfile, dh-systemd, python, dh-python, config-package-dev
 Homepage: https://github.com/Whonix/qubes-whonix
 Vcs-Browser: https://github.com/Whonix/qubes-whonix
 Vcs-Git: https://github.com/Whonix/qubes-whonix.git
@@ -18,22 +18,13 @@ Standards-Version: 3.9.8
 
 Package: qubes-whonix
 Architecture: all
-Depends: qubes-core-agent (>= 2.1.60),
+Depends: qubes-core-agent,
  qubesdb-vm,
- python-guimessages,
  whonix-setup-wizard,
  ethtool,
- initscripts,
- iptables,
- locales,
  net-tools,
- notify-osd,
  sudo,
  systemd,
- xen-utils-common,
- xinit,
- xsettingsd,
- xdg-user-dirs,
  rsync,
  whonix-gw-firewall | whonix-ws-firewall,
  curl,
@@ -41,7 +32,6 @@ Depends: qubes-core-agent (>= 2.1.60),
  ${misc:Depends}
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
-Recommends: nautilus-open-terminal, gnome-packagekit, gnome-terminal, network-manager (>= 0.8.1-1), network-manager-gnome
 Description: Qubes Configuration for Whonix-Gateway and Whonix-Workstation
  This package contains all the scripts and configuration options to be able
  to run Whonix-Gateway and Whonix-Workstation within a Qubes environment.
@@ -56,16 +46,7 @@ Package: qubes-whonix-shared-packages-recommended
 Architecture: all
 ## python-xdg can be removed from "Depends:" at some point:
 ## https://github.com/QubesOS/qubes-issues/issues/1102
-Depends: gnome-packagekit,
- gnome-terminal,
- network-manager (>= 0.8.1-1),
- network-manager-gnome,
- gnome-themes-standard,
- xsettingsd,
- libnotify-bin,
- mate-notification-daemon,
- python-nautilus,
- ${misc:Depends}
+Depends: ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Gateway and Qubes-Whonix-Workstation
  A metapackage, which includes recommended packages to ensure, Qubes-Whonix
  standard tools are available and other useful recommended packages.
@@ -74,8 +55,7 @@ Description: Recommended packages for Qubes-Whonix-Gateway and Qubes-Whonix-Work
 
 Package: qubes-whonix-gateway-packages-recommended
 Architecture: all
-Depends: network-manager,
- tinyproxy,
+Depends: tinyproxy,
  yum,
  yum-utils,
  ${misc:Depends}
