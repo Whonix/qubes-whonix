@@ -44,8 +44,6 @@ Description: Qubes Configuration for Whonix-Gateway and Whonix-Workstation
 
 Package: qubes-whonix-shared-packages-recommended
 Architecture: all
-## python-xdg can be removed from "Depends:" at some point:
-## https://github.com/QubesOS/qubes-issues/issues/1102
 Depends: ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Gateway and Qubes-Whonix-Workstation
  A metapackage, which includes recommended packages to ensure, Qubes-Whonix
