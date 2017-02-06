@@ -1,3 +1,23 @@
+commit fe3a2329739ad78ad2a6c48ed7dfb5a0893006a2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jan 31 14:42:34 2017 +0100
+
+    cups and system-config-printer from qubes-whonix-workstation-packages-recommended
+    
+    https://phabricator.whonix.org/T619
+
+commit 1ca38f484e907b6fac857e432d81040b1cfd5cb3
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jan 31 14:40:03 2017 +0100
+
+    remove obsolete comment
+
+commit 8bfd0f5be6e4d9a41051c8b07c3dbaea8fa5c600
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 27 12:15:48 2017 +0000
+
+    bumped changelog version
+
 commit 80df0c3add567b911772b98de3e1a5e82ba136f7
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Jan 27 12:15:29 2017 +0000
