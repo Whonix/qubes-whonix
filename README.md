@@ -11,18 +11,7 @@ Template updates over Tor.
 
 Package: qubes-whonix-shared-packages-recommended
 Architecture: all
-## python-xdg can be removed from "Depends:" at some point:
-## https://github.com/QubesOS/qubes-issues/issues/1102
-Depends: gnome-packagekit,
-gnome-terminal,
-network-manager (>= 0.8.1-1),
-network-manager-gnome,
-gnome-themes-standard,
-xsettingsd,
-libnotify-bin,
-mate-notification-daemon,
-python-nautilus,
-${misc:Depends}
+Depends: ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Gateway and Qubes-Whonix-Workstation
 # Recommended packages for Qubes-Whonix-Gateway and Qubes-Whonix-Workstation #
 
@@ -33,8 +22,7 @@ Safe to remove, if you know what you are doing.
 
 Package: qubes-whonix-gateway-packages-recommended
 Architecture: all
-Depends: network-manager,
-tinyproxy,
+Depends: tinyproxy,
 yum,
 yum-utils,
 ${misc:Depends}
@@ -51,8 +39,6 @@ Architecture: all
 Depends: qubes-thunderbird,
 qubes-gpg-split,
 qubes-pdf-converter,
-cups,
-system-config-printer,
 ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Workstation
 # Recommended packages for Qubes-Whonix-Workstation #
