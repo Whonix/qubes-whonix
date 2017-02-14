@@ -206,7 +206,7 @@ def main(args):
 
         if whonix_mode() == 'workstation' and last_ip_local:
             try:
-	        ## FIXME: 'qubesdb-read /qubes-ip' could fail if NetVM is set to 'none'.
+                ## FIXME: 'qubesdb-read /qubes-ip' could fail if NetVM is set to 'none'.
                 current_ip_local = subprocess.check_output(['qubesdb-read', '/qubes-ip']).rstrip()
                 ## FIXME: 'qubesdb-read /qubes-gateway' could fail if NetVM is set to 'none'.
                 current_ip_gateway = subprocess.check_output(['qubesdb-read', '/qubes-gateway']).rstrip()
