@@ -77,8 +77,8 @@ elif [ -e /usr/share/anon-gw-base-files/gateway ]; then
            ## Check if whonixcheck daemon is even running before attempting to
            ## restart it. This aids systems where whonixcheck is not installed
            ## or disabled by the user.
-           if sudo --non-interactive service whonixcheck status ; then
-               sudo --non-interactive service whonixcheck restart || true
+           if sudo --non-interactive systemctl --no-pager status whonixcheck ; then
+               sudo --non-interactive systemctl --no-pager restart whonixcheck || true
            fi
         fi
     fi
