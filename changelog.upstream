@@ -1,3 +1,17 @@
+commit e88e8a183d693c94cc4e9dc07f63e86191e37929
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Feb 21 22:15:47 2017 +0000
+
+    use systemctl --no-pager to prevent blocking due to systemctl interactivity
+    
+    https://phabricator.whonix.org/T637
+
+commit 9c3193278440b7dec20984cb589e55e2d83cb887
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 17 14:05:29 2017 +0000
+
+    bumped changelog version
+
 commit 73a2aa4438f56aeafe7b8344a2e65c4dd0f514bb
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Feb 14 21:42:58 2017 +0000
