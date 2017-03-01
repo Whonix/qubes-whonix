@@ -1,0 +1,14 @@
+## Copyright (C) 2017 - 2017 Patrick Schleizer <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+[Unit]
+Description=redirect 9050 to Whonix-Gateway in Qubes TemplateVM socket
+Documentation=https://github.com/Whonix/qubes-whonix
+ConditionPathExists=/var/run/qubes/this-is-templatevm
+After=qubes-sysinit.service
+
+[Socket]
+ListenStream=127.0.0.1:9050
+
+[Install]
+WantedBy=sockets.target

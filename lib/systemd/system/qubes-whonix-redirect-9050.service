@@ -1,0 +1,18 @@
+## Copyright (C) 2017 - 2017 Patrick Schleizer <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+[Unit]
+Description=redirect 9050 to Whonix-Gateway in Qubes TemplateVM service
+Documentation=https://github.com/Whonix/qubes-whonix
+ConditionPathExists=/var/run/qubes/this-is-templatevm
+After=qubes-sysinit.service
+After=qubes-whonix-redirect-9050.socket
+
+[Service]
+ExecStart=/lib/systemd/systemd-socket-proxyd 10.152.152.10:9050
+PrivateTmp=yes
+
+[Install]
+## Fix lintian warning.
+## qubes-whonix: systemd-service-file-missing-install-key lib/systemd/system/qubes-whonix-redirect-9050.service
+WantedBy=none.target
