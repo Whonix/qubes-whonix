@@ -1,16 +1,16 @@
 ## Copyright (C) 2017 - 2017 Patrick Schleizer <adrelanos@riseup.net>
 ## See the file COPYING for copying conditions.
 
-# These are triggers and need full path to be triggered
+## These are triggers and need full path to be triggered
 qubes-whonix: command-with-path-in-maintainer-script postinst:* /usr/bin/whonix_firewall
 
-# That is how whonix-setup-wizard implements status files.
+## That is how whonix-setup-wizard implements status files.
 qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/disclaimer.skip
 qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/first_use_check.skip
 qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/whonixsetup.skip
 qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/whonix_repository.skip
 
-# false positive lintian warning for static systemd unit file
-# http://lists.alioth.debian.org/pipermail/pkg-systemd-maintainers/2017-March/014380.html
-# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=832771#32
+## false positive lintian warning for static systemd unit file
+## http://lists.alioth.debian.org/pipermail/pkg-systemd-maintainers/2017-March/014380.html
+## https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=832771#32
 qubes-whonix: systemd-service-file-missing-install-key lib/systemd/system/qubes-whonix-redirect-9050.service
