@@ -2,7 +2,7 @@
 ## See the file COPYING for copying conditions.
 
 [Unit]
-Description=redirect 9050 to Whonix-Gateway in Qubes TemplateVM socket
+Description=redirect 127.0.0.1:9050 to Whonix-Gateway in Qubes TemplateVM socket
 Documentation=https://github.com/Whonix/qubes-whonix
 ConditionPathExists=/var/run/qubes/this-is-templatevm
 After=qubes-sysinit.service
