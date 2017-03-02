@@ -12,4 +12,3 @@ Requires=qubes-whonix-redirect-9050.socket
 [Service]
 ExecStart=/lib/systemd/systemd-socket-proxyd 10.152.152.10:9050
 PrivateTmp=yes
-
