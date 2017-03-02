@@ -6,3 +6,8 @@ qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/dis
 qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/first_use_check.skip
 qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/whonixsetup.skip
 qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/whonix_repository.skip
+
+# false positive lintian warning for static systemd unit file
+# http://lists.alioth.debian.org/pipermail/pkg-systemd-maintainers/2017-March/014380.html
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=832771#32
+qubes-whonix: systemd-service-file-missing-install-key lib/systemd/system/qubes-whonix-redirect-9050.service
