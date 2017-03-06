@@ -1,3 +1,59 @@
+commit b932ac775da5d1a82c96167f8613ddc597ca8bcb
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Mar 2 16:44:29 2017 +0000
+
+    improve Description=
+
+commit 356e082814a1cfe552f6af02262bcfea306ac670
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Mar 2 16:41:03 2017 +0000
+
+    minor
+
+commit 67d2a83ddda09208d712b59f4e9be8bc48a59f12
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Mar 2 16:40:40 2017 +0000
+
+    copyright
+
+commit d15dea40023b671cb886796aa2e00df8f81d7bea
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Mar 2 16:40:16 2017 +0000
+
+    minor
+
+commit afcdbbaa6bc46d06b4dca4a37c60079d1d6305c8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Mar 2 16:39:15 2017 +0000
+
+    add Requires=qubes-whonix-redirect-9050.socket
+    
+    override lintian false positive
+    
+    remove [Install] section since static unit
+    
+    https://phabricator.whonix.org/T610
+
+commit 3344c64e6d622a5c429c8a1b56a394e5864e39d1
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Mar 1 20:19:35 2017 +0000
+
+    fix
+
+commit eed4d291769be16c518956eea539e3f0b61954b2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Mar 1 20:18:25 2017 +0000
+
+    redirect 9050 to in Qubes TemplateVM to sys-whonix for apt-transport-tor support
+    
+    https://phabricator.whonix.org/T610
+
+commit f31cc8d4e17b0efed3d97be96acff039199bb476
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Feb 27 01:42:38 2017 +0000
+
+    bumped changelog version
+
 commit e88e8a183d693c94cc4e9dc07f63e86191e37929
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Feb 21 22:15:47 2017 +0000
