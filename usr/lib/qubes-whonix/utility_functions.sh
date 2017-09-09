@@ -23,7 +23,11 @@
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # 'apt-get' proxy server
-PROXY_SERVER='http://10.137.255.254:8082/'
+if systemctl -q is-active qubes-updates-proxy-forwarder.socket; then
+    PROXY_SERVER='http://127.0.0.1:8082/'
+else
+    PROXY_SERVER='http://10.137.255.254:8082/'
+fi
 
 # A magic line in the error pages tinyproxy (from qubes-updates-proxy) and
 # squid (qubes-updates-cache) send on Whonix when something connects to their
