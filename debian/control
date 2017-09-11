@@ -28,6 +28,7 @@ Depends: qubes-core-agent,
  rsync,
  whonix-gw-firewall | whonix-ws-firewall,
  curl,
+ qubes-core-agent (<< 4.0.0-1) | qubes-core-agent-networking,
  ${python:Depends},
  ${misc:Depends}
 Provides: ${diverted-files}
@@ -56,6 +57,7 @@ Architecture: all
 Depends: tinyproxy,
  yum,
  yum-utils,
+ qubes-core-agent (<< 4.0.0-1) | qubes-core-agent-dom0-updates,
  ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Gateway
  A metapackage, which installs packages, which are recommended for
