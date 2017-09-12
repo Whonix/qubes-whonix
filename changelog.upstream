@@ -1,3 +1,95 @@
+commit 9a8d4b94865efceec7928d5498260a44241d96b2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Sep 12 02:44:53 2017 +0200
+
+    Include qubes-core-agent-passwordless-root on Qubes 4.0
+    
+    https://phabricator.whonix.org/T697
+    
+    Credits:
+    
+    Emulate commit by @marmarek from Whonix 13 branch.
+    
+    https://github.com/marmarek/qubes-whonix/commit/e5a50d037f7646bc10716f6aeecb7773cd99ac8b
+
+commit 34ec385b851b055a1da3be14ccbdd2993abf7deb
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Sep 11 23:13:28 2017 +0200
+
+    Merge remote-tracking branch 'origin/Whonix13' into Whonix13
+
+commit 47a8c243987d3e00bbc47b0e51623c92e36b45d5
+Merge: 112bf7a 19409f3
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Sep 11 18:38:41 2017 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 19409f396021fb9a18ec64586a80e6980fee5578
+Merge: 112bf7a 65818d5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Sep 11 16:34:58 2017 +0000
+
+    Merge pull request #4 from marmarek/qubes4
+    
+    Make qubes-whonix package compatible with Qubes 4.0
+
+commit 65818d5da96e88f6f8311ded46354504f446ece3
+Author: Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>
+Date:   Sat Sep 9 14:48:13 2017 +0200
+
+    Add dependency on appropriate qubes-core-agent-* subpackages
+    
+    In Qubes 4.0 qubes-core-agent is split into multiple smaller packages.
+    qubes-core-agent-networking is needed for proper networking support.
+    
+    qubes-core-agent-dom0-updates is needed for Whonix Gateway to function
+    as UpdateVM.
+    
+    https://phabricator.whonix.org/T697
+
+commit 01964e3c8c53b49aa14e56f7924fce5e88b5a448
+Author: Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>
+Date:   Sat Sep 9 14:25:00 2017 +0200
+
+    Use appropriate updates proxy if it is qrexec based
+    
+    In Qubes 4.0, updates proxy runs on qrexec and templates have no other
+    network access. This is accompanied with local TCP listener redirecting
+    the traffic to the proxy.
+    If the listener is active, use its address.
+    This variable is (currently) used only to check if the proxy is
+    torified. Actual proxy setting in apt is done by standard Qubes startup
+    scripts.
+
+commit 3cad28fdff4445f85062fd4672017dd0a37aae31
+Author: Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>
+Date:   Sat Sep 9 04:36:24 2017 +0200
+
+    network: use `qubes-primary-dns` QubesDB entry if present
+    
+    For a long time the DNS address was the same as default gateway. This is
+    still the case in R3.x, but using `qubes-gateway` configuration
+    parameter for it is misleading. It should be up to dom0 to provide DNS
+    address (whether the value is the same as gateway or not).
+    
+    QubesOS/qubes-issues#1817
+    
+    (manually cherry-picked from
+     qubes-core-agent-linux@fb9b3b62c02427b80657056805a9bac7756c98b3)
+
+commit 112bf7aad283df3ce631a7362338dcba90d6e837
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Sep 3 12:46:17 2017 +0000
+
+    onion-grater systemd drop-in path fix
+
+commit f1fc283f937b429fc841d5ee9413a902f5fc1a15
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 26 14:35:45 2017 +0000
+
+    bumped changelog version
+
 commit 7c20dd89770053b02b36b6865e41ba6ac30dc2c3
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Mar 30 03:17:24 2017 +0200
