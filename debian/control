@@ -45,7 +45,8 @@ Description: Qubes Configuration for Whonix-Gateway and Whonix-Workstation
 
 Package: qubes-whonix-shared-packages-recommended
 Architecture: all
-Depends: ${misc:Depends}
+Depends: qubes-core-agent (<< 4.0.0-1) | qubes-core-agent-passwordless-root,
+ ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Gateway and Qubes-Whonix-Workstation
  A metapackage, which includes recommended packages to ensure, Qubes-Whonix
  standard tools are available and other useful recommended packages.
