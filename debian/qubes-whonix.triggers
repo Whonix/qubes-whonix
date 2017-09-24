@@ -8,7 +8,7 @@
 ##
 ## triggers for qubes-whonix
 
-# Replace IP adresses
+# Replace IP addresses
 interest-noawait /usr/share/whonix-gw-network-conf/network_internal_ip.txt
 interest-noawait /etc/resolv.conf.anondist
 interest-noawait /etc/rinetd.conf.anondist
