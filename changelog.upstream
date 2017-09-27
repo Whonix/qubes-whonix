@@ -1,3 +1,25 @@
+commit e574d7c550d5ff9bc737a1726d2deead1be58454
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Sep 24 14:14:41 2017 +0200
+
+    remove /etc/resolv.conf from Qubes protected files
+    
+    to make Whonix-Gateway DNS functional
+    
+    to make meek (meek-lite) functional
+
+commit 909aa6cb3218b846bd463fba48484980d4e7b813
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Sep 24 12:58:08 2017 +0200
+
+    typo
+
+commit 91560698683f69e255c8e097da4be937c3ab82da
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Sep 12 02:59:49 2017 +0200
+
+    bumped changelog version
+
 commit 9a8d4b94865efceec7928d5498260a44241d96b2
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Sep 12 02:44:53 2017 +0200
