@@ -71,6 +71,7 @@ Architecture: all
 Depends: qubes-thunderbird,
  qubes-gpg-split,
  qubes-pdf-converter,
+ pulseaudio-qubes | qubes-gui-agent (<< 4.0.0),
  ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Workstation
  A metapackage, which installs packages, which are recommended for
