@@ -1,8 +1,7 @@
-#!/usr/bin/python2.7 -O
-# -*- coding: utf-8 -*-`
-# vim: set ts=4 sw=4 sts=4 et :
+#!/usr/bin/python3 -u
+
 '''
-alert - Displays a dialog message box contining text from a YAML configuration
+alert - Displays a dialog message box containing text from a YAML configuration
         file
 
 This file is part of Qubes+Whonix.
@@ -29,7 +28,7 @@ import argparse
 import locale
 import yaml
 
-from PyQt4 import QtGui
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 DEFAULT_LANG = 'en'
 
@@ -50,7 +49,7 @@ class Messages():
             self.language = language
 
         try:
-            stream = file(filename, 'r')
+            stream = open(filename, 'r')
             data = yaml.load(stream)
 
             if section in data.keys():
@@ -69,9 +68,7 @@ class Messages():
             pass
 
 
-class WhonixMessageBox(QtGui.QMessageBox):
-    '''
-    '''
+class WhonixMessageBox(QtWidgets.QMessageBox):
     def __init__(self, message):
         super(WhonixMessageBox, self).__init__()
         self.message = message
@@ -84,7 +81,7 @@ class WhonixMessageBox(QtGui.QMessageBox):
             self.setWindowTitle(message.title)
 
         if message.icon:
-            self.setIcon(getattr(QtGui.QMessageBox, message.icon))
+            self.setIcon(getattr(QtWidgets.QMessageBox, message.icon))
 
         if message.message:
             self.setText(message.message)
@@ -100,10 +97,10 @@ def main():
     args = parser.parse_args()
 
     if not args.filename and args.section:
-        print parser.usage()
+        parser.usage()
         sys.exit(1)
 
-    app = QtGui.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
 
     message = Messages(args.section, args.filename)
     dialog = WhonixMessageBox(message)
