@@ -44,9 +44,12 @@ class Messages():
     def __init__(self, section, filename):
         self.filename = filename
 
-        language = locale.getdefaultlocale()[0].split('_')[0]
-        if language:
-            self.language = language
+        try:
+            language = locale.getdefaultlocale()[0].split('_')[0]
+        except:
+            language = DEFAULT_LANG
+
+        self.language = language
 
         try:
             stream = open(filename, 'r')
@@ -61,11 +64,16 @@ class Messages():
 
                 self.title = language.get('title', None)
                 self.message = language.get('message', None)
+            else:
+                self.title = "alert script Whonix-Qubes"
+                self.message = "section " + section + " not found! [...............................]"
 
-        except (IOError):
-            pass
-        except (yaml.scanner.ScannerError, yaml.parser.ParserError):
-            pass
+        except:
+            error_msg = "Unexpected error: " + str(sys.exc_info()[0])
+            print(error_msg)
+            self.title = "alert script Whonix-Qubes"
+            self.message = error_msg
+
 
 
 class WhonixMessageBox(QtWidgets.QMessageBox):
