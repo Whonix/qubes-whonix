@@ -1,3 +1,17 @@
+commit 8fc1dc70684443743def3d4da10caf5d0e2e301b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 19 11:45:30 2017 +0000
+
+    add missing dependency python3 to qubes-whonix package
+    
+    to fix lintian warning
+
+commit e6658eb5d85ffa8dfac6854ff737dd68f2da3d57
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 19 01:24:30 2017 +0000
+
+    bumped changelog version
+
 commit 616f8e310e2bc5106754a0767f65bb162029f897
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Dec 19 01:22:42 2017 +0000
