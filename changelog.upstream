@@ -1,3 +1,31 @@
+commit 616f8e310e2bc5106754a0767f65bb162029f897
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 19 01:22:42 2017 +0000
+
+    alert script:
+    - fix, no longer break when LANG is set to non-nonsensical value
+    - better error handling
+
+commit f1f3a7afd420f2277bb1700ef3ed394fddfafdd4
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 19 01:08:36 2017 +0000
+
+    add missing dependency python3-pyqt5
+    
+    required by alert script
+
+commit 3f5e5778e91c4e3f58c11d7a775b2914edf91629
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 19 01:07:21 2017 +0000
+
+    port alert script to python3 and qt5
+
+commit 05c6bce3b0e8874a182612fbdf6e511f6b56f4b1
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Dec 15 18:41:54 2017 +0000
+
+    bumped changelog version
+
 commit dac56daeb0fd607a57c0e8e0b85970d31ef6dcee
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Dec 3 13:27:31 2017 +0000
