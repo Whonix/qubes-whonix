@@ -1,3 +1,23 @@
+commit 5f331c9c5f2082306e98aefa679c5092bf777a7d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Dec 21 22:58:53 2017 +0000
+
+    run curl torified updates proxy check as user updatesproxycheck
+    
+    so it will be let through Whonix firewall
+
+commit dea1e02c0e1c1a4e686328e56df9deba17208c5d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Dec 21 22:46:07 2017 +0000
+
+    create user updatesproxycheck
+
+commit bda81a99558fc429aeb9fa76bd4a0b9ce837f3ba
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Dec 21 21:43:57 2017 +0000
+
+    bumped changelog version
+
 commit bef7a0e5ca13138da8eef342a2837599cbc3cf19
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Dec 21 21:43:33 2017 +0000
