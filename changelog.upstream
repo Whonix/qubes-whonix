@@ -1,3 +1,21 @@
+commit 0fd147dcf5db91d678a7e4ac5fa0b1b4eb1a9424
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Dec 21 15:59:11 2017 +0000
+
+    make uwt abort apt-get / aptitude in Qubes TemplateVM when torified Qubes updates proxy test failed
+
+commit b41000520cc3c1b17196029b1637073212e5efb4
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 19 11:48:53 2017 +0000
+
+    whonix-secure-proxy aptoide support
+
+commit d37af472c08d7200166fa2d40cb7577a4708a1e2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 19 11:46:04 2017 +0000
+
+    bumped changelog version
+
 commit 8fc1dc70684443743def3d4da10caf5d0e2e301b
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Dec 19 11:45:30 2017 +0000
