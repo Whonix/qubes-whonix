@@ -34,6 +34,7 @@ case "${1}" in
         # make sure user is added to debian-tor group
         groupadd --force debian-tor
         usermod -a --groups debian-tor user
+        adduser --no-create-home --home /nonexistent --quiet --system --group --shell /bin/false "updatesproxycheck" || true
         ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
