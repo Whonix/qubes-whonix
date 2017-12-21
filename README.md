@@ -11,7 +11,8 @@ Template updates over Tor.
 
 Package: qubes-whonix-shared-packages-recommended
 Architecture: all
-Depends: ${misc:Depends}
+Depends: qubes-core-agent (<< 4.0.0-1) | qubes-core-agent-passwordless-root,
+${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Gateway and Qubes-Whonix-Workstation
 # Recommended packages for Qubes-Whonix-Gateway and Qubes-Whonix-Workstation #
 
@@ -25,6 +26,7 @@ Architecture: all
 Depends: tinyproxy,
 yum,
 yum-utils,
+qubes-core-agent (<< 4.0.0-1) | qubes-core-agent-dom0-updates,
 ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Gateway
 # Recommended packages for Qubes-Whonix-Gateway #
@@ -39,6 +41,7 @@ Architecture: all
 Depends: qubes-thunderbird,
 qubes-gpg-split,
 qubes-pdf-converter,
+pulseaudio-qubes | qubes-gui-agent (<< 4.0.0),
 ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Workstation
 # Recommended packages for Qubes-Whonix-Workstation #
