@@ -39,7 +39,7 @@ source /usr/lib/qubes-whonix/utility_functions.sh
 ## Since curl does not timeout, handling timeout is left to the systemd unit.
 while true; do
    ## Check if a secure Tor update server is available
-   if curl_output="$(UWT_DEV_PASSTHROUGH="1" curl --silent "${PROXY_SERVER}")" ; then
+   if curl_output="$(sudo -u updatesproxycheck UWT_DEV_PASSTHROUGH="1" curl --silent "${PROXY_SERVER}")" ; then
       if echo "$curl_output" | grep -q "${PROXY_META}" ; then
           touch /var/run/qubes-service/whonix-secure-proxy
       fi
