@@ -9,7 +9,7 @@ of IP address that was used and replaced with the current IP address provided by
 Qubes.
 
 Initially the known IP addresses are 10.152.152.10 and 10.152.152.11 as defaults
-in Whonix configuration files.  They are also checked each time this module is
+in Whonix configuration files. They are also checked each time this module is
 run in case the configuration files were modified due to a system update.
 
 Qubes feature request: optional static IP addresses
