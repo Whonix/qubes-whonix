@@ -19,7 +19,7 @@ ConditionPathExists=|/var/run/qubes-service/whonix-gateway
 ConditionPathExists=|/var/run/qubes-service/whonix-workstation
 
 ## So changes to for example,
-## - /usr/share/anon-kde-streamiso/share/config/kioslaverc or
+## - /usr/share/anon-apps-config/kioslaverc or
 ## - /home/user/.torchat/torchat.ini are applied before these start.
 Before=qubes-gui-agent.service
 
