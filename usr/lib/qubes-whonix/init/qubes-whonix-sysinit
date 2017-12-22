@@ -29,11 +29,7 @@ mkdir -p /var/run/qubes-service
 
 # Template
 if [ "$qubes_vm_type" = "TemplateVM" ]; then
-    # Waiting for 'Have qubes-sysinit create /var/run/qubes VM type files.' to
-    # be merged and land in Qubes stable before we can remove the following
-    # status file.
-    # https://github.com/marmarek/qubes-core-agent-linux/pull/53
-    touch /var/run/qubes-service/whonix-template
+    true
 
 # Gateway
 elif [ -e /usr/share/anon-gw-base-files/gateway ]; then

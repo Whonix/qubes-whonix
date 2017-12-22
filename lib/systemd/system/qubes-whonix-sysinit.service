@@ -3,7 +3,6 @@
 # License: GPL-2+
 
 ## Creates status files inside /var/run/qubes-service/. One of these:
-## - /var/run/qubes-service/whonix-template
 ## - /var/run/qubes-service/whonix-gateway
 ## - /var/run/qubes-service/whonix-workstation
 
