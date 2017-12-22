@@ -1,3 +1,33 @@
+commit 8fc87c184c243f9892bccdbf066c2e8680d524f6
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Dec 22 01:15:04 2017 +0000
+
+    minor
+
+commit b1997aec64b036c4d9797b26f8e1bcf23da4a304
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Dec 22 01:13:17 2017 +0000
+
+    update path to kioslave
+
+commit 157cba43c6c5e47163d617a3fe680d81fd562d1d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Dec 22 01:08:22 2017 +0000
+
+    add trigger on /usr/bin/whonix-gateway-firewall and /usr/bin/whonix-workstation-firewall
+
+commit 927b1f0465c0c5fe8e77ff6f0b302647291e7ee2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Dec 22 01:07:14 2017 +0000
+
+    update path
+
+commit c2558ecf47779697a9414db7209486a1ea900835
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Dec 21 23:27:22 2017 +0000
+
+    bumped changelog version
+
 commit 5f331c9c5f2082306e98aefa679c5092bf777a7d
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Dec 21 22:58:53 2017 +0000
