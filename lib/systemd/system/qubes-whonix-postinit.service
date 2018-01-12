@@ -43,7 +43,7 @@ After=qubes-mount-dirs.service
 ## Legacy.
 ## qubes-mount-home.service was renamed to qubes-mount-dirs.service.
 ## Keeping qubes-mount-home.service because not everyone has updated yet.
-## It is curcial to run this service after qubes-mount-[home|dir].service,
+## It is crucial to run this service after qubes-mount-[home|dir].service,
 ## otherwise it would fail.
 After=qubes-mount-home.service
 
