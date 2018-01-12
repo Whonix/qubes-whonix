@@ -1,3 +1,27 @@
+commit c6394b79cbf0090f2b6f51922718c5b2cc2953c3
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 19:11:19 2018 +0000
+
+    make sure /usr/local/etc/torrc.d exists
+
+commit d7e154355cf4f6029de76040da44087bc3d89292
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 19:06:06 2018 +0000
+
+    typo
+
+commit e1cb0f600403abfb5c13136a0b4df89c4d6a41c8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 17:09:48 2018 +0000
+
+    move whonix-setup-wizard startup to whonix-setup-wizard package
+
+commit 053c6132525741edc9c63fdef6993ce5689fb329
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Dec 27 18:29:26 2017 +0000
+
+    bumped changelog version
+
 commit 35f88ed0815ad27fb5d42403b3ec45707e530858
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Dec 22 13:45:48 2017 +0000
