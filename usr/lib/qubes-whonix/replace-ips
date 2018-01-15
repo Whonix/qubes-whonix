@@ -170,22 +170,13 @@ def maybe_reload_tor():
     '''Reload Tor's configuration files if Tor is currently active and not
     disabled.
     '''
-    torrc = '/etc/tor/torrc'
-    if os.path.exists(torrc):
-        try:
-            with open(torrc, 'r') as infile:
-                text = infile.read()
-        except (IOError):
-            return
-
-    if re.search(r'^DisableNetwork 0$', text, re.MULTILINE):
-        try:
-            if subprocess.check_output(['systemctl', 'is-active', 'tor@default']):
-                # Restarting instead of reloading due to upstream Tor bug
-                # https://trac.torproject.org/projects/tor/ticket/16161
-                subprocess.call(['systemctl', 'restart', 'tor@default'])
-        except (subprocess.CalledProcessError):
-            pass
+    try:
+        if subprocess.check_output(['systemctl', 'is-active', 'tor@default']):
+            # Restarting instead of reloading due to upstream Tor bug
+            # https://trac.torproject.org/projects/tor/ticket/16161
+            subprocess.call(['systemctl', 'restart', 'tor@default'])
+    except (subprocess.CalledProcessError):
+        pass
 
 
 def main(args):
