@@ -10,7 +10,7 @@
 ## If running on Whonix-Gateway (if file status file
 ## /var/run/qubes-service/whonix-gateway) exits, and if
 ## /var/run/qubes-service/whonix-tor-enable or /var/run/qubes-service/whonix-tor-disable exists,
-## act accordingly on /etc/tor/torrc.
+## act enable/disable Tor using "DisableNetwork 0" / "DisableNetwork 1" accordingly using Tor config.
 
 [Unit]
 Description=Qubes-Whonix post init
