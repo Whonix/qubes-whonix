@@ -1,3 +1,39 @@
+commit fc33b3723f32ff8df3920294c6b4e035ebe79fd2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jan 16 22:15:41 2018 +0100
+
+    /usr/local/etc/torrc.d/
+
+commit 8303c945bc18289a6b6a2baf4825569dd4d7043f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jan 15 22:48:30 2018 +0000
+
+    /etc/torrc.d/torrc.examples
+
+commit 5dcbe8da18e6f9b18777ab58eb70c1f8d2b6a7fe
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jan 15 21:05:14 2018 +0000
+
+    /etc/torrc.d/torrc.examples
+
+commit bd24b66c8a65574c5efba0b19463fd01f2550535
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jan 15 20:59:49 2018 +0000
+
+    /usr/local/etc/torrc.d
+
+commit e488a3b2052c7221bc51ab874c397f751e7c7482
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jan 15 20:56:01 2018 +0000
+
+    /usr/local/etc/torrc.d
+
+commit 72961ca9d6c1dab602e9be4753ee473bee9b47d4
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 20:55:27 2018 +0000
+
+    bumped changelog version
+
 commit 43aa431d39695cc8945cde3011567226e45cabf6
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Jan 12 20:12:27 2018 +0000
