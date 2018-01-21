@@ -51,7 +51,7 @@ case "${1}" in
                 /etc/rinetd.conf.anondist | \
                 /etc/tor/torrc | \
                 /usr/local/etc/torrc.d/50_user.torrc | \
-                /etc/torrc.d/torrc.examples | \
+                /usr/share/anon-gw-anonymizer-config/torrc.examples | \
                 /home/user/.torchat/torchat.ini | \
                 /home/user/.xchat2/xchat.conf | \
                 /home/user/.config/hexchat/hexchat.conf | \
