@@ -1,3 +1,15 @@
+commit b47d13bc1b797577473394cfb25fbd9829e91af7
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Feb 5 21:35:00 2018 +0000
+
+    .torrc -> .conf
+
+commit a2c7a0563b90755db886f6fb187daba9a5009abb
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Feb 1 15:13:58 2018 +0000
+
+    bumped changelog version
+
 commit ecee272b9bdf4b7b592857fb008c9a07615fb0a5
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Jan 29 15:50:33 2018 +0000
