@@ -40,8 +40,8 @@ fi
 
 if [ -e /usr/share/anon-gw-base-files/gateway ]; then
 
-    tor_disable_file=/usr/local/etc/torrc.d/51_tor_disable.torrc
-    tor_enable_file=/usr/local/etc/torrc.d/49_tor_enable.torrc
+    tor_disable_file=/usr/local/etc/torrc.d/51_tor_disable.conf
+    tor_enable_file=/usr/local/etc/torrc.d/49_tor_enable.conf
 
     # Enable/Disable Tor if qubes-service is enabled
     if [ -e /var/run/qubes-service/whonix-tor-enable ]; then

@@ -13,7 +13,7 @@ interest-noawait /usr/share/whonix-gw-network-conf/network_internal_ip.txt
 interest-noawait /etc/resolv.conf.anondist
 interest-noawait /etc/rinetd.conf.anondist
 interest-noawait /etc/tor/torrc
-interest-noawait /usr/local/etc/torrc.d/50_user.torrc
+interest-noawait /usr/local/etc/torrc.d/50_user.conf
 interest-noawait /usr/share/anon-gw-anonymizer-config/torrc.examples
 interest-noawait /home/user/.torchat/torchat.ini
 interest-noawait /home/user/.xchat2/xchat.conf

@@ -50,7 +50,7 @@ case "${1}" in
                 /etc/resolv.conf.anondist | \
                 /etc/rinetd.conf.anondist | \
                 /etc/tor/torrc | \
-                /usr/local/etc/torrc.d/50_user.torrc | \
+                /usr/local/etc/torrc.d/50_user.conf | \
                 /usr/share/anon-gw-anonymizer-config/torrc.examples | \
                 /home/user/.torchat/torchat.ini | \
                 /home/user/.xchat2/xchat.conf | \
