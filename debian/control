@@ -20,7 +20,6 @@ Package: qubes-whonix
 Architecture: all
 Depends: qubes-core-agent,
  qubesdb-vm,
- whonix-setup-wizard,
  ethtool,
  net-tools,
  sudo,
