@@ -1,3 +1,25 @@
+commit 10dea23f89507dcc222a93aa7cff8b162d9c54a3
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Feb 20 16:16:39 2018 +0000
+
+    remove 'mkdir -p /usr/local/etc/torrc.d'
+    
+    will be done by systemd unit file anon-gw-anonymizer-config.service
+
+commit 8ee0b893357b2cba90466d0b8ccbc1b9139c7921
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Feb 20 16:14:40 2018 +0000
+
+    remove /etc/tor from bind dirs
+    
+    since we have torrc.d now
+
+commit a234b54e33cb94118fef85da803adc6e81f47f57
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Feb 11 00:42:53 2018 +0000
+
+    bumped changelog version
+
 commit ed3bb4ad23192251416ee22063b518db3a2a1a98
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Feb 10 15:33:01 2018 +0000
