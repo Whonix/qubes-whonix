@@ -1,3 +1,3 @@
 #!/bin/sh
 
-qvm-features-request whonix-ws 1
+qvm-features-request whonix-ws=1
