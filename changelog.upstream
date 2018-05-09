@@ -1,3 +1,47 @@
+commit 5d5aa4e8864cfef9a5108b5f178cdd28733d7990
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed May 9 10:30:31 2018 +0000
+
+    fix, run "qvm-features-request whonix-ws=1" only on Whonix-Workstation
+    
+    https://github.com/QubesOS/qubes-issues/issues/3765#issuecomment-386805491
+
+commit 75ef3de0731377002729dcf65e8268a191743394
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun May 6 16:47:00 2018 +0200
+
+    fixed
+
+commit 0ccf9fc9ccc08de9532d5dba882c6ab3fdb33992
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun May 6 15:37:52 2018 +0200
+
+    fix path to etc/qubes/post-install.d/
+    
+    https://github.com/QubesOS/qubes-issues/issues/3765#issuecomment-386805491
+
+commit cc007a0b986fcb31fcd3a55ed9caaea94994ea1d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun May 6 15:35:48 2018 +0200
+
+    add etc/post-install.d/30-whonix-ws.sh
+    
+    qvm-features-request whonix-ws 1
+    
+    https://github.com/QubesOS/qubes-issues/issues/3765#issuecomment-386805491
+
+commit d68d25f2eabc49527d1024ba00e9755e65b08973
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 12 15:04:01 2018 +0200
+
+    output
+
+commit 151df974462778a6a9d0deaa0242f640c4588a30
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 21 15:43:30 2018 +0000
+
+    bumped changelog version
+
 commit 10dea23f89507dcc222a93aa7cff8b162d9c54a3
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Feb 20 16:16:39 2018 +0000
