@@ -30,9 +30,23 @@ if [ ! "$qubes_vm_type" = "TemplateVM" ]; then
    exit 0
 fi
 
+signal_sigterm() {
+   exit 143
+}
+
+trap "signal_sigterm" SIGTERM
+
+exithandler() {
+   touch /var/run/qubes-service/whonix-secure-proxy-check-done
+}
+
+trap "exithandler" EXIT
+
 if [ -e /var/run/qubes-service/whonix-secure-proxy ]; then
    exit 0
 fi
+
+rm -f /var/run/qubes-service/whonix-secure-proxy-check-done
 
 source /usr/lib/qubes-whonix/utility_functions.sh
 

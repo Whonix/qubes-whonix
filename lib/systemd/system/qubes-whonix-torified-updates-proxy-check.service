@@ -22,10 +22,7 @@ Wants=network-online.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStartPre=/bin/sh -c '/bin/rm -f /var/run/qubes-service/whonix-secure-proxy-check-done'
 ExecStart=/usr/lib/qubes-whonix/init/torified-updates-proxy-check
-ExecStartPost=/bin/sh -c '/bin/touch /var/run/qubes-service/whonix-secure-proxy-check-done'
-KillSignal=SIGKILL
 TimeoutStartSec=120
 
 [Install]
