@@ -1,3 +1,19 @@
+commit f9976c1c0585807ebb63ddee05aa94f35ae96c7b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jun 19 07:17:33 2018 +0000
+
+    fix, blocked upgrade issue
+    
+    https://forums.whonix.org/t/whonix14-qubes3-2-latest-upgrades-block-apt-networking
+    
+    Thanks to @qubenix for the bug report!
+
+commit 9f906390a7c03140b6f304391d61bed66271db91
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Jun 14 07:35:56 2018 +0000
+
+    bumped changelog version
+
 commit fe1d4183c2bb13a45a439d8a612ae8ab2a44a9da
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Jun 14 06:00:28 2018 +0000
