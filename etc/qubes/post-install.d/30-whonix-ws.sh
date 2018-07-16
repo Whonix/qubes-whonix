@@ -11,5 +11,6 @@ if [ -f "/usr/share/anon-ws-base-files/workstation" ]; then
    qvm-features-request whonix-ws=1
 fi
 
-## Exit success even in case above command failed.
+## Exit success even in case above command failed to avoid breaking tje apt-get
+## package management system.
 true
