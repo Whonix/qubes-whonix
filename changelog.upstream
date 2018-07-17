@@ -1,3 +1,41 @@
+commit a3ca3566ca0c4813949ddc015451e63e23fbb320
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jul 17 18:57:53 2018 +0800
+
+    avoid starting qubes-sync-time.service
+    
+    https://github.com/QubesOS/qubes-issues/issues/4097
+
+commit 1d488a2651b938e97016765661c3843a0bf8399b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jul 16 12:35:20 2018 +0800
+
+    comment
+
+commit eb79b5e7b519b4b945228fd0c60e1aba23e0e54c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jul 16 02:38:05 2018 +0800
+
+    comment
+
+commit 99cb91b0614c14c7b3625dc83ad613e6db7376de
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jul 16 02:09:43 2018 +0800
+
+    output
+
+commit 436a278cf1e9f92e046b1ecf8a8dd97b9364a039
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jul 14 17:46:07 2018 +0800
+
+    qvm-features-request whonix-gw=1
+
+commit 372b19f258cf356cd45068af6ef7c85fe4f5e6cd
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jun 19 08:01:05 2018 +0000
+
+    bumped changelog version
+
 commit f9976c1c0585807ebb63ddee05aa94f35ae96c7b
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Jun 19 07:17:33 2018 +0000
