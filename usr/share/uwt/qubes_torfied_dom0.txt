@@ -4,18 +4,17 @@ Please make sure Whonix-Gateway (commonly called sys-whonix) is running.
 
 - If you are using Qubes R4 or higher: Check your _dom0_ /etc/qubes-rpc/policy/qubes.UpdatesProxy settings.
 
-_At the very top_ of that file.
+_At the very top_ of that file you should have the following:
 
-Should have the following syntax:
-Name-Of-Whonix-TemplateVM $default allow,target=Whonix-Gateway-TemplateBased-ProxyVM
+$tag:whonix-updatevm $default allow,target=sys-whonix
 
-Example entry for Whonix-Gateway TemplateVM:
-whonix-gw-14 $default allow,target=sys-whonix
+To see if it is fixed, try running in Whonix TemplateVM:
 
-Example entry for Whonix-Workstation TemplateVM:
-whonix-ws-14 $default allow,target=sys-whonix
-
-Try running in Whonix-Gateway (commonly called sys-whonix):
 sudo systemctl restart qubes-whonix-torified-updates-proxy-check
+
+Then try to update / use apt-get again.
+
+For more help on this subject see:
+https://www.whonix.org/wiki/Qubes/UpdatesProxy
 
 If this warning message is transient, it can be safely ignored.
