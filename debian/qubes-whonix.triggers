@@ -21,7 +21,6 @@ interest-noawait /home/user/.config/hexchat/hexchat.conf
 interest-noawait /usr/lib/leaktest-workstation/simple_ping.py
 interest-noawait /usr/share/anon-apps-config/kioslaverc
 interest-noawait /usr/share/anon-torchat/.torchat/torchat.ini
-interest-noawait /usr/share/tor/tor-service-defaults-torrc.anondist
 
 # Replace IP address and restart firewall
 interest-noawait /usr/bin/whonix_firewall
