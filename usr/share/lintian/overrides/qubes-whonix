@@ -13,3 +13,6 @@ qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/who
 ## http://lists.alioth.debian.org/pipermail/pkg-systemd-maintainers/2017-March/014380.html
 ## https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=832771#32
 qubes-whonix: systemd-service-file-missing-install-key lib/systemd/system/qubes-whonix-redirect-9050.service
+
+## usr/lib/qubes-whonix/replace-ips still uses python 2.7 indeed.
+qubes-whonix: depends-on-python2-and-python3 Depends: python2.7, [..], python3
