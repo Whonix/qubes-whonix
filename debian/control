@@ -8,7 +8,7 @@
 
 Source: qubes-whonix
 Section: admin
-Priority: extra
+Priority: optional
 Maintainer: Patrick Schleizer <adrelanos@riseup.net>
 Build-Depends: debhelper (>= 12), genmkfile,  python, dh-python, config-package-dev
 Homepage: https://github.com/Whonix/qubes-whonix
