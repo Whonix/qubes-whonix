@@ -1,3 +1,45 @@
+commit 05e7d21ef387c93744c309ed4959a7b3f0de43d5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 4 06:03:37 2019 -0400
+
+    remove duplicate trigger to fix lintian warning
+
+commit e2dc78a181514fab78a4ed242bc901d9bd45b694
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 4 06:02:00 2019 -0400
+
+    port to debian buster
+
+commit 530a447376fce194136fe30d5b1c8bd911266924
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 4 06:00:05 2019 -0400
+
+    port to debian buster
+
+commit 704d8f35455dcde5239d3d5f344f56944fb1705e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 4 05:55:51 2019 -0400
+
+    port to debian buster
+
+commit 1f932427a8c6317bd20428f98f033acac8cd9162
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 4 05:51:05 2019 -0400
+
+    port to debian buster
+
+commit 506eab5a2150de42907f94963541638fa97b6f1e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Apr 3 18:05:55 2019 -0400
+
+    readme
+
+commit 652655ff6db7352fe205de1568be142d30065685
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Mar 29 09:59:33 2019 +0000
+
+    bumped changelog version
+
 commit 802b16d975eb20d4f17d8637c9218661343aecc4
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Mar 29 09:03:17 2019 +0000
