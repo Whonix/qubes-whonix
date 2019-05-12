@@ -192,7 +192,7 @@ def main(args):
                 return
 
             if IP_ADDRESS.match(current_ip_gateway):
-                ips_to_replace = [last_ip_gateway, '10.152.152.10',  '10.152.152.11']
+                ips_to_replace = [last_ip_gateway, '10.152.152.10', '10.152.152.11']
                 if replace_ip(ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY):
                     maybe_reload_tor()
 
