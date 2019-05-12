@@ -1268,7 +1268,7 @@ commit 8bceb986f149b3571eae7dc5fc244cee675a8910
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Aug 14 16:19:05 2016 +0200
 
-    move enable-firewall script to anon-shared-helper-scripts to make it more generic
+    move enable-firewall script to helper-scripts to make it more generic
 
 commit f9fa30066826d5468337b4a515edbe455fcfcde5
 Author: Patrick Schleizer <adrelanos@riseup.net>
@@ -2242,7 +2242,7 @@ commit 8b47823ed15359ded77a34cd53e57236f2526a9f
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Sep 16 12:28:10 2015 +0000
 
-    no longer need to ip replace /usr/lib/anon-shared-helper-scripts/tor_bootstrap_check.bsh because it now has native Qubes support
+    no longer need to ip replace /usr/lib/helper-scripts/tor_bootstrap_check.bsh because it now has native Qubes support
 
 commit 41a1aef943485d6f5cc73dd3e9b7b57c4e12dcac
 Author: Patrick Schleizer <adrelanos@riseup.net>
