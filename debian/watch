@@ -1,7 +1,6 @@
-# This file is part of Whonix.
-## Copyright (C) 2012 - 2018 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
+## Copyright (C) 2012 - 2019 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
 ## See the file COPYING for copying conditions.
 
-version=3
-opts=filenamemangle=s/.+\/v?(.*)\.tar\.gz/<project>-$1.tar.gz/ \
-  https://github.com/Whonix/qubes-whonix/tags .*/v?(\d[\d\.]+)\.tar\.gz
+version=4
+opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/qubes-whonix-$1\.tar\.gz/ \
+  https://github.com/Whonix/qubes-whonix/tags .*/v?(\d\S+)\.tar\.gz
