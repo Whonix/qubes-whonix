@@ -1,3 +1,21 @@
+commit 8d8ab41bbf9c7fa63f3e79b8511d439efe33caeb
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jun 11 01:41:10 2019 -0400
+
+    qubes-whonix-shared-packages-recommended add dependency on:
+     qubes-kernel-vm-support, qubes-mgmt-salt-vm-connector,
+     qubes-usb-proxy, qubes-input-proxy-sender,
+     qubes-core-agent-thunar, qubes-core-agent-nautilus
+    
+    qubes-whonix-workstation-packages-recommended add dependency on:
+     qubes-img-converter
+
+commit 2afb7fb6e2f8a8c5b31b4944449c116b9b4d0183
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jun 10 15:42:24 2019 +0000
+
+    bumped changelog version
+
 commit e8c9b106bd101f1f72280b42f2afce0656b53b09
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jun 9 10:09:16 2019 +0000
