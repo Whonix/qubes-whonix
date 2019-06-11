@@ -47,7 +47,9 @@ Description: Qubes Configuration for Whonix-Gateway and Whonix-Workstation
 Package: qubes-whonix-shared-packages-recommended
 Architecture: all
 Depends: qubes-core-agent (<< 4.0.0-1) | qubes-core-agent-passwordless-root,
- qubes-core-agent-thunar,
+ qubes-kernel-vm-support, qubes-mgmt-salt-vm-connector,
+ qubes-usb-proxy, qubes-input-proxy-sender,
+ qubes-core-agent-thunar, qubes-core-agent-nautilus,
  ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Gateway and Qubes-Whonix-Workstation
  A metapackage, which includes recommended packages to ensure, Qubes-Whonix
@@ -73,6 +75,7 @@ Architecture: all
 Depends: qubes-thunderbird,
  qubes-gpg-split,
  qubes-pdf-converter,
+ qubes-img-converter,
  pulseaudio-qubes | qubes-gui-agent (<< 4.0.0),
  ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Workstation
