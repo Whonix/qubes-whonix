@@ -1,3 +1,18 @@
+commit c08dfed97cfba369ff753b4d96755b47240fffb2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jun 14 10:14:30 2019 +0000
+
+    qubes-whonix-shared-packages-recommended `Depends:` on initramfs-tools
+    
+    since qubes-kernel-vm-support `Recommends:` initramfs-tools and since it is
+    installed by default in Qubes Debian templates too
+
+commit ffa823e0c72db4f9d18196615f74c4848a4745d9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jun 11 05:45:44 2019 +0000
+
+    bumped changelog version
+
 commit 8d8ab41bbf9c7fa63f3e79b8511d439efe33caeb
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Jun 11 01:41:10 2019 -0400
