@@ -8,6 +8,7 @@ qubes-whonix: command-with-path-in-maintainer-script postinst:* /usr/bin/whonix_
 qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/disclaimer.skip
 qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/first_use_check.skip
 qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/whonix_repository.skip
+qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/finish_page.skip
 
 ## false positive lintian warning for static systemd unit file
 ## http://lists.alioth.debian.org/pipermail/pkg-systemd-maintainers/2017-March/014380.html
