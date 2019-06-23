@@ -12,6 +12,9 @@ Template updates over Tor.
 Package: qubes-whonix-shared-packages-recommended
 Architecture: all
 Depends: qubes-core-agent (<< 4.0.0-1) | qubes-core-agent-passwordless-root,
+qubes-kernel-vm-support, initramfs-tools, qubes-mgmt-salt-vm-connector,
+qubes-usb-proxy, qubes-input-proxy-sender,
+qubes-core-agent-thunar, qubes-core-agent-nautilus,
 ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Gateway and Qubes-Whonix-Workstation
 # Recommended packages for Qubes-Whonix-Gateway and Qubes-Whonix-Workstation #
@@ -41,6 +44,7 @@ Architecture: all
 Depends: qubes-thunderbird,
 qubes-gpg-split,
 qubes-pdf-converter,
+qubes-img-converter,
 pulseaudio-qubes | qubes-gui-agent (<< 4.0.0),
 ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Workstation
