@@ -24,6 +24,8 @@
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 [Desktop Entry]
+Name=Qubes-Whonix Setup Wizard
+Comment=First Boot Setup Graphical User Interface for Qubes-Whonix
 Encoding=UTF-8
 Type=Application
 Terminal=false
