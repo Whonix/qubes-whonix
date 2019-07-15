@@ -1,3 +1,33 @@
+commit e70aecea4de1b393014c439d29eb7d3832d33176
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jul 15 12:48:01 2019 -0400
+
+    fix, removed /var/cache/tb-updater since not actually used anywhere
+
+commit 2db4a452381c19c4dc58055018e89f41d434d9ac
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jul 15 12:46:49 2019 -0400
+
+    comments
+
+commit 67bdc88ff5a1f366d7287f1bfc2b6fa27be868c8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jul 15 12:30:39 2019 -0400
+
+    remove legacy bind-directories
+
+commit d6c1857a5962123028f5bc41fb33b2260b07e040
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jul 15 12:26:56 2019 -0400
+
+    remove legacy
+
+commit 4a6b079268ba64c219728fabd51c40448a325a5e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 14 07:22:53 2019 +0000
+
+    bumped changelog version
+
 commit 9ef63c2f26b4a9e861013740354154e57a2eed00
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jul 14 03:18:32 2019 -0400
