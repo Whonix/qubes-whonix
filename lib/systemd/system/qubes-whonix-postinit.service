@@ -4,7 +4,6 @@
 
 ## On Whonix-Gateway or Whonix-Workstation (if /var/run/qubes-service/whonix-gateway or
 ## /var/run/qubes-service/whonix-workstation exists),
-## - binds Whonix directories to allow changes to persist (/usr/lib/qubes-whonix/bind-directories).
 ## - replaces IPs (/usr/lib/qubes-whonix/replace-ips)
 ##
 ## If running on Whonix-Gateway (if file status file
@@ -51,7 +50,6 @@ After=qubes-mount-home.service
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/lib/qubes-whonix/init/qubes-whonix-postinit
-ExecStop=/usr/lib/qubes-whonix/bind-directories umount
 
 [Install]
 WantedBy=multi-user.target

@@ -31,9 +31,6 @@ if [ "$qubes_vm_type" = "TemplateVM" ]; then
    exit 0
 fi
 
-# Bind whonix directories to allow changes to persist
-/usr/lib/qubes-whonix/bind-directories
-
 # Replace IP addresses in known configuration files / scripts with
 # currently discovered IP address
 /usr/lib/qubes-whonix/replace-ips
