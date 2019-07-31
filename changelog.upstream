@@ -1,3 +1,15 @@
+commit 708593c81bfc6ffee0def77d345ceeea1fc57ced
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 31 03:09:22 2019 -0400
+
+    /var/run -> /run
+
+commit ba7f009f99daf7dcf7dd0af31bda859e9d3ebc84
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jul 15 19:50:21 2019 +0000
+
+    bumped changelog version
+
 commit e70aecea4de1b393014c439d29eb7d3832d33176
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Jul 15 12:48:01 2019 -0400
@@ -397,7 +409,7 @@ commit fe1d4183c2bb13a45a439d8a612ae8ab2a44a9da
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Jun 14 06:00:28 2018 +0000
 
-    create /run/qubes-service/whonix-secure-proxy-check-done also on failure
+    create /var/run/qubes-service/whonix-secure-proxy-check-done also on failure
     
     when Qubes torified updates proxy test times out and gets killed  with signal
     sigterm by systemd
@@ -681,7 +693,7 @@ commit 35f88ed0815ad27fb5d42403b3ec45707e530858
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Dec 22 13:45:48 2017 +0000
 
-    remove legacy /run/qubes/this-is-templatevm
+    remove legacy /var/run/qubes/this-is-templatevm
 
 commit 5e6aee8b57b12e74cee7963c4eeb15fe78fe46c3
 Author: Patrick Schleizer <adrelanos@riseup.net>
@@ -1259,9 +1271,9 @@ Date:   Sun Dec 18 16:23:41 2016 +0100
 
     fix sdwdate.service.d/40_qubes.conf and whonixcheck.service.d/40_qubes.conf
     
-    ConditionPathExists=!/run/qubes-service/updates-proxy-setup
+    ConditionPathExists=!/var/run/qubes-service/updates-proxy-setup
     ->
-    ConditionPathExists=!/run/qubes/this-is-templatevm
+    ConditionPathExists=!/var/run/qubes/this-is-templatevm
 
 commit 542afe6e26f29d784dad4850fc0aeaedc66e98a8
 Author: Patrick Schleizer <adrelanos@riseup.net>
@@ -1415,7 +1427,7 @@ Date:   Sun Aug 14 22:59:25 2016 +0000
     cleanup
     
     no longer required:
-    ConditionPathExists=!/run/qubes-service/whonix-firewall-failed
+    ConditionPathExists=!/var/run/qubes-service/whonix-firewall-failed
     
     because network will no longer come up on Whonix firewall error.
 
@@ -1461,7 +1473,7 @@ commit f9fa30066826d5468337b4a515edbe455fcfcde5
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Aug 14 16:13:31 2016 +0200
 
-    make it more generic, /run/whonix-firewall -> /run/anon-firewall
+    make it more generic, /var/run/whonix-firewall -> /var/run/anon-firewall
 
 commit fd987814dad7acbab22217407fdf7022896d3263
 Author: Patrick Schleizer <adrelanos@riseup.net>
@@ -1990,7 +2002,7 @@ commit 716b4551c67825de13f3fb331a163882c01e1894
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Jan 6 23:05:56 2016 +0000
 
-    also exit from bind-directories if file /run/qubes-service/qubes-dvm exists
+    also exit from bind-directories if file /var/run/qubes-service/qubes-dvm exists
     
     Thanks to @marmarek for the suggestion!
     
@@ -2097,7 +2109,7 @@ commit 5696071c29eb854dc3161797d7fdcef9377116f5
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Nov 23 10:16:17 2015 +0000
 
-    less dependency on /run/qubes-service status files
+    less dependency on /var/run/qubes-service status files
     
     https://phabricator.whonix.org/T432
 
@@ -2105,7 +2117,7 @@ commit 201b50cba24d19639d69cdf172f1f5483897ed5f
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Nov 22 23:59:52 2015 +0000
 
-    usr/lib/qubes-whonix/replace-ips: no longer depend on /run/qubes-service/
+    usr/lib/qubes-whonix/replace-ips: no longer depend on /var/run/qubes-service/
     
     https://phabricator.whonix.org/T432
 
@@ -2610,7 +2622,7 @@ commit 300d09b2514019e67fec16403177092f14504ba2
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Aug 18 01:44:53 2015 +0000
 
-    /etc/qubes-rpc/qubes.SetDateTime.anondist: dom0 should not tell us its time. But if it does, create a file /run/qubes-whonix/qubes.SetDateTime so whonixcheck could warn in case this file exists. - https://phabricator.whonix.org/T398
+    /etc/qubes-rpc/qubes.SetDateTime.anondist: dom0 should not tell us its time. But if it does, create a file /var/run/qubes-whonix/qubes.SetDateTime so whonixcheck could warn in case this file exists. - https://phabricator.whonix.org/T398
 
 commit 90e8d65230d3c13823af56b91eb2f48eeaad49b4
 Author: Patrick Schleizer <adrelanos@riseup.net>
@@ -3271,7 +3283,7 @@ Date:   Wed Jun 3 17:43:32 2015 -0400
     enable-servides: Script added; called in sysinit boot stage
     
     - Adds service modes (whonix-gateway, whonix-workstation, whonix-template) to
-      /run/qubes-services used to identify whonix mode
+      /var/run/qubes-services used to identify whonix mode
     - All related source/configurations changes to use instead of old $QUBES_WHONIX
       env var
 
