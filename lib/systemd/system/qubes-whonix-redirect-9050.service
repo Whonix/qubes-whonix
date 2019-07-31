@@ -4,7 +4,7 @@
 [Unit]
 Description=redirect 127.0.0.1:9050 to Whonix-Gateway in Qubes TemplateVM service
 Documentation=https://github.com/Whonix/qubes-whonix
-ConditionPathExists=/var/run/qubes/this-is-templatevm
+ConditionPathExists=/run/qubes/this-is-templatevm
 After=qubes-sysinit.service
 After=qubes-whonix-redirect-9050.socket
 Requires=qubes-whonix-redirect-9050.socket

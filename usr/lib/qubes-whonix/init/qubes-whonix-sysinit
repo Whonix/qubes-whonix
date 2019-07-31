@@ -25,7 +25,7 @@ qubes_vm_type="$(qubesdb-read /qubes-vm-type)"
 # qubes-service directory as it should have already been created.  This is only
 # a defensive action since we rely on certain services being present to determine
 # the overall boot status of Whonix.
-mkdir -p /var/run/qubes-service
+mkdir -p /run/qubes-service
 
 # Template
 if [ "$qubes_vm_type" = "TemplateVM" ]; then
@@ -34,13 +34,13 @@ if [ "$qubes_vm_type" = "TemplateVM" ]; then
 # Gateway
 elif [ -e /usr/share/anon-gw-base-files/gateway ]; then
     if [ "$qubes_vm_type" = "NetVM" ] || [ "$qubes_vm_type" = "ProxyVM" ]; then
-        touch /var/run/qubes-service/whonix-gateway
+        touch /run/qubes-service/whonix-gateway
     fi
 
 # Workstation
 elif [ -e /usr/share/anon-ws-base-files/workstation ]; then
     if [ "$qubes_vm_type" = "AppVM" ]; then
-        touch /var/run/qubes-service/whonix-workstation
+        touch /run/qubes-service/whonix-workstation
     fi
 fi
 

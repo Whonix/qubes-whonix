@@ -2,9 +2,9 @@
 # Copyright (C) 2015 Jason Mehring <nrgaway@gmail.com>
 # License: GPL-2+
 
-## Creates status files inside /var/run/qubes-service/. One of these:
-## - /var/run/qubes-service/whonix-gateway
-## - /var/run/qubes-service/whonix-workstation
+## Creates status files inside /run/qubes-service/. One of these:
+## - /run/qubes-service/whonix-gateway
+## - /run/qubes-service/whonix-workstation
 
 [Unit]
 Description=Init Qubes+Whonix services and settings

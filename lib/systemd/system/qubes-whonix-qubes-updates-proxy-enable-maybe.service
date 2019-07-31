@@ -4,8 +4,8 @@
 
 ## If not running inside a Qubes TemplateVM,
 ## and if running inside Whonix-Gateway (i.e. if file /usr/share/anon-gw-base-files/gateway exists),
-## and if qubes-updates-cache is not enabled (i.e. if file /var/run/qubes-service/qubes-updates-cache does not exist),
-## create qubes-updates-proxy (i.e. create file /var/run/qubes-service/qubes-updates-proxy).
+## and if qubes-updates-cache is not enabled (i.e. if file /run/qubes-service/qubes-updates-cache does not exist),
+## create qubes-updates-proxy (i.e. create file /run/qubes-service/qubes-updates-proxy).
 
 [Unit]
 Description=conditionally enable qubes-updates-proxy
@@ -20,20 +20,20 @@ After=qubes-whonix-sysinit.service
 
 ## Do not enable qubes-updates-proxy if qubes-updates-cache is already enabled
 ## to avoid these conflicting with each other.
-ConditionPathExists=!/var/run/qubes-service/qubes-updates-cache
+ConditionPathExists=!/run/qubes-service/qubes-updates-cache
 
 ## Do not needlessly enable qubes-updates-proxy in Qubes TemplateVMs.
-ConditionPathExists=!/var/run/qubes/this-is-templatevm
+ConditionPathExists=!/run/qubes/this-is-templatevm
 
-ConditionPathExists=|/var/run/qubes/this-is-netvm
-ConditionPathExists=|/var/run/qubes/this-is-proxyvm
+ConditionPathExists=|/run/qubes/this-is-netvm
+ConditionPathExists=|/run/qubes/this-is-proxyvm
 ## Legacy.
 ## The following condition can be removed once we can rely on
-## /var/run/qubes/this-is-proxyvm / /var/run/qubes/this-is-netvm
+## /run/qubes/this-is-proxyvm / /run/qubes/this-is-netvm
 ## i.e. when we can assume that everyone upgraded to Qubes R3.2.
-## (/var/run/qubes-service/whonix-gateway gets created conditionally by
+## (/run/qubes-service/whonix-gateway gets created conditionally by
 ## qubes-whonix-sysinit.)
-ConditionPathExists=|/var/run/qubes-service/whonix-gateway
+ConditionPathExists=|/run/qubes-service/whonix-gateway
 
 [Service]
 Type=oneshot
@@ -45,7 +45,7 @@ RemainAfterExit=yes
 # with qvm-service or the Qubes VM Manager's Services tab. The same applies if
 # the user wants to enable the non-caching proxy on workstations, so as not to
 # waste 4 MB memory everywhere.
-ExecStart=/bin/touch /var/run/qubes-service/qubes-updates-proxy
+ExecStart=/bin/touch /run/qubes-service/qubes-updates-proxy
 
 [Install]
 WantedBy=multi-user.target

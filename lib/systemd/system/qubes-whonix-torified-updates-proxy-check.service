@@ -3,7 +3,7 @@
 # License: GPL-2+
 
 ## When running in a TemplateVM,
-## creates /var/run/qubes-service/whonix-secure-proxy if tinyproxy's http
+## creates /run/qubes-service/whonix-secure-proxy if tinyproxy's http
 ## header contains 'tor'.
 
 [Unit]

@@ -34,14 +34,14 @@ if [ "$qubes_vm_type" = "TemplateVM" ]; then
    timeout_seconds=120
 
    for (( i=1 ; i<=$timeout_seconds ; i++)); do
-      if [ -e '/var/run/qubes-service/whonix-secure-proxy' ]; then
+      if [ -e '/run/qubes-service/whonix-secure-proxy' ]; then
          break
       fi
       sleep 1 &
       wait "$!"
    done
 
-    if [ ! -e '/var/run/qubes-service/whonix-secure-proxy' ]; then
+    if [ ! -e '/run/qubes-service/whonix-secure-proxy' ]; then
          # Display warning that TemplateVM is not connected to a Tor update proxy.
         /usr/lib/qubes-whonix/alert update /usr/lib/qubes-whonix/messages.yaml
     fi

@@ -8,5 +8,5 @@
 ## But if it does, create a file, so whonixcheck could warn in case this
 ## file exists.
 read timestamp
-mkdir -p "/var/run/qubes-whonix"
-echo "$timestamp" > "/var/run/qubes-whonix/qubes.SetDateTime"
+mkdir -p "/run/qubes-whonix"
+echo "$timestamp" > "/run/qubes-whonix/qubes.SetDateTime"
