@@ -1,3 +1,27 @@
+commit 3e97b3072a95af695322859f39c2b1f79ed39b41
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Aug 31 08:44:21 2019 -0400
+
+    depend on adduser
+
+commit 6a93626d254d68b9e26ef6c5191fab391009176e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Aug 30 04:03:33 2019 -0400
+
+    cleanup, remove useradd / groupadd user to group debian-tor
+    
+    since nothing in this package depends on user "user" being in group debian-tor
+    
+    thereby avoid use off useradd / groupadd
+    
+    https://forums.whonix.org/t/port-from-useradd-groupadd-and-usermod-to-adduser-and-addgroup/7977
+
+commit 04dd386aba7bd1ea86f5cb01f00e704500941bca
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 11 15:07:19 2019 +0000
+
+    bumped changelog version
+
 commit 1eca8607aefb18fbe529fb0177f0a8f73c656310
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Aug 11 14:19:51 2019 +0000
