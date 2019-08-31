@@ -18,7 +18,8 @@ Standards-Version: 4.3.0
 
 Package: qubes-whonix
 Architecture: all
-Depends: qubes-core-agent,
+Depends: adduser,
+ qubes-core-agent,
  qubesdb-vm,
  ethtool,
  net-tools,
