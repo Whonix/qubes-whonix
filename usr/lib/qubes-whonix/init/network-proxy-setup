@@ -70,7 +70,6 @@ if [ ! "$ip" = "" ]; then
    ip link add "$INTERFACE" type dummy || true
 
    netmask="$(qubesdb-read /qubes-netvm-netmask)"
-   gateway="$(qubesdb-read /qubes-netvm-gateway)"
    /sbin/ifconfig "$INTERFACE" "$ip" netmask "$netmask"
    /sbin/ifconfig "$INTERFACE" up
    /sbin/ethtool -K "$INTERFACE" sg off || true
