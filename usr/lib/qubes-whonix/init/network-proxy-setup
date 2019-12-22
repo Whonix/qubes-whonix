@@ -28,54 +28,53 @@ source /usr/lib/qubes-whonix/utility_functions.sh
 qubes_vm_type="$(qubesdb-read /qubes-vm-type)"
 
 if [ "$qubes_vm_type" = "TemplateVM" ]; then
-   # Do none of the following in a TemplateVM.
+   ## Do none of the following in a TemplateVM.
+   exit 0
+fi
+
+if [ ! -e /usr/share/anon-gw-base-files/gateway ]; then
+   ## Proceed only in Whonix-Gateway.
    exit 0
 fi
 
 INTERFACE="eth1"
 
-if [ ! -e /usr/share/anon-gw-base-files/gateway ]; then
+## XXX: Should check for qubes_vm_type being 'ProxyVM' or 'NetVM'?
+
+## Setup Xen / Qubes proxy
+network="$(qubesdb-read /qubes-netvm-network)"
+
+if [ ! "$network" = "" ]; then
+   gateway="$(qubesdb-read /qubes-netvm-gateway)"
+   netmask="$(qubesdb-read /qubes-netvm-netmask)"
+   primary_dns="$(qubesdb-read /qubes-netvm-primary-dns)"
+   if [ "$primary_dns" = "" ]; then
+      primary_dns="$gateway"
+   fi
+   secondary_dns="$(qubesdb-read /qubes-netvm-secondary-dns)"
+   echo "NS1=$primary_dns" > /run/qubes/qubes-ns
+   echo "NS2=$secondary_dns" >> /run/qubes/qubes-ns
+   /sbin/ethtool -K eth0 sg off || true
+fi
+
+if ip link show "$INTERFACE" ; then
    exit 0
 fi
 
-# XXX: Should check for qubes_vm_type being 'ProxyVM' or 'NetVM'?
+## Now, assign it the netvm-gateway IP address
+ip="$(qubesdb-read /qubes-netvm-gateway)"
 
-# Setup Xen / Qubes proxy
-network=$(qubesdb-read /qubes-netvm-network 2>/dev/null)
-if [ "x$network" != "x" ]; then
+if [ ! "$ip" = "" ]; then
+   ## Create a dummy eth1 interface so Tor can bind to it if there
+   ## are no DOMU virtual machines connected at the moment
+   ip link add "$INTERFACE" type dummy || true
 
-    if [ -e /proc/sys/kernel ] && ! [ -e /proc/sys/kernel/modules_disabled ]; then
-      readonly modprobe_fail_cmd='true'
-    else
-      readonly modprobe_fail_cmd='false'
-    fi
+   netmask="$(qubesdb-read /qubes-netvm-netmask)"
+   gateway="$(qubesdb-read /qubes-netvm-gateway)"
+   /sbin/ifconfig "$INTERFACE" "$ip" netmask 255.255.255.255
+   /sbin/ifconfig "$INTERFACE" up
+   /sbin/ethtool -K "$INTERFACE" sg off || true
+   /sbin/ethtool -K "$INTERFACE" tx off || true
 
-    gateway=$(qubesdb-read /qubes-netvm-gateway)
-    netmask=$(qubesdb-read /qubes-netvm-netmask)
-    primary_dns=$(qubesdb-read /qubes-netvm-primary-dns 2>/dev/null || echo $gateway)
-    secondary_dns=$(qubesdb-read /qubes-netvm-secondary-dns)
-    modprobe netbk 2> /dev/null || modprobe xen-netback || "${modprobe_fail_cmd}"
-    echo "NS1=$primary_dns" > /run/qubes/qubes-ns
-    echo "NS2=$secondary_dns" >> /run/qubes/qubes-ns
-    echo "0" > /proc/sys/net/ipv4/ip_forward
-    /sbin/ethtool -K eth0 sg off || true
+   ip link set "$INTERFACE" up
 fi
-
-# Now, assign it the netvm-gateway IP address
-ip link show ${INTERFACE} &> /dev/null || {
-    ip=$(qubesdb-read /qubes-netvm-gateway 2> /dev/null)
-    if [ x${ip} != x ]; then
-      # Create a dummy eth1 interface so tor can bind to it if there
-      # are no DOMU virtual machines connected at the moment
-      ip link add ${INTERFACE} type dummy || true
-
-      netmask=$(qubesdb-read /qubes-netvm-netmask)
-      gateway=$(qubesdb-read /qubes-netvm-gateway)
-      /sbin/ifconfig ${INTERFACE} ${ip} netmask 255.255.255.255
-      /sbin/ifconfig ${INTERFACE} up
-      /sbin/ethtool -K ${INTERFACE} sg off || true
-      /sbin/ethtool -K ${INTERFACE} tx off || true
-
-      ip link set ${INTERFACE} up
-    fi
-}
