@@ -46,7 +46,6 @@ network="$(qubesdb-read /qubes-netvm-network)"
 
 if [ ! "$network" = "" ]; then
    gateway="$(qubesdb-read /qubes-netvm-gateway)"
-   netmask="$(qubesdb-read /qubes-netvm-netmask)"
    primary_dns="$(qubesdb-read /qubes-netvm-primary-dns)"
    if [ "$primary_dns" = "" ]; then
       primary_dns="$gateway"
