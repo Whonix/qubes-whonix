@@ -37,8 +37,6 @@ if [ ! -e /usr/share/anon-gw-base-files/gateway ]; then
    exit 0
 fi
 
-## XXX: Should check for qubes_vm_type being 'ProxyVM' or 'NetVM'?
-
 ## Setup Xen / Qubes proxy
 network="$(qubesdb-read /qubes-netvm-network)"
 
