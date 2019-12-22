@@ -37,7 +37,6 @@ if [ ! -e /usr/share/anon-gw-base-files/gateway ]; then
    exit 0
 fi
 
-## Setup Xen / Qubes proxy
 network="$(qubesdb-read /qubes-netvm-network)"
 
 if [ ! "$network" = "" ]; then
@@ -47,6 +46,9 @@ if [ ! "$network" = "" ]; then
       primary_dns="$gateway"
    fi
    secondary_dns="$(qubesdb-read /qubes-netvm-secondary-dns)"
+   ## Qubes original /lib/qubes/qubes-setup-dnat-to-ns uses this,
+   ## but Whonix (config-package-dev 'displace'ed)
+   ## /lib/qubes/qubes-setup-dnat-to-ns.anondist-orig does not use it.
    echo "NS1=$primary_dns" > /run/qubes/qubes-ns
    echo "NS2=$secondary_dns" >> /run/qubes/qubes-ns
 fi
