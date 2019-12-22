@@ -49,10 +49,10 @@ if [ ! "$network" = "" ]; then
    secondary_dns="$(qubesdb-read /qubes-netvm-secondary-dns)"
    echo "NS1=$primary_dns" > /run/qubes/qubes-ns
    echo "NS2=$secondary_dns" >> /run/qubes/qubes-ns
-
-   ## TODO: https://phabricator.whonix.org/T857
-   /sbin/ethtool -K eth0 sg off || true
 fi
+
+## TODO: https://phabricator.whonix.org/T857
+/sbin/ethtool -K eth0 sg off || true
 
 INTERFACE="eth1"
 
