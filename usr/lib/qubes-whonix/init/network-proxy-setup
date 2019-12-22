@@ -71,7 +71,7 @@ if [ ! "$ip" = "" ]; then
 
    netmask="$(qubesdb-read /qubes-netvm-netmask)"
    gateway="$(qubesdb-read /qubes-netvm-gateway)"
-   /sbin/ifconfig "$INTERFACE" "$ip" netmask 255.255.255.255
+   /sbin/ifconfig "$INTERFACE" "$ip" netmask "$netmask"
    /sbin/ifconfig "$INTERFACE" up
    /sbin/ethtool -K "$INTERFACE" sg off || true
    /sbin/ethtool -K "$INTERFACE" tx off || true
