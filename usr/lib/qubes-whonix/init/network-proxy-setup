@@ -37,8 +37,6 @@ if [ ! -e /usr/share/anon-gw-base-files/gateway ]; then
    exit 0
 fi
 
-INTERFACE="eth1"
-
 ## XXX: Should check for qubes_vm_type being 'ProxyVM' or 'NetVM'?
 
 ## Setup Xen / Qubes proxy
@@ -57,6 +55,8 @@ if [ ! "$network" = "" ]; then
    ## TODO: https://phabricator.whonix.org/T857
    /sbin/ethtool -K eth0 sg off || true
 fi
+
+INTERFACE="eth1"
 
 if ip link show "$INTERFACE" ; then
    exit 0
