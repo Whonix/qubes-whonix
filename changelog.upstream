@@ -1,3 +1,81 @@
+commit 451b784c6db5316289e16ac18fd496851f4c3a92
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Dec 22 11:08:20 2019 -0500
+
+    /run/qubes/qubes-ns not needed in Qubes-Whonix, therefore comment out
+
+commit 0c778935b0cc23fe3bf9d32e5f9a2fd94af107c9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Dec 22 11:03:56 2019 -0500
+
+    comment
+
+commit add7f70bb4459c59f5081640f0d802dde81232c6
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Dec 22 10:55:43 2019 -0500
+
+    refactoring
+
+commit 3318e7e9180f514b125f57f3ae445e04aa017078
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Dec 22 10:54:45 2019 -0500
+
+    remove comment
+    
+    XXX: Should check for qubes_vm_type being 'ProxyVM' or 'NetVM'?
+    
+    Qubes uses only provides_network anymore and not 'ProxyVM' or 'NetVM'.
+    
+    https://www.qubes-os.org/news/2017/10/03/core3/
+
+commit e08f217e55a393448279f091d989ef9fb81816f8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Dec 22 10:53:46 2019 -0500
+
+    refactoring
+
+commit 6c1df1539b6d514c45ca9b9ce530437cdf4cc21e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Dec 22 10:44:25 2019 -0500
+
+    remove duplicate setting of unneeded netmask variable
+
+commit 068b6e05e5c20404c8e1abde9686ff8b06418dfa
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Dec 22 10:42:40 2019 -0500
+
+    comment
+
+commit d0f340c4f18c1ae31208e0b7564776abe9fe2235
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Dec 22 10:40:02 2019 -0500
+
+    remove unused gateway variable
+
+commit 392f230d17cb69cd1e3196a54346c791c78101f2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Dec 22 10:38:16 2019 -0500
+
+    no longer hardcode netmask
+
+commit f1eccecd0d27648306a94db973b41694a2bf67e3
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Dec 22 05:29:51 2019 -0500
+
+    no need to use modprobe as module loading happens automatically
+    
+    no need to disable IP forwarding as this is default anyhow and https://github.com/Whonix/ipv4-forward-disable does it as well
+    
+    improve output on error
+    
+    refactoring
+
+commit bdf2b22394439443cba2656dec3f092846848d67
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Nov 18 10:14:12 2019 +0000
+
+    bumped changelog version
+
 commit 2b9107f2610ed016445368db96452e8f00535fa2
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Nov 18 09:33:26 2019 +0000
