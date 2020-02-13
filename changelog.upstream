@@ -1,3 +1,17 @@
+commit c397cc64f6cb95937ddfb4d10dcec913542218b7
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Feb 13 07:38:04 2020 -0500
+
+    do not start i2p and privoxy systemd services in Qubes TemplateVMs by default
+    
+    https://forums.whonix.org/t/installation-and-fix-of-i2p-inside-whonix-workstation-by-default/8610
+
+commit 381a11cb005b1f646c90e25af3a256f19bb06e7c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Dec 23 02:11:41 2019 -0500
+
+    bumped changelog version
+
 commit 451b784c6db5316289e16ac18fd496851f4c3a92
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Dec 22 11:08:20 2019 -0500
