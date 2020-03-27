@@ -31,7 +31,7 @@ set -e
 
 case "${1}" in
     configure)
-        adduser --no-create-home --home /nonexistent --quiet --system --group --shell /bin/false "updatesproxycheck" || true
+        adduser --home /run/updatesproxycheck --no-create-home --quiet --system --group --shell /bin/false "updatesproxycheck" || true
         ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
