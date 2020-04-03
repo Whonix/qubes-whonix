@@ -8,7 +8,6 @@
 # VM is going to be powered off if a failure of one of the configurations was
 # detected.
 #
-# This file is part of Qubes+Whonix.
 # Copyright (C) 2014 - 2015 Jason Mehring <nrgaway@gmail.com>
 # License: GPL-2+
 # Authors: Jason Mehring

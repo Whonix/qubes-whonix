@@ -4,7 +4,6 @@
 # qubes-whonix-postinit - Called by systemd used to setup other required
 #                         configurations before network is started.
 #
-# This file is part of Qubes+Whonix.
 # Copyright (C) 2014 - 2015 Jason Mehring <nrgaway@gmail.com>
 # License: GPL-2+
 # Authors: Jason Mehring

@@ -1,7 +1,6 @@
 #!/bin/bash -e
 # vim: set ts=4 sw=4 sts=4 et :
 #
-# This file is part of Qubes+Whonix.
 # Copyright (C) 2014 - 2015 Jason Mehring <nrgaway@gmail.com>
 # License: GPL-2+
 # Authors: Jason Mehring

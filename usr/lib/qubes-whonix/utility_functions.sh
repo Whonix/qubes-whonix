@@ -4,7 +4,6 @@
 # utility_functions.sh - Various utility functions or shared code used by
 #                        the 'qubes-whonix' package.
 #
-# This file is part of Qubes+Whonix.
 # Copyright (C) 2014 - 2015 Jason Mehring <nrgaway@gmail.com>
 # License: GPL-2+
 # Authors: Jason Mehring

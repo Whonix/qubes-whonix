@@ -1,6 +1,5 @@
-# This file is part of Qubes+Whonix.
-# Copyright (C) 2015 Jason Mehring <nrgaway@gmail.com>
-# License: GPL-2+
+## Copyright (C) 2015 Jason Mehring <nrgaway@gmail.com>
+## License: GPL-2+
 
 ## If not running inside a Qubes TemplateVM,
 ## and if running inside Whonix-Gateway (i.e. if file /usr/share/anon-gw-base-files/gateway exists),

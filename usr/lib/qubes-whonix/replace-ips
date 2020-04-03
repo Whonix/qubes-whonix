@@ -15,7 +15,6 @@ run in case the configuration files were modified due to a system update.
 Qubes feature request: optional static IP addresses
 https://github.com/QubesOS/qubes-issues/issues/1477
 
-This file is part of Qubes+Whonix.
 Copyright (C) 2014 - 2015 Jason Mehring <nrgaway@gmail.com>
 License: GPL-2+
 Authors: Jason Mehring

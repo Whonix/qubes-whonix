@@ -1,5 +1,8 @@
 #!/bin/sh
 
+## Copyright (C) 2012 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
 ## Better not setting errtrace ('set -e').
 ## https://github.com/QubesOS/qubes-issues/issues/4080#issuecomment-405100531
 
