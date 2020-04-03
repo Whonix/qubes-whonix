@@ -20,7 +20,7 @@ case "${1}" in
         for trigger in ${2}; do
             case "${trigger}" in
 
-                # Replace IP addresses
+                ## Replace IP addresses
                 /usr/share/whonix-gw-network-conf/network_internal_ip.txt | \
                 /etc/resolv.conf.anondist | \
                 /etc/rinetd.conf.anondist | \
@@ -39,7 +39,7 @@ case "${1}" in
                     /usr/lib/qubes-whonix/replace-ips || true
                     ;;
 
-                # Restart firewall
+                ## Restart firewall
                 /usr/bin/whonix_firewall | \
                 /usr/bin/whonix-gateway-firewall | \
                 /usr/bin/whonix-workstation-firewall | \
