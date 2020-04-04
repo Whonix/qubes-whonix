@@ -1,3 +1,33 @@
+commit cd0e8823893cad3cfc8196a28bd8881e7ff0d92c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Apr 3 14:03:52 2020 -0400
+
+    comments
+
+commit cba91ce350b1d543a3eefc38773e61dd4f90f121
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Apr 3 13:58:53 2020 -0400
+
+    remove obsolete comments
+
+commit 051f75ffefeceeee4f4a1a0aecebdb205798b825
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Apr 3 13:57:57 2020 -0400
+
+    remove postrm, preinst and prerm scripts that do nothing
+
+commit cd02d617a59e6ab5d6c1cd50fc7ce084b6ae5206
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Apr 3 13:57:06 2020 -0400
+
+    copyright
+
+commit ce7977b7e218543ae191af599319a65802c2950b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 2 07:55:31 2020 -0400
+
+    bumped changelog version
+
 commit 3f033e72e3725edb949f07caef7b354e64c8bc36
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Apr 2 07:22:42 2020 -0400
