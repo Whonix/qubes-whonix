@@ -1,3 +1,15 @@
+commit ec33b7e4316a3fb871529022f6d8054f8154d6c3
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Apr 7 16:26:15 2020 +0000
+
+    etc/qubes/protected-files.d/qubes-whonix.conf add /etc/resolv.conf
+
+commit d849aa0748dc1ba9d1283073b39e2ee3e69a62f6
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Apr 7 10:38:13 2020 +0000
+
+    bumped changelog version
+
 commit 4b2ebd8b94d81da071668ee46df8df0d83176f4a
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Apr 6 20:05:12 2020 +0000
