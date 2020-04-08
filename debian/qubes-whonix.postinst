@@ -63,6 +63,11 @@ case "${1}" in
         ;;
 esac
 
+## Make systemd drop-in config snippets take effect.
+if [ -d /run/systemd/system ]; then
+        systemctl --system daemon-reload >/dev/null || true
+fi
+
 #DEBHELPER#
 
 exit 0
