@@ -4,6 +4,8 @@
 
 ## Replace IP addresses
 interest-noawait /usr/share/whonix-gw-network-conf/network_internal_ip.txt
+interest-noawait /etc/resolv.conf
+interest-noawait /etc/resolv.conf.whonix
 interest-noawait /etc/resolv.conf.anondist
 interest-noawait /etc/rinetd.conf.anondist
 interest-noawait /etc/tor/torrc

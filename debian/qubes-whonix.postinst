@@ -22,7 +22,9 @@ case "${1}" in
 
                 ## Replace IP addresses
                 /usr/share/whonix-gw-network-conf/network_internal_ip.txt | \
+                /etc/resolv.conf | \
                 /etc/resolv.conf.anondist | \
+                /etc/resolv.conf.whonix | \
                 /etc/rinetd.conf.anondist | \
                 /etc/tor/torrc | \
                 /usr/local/etc/torrc.d/50_user.conf | \

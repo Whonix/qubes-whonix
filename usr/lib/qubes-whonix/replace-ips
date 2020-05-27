@@ -46,6 +46,8 @@ IP_ADDRESS = re.compile(r'(?:[0-9]{1,3}\.){3}[0-9]{1,3}')
 # be searched and replaces with the current assigned IP address
 FILES=[
     '/usr/share/whonix-gw-network-conf/network_internal_ip.txt',
+    '/etc/resolv.conf',
+    '/etc/resolv.conf.whonix',
     '/etc/resolv.conf.anondist',
     '/etc/rinetd.conf.anondist',
     '/etc/tor/torrc',
