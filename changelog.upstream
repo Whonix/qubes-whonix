@@ -1,3 +1,21 @@
+commit e72a4a594837eeaded1ca68a1a88959c93914487
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed May 27 12:48:10 2020 -0400
+
+    try fix https://forums.whonix.org/t/setting-up-anon-base-files-shows-machine-id-prompt-followed-by-ominous-warning/8045
+
+commit 9a04acb6b4a2a61f599c3e6fe311cb3154771cfe
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed May 27 12:35:24 2020 -0400
+
+    resolv.conf
+
+commit 0052fcc768468385940a11eda2d42031e664f898
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 16 08:40:16 2020 -0400
+
+    bumped changelog version
+
 commit 7e04b75c5dca54b2430a7f91a4879c5ab0d5f56b
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Apr 15 14:05:35 2020 -0400
