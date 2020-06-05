@@ -84,9 +84,9 @@ def whonix_mode():
 
 def is_immutable(filename):
     '''Determine if file has been set immutable.'''
-    filename =  os.path.abspath(filename)
+    filename = os.path.abspath(filename)
     lsattr = subprocess.check_output(['lsattr', filename])
-    return lsattr[4] ==  'i'
+    return lsattr[4] == 'i'
 
 
 def replace_ip(ips, current_ip, files, ip_file):
@@ -127,7 +127,7 @@ def replace_ip(ips, current_ip, files, ip_file):
                                current_ip.rsplit('.', 1)[0] + '.0',
                                match)
 
-            if text !=  match:
+            if text != match:
                 try:
                     immutable = False
                     if is_immutable(filename):
