@@ -82,13 +82,6 @@ def whonix_mode():
     return mode
 
 
-def is_immutable(filename):
-    '''Determine if file has been set immutable.'''
-    filename = os.path.abspath(filename)
-    lsattr = subprocess.check_output(['lsattr', filename])
-    return lsattr[4] == 'i'
-
-
 def replace_ip(ips, current_ip, files, ip_file):
     '''Searches and replaces IP adresss of provided files.
 
@@ -113,6 +106,7 @@ def replace_ip(ips, current_ip, files, ip_file):
                 with open(filename, 'r') as infile:
                     text = infile.read()
             except (IOError):
+                print "INFO: does not exist filename: " + filename
                 return False
 
             match = text
@@ -129,23 +123,23 @@ def replace_ip(ips, current_ip, files, ip_file):
 
             if text != match:
                 try:
-                    immutable = False
-                    if is_immutable(filename):
-                        subprocess.call(['chattr', '-i', os.path.abspath(filename)])
-
                     with open(filename, 'w') as outfile:
                         outfile.writelines(match)
 
                     replaced = True
                 except (IOError):
+                    print "ERROR: cannot open filename: " + filename
                     return False
-
+            else:
+                    print "INFO: file unchanged: " + filename
     if replaced:
         try:
             with open(ip_file, 'w') as outfile:
                 outfile.writelines(current_ip)
             replaced = True
+            print "INFO: file updated: " + filename
         except (IOError):
+            print "ERROR: writing to ip_file failed: " + ip_file
             return False
 
     return replaced
@@ -185,11 +179,18 @@ def main(args):
     last_ip_gateway = get_ip_address(WHONIX_IP_GATEWAY, '10.152.152.10')
     last_ip_local = get_ip_address(WHONIX_IP_LOCAL, '10.152.152.11')
 
+    if not os.path.isdir("/var/cache/qubes-whonix"):
+        try:
+            os.makedirs("/var/cache/qubes-whonix")
+        except:
+            print "ERROR: could not create /var/cache/qubes-whonix"
+
     if last_ip_gateway:
         if whonix_mode() == 'gateway':
             try:
                 current_ip_gateway = subprocess.check_output(['qubesdb-read', '/qubes-netvm-gateway']).rstrip()
             except (OSError, subprocess.CalledProcessError):
+                print "ERROR: qubesdb-read /qubes-netvm-gateway failed!"
                 return
 
             if IP_ADDRESS.match(current_ip_gateway):
@@ -204,6 +205,7 @@ def main(args):
                 ## FIXME: 'qubesdb-read /qubes-gateway' could fail if NetVM is set to 'none'.
                 current_ip_gateway = subprocess.check_output(['qubesdb-read', '/qubes-gateway']).rstrip()
             except (OSError, subprocess.CalledProcessError):
+                print "ERROR: 'qubesdb-read /qubes-ip' or 'qubesdb-read /qubes-gateway' failed!"
                 return
 
             if IP_ADDRESS.match(current_ip_local) and IP_ADDRESS.match(current_ip_gateway):
