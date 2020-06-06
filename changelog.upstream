@@ -1,3 +1,27 @@
+commit 221b6fcdb06e19404b1b9baf3d2bd2dac2d8926d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jun 6 08:20:13 2020 -0400
+
+    * replace-ips: remove immutable test:
+    files no longer immutable for a long time
+    if files were immutable, we ought to just leave them as is and not run
+    'chattr -i' on these
+    * add debug output
+    
+    https://github.com/Whonix/updates-status/issues/27
+
+commit 1be804642734cc4d6416f58244b719d9b9bfa404
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jun 5 17:24:52 2020 -0400
+
+    minor
+
+commit 961c12353625f61b149c35443469dc63290fe333
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed May 27 13:54:23 2020 -0400
+
+    bumped changelog version
+
 commit e72a4a594837eeaded1ca68a1a88959c93914487
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed May 27 12:48:10 2020 -0400
