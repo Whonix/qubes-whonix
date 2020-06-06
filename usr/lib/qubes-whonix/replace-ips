@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7 -O
+#!/usr/bin/python3 -O
 # -*- coding: utf-8 -*-`
 # vim: set ts=4 sw=4 sts=4 et :
 '''
@@ -70,7 +70,7 @@ def whonix_mode():
     '''
     mode = None
 
-    qubes_vm_type = subprocess.check_output(['qubesdb-read', '/qubes-vm-type']).rstrip()
+    qubes_vm_type = subprocess.check_output(['qubesdb-read', '/qubes-vm-type']).decode().rstrip()
 
     if qubes_vm_type == "TemplateVM":
         mode = 'template'
@@ -106,7 +106,7 @@ def replace_ip(ips, current_ip, files, ip_file):
                 with open(filename, 'r') as infile:
                     text = infile.read()
             except (IOError):
-                print "INFO: does not exist filename: " + filename
+                print("INFO: does not exist filename: " + filename)
                 return False
 
             match = text
@@ -128,18 +128,18 @@ def replace_ip(ips, current_ip, files, ip_file):
 
                     replaced = True
                 except (IOError):
-                    print "ERROR: cannot open filename: " + filename
+                    print("ERROR: cannot open filename: " + filename)
                     return False
             else:
-                    print "INFO: file unchanged: " + filename
+                    print("INFO: file unchanged: " + filename)
     if replaced:
         try:
             with open(ip_file, 'w') as outfile:
                 outfile.writelines(current_ip)
             replaced = True
-            print "INFO: file updated: " + filename
+            print("INFO: file updated: " + filename)
         except (IOError):
-            print "ERROR: writing to ip_file failed: " + ip_file
+            print("ERROR: writing to ip_file failed: " + ip_file)
             return False
 
     return replaced
@@ -183,14 +183,14 @@ def main(args):
         try:
             os.makedirs("/var/cache/qubes-whonix")
         except:
-            print "ERROR: could not create /var/cache/qubes-whonix"
+            print("ERROR: could not create /var/cache/qubes-whonix")
 
     if last_ip_gateway:
         if whonix_mode() == 'gateway':
             try:
-                current_ip_gateway = subprocess.check_output(['qubesdb-read', '/qubes-netvm-gateway']).rstrip()
+                current_ip_gateway = subprocess.check_output(['qubesdb-read', '/qubes-netvm-gateway']).decode().rstrip()
             except (OSError, subprocess.CalledProcessError):
-                print "ERROR: qubesdb-read /qubes-netvm-gateway failed!"
+                print("ERROR: qubesdb-read /qubes-netvm-gateway failed!")
                 return
 
             if IP_ADDRESS.match(current_ip_gateway):
@@ -201,11 +201,11 @@ def main(args):
         if whonix_mode() == 'workstation' and last_ip_local:
             try:
                 ## FIXME: 'qubesdb-read /qubes-ip' could fail if NetVM is set to 'none'.
-                current_ip_local = subprocess.check_output(['qubesdb-read', '/qubes-ip']).rstrip()
+                current_ip_local = subprocess.check_output(['qubesdb-read', '/qubes-ip']).decode().rstrip()
                 ## FIXME: 'qubesdb-read /qubes-gateway' could fail if NetVM is set to 'none'.
-                current_ip_gateway = subprocess.check_output(['qubesdb-read', '/qubes-gateway']).rstrip()
+                current_ip_gateway = subprocess.check_output(['qubesdb-read', '/qubes-gateway']).decode().rstrip()
             except (OSError, subprocess.CalledProcessError):
-                print "ERROR: 'qubesdb-read /qubes-ip' or 'qubesdb-read /qubes-gateway' failed!"
+                print("ERROR: 'qubesdb-read /qubes-ip' or 'qubesdb-read /qubes-gateway' failed!")
                 return
 
             if IP_ADDRESS.match(current_ip_local) and IP_ADDRESS.match(current_ip_gateway):
