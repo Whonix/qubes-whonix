@@ -1,3 +1,15 @@
+commit bbaad5b5c0b18160bdd91f2b1541fbd1834b111e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jun 7 11:44:59 2020 -0400
+
+    no more python2
+
+commit c1e95b0b519a1c40924edd8a5a63eaa698eb3c91
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jun 7 11:29:26 2020 -0400
+
+    bumped changelog version
+
 commit 42f2e8921adfd3b1114d9403ff3e6a9831b7f769
 Merge: 573594e d5e5d62
 Author: Patrick Schleizer <adrelanos@riseup.net>
