@@ -6,7 +6,7 @@ Source: qubes-whonix
 Section: admin
 Priority: optional
 Maintainer: Patrick Schleizer <adrelanos@riseup.net>
-Build-Depends: debhelper (>= 12), python, dh-python, config-package-dev
+Build-Depends: debhelper (>= 12), config-package-dev
 Homepage: https://github.com/Whonix/qubes-whonix
 Vcs-Browser: https://github.com/Whonix/qubes-whonix
 Vcs-Git: https://github.com/Whonix/qubes-whonix.git
@@ -27,7 +27,6 @@ Depends: adduser,
  qubes-core-agent (<< 4.0.0-1) | qubes-core-agent-networking,
  python3,
  python3-pyqt5,
- ${python:Depends},
  ${misc:Depends}
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
