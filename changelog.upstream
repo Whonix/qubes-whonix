@@ -1,3 +1,31 @@
+commit 42f2e8921adfd3b1114d9403ff3e6a9831b7f769
+Merge: 573594e d5e5d62
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jun 7 08:35:27 2020 -0400
+
+    Merge remote-tracking branch 'origin/master'
+
+commit d5e5d6220bffc917dd961ab633976b2b3a366157
+Merge: 573594e 9d36321
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jun 7 12:35:01 2020 +0000
+
+    Merge pull request #7 from marmarek/python3
+    
+    Convert replace-ips to python3
+
+commit 9d363213598b452c03ca5e73b594f26dfcfd2ee6
+Author: Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>
+Date:   Sat Jun 6 15:44:37 2020 +0200
+
+    Convert replace-ips to python3
+
+commit 573594eb3ef32a16ec0e3bde1165f2a2350cc6ca
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jun 6 08:32:01 2020 -0400
+
+    bumped changelog version
+
 commit 221b6fcdb06e19404b1b9baf3d2bd2dac2d8926d
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Jun 6 08:20:13 2020 -0400
