@@ -1,3 +1,15 @@
+commit 566e738a919b22ab88bb28c78f6052fca303e453
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jul 11 14:39:45 2020 -0400
+
+    https://www.whonix.org/wiki/Dev/Qubes_Remote_Support
+
+commit 4d9a717f9842d3e08943c5660b8299a6d8f9767e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jun 7 11:45:09 2020 -0400
+
+    bumped changelog version
+
 commit bbaad5b5c0b18160bdd91f2b1541fbd1834b111e
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jun 7 11:44:59 2020 -0400
