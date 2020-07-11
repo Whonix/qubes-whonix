@@ -2,4 +2,4 @@
 ## See the file COPYING for copying conditions.
 
 ## Opt-in only.
-qubes-whonix-remote-support.service
+disable qubes-whonix-remote-support.service
