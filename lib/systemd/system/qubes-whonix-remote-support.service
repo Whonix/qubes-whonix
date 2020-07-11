@@ -9,6 +9,7 @@ ConditionPathExists=|/run/qubes-service/whonix-gateway
 [Service]
 Type=forking
 ExecStart=/usr/bin/qvm-connect-tcp 22:dom0:22
+SuccessExitStatus=143
 
 [Install]
 WantedBy=multi-user.target
