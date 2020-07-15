@@ -1,3 +1,15 @@
+commit 45de2a64a4312d51fb5895298b0e1fdfaa825e45
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 15 01:45:42 2020 -0400
+
+    do not start vanguards in template vm
+
+commit 14b36473fb886699d3abd4be13a1596d74a7b8e8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 15 00:12:48 2020 -0400
+
+    bumped changelog version
+
 commit d916a09a2ff9dca25093897c01c31fee97c36bd9
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Jul 11 14:57:39 2020 -0400
