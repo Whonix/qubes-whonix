@@ -1,3 +1,17 @@
+commit d916a09a2ff9dca25093897c01c31fee97c36bd9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jul 11 14:57:39 2020 -0400
+
+    qubes-whonix-remote-support.service: SuccessExitStatus=143
+    
+    required to not show the service as failed after systemctl stop qubes-whonix-remote-support.service
+
+commit dc4b86914ecfc8e660a6c65f236754084cc3dec8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jul 11 14:51:59 2020 -0400
+
+    bumped changelog version
+
 commit 46582c6261d104ca053603c147112a804694e1a3
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Jul 11 14:51:54 2020 -0400
