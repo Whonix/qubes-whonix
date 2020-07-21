@@ -1,3 +1,25 @@
+commit fd8bc8213ef6a4bf1ce5b03a13d5f30afc80175c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jul 21 12:50:20 2020 -0400
+
+    no longer depend on `qubes-core-agent` / `qubes-gui-agent`
+    
+    qubes-vm-dependencies already `Depends`: on it
+    
+    https://github.com/QubesOS/qubes-builder-debian/blob/master/template_debian/packages_qubes.list
+    
+    in preparation of
+    - removal of dependency on `qubes-core-agent-passwordless-root`
+    - support of VM sudo
+    
+    https://www.qubes-os.org/doc/vm-sudo/
+
+commit f392f406ad1990583dde3fed57c53efa8dcae1a8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 15 01:45:55 2020 -0400
+
+    bumped changelog version
+
 commit 45de2a64a4312d51fb5895298b0e1fdfaa825e45
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Jul 15 01:45:42 2020 -0400
