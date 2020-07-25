@@ -51,10 +51,10 @@ ls -la "$temp_dir/qubes-remote-support/keys"
 ssh_fingerprint="$(cat "$temp_dir/qubes-remote-support/keys/ssh_fingerprint")"
 
 mkdir -p ~/.ssh
-mv "$temp_dir/qubes-remote-support/keys/id_ed25519.pub" ~/.ssh/
-mv "$temp_dir/qubes-remote-support/keys/id_ed25519" ~/.ssh/
+cp "$temp_dir/qubes-remote-support/keys/id_ed25519.pub" ~/.ssh/
+cp "$temp_dir/qubes-remote-support/keys/id_ed25519" ~/.ssh/
 ## TODO: test
-echo "ssh_fingerprint" > ~/.ssh/known_hosts
+echo "$ssh_fingerprint" > ~/.ssh/known_hosts
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/*
 
