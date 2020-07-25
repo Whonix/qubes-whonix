@@ -100,6 +100,7 @@ echo "INFO: Trying SSH..."
 counter=0
 
 ## Required 13 retries during testing until onion v3 service was ready.
+## Took 3:30 minutes.
 while true ; do
    counter="$((counter + 1))"
    if [ "$counter" -ge "500" ]; then
