@@ -79,8 +79,9 @@ echo "qvm-copy $temp_dir/qubes-remote-support/keys/1.auth_private"
 echo "INFO: When Qubes dom0 asks, answer to copy to sys-whonix."
 read press_enter_to_continue
 
-## TODO: Is there any elegant way to automate that?
-## TODO: sanitize
+## TODO: qvm-copy and a dom0 prompt is not very convenient.
+##       Is there any elegant way to automate that?
+## TODO: sanitize 1.auth_private
 qvm-copy "$temp_dir/qubes-remote-support/keys/1.auth_private"
 
 echo ""
