@@ -1,3 +1,51 @@
+commit 267bd10def61b29870728be5622d9cdcb9557307
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jul 25 12:20:09 2020 -0400
+
+    comment
+
+commit 522d7d8c60d0ef75e9dac6aa5bee000d143bb52a
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jul 25 12:09:19 2020 -0400
+
+    comments
+
+commit 7708920c995406d2d042b6d3ed5d8d8ce4eecf59
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jul 25 12:08:00 2020 -0400
+
+    comment
+
+commit bf31990f711c2282a57433f58ed0cd254e55c0de
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jul 25 11:59:17 2020 -0400
+
+    comment
+
+commit 423ba94da9d279c56140d2d9ab61e7780264a706
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jul 25 11:54:55 2020 -0400
+
+    ssh fingerprint enhancements
+
+commit 859267c2eba39342402f52113e5cda486375b895
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jul 25 07:29:35 2020 -0400
+
+    fix
+
+commit 6589e028427e86e872d7571cc9f9b654b53998f1
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jul 24 13:38:11 2020 -0400
+
+    initial implementation usr/bin/qubes-remote-support-provider
+
+commit 612d819455ea350b4ceafc75abfc7e75720ab5ed
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jul 21 13:05:07 2020 -0400
+
+    bumped changelog version
+
 commit fd8bc8213ef6a4bf1ce5b03a13d5f30afc80175c
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Jul 21 12:50:20 2020 -0400
