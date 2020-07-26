@@ -1,0 +1,19 @@
+qubes-remote-support-provider(8) -- Qubes Remote Support Provider
+=============================================
+
+<span class="comment">
+# Copyright (C) 2020 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
+# See the file COPYING for copying conditions.
+</span>
+
+## SYNOPSIS
+`qubes-remote-support-provider`
+
+## DESCRIPTION
+Builds mediate time by asking three onion servers from three different pools.
+
+## EXAMPLES
+`qubes-remote-support-provider`
+
+## AUTHOR
+This man page has been written by Patrick Schleizer (adrelanos@riseup.net).
