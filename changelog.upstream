@@ -1,3 +1,15 @@
+commit cafe3e37f86c621781304c5aa854a4d39c017cbf
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 26 06:30:40 2020 -0400
+
+    man page
+
+commit 6939e28b4bc973a186616efe84d9e60cf298f1d3
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 26 05:59:56 2020 -0400
+
+    bumped changelog version
+
 commit 267bd10def61b29870728be5622d9cdcb9557307
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Jul 25 12:20:09 2020 -0400
