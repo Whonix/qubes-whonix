@@ -1,3 +1,15 @@
+commit 1ea452ccd5be6657e4abdf741df5b2ebe2fc490c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 29 08:45:12 2020 -0400
+
+    error out if ssh client is not installed
+
+commit e67cd4d51fb7c4d788ae1cf3f01750cad2e4842b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 29 08:32:23 2020 -0400
+
+    bumped changelog version
+
 commit a79222fae7fe855ee545ad49d05e11e4c03df8dc
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Jul 29 07:40:04 2020 -0400
