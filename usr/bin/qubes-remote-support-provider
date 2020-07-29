@@ -48,11 +48,8 @@ ls -la
 ls -la "$temp_dir/qubes-remote-support/keys"
 
 ## TODO: sanitize
-## $temp_dir/qubes-remote-support/keys/id_ed25519.pub
-## $temp_dir/qubes-remote-support/keys/id_ed25519
-
-## TODO: sanitize
 hostname="$(cat "$temp_dir/qubes-remote-support/keys/hostname")"
+
 ssh_algorithm="$(cat "$temp_dir/qubes-remote-support/keys/ssh_algorithm")"
 ssh_fingerprint="$(cat "$temp_dir/qubes-remote-support/keys/ssh_fingerprint")"
 
@@ -81,7 +78,6 @@ read press_enter_to_continue
 
 ## TODO: qvm-copy and a dom0 prompt is not very convenient.
 ##       Is there any elegant way to automate that?
-## TODO: sanitize 1.auth_private
 qvm-copy "$temp_dir/qubes-remote-support/keys/1.auth_private"
 
 echo ""
