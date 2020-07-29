@@ -12,27 +12,33 @@ preparation() {
    mkdir -p "$temp_dir/keys"
 }
 
+if test -o xtrace ; then
+   output_command=true
+else
+   output_command=echo
+fi
+
 if test -d ~/.ssh ; then
-   echo "ERROR: Folder ~/.ssh already exists" >&2
-   echo ""
-   echo "INFO: Highly recommended to update your ~/.ssh folder!"
-   echo ""
-   echo "INFO: To move the existing ~/.ssh folder out of the way:"
-   echo "INFO: mv ~/.ssh ~/.ssh_my_backup"
-   echo ""
-   echo "ERROR: Stop." >&2
+   $output_command "ERROR: Folder ~/.ssh already exists" >&2
+   $output_command ""
+   $output_command "INFO: Highly recommended to update your ~/.ssh folder!"
+   $output_command ""
+   $output_command "INFO: To move the existing ~/.ssh folder out of the way:"
+   $output_command "INFO: mv ~/.ssh ~/.ssh_my_backup"
+   $output_command ""
+   $output_command "ERROR: Stop." >&2
    exit 100
 fi
 
 if command -v ssh &>/dev/null ; then
-   echo "ERROR: ssh client not installed" >&2
-   echo ""
-   echo "INFO: To install:"
-   echo ""
-   echo "sudo apt update"
-   echo "sudo apt install --no-install-recommends openssh-client"
-   echo ""
-   echo "ERROR: Stop." >&2
+   $output_command "ERROR: ssh client not installed" >&2
+   $output_command ""
+   $output_command "INFO: To install:"
+   $output_command ""
+   $output_command "sudo apt update"
+   $output_command "sudo apt install --no-install-recommends openssh-client"
+   $output_command ""
+   $output_command "ERROR: Stop." >&2
    exit 101
 fi
 
@@ -74,36 +80,36 @@ echo "$ssh_known_keys_line" > ~/.ssh/known_hosts
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/*
 
-echo "INFO: Press enter to continue"
-echo ""
+$output_command "INFO: Press enter to continue"
+$output_command ""
 
-echo "INFO: To avoid confusion, it is advised your delete folder ~/QubesIncoming in sys-whonix if it exists. In most cases no such folder exists."
-echo "INFO: If there is nothing you need to backup, you could run the following command."
-echo "rm -rf ~/QubesIncoming"
+$output_command "INFO: To avoid confusion, it is advised your delete folder ~/QubesIncoming in sys-whonix if it exists. In most cases no such folder exists."
+$output_command "INFO: If there is nothing you need to backup, you could run the following command."
+$output_command "rm -rf ~/QubesIncoming"
 read press_enter_to_continue
 
-echo "INFO: Will ask to copy 1.auth_private to sys-whonix."
-echo "INFO: In other words, will run the following command:"
-echo "qvm-copy $temp_dir/qubes-remote-support/keys/1.auth_private"
-echo "INFO: When Qubes dom0 asks, answer to copy to sys-whonix."
+$output_command "INFO: Will ask to copy 1.auth_private to sys-whonix."
+$output_command "INFO: In other words, will run the following command:"
+$output_command "qvm-copy $temp_dir/qubes-remote-support/keys/1.auth_private"
+$output_command "INFO: When Qubes dom0 asks, answer to copy to sys-whonix."
 read press_enter_to_continue
 
 ## TODO: qvm-copy and a dom0 prompt is not very convenient.
 ##       Is there any elegant way to automate that?
 qvm-copy "$temp_dir/qubes-remote-support/keys/1.auth_private"
 
-echo ""
-echo "INFO: Install authenticated Tor onion v3 service private key with the following command in sys-whonix."
-echo "sudo sourcefile=~/QubesIncoming/${my_vm_name}/1.auth_private anon-server-to-client-install"
+$output_command ""
+$output_command "INFO: Install authenticated Tor onion v3 service private key with the following command in sys-whonix."
+$output_command "sudo sourcefile=~/QubesIncoming/${my_vm_name}/1.auth_private anon-server-to-client-install"
 
 read press_enter_to_continue
 
-echo ""
-echo "INFO: Do you want to SSH to '$hostname'?"
+$output_command ""
+$output_command "INFO: Do you want to SSH to '$hostname'?"
 read press_enter_to_continue
 
-echo ""
-echo "INFO: Trying SSH..."
+$output_command ""
+$output_command "INFO: Trying SSH..."
 
 counter=0
 
@@ -112,7 +118,7 @@ counter=0
 while true ; do
    counter="$((counter + 1))"
    if [ "$counter" -ge "500" ]; then
-      echo "ERROR: SSH connection unsuccessful!"
+      $output_command "ERROR: SSH connection unsuccessful!"
       exit 1
    fi
    if ssh "$hostname" ; then
