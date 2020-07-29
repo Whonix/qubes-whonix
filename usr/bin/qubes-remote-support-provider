@@ -13,7 +13,7 @@ preparation() {
 }
 
 if test -d ~/.ssh ; then
-   echo "ERROR: Foder ~/.ssh already exists" >&2
+   echo "ERROR: Folder ~/.ssh already exists" >&2
    echo ""
    echo "INFO: Highly recommended to update your ~/.ssh folder!"
    echo ""
@@ -22,6 +22,18 @@ if test -d ~/.ssh ; then
    echo ""
    echo "ERROR: Stop." >&2
    exit 100
+fi
+
+if command -v ssh &>/dev/null ; then
+   echo "ERROR: ssh client not installed" >&2
+   echo ""
+   echo "INFO: To install:"
+   echo ""
+   echo "sudo apt update"
+   echo "sudo apt install --no-install-recommends openssh-client"
+   echo ""
+   echo "ERROR: Stop." >&2
+   exit 101
 fi
 
 my_vm_name="$(qubesdb-read /name)"
