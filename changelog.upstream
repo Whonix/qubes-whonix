@@ -1,3 +1,15 @@
+commit 343d08d1fa4a72e9380be3ee01e13d82fb993bd1
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Sep 5 06:39:05 2020 -0400
+
+    qubes-remote-support-provider: fix detection if ssh client is installed
+
+commit fc6357804306d7f69af322bbbb666d6902eea367
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 29 12:04:22 2020 -0400
+
+    bumped changelog version
+
 commit 03466adb38c1ef695621beb950691d6a6647f41f
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Jul 29 09:51:14 2020 -0400
