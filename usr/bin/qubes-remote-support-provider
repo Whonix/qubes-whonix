@@ -23,6 +23,11 @@ no_ssh_found_exit() {
    exit 101
 }
 
+hostname_malicious() {
+   $output_command "File $temp_dir/qubes-remote-support/keys/hostname might be malicious." >&2
+   $output_command "Do not look at it unless you know what you are doing." >&2
+}
+
 if test -o xtrace ; then
    output_command=true
 else
@@ -97,10 +102,26 @@ if test -o xtrace ; then
    ls -la "$temp_dir/qubes-remote-support/keys"
 fi
 
-## TODO: sanitize
 hostname="$(cat "$temp_dir/qubes-remote-support/keys/hostname")"
 ## Example hostname:
 ## pp3nxkdbekhaac6r57blbrgniramltvriuukw6g6vqpbudymk33mpnyd.onion
+
+string_length_ofhostname="${#hostname}"
+if [ ! "$string_length_ofhostname" = "62" ]; then
+   $output_command "ERROR: hostname string string is not 62. it is: $string_length_ofhostname" >&2
+   hostname_malicious
+   exit 200
+fi
+if ! [[ "$hostname" =~ ^[.0-9a-zA-Z_-]+$ ]]; then
+   $output_command "ERROR: hostname contains invalid character!" >&2
+   hostname_malicious
+   exit 201
+fi
+if ! [[ "$hostname" == *.onion ]]; then
+   $output_command "ERROR: hostname does not end with '.onion'!" >&2
+   hostname_malicious
+   exit 202
+fi
 
 ## Rely on ssh for sanitation.
 ssh_algorithm="$(cat "$temp_dir/qubes-remote-support/keys/ssh_algorithm")"
