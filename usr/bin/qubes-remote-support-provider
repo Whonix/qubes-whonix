@@ -103,10 +103,12 @@ hostname="$(cat "$temp_dir/qubes-remote-support/keys/hostname")"
 ## Example hostname:
 ## pp3nxkdbekhaac6r57blbrgniramltvriuukw6g6vqpbudymk33mpnyd.onion
 
+## Rely on ssh for sanitation.
 ssh_algorithm="$(cat "$temp_dir/qubes-remote-support/keys/ssh_algorithm")"
 ## Example ssh_algorithm:
 ## ssh-ed25519
 
+## Rely on ssh for sanitation.
 ssh_fingerprint="$(cat "$temp_dir/qubes-remote-support/keys/ssh_fingerprint")"
 ## Example ssh_fingerprint:
 ## AAAAC3NzaC1lZDI1NTE5AAAAICF7BLyxUHVzpwD9DVcG5+H+1TydgvcQlTQdKrXqNgFF
@@ -114,7 +116,9 @@ ssh_fingerprint="$(cat "$temp_dir/qubes-remote-support/keys/ssh_fingerprint")"
 ssh_known_keys_line="$hostname $ssh_algorithm $ssh_fingerprint"
 
 mkdir -p ~/.ssh
+## Rely on ssh for sanitation of id_ed25519.pub.
 cp "$temp_dir/qubes-remote-support/keys/id_ed25519.pub" ~/.ssh/
+## Rely on ssh for sanitation of id_ed25519.
 cp "$temp_dir/qubes-remote-support/keys/id_ed25519" ~/.ssh/
 echo "$ssh_known_keys_line" > ~/.ssh/known_hosts
 chmod 700 ~/.ssh
@@ -152,6 +156,8 @@ read press_enter_to_continue
 
 ## TODO: qvm-copy and a dom0 prompt is not very convenient.
 ##       Is there any elegant way to automate that?
+##
+## Rely on Tor for sanitation of 1.auth_private.
 qvm-copy "$temp_dir/qubes-remote-support/keys/1.auth_private"
 
 $output_command ""
