@@ -61,7 +61,6 @@ mkdir -p "$temp_dir/qubes-remote-support"
 
 ## input wormhole code and press enter
 ## to confirm, press y and press enter
-## TODO: timeout
 wormhole receive
 ## Example output including user interaction:
 # Enter receive wormhole code: 8-reproduce-virus
