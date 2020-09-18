@@ -66,16 +66,20 @@ mkdir -p "$temp_dir/qubes-remote-support"
 wormhole receive
 
 ## Debugging.
-ls -la
-ls -la remote-support-keys.tar.gz
+if test -o xtrace ; then
+   ls -la
+   ls -la remote-support-keys.tar.gz
+fi
 
 ## TODO: sanitize remote-support-keys.tar.gz file size
 
 tar --warning=no-timestamp -xvf remote-support-keys.tar.gz -C "$temp_dir/qubes-remote-support"
 
 ## Debugging.
-ls -la
-ls -la "$temp_dir/qubes-remote-support/keys"
+if test -o xtrace ; then
+   ls -la
+   ls -la "$temp_dir/qubes-remote-support/keys"
+fi
 
 ## TODO: sanitize
 hostname="$(cat "$temp_dir/qubes-remote-support/keys/hostname")"
