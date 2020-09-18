@@ -63,6 +63,17 @@ mkdir -p "$temp_dir/qubes-remote-support"
 ## to confirm, press y and press enter
 ## TODO: timeout
 wormhole receive
+## Example output including user interaction:
+# Enter receive wormhole code: 8-reproduce-virus
+#  (note: you can use <Tab> to complete words)
+# Waiting for sender...
+# Receiving file (817 Bytes) into: remote-support-keys.tar.gz
+# ok? (y/N): y
+# Receiving (->relay:tcp:magic-wormhole-transit.debian.net:4001)..
+# 100%|| 817/817 [00:00<00:00, 2.49MB/s]
+# Received file written to remote-support-keys.tar.gz
+
+## As seen in output above, wormhole points out the file size beforehand.
 
 ## Debugging.
 if test -o xtrace ; then
@@ -70,7 +81,14 @@ if test -o xtrace ; then
    ls -la remote-support-keys.tar.gz
 fi
 
-## TODO: sanitize remote-support-keys.tar.gz file size
+file_size="$(stat --printf="%s" remote-support-keys.tar.gz)"
+## example output:
+## 818
+
+if [ "$file_size" -ge 1000 ]; then
+   $output_command "ERROR: file_size of $temp_dir/qubes-remote-support/remote-support-keys.tar.gz larger than 1000. file_size: $file_size"
+   exit 102
+fi
 
 tar --warning=no-timestamp -xvf remote-support-keys.tar.gz -C "$temp_dir/qubes-remote-support"
 
@@ -82,9 +100,16 @@ fi
 
 ## TODO: sanitize
 hostname="$(cat "$temp_dir/qubes-remote-support/keys/hostname")"
+## Example hostname:
+## pp3nxkdbekhaac6r57blbrgniramltvriuukw6g6vqpbudymk33mpnyd.onion
 
 ssh_algorithm="$(cat "$temp_dir/qubes-remote-support/keys/ssh_algorithm")"
+## Example ssh_algorithm:
+## ssh-ed25519
+
 ssh_fingerprint="$(cat "$temp_dir/qubes-remote-support/keys/ssh_fingerprint")"
+## Example ssh_fingerprint:
+## AAAAC3NzaC1lZDI1NTE5AAAAICF7BLyxUHVzpwD9DVcG5+H+1TydgvcQlTQdKrXqNgFF
 
 ssh_known_keys_line="$hostname $ssh_algorithm $ssh_fingerprint"
 
@@ -94,6 +119,19 @@ cp "$temp_dir/qubes-remote-support/keys/id_ed25519" ~/.ssh/
 echo "$ssh_known_keys_line" > ~/.ssh/known_hosts
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/*
+
+## example id_ed25519:
+## -----BEGIN OPENSSH PRIVATE KEY-----
+## b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+## QyNTUxOQAAACAEJ82o4Knq4gSJAr0Mke+5y2fdl6vo8v+dBlz5bKfSyQAAALDJ/1Ulyf9V
+## JQAAAAtzc2gtZWQyNTUxOQAAACAEJ82o4Knq4gSJAr0Mke+5y2fdl6vo8v+dBlz5bKfSyQ
+## AAAEBFm5blNb/E4K9WL6NhqyffoPrbuwtiGkCs0hOyHsb4cAQnzajgqeriBIkCvQyR77nL
+## Z92Xq+jy/50GXPlsp9LJAAAALHF1YmVzLXJlbW90ZS1zdXBwb3J0LXJlY2VpdmVyLWF1dG
+## 8tZ2VuZXJhdGVkAQ==
+## -----END OPENSSH PRIVATE KEY-----
+
+## example id_ed25519.pub:
+#ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAQnzajgqeriBIkCvQyR77nLZ92Xq+jy/50GXPlsp9LJ qubes-remote-support-receiver-auto-generated
 
 $output_command "INFO: Press enter to continue"
 $output_command ""
@@ -108,6 +146,9 @@ $output_command "INFO: In other words, will run the following command:"
 $output_command "qvm-copy $temp_dir/qubes-remote-support/keys/1.auth_private"
 $output_command "INFO: When Qubes dom0 asks, answer to copy to sys-whonix."
 read press_enter_to_continue
+
+## Example 1.auth_private contents:
+## pp3nxkdbekhaac6r57blbrgniramltvriuukw6g6vqpbudymk33mpnyd:descriptor:x25519:CC2Z373LXU36QEKG5JIFCFMUDOYB73U26MZ6FAQDGLOWYQAGWBBA
 
 ## TODO: qvm-copy and a dom0 prompt is not very convenient.
 ##       Is there any elegant way to automate that?
