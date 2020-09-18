@@ -12,6 +12,18 @@ preparation() {
    mkdir -p "$temp_dir/keys"
 }
 
+no_ssh_found_exit() {
+   $output_command "ERROR: ssh client not installed" >&2
+   $output_command ""
+   $output_command "INFO: To install:"
+   $output_command ""
+   $output_command "sudo apt update"
+   $output_command "sudo apt install --no-install-recommends openssh-client"
+   $output_command ""
+   $output_command "ERROR: Stop." >&2
+   exit 101
+}
+
 if test -o xtrace ; then
    output_command=true
 else
@@ -30,16 +42,16 @@ if test -d ~/.ssh ; then
    exit 100
 fi
 
-if ! command -v ssh &>/dev/null ; then
-   $output_command "ERROR: ssh client not installed" >&2
-   $output_command ""
-   $output_command "INFO: To install:"
-   $output_command ""
-   $output_command "sudo apt update"
-   $output_command "sudo apt install --no-install-recommends openssh-client"
-   $output_command ""
-   $output_command "ERROR: Stop." >&2
-   exit 101
+if test -h /usr/bin/ssh ; then
+   ## Whonix
+   if ! command -v /usr/bin/ssh.anondist-orig &>/dev/null ; then
+      no_ssh_found_exit
+   fi
+else
+   ## Non-Whonix or no uwt installed.
+   if ! command -v ssh &>/dev/null ; then
+      no_ssh_found_exit
+   fi
 fi
 
 my_vm_name="$(qubesdb-read /name)"
