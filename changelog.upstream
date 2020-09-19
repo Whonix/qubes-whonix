@@ -1,3 +1,59 @@
+commit 7824256598f5742dcd72bf06715e0ea122d88412
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Sep 18 07:40:47 2020 -0400
+
+    sanitize hostname
+
+commit 33ccb0fe307227ceeb1a456db7d7b41fd6450918
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Sep 18 07:28:26 2020 -0400
+
+    no timeout needed to enter wormhole code
+    
+    no security harm if user waits forever
+
+commit f539ef6ebfd8e3ab487e71c39aedf68490be9f06
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Sep 18 07:27:26 2020 -0400
+
+    comments
+
+commit eff37a56de173d945b010e9e2fe464b2f6df454e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Sep 18 07:24:44 2020 -0400
+
+    sanitize file size; comments
+
+commit 7a683a87a810883672a8ccd31805391d9f3c4f7e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Sep 18 07:09:07 2020 -0400
+
+    disable debugging
+
+commit 94767597da43b2484deadbb53b76fc3309a7c12d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Sep 18 07:08:40 2020 -0400
+
+    lower verbosity
+
+commit 4f1310bc72dae6e1260ef6b63793c3d50718fb6e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Sep 18 07:04:37 2020 -0400
+
+    comment
+
+commit d0cd20dda4e29851e163605bbb558673f92de13d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Sep 18 06:58:59 2020 -0400
+
+    fix detection if SSH client is installed inside Whonix
+
+commit e887c59d9da8a76122845472fadbe04be68b32f5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Sep 5 07:19:08 2020 -0400
+
+    bumped changelog version
+
 commit 343d08d1fa4a72e9380be3ee01e13d82fb993bd1
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Sep 5 06:39:05 2020 -0400
