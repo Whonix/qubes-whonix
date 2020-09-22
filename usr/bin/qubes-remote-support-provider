@@ -192,6 +192,7 @@ read press_enter_to_continue
 
 $output_command ""
 $output_command "INFO: Trying SSH..."
+$output_command "INFO: Will keep trying to run the following command..."
 $output_command "ssh '$hostname'"
 
 counter=0
