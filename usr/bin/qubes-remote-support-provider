@@ -63,6 +63,10 @@ my_vm_name="$(qubesdb-read /name)"
 preparation
 cd "$temp_dir"
 mkdir -p "$temp_dir/qubes-remote-support"
+## Test if could create file.
+touch "$temp_dir/qubes-remote-support/remote-support-keys.tar.gz"
+## Test if could delete files.
+rm "$temp_dir/qubes-remote-support/remote-support-keys.tar.gz"
 
 ## input wormhole code and press enter
 ## to confirm, press y and press enter
@@ -78,6 +82,12 @@ wormhole receive
 # Received file written to remote-support-keys.tar.gz
 
 ## As seen in output above, wormhole points out the file size beforehand.
+
+if ! test -f "$temp_dir/qubes-remote-support/remote-support-keys.tar.gz" ]; then
+   $output_command "ERROR: error receiving file!"
+   $output_command "ERROR: file $temp_dir/qubes-remote-support/remote-support-keys.tar.gz does not exist!"
+   exit 102
+fi
 
 ## Debugging.
 if test -o xtrace ; then
