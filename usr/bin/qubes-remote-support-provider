@@ -208,9 +208,17 @@ while true ; do
       $output_command "ERROR: SSH connection unsuccessful!"
       exit 1
    fi
-   if ssh "$hostname" ; then
-      true "INFO: SSH success."
+   if test -o xtrace ; then
+      if ssh "$hostname" ; then
+         true "INFO: SSH success."
+      else
+         sleep 10
+      fi
    else
-      sleep 10
+      if ssh "$hostname" 2>/dev/null ; then
+         true "INFO: SSH success."
+      else
+         sleep 10
+      fi
    fi
 done
