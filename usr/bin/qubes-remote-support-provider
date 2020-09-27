@@ -83,9 +83,9 @@ wormhole receive
 
 ## As seen in output above, wormhole points out the file size beforehand.
 
-if ! test -f "$temp_dir/qubes-remote-support/remote-support-keys.tar.gz" ; then
+if ! test -f "$temp_dir/remote-support-keys.tar.gz" ; then
    $output_command "ERROR: error receiving file!"
-   $output_command "ERROR: file $temp_dir/qubes-remote-support/remote-support-keys.tar.gz does not exist!"
+   $output_command "ERROR: file $temp_dir/remote-support-keys.tar.gz does not exist!"
    exit 102
 fi
 
