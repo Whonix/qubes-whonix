@@ -104,7 +104,11 @@ if [ "$file_size" -ge 1000 ]; then
    exit 102
 fi
 
-tar --warning=no-timestamp -xvf remote-support-keys.tar.gz -C "$temp_dir/qubes-remote-support"
+if test -o xtrace ; then
+   tar --warning=no-timestamp -xvf remote-support-keys.tar.gz -C "$temp_dir/qubes-remote-support"
+else
+   tar --warning=no-timestamp -xvf remote-support-keys.tar.gz -C "$temp_dir/qubes-remote-support" >/dev/null
+fi
 
 ## Debugging.
 if test -o xtrace ; then
