@@ -167,22 +167,19 @@ chmod 600 ~/.ssh/*
 ## example id_ed25519.pub:
 #ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAQnzajgqeriBIkCvQyR77nLZ92Xq+jy/50GXPlsp9LJ qubes-remote-support-receiver-auto-generated
 
-$output_command "INFO: Press enter to continue"
-$output_command ""
-
 $output_command "INFO: To avoid confusion, it is advised your delete folder ~/QubesIncoming in sys-whonix if it exists. In most cases no such folder exists."
 $output_command "INFO: If there is nothing you need to backup, you could run the following command in sys-whonix."
 $output_command "rm -rf ~/QubesIncoming"
+$output_command "INFO: Press enter to continue."
 read press_enter_to_continue
-$output_command "INFO: Press enter to continue"
 $output_command ""
 
 $output_command "INFO: Will ask to copy 1.auth_private to sys-whonix."
 $output_command "INFO: In other words, will run the following command:"
 $output_command "qvm-copy $temp_dir/qubes-remote-support/keys/1.auth_private"
 $output_command "INFO: When Qubes dom0 asks, answer to copy to sys-whonix."
+$output_command "INFO: Press enter to continue."
 read press_enter_to_continue
-$output_command "INFO: Press enter to continue"
 $output_command ""
 
 ## Example 1.auth_private contents:
@@ -197,14 +194,15 @@ qvm-copy "$temp_dir/qubes-remote-support/keys/1.auth_private"
 $output_command ""
 $output_command "INFO: Install authenticated Tor onion v3 service private key with the following command in sys-whonix."
 $output_command "sudo sourcefile=~/QubesIncoming/${my_vm_name}/1.auth_private anon-server-to-client-install"
+$output_command "INFO: Press enter to continue."
 read press_enter_to_continue
-$output_command "INFO: Press enter to continue"
 $output_command ""
 
 $output_command "INFO: Do you want to SSH to '$hostname'?"
+$output_command "INFO: Press enter to continue."
 read press_enter_to_continue
-
 $output_command ""
+
 $output_command "INFO: Trying SSH..."
 $output_command "INFO: This can take up to 10 minutes."
 $output_command "INFO: Will keep trying to run the following command..."
