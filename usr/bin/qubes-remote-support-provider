@@ -41,7 +41,7 @@ if test -d ~/.ssh ; then
    $output_command ""
    $output_command "INFO: To move the existing ~/.ssh folder out of the way:"
    $output_command ""
-   $output_command "mv ~/.ssh ~/.ssh_my_backup"
+   $output_command "mv --backup ~/.ssh ~/.ssh_my_backup"
    $output_command ""
    $output_command "ERROR: Stop." >&2
    exit 100
