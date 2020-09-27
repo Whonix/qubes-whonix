@@ -198,7 +198,7 @@ $output_command ""
 qvm-copy "$temp_dir/qubes-remote-support/keys/1.auth_private"
 $output_command ""
 
-$output_command "INFO: Install authenticated Tor onion v3 service private key with the following command in sys-whonix."
+$output_command "INFO: Install authenticated Tor onion v3 service private key by running the following command in sys-whonix."
 $output_command ""
 $output_command "sudo sourcefile=~/QubesIncoming/${my_vm_name}/1.auth_private anon-server-to-client-install"
 $output_command ""
@@ -212,9 +212,9 @@ read press_enter_to_continue
 $output_command ""
 
 $output_command "INFO: Trying SSH..."
-$output_command "INFO: This can take up to 10 minutes."
 $output_command "INFO: Will keep trying to run the following command..."
 $output_command "ssh '$hostname'"
+$output_command "INFO: This can take up to 10 minutes."
 
 counter=0
 
