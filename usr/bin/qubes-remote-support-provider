@@ -169,14 +169,16 @@ chmod 600 ~/.ssh/*
 
 $output_command "INFO: To avoid confusion, it is advised your delete folder ~/QubesIncoming in sys-whonix if it exists. In most cases no such folder exists."
 $output_command "INFO: If there is nothing you need to backup, you could run the following command in sys-whonix."
+$output_command ""
 $output_command "rm -rf ~/QubesIncoming"
+$output_command ""
 $output_command "INFO: Press enter to continue."
 read press_enter_to_continue
 $output_command ""
 
 $output_command "INFO: Will ask to copy 1.auth_private to sys-whonix."
-$output_command "INFO: In other words, will run the following command:"
-$output_command "qvm-copy $temp_dir/qubes-remote-support/keys/1.auth_private"
+true "INFO: In other words, will run the following command:"
+true "qvm-copy $temp_dir/qubes-remote-support/keys/1.auth_private"
 $output_command "INFO: When Qubes dom0 asks, answer to copy to sys-whonix."
 $output_command "INFO: Press enter to continue."
 read press_enter_to_continue
@@ -190,10 +192,12 @@ $output_command ""
 ##
 ## Rely on Tor for sanitation of 1.auth_private.
 qvm-copy "$temp_dir/qubes-remote-support/keys/1.auth_private"
-
 $output_command ""
+
 $output_command "INFO: Install authenticated Tor onion v3 service private key with the following command in sys-whonix."
+$output_command ""
 $output_command "sudo sourcefile=~/QubesIncoming/${my_vm_name}/1.auth_private anon-server-to-client-install"
+$output_command ""
 $output_command "INFO: Press enter to continue."
 read press_enter_to_continue
 $output_command ""
