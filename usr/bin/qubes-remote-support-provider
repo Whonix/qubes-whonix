@@ -171,7 +171,7 @@ $output_command "INFO: Press enter to continue"
 $output_command ""
 
 $output_command "INFO: To avoid confusion, it is advised your delete folder ~/QubesIncoming in sys-whonix if it exists. In most cases no such folder exists."
-$output_command "INFO: If there is nothing you need to backup, you could run the following command."
+$output_command "INFO: If there is nothing you need to backup, you could run the following command in sys-whonix."
 $output_command "rm -rf ~/QubesIncoming"
 read press_enter_to_continue
 $output_command "INFO: Press enter to continue"
