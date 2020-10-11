@@ -34,6 +34,10 @@ else
    output_command=echo
 fi
 
+$output_command "INFO: Starting Qubes Remote Support Provider."
+$output_command "INFO: This tool is supposed to be run by those who wish to provide remote support."
+$output_command "INFO: Setting up... This will take a moment..."
+
 if test -d ~/.ssh ; then
    $output_command "ERROR: Folder ~/.ssh already exists" >&2
    $output_command ""
