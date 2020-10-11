@@ -73,6 +73,8 @@ touch "$temp_dir/qubes-remote-support/remote-support-keys.tar.gz"
 ## Test if could delete files.
 rm "$temp_dir/qubes-remote-support/remote-support-keys.tar.gz"
 
+$output_command "INFO: Ask the remote support receiver for the wormhole code phrase and enter it below."
+
 ## input wormhole code and press enter
 ## to confirm, press y and press enter
 wormhole receive
@@ -93,6 +95,11 @@ if ! test -f "$temp_dir/remote-support-keys.tar.gz" ; then
    $output_command "ERROR: file $temp_dir/remote-support-keys.tar.gz does not exist!"
    exit 102
 fi
+
+$output_command "INFO: Success, received remote support archive file '$temp_dir/remote-support-keys.tar.gz'."
+$output_command "INFO: (That file allows a Qubes Remote Support Provider to connect to this machine.)"
+$output_command "INFO: (No need to do anything with that file.)"
+$output_command "INFO: Setting up... This will take a moment..."
 
 ## Debugging.
 if test -o xtrace ; then
@@ -175,6 +182,10 @@ chmod 600 ~/.ssh/*
 
 ## example id_ed25519.pub:
 #ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAQnzajgqeriBIkCvQyR77nLZ92Xq+jy/50GXPlsp9LJ qubes-remote-support-receiver-auto-generated
+
+$output_command ""
+$output_command "Success. Please continue as instructed below."
+$output_command ""
 
 $output_command "INFO: To avoid confusion, it is advised your delete folder ~/QubesIncoming in sys-whonix if it exists. In most cases no such folder exists."
 $output_command "INFO: If there is nothing you need to backup, you could run the following command in sys-whonix:"
