@@ -10,7 +10,7 @@ Whonix-Workstation should run as an AppVM.
 Template updates over Tor.
 ## How to install `qubes-whonix` using apt-get ##
 
-1\. Download [Whonix's Signing Key]().
+1\. Download Whonix's Signing Key.
 
 ```
 wget https://www.whonix.org/patrick.asc
