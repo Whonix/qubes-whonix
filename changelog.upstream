@@ -1,3 +1,15 @@
+commit b4c2344b43ba0ad26fb2ac9786b399c87c04603c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Nov 14 07:56:50 2020 -0500
+
+    git commit -a -m "IP HARDCODED"
+
+commit 28227d5ef1222dc25741acad555369e43dd35ac9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Oct 13 12:32:04 2020 -0400
+
+    bumped changelog version
+
 commit 3127da2030a4955f22b5b0b1f5b0de70e18728b8
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Oct 13 12:32:03 2020 -0400
