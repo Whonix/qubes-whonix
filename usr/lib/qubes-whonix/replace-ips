@@ -176,6 +176,8 @@ def maybe_reload_tor():
 
 
 def main(args):
+    ## IP HARDCODED but does not matter for Non-Qubes-Whonix. This script is
+    ## currently only used in Qubes-Whonix.
     last_ip_gateway = get_ip_address(WHONIX_IP_GATEWAY, '10.152.152.10')
     last_ip_local = get_ip_address(WHONIX_IP_LOCAL, '10.152.152.11')
 
