@@ -41,7 +41,7 @@ Description: Qubes Configuration for Whonix-Gateway and Whonix-Workstation
 
 Package: qubes-whonix-shared-packages-recommended
 Architecture: all
-Depends: qubes-core-agent-passwordless-root,
+Depends: qubes-core-agent-passwordless-root | dummy-dependency,
  qubes-kernel-vm-support, initramfs-tools, qubes-mgmt-salt-vm-connector,
  qubes-usb-proxy, qubes-input-proxy-sender,
  qubes-core-agent-thunar, qubes-core-agent-nautilus,
