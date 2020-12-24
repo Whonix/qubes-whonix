@@ -1,3 +1,17 @@
+commit 9aaca6b64083e92578fbcff491dec2f6bfb21bc7
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Dec 24 08:19:29 2020 -0500
+
+    simplify removal of package `qubes-core-agent-passwordless-root`
+    
+    (through package `dummy-dependency`)
+
+commit 5c39c342f0a1a91e5edeadaa74e283da5cac2294
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Nov 14 11:56:01 2020 -0500
+
+    bumped changelog version
+
 commit b4c2344b43ba0ad26fb2ac9786b399c87c04603c
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Nov 14 07:56:50 2020 -0500
