@@ -70,9 +70,7 @@ def whonix_mode():
     '''
     mode = None
 
-    qubes_vm_type = subprocess.check_output(['qubesdb-read', '/qubes-vm-type']).decode().rstrip()
-
-    if qubes_vm_type == "TemplateVM":
+    if os.path.exists('/run/qubes/this-is-templatevm'):
         mode = 'template'
     elif os.path.exists('/usr/share/anon-gw-base-files/gateway'):
         mode = 'gateway'
