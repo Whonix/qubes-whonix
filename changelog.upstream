@@ -1,3 +1,44 @@
+commit 9fe04b7dc5d2907c4568c918a07a4037a3bdbf10
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 9 01:25:09 2021 -0500
+
+    port to /run/qubes/this-is-templatevm
+
+commit a6c0c899d2e4f680edd0b65304eae5e528ecab2d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 9 01:23:55 2021 -0500
+
+    /run/qubes/this-is-appvm
+
+commit 551382a944b08409bda7d4b30f9fabd1e1299022
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 9 01:22:47 2021 -0500
+
+    port from qubesdb-read to /run/qubes/this-is-templatevm
+    
+    to be more robust during upgrades when qubesdb is updated
+
+commit 53ff72ab6ce59cb2c98401fd701ae782ca100e37
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 9 01:06:24 2021 -0500
+
+    Run torified-updates-proxy-check under user `updatesproxycheck`.
+    
+    No longer use sudo inside `torified-updates-proxy-check`.
+    No longer run `torified-updates-proxy-check` as root.
+    
+    This is to avoid some corner cases with authentication / PAM.
+    
+    Thanks to @marmarek for the suggestion!
+    
+    https://phabricator.whonix.org/T1001
+
+commit e52ef06ad2d13138d81bf0c515df15bc0223e325
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Dec 24 11:33:03 2020 -0500
+
+    bumped changelog version
+
 commit 9aaca6b64083e92578fbcff491dec2f6bfb21bc7
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Dec 24 08:19:29 2020 -0500
