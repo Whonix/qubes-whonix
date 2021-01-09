@@ -1,3 +1,15 @@
+commit a1be35992d04562ed7103313fea0186b18c57aa2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 9 02:32:01 2021 -0500
+
+    remove /run/updatesproxycheck/status since not required
+
+commit bcf514417bc3df9935adfcc9806e5421bcbdcdc8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 9 01:40:09 2021 -0500
+
+    bumped changelog version
+
 commit 9fe04b7dc5d2907c4568c918a07a4037a3bdbf10
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Jan 9 01:25:09 2021 -0500
