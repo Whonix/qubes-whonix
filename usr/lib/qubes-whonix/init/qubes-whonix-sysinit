@@ -35,7 +35,7 @@ elif [ -e /usr/share/anon-gw-base-files/gateway ]; then
 
 # Workstation
 elif [ -e /usr/share/anon-ws-base-files/workstation ]; then
-    if [ "$qubes_vm_type" = "AppVM" ]; then
+    if [ -f /run/qubes/this-is-appvm ]; then
         touch /run/qubes-service/whonix-workstation
     fi
 fi
