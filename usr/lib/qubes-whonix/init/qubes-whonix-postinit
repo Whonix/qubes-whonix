@@ -23,9 +23,7 @@
 
 set -x
 
-qubes_vm_type="$(qubesdb-read /qubes-vm-type)"
-
-if [ "$qubes_vm_type" = "TemplateVM" ]; then
+if test -f /run/qubes/this-is-templatevm ; then
    # Do none of the following in a TemplateVM.
    exit 0
 fi

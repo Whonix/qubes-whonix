@@ -18,21 +18,18 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-qubes_vm_type="$(qubesdb-read /qubes-vm-type)"
-
 # This script should run after qubes-sysinit and should not need to create the
 # qubes-service directory as it should have already been created.  This is only
 # a defensive action since we rely on certain services being present to determine
 # the overall boot status of Whonix.
 mkdir -p /run/qubes-service
 
-# Template
-if [ "$qubes_vm_type" = "TemplateVM" ]; then
+if test -f /run/qubes/this-is-templatevm ; then
     true
 
 # Gateway
 elif [ -e /usr/share/anon-gw-base-files/gateway ]; then
-    if [ "$qubes_vm_type" = "NetVM" ] || [ "$qubes_vm_type" = "ProxyVM" ]; then
+    if [ -f /run/qubes/this-is-netvm ] || [ -f /run/qubes/this-is-proxyvm ]; then
         touch /run/qubes-service/whonix-gateway
     fi
 
