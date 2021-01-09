@@ -29,6 +29,15 @@ if [ ! "$qubes_vm_type" = "TemplateVM" ]; then
    exit 0
 fi
 
+who_ami="$(whoami)"
+
+if [ ! "$who_ami" = "updatesproxycheck" ]; then
+   true "$0: ERROR: This script is expected to be run under user updatesproxycheck by
+/lib/systemd/system/qubes-whonix-torified-updates-proxy-check.service
+Instead this script is running under user '$who_ami'." >&2
+   exit 1
+fi
+
 signal_sigterm() {
    exit 143
 }
@@ -36,25 +45,25 @@ signal_sigterm() {
 trap "signal_sigterm" SIGTERM
 
 exithandler() {
-   touch /run/qubes-service/whonix-secure-proxy-check-done
+   touch /run/updatesproxycheck/whonix-secure-proxy-check-done
 }
 
 trap "exithandler" EXIT
 
-if [ -e /run/qubes-service/whonix-secure-proxy ]; then
+if [ -e /run/updatesproxycheck/whonix-secure-proxy ]; then
    exit 0
 fi
 
-rm -f /run/qubes-service/whonix-secure-proxy-check-done
+rm -f /run/updatesproxycheck/whonix-secure-proxy-check-done
 
 source /usr/lib/qubes-whonix/utility_functions.sh
 
 ## Since curl does not timeout, handling timeout is left to the systemd unit.
 while true; do
    ## Check if a secure Tor update server is available
-   if curl_output="$(sudo -u updatesproxycheck UWT_DEV_PASSTHROUGH="1" curl --silent "${PROXY_SERVER}")" ; then
+   if curl_output="$(UWT_DEV_PASSTHROUGH="1" curl --silent "${PROXY_SERVER}")" ; then
       if echo "$curl_output" | grep -q "${PROXY_META}" ; then
-          touch /run/qubes-service/whonix-secure-proxy
+          touch /run/updatesproxycheck/whonix-secure-proxy
       fi
       break
    fi

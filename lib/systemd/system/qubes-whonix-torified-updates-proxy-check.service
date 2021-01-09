@@ -2,7 +2,7 @@
 ## License: GPL-2+
 
 ## When running in a TemplateVM,
-## creates /run/qubes-service/whonix-secure-proxy if tinyproxy's http
+## creates /run/updatesproxycheck/whonix-secure-proxy if tinyproxy's http
 ## header contains 'tor'.
 
 [Unit]
@@ -22,6 +22,7 @@ Wants=network-online.target
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/lib/qubes-whonix/init/torified-updates-proxy-check
+User=updatesproxycheck
 TimeoutStartSec=120
 
 [Install]
