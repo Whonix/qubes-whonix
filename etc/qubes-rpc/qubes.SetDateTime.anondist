@@ -4,7 +4,7 @@
 ## See the file COPYING for copying conditions.
 
 ## dom0 should not tell us its time.
-## But if it does, create a file, so whonixcheck could warn in case this
+## But if it does, create a file, so systemcheck could warn in case this
 ## file exists.
 read timestamp
 mkdir -p "/run/qubes-whonix"
