@@ -1,3 +1,27 @@
+commit 26be0d1630fafdd4099b27cdbb4d8e5c8f845acd
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jan 26 07:07:23 2021 -0500
+
+    whonixcheck -> systemcheck migration
+
+commit 9e5123b6d5399abf83f649be333d01153e9bfcfc
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jan 26 06:59:44 2021 -0500
+
+    no more whonixcheck systemd service
+
+commit fa9e989c1603ff74219b4cfa711763c6d5dcdc23
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jan 26 06:59:01 2021 -0500
+
+    comment
+
+commit fac4ceb0f858c9d1df4d7fbfeff2c572fd3af2db
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 9 02:32:19 2021 -0500
+
+    bumped changelog version
+
 commit a1be35992d04562ed7103313fea0186b18c57aa2
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Jan 9 02:32:01 2021 -0500
