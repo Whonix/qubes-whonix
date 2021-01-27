@@ -1,3 +1,19 @@
+commit 1f9a600fb98875eb0a6c43f5dc29f4847c50b809
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jan 27 04:45:20 2021 -0500
+
+    binds+=( '/var/lib/sdwdate' )
+    
+    Time Replay Protection
+    /var/lib/sdwdate/time-replay-protection-utc-unixtime
+    https://www.whonix.org/wiki/Sdwdate#sdwdate_Time_Replay_Protection
+
+commit 48dab0a21ab6f3a1832e60a7237ccd50bd455546
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jan 26 09:50:08 2021 -0500
+
+    bumped changelog version
+
 commit 26be0d1630fafdd4099b27cdbb4d8e5c8f845acd
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Jan 26 07:07:23 2021 -0500
