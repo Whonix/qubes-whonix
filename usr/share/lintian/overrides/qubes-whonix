@@ -4,8 +4,8 @@
 ## These are triggers and need full path to be triggered
 qubes-whonix: command-with-path-in-maintainer-script postinst:* /usr/bin/whonix_firewall
 
-## That is how whonix-setup-wizard implements status files.
-qubes-whonix: file-in-unusual-dir var/cache/whonix-setup-wizard/status-files/placeholder
+## That is how setup-dist implements status files.
+qubes-whonix: file-in-unusual-dir var/cache/setup-dist/status-files/placeholder
 
 ## false positive lintian warning for static systemd unit file
 ## http://lists.alioth.debian.org/pipermail/pkg-systemd-maintainers/2017-March/014380.html
