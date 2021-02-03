@@ -1,3 +1,27 @@
+commit 6e6a62a85eacede1845fa229ec4380aa8e97fb81
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Feb 1 12:01:50 2021 -0500
+
+    renamed:    var/cache/whonix-setup-wizard/status-files/placeholder -> var/cache/setup-dist/status-files/placeholder
+
+commit 4f959d10292e192e5ef85c08d25172487483b614
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Feb 1 12:01:13 2021 -0500
+
+    comment
+
+commit 7a4d589c41efb0c660b4e480ddd99684669f8053
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Feb 1 12:00:09 2021 -0500
+
+    whonix-setup-wizard -> setup-dist
+
+commit d85edc4852fe2226968988d7fa7c64dad24ef1e5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jan 27 04:46:51 2021 -0500
+
+    bumped changelog version
+
 commit 1f9a600fb98875eb0a6c43f5dc29f4847c50b809
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Jan 27 04:45:20 2021 -0500
