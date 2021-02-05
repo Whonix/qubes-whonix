@@ -1,3 +1,15 @@
+commit 0687556d36f106d17fa3464663da718655e651e6
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 5 01:44:54 2021 -0500
+
+    renamed:    usr/share/setup-dist/status-files/whonix_repository.skip -> usr/share/setup-dist/status-files/repository-dist.skip
+
+commit 0af021a2aa309420969eb951093ad4af455cbdb6
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 11:51:04 2021 -0500
+
+    bumped changelog version
+
 commit 6e6a62a85eacede1845fa229ec4380aa8e97fb81
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Feb 1 12:01:50 2021 -0500
