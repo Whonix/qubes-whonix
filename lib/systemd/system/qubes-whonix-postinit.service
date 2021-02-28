@@ -25,7 +25,7 @@ Before=tor.service
 Before=tor@default.service
 Before=rinetd.service
 Before=onion-grater.service
-Before=census.service
+Before=canary.service
 Before=sdwdate.service
 Before=anon-ws-disable-stacked-tor.service
 
