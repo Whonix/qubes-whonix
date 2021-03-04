@@ -1,3 +1,21 @@
+commit f379dca6b830e5f7cee7204da21080b123446dfa
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 4 07:06:52 2021 -0500
+
+    readme
+
+commit 70d5825a40d0dc8a427c79da241aa6e720bf819b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 28 08:37:31 2021 -0500
+
+    census -> canary
+
+commit ce7b1b0f7f937a2941d6bee32ce80869e4fa6028
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Feb 5 04:42:04 2021 -0500
+
+    bumped changelog version
+
 commit 0687556d36f106d17fa3464663da718655e651e6
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Feb 5 01:44:54 2021 -0500
