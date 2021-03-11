@@ -217,4 +217,6 @@ def main(args):
 
 
 if __name__ == "__main__":
+    print("/usr/lib/qubes-whonix/replace-ips INFO: START")
     main(sys.argv[1:])
+    print("/usr/lib/qubes-whonix/replace-ips INFO: END")
