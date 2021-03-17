@@ -5,7 +5,7 @@ qubes-whonix (0:11.0.0-1) jessie; urgency=medium
 
   [ Patrick Schleizer ]
   * synced COPYING with debian/copyright
-  * added "Uploaders: Patrick Schleizer <adrelanos@riseup.net>" to
+  * added "Uploaders: Patrick Schleizer <adrelanos@whonix.org>" to
     debian/control
   * added changelog.upstream to fix lintian warning
   * bumped changelog version (to fix lintian warning about missing close
@@ -295,7 +295,7 @@ qubes-whonix (0:9.6.2-1) unstable; urgency=medium
 
   [ Patrick Schleizer ]
   * synced COPYING with debian/copyright
-  * added "Uploaders: Patrick Schleizer <adrelanos@riseup.net>" to
+  * added "Uploaders: Patrick Schleizer <adrelanos@whonix.org>" to
     debian/control
 
   [ Jason Mehring ]

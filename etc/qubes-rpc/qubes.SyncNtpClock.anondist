@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-## Copyright (C) 2012 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
+## Copyright (C) 2012 - 2021 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
 true "Whonix cannot be used as ClockVM yet. Contributions happily considered. Read more: https://phabricator.whonix.org/T387"
