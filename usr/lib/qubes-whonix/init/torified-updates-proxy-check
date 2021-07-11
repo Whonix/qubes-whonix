@@ -48,6 +48,10 @@ exithandler() {
 
 trap "exithandler" EXIT
 
+if [ -e /run/qubes-service/skip-torified-updates-proxy-check ]; then
+   touch /run/updatesproxycheck/whonix-secure-proxy
+fi
+
 if [ -e /run/updatesproxycheck/whonix-secure-proxy ]; then
    exit 0
 fi
