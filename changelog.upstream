@@ -1,3 +1,39 @@
+commit 3e865aecb71fa03a594af6cdb51102543e3ef3f8
+Merge: e967f25 b038202
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Jul 11 12:21:48 2021 -0400
+
+    Merge remote-tracking branch 'gitlab-whonix/master'
+
+commit b038202be0d68310d8e501cac2a77375ba284c6e
+Merge: e967f25 07367f8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Jul 9 17:57:07 2021 +0000
+
+    Merge branch 'backcompat' into 'master'
+    
+    Honor skip-torified-updates-proxy-check qvm-service
+    
+    See merge request whonix/qubes-whonix!1
+
+commit 07367f83fbbea9c9a1811c88e0fd12b0d0e615d4
+Author: Rusty Bird <rustybird@net-c.com>
+Date:   Fri Jul 9 16:51:04 2021 +0000
+
+    Honor skip-torified-updates-proxy-check qvm-service
+    
+    Reintroduce the ability (from qubes-whonix < 15.4) to skip the
+    torified-updates-proxy-check script by enabling a qvm-service.
+    
+    This allows a Whonix template to be updated through a non-Whonix
+    qubes.UpdatesProxy VM if necessary.
+
+commit e967f25e3dc53d1601a0c167f44c1db5298f23d8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Apr 9 07:42:56 2021 -0400
+
+    bumped changelog version
+
 commit 5d229700152d42f88c2870b899fe6a954c810a02
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Apr 7 19:09:45 2021 -0400
