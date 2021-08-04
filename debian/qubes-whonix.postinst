@@ -47,7 +47,7 @@ case "${1}" in
                 /usr/bin/whonix-workstation-firewall | \
                 /usr/share/tor/tor-service-defaults-torrc.anondist)
                     /usr/lib/qubes-whonix/init/qubes-whonix-sysinit || true
-                    /usr/lib/whonix-firewall/enable-firewall || true
+                    /usr/libexec/whonix-firewall/enable-firewall || true
                     ;;
 
                 *)
