@@ -1,0 +1,8 @@
+#!/bin/bash
+
+## Copyright (C) 2020 - 2021 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+## qubes-whonix: executable-in-usr-lib
+## keeping /usr/lib/qubes-whonix since Qubes also has /usr/lib/qubes
+genmkfile_lintian_post_opts+=" --suppress-tags executable-in-usr-lib"
