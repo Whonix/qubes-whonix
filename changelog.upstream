@@ -1,3 +1,65 @@
+commit 1f1f655dab87f56cc51b7a4ba54befa87fbdd155
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 4 15:02:02 2021 -0400
+
+    update path
+
+commit 06a6aecd1da9effd84745573186cf07a48c24118
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 4 14:52:04 2021 -0400
+
+    comment
+
+commit 82594b5f74e41eea59ebaac37f281cbd93e4f7c2
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 4 07:52:33 2021 -0400
+
+    lintian FHS
+
+commit 5834f2ff559948f96b2f5ebf466d034748c338a1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 4 07:49:54 2021 -0400
+
+    lintian --suppress-tags executable-in-usr-lib
+    
+    keeping /usr/lib/qubes-whonix since Qubes also has /usr/lib/qubes
+
+commit e60ce302df00c71c2979617a7b43220fef38e151
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 3 12:48:55 2021 -0400
+
+    move /usr/lib/helper-scripts and /usr/lib/curl-scripts to /usr/libexec/helper-scripts as per lintian FHS
+
+commit 6ad6b3dc1799d5d0d671e475aa1faaa0da469555
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 3 11:47:34 2021 -0400
+
+    re-generate man pages (generated using "genmkfile manpages")
+
+commit b1ea9631d25549453cfee2c32e96f008f07daa3b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 3 11:43:36 2021 -0400
+
+    man page
+
+commit 4687aed3338ddeae265c33fcbb7ab52e821fc7a4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 3 05:48:24 2021 -0400
+
+    bullseye
+
+commit 3bec64dcd3fa6cbe8f8ef90429741e44d6bc5af8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Aug 1 16:24:36 2021 -0400
+
+    readme
+
+commit 5acf0939f4326be2f8008fbe4e15ffd37a703c53
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jul 12 03:17:20 2021 -0400
+
+    bumped changelog version
+
 commit 3e865aecb71fa03a594af6cdb51102543e3ef3f8
 Merge: e967f25 b038202
 Author: Patrick Schleizer <adrelanos@whonix.org>
