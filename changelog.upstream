@@ -1,3 +1,15 @@
+commit ef6b132f45a00601415f2d48a94a2357eef46ae1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Aug 22 16:28:45 2021 -0400
+
+    yum -> dnf
+
+commit 47fc66cb00485692a42c376521e67f2cccbc8197
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Aug 5 16:59:13 2021 -0400
+
+    bumped changelog version
+
 commit 1f1f655dab87f56cc51b7a4ba54befa87fbdd155
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Aug 4 15:02:02 2021 -0400
