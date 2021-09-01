@@ -1,3 +1,21 @@
+commit 683c5ee6247dd562fa52789c5475621f43a95377
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Sep 1 11:16:03 2021 -0400
+
+    drop initramfs-tools from qubes-whonix-shared-packages-recommended
+    
+    leave that to Qubes
+    
+    for dracut support
+    
+    https://forums.whonix.org/t/replacing-initramfs-tools-with-dracut/4487/13
+
+commit 6cd8e2ec1e0917fd7ced33dadef7d7515b14517b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Aug 22 16:29:04 2021 -0400
+
+    bumped changelog version
+
 commit ef6b132f45a00601415f2d48a94a2357eef46ae1
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Aug 22 16:28:45 2021 -0400
