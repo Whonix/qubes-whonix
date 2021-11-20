@@ -1,0 +1,63 @@
+#!/bin/bash -e
+
+## Copyright (C) 2012 - 2021 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+set -x
+
+output_cmd() {
+   local msg="$@"
+   echo "$msg"
+   echo "$msg" | systemd-cat --identifier="qvm-sync-clock.anondist" || true
+}
+
+output_cmd "$0: START"
+output_cmd "whoami: $(whoami)"
+
+# if [ ! -f /run/qubes/this-is-templatevm ]; then
+#    ## dom0 should not tell us its time.
+#    ## But if it does, create a file, so systemcheck could warn in case this
+#    ## file exists.
+#    read timestamp
+#    mkdir -p "/run/qubes-whonix"
+#    echo "$timestamp" > "/run/qubes-whonix/qubes.SetDateTime"
+#    exit 0
+# fi
+
+## Running in Template, ok.
+
+## Copied from /etc/qubes-rpc/qubes.SetDateTime
+
+# it is in format of `date -u -Iseconds`, example: 2014-09-29T22:59:21+0000
+# it comes from dom0, so is trusted
+#read -r timestamp
+
+timestamp="$(qrexec-client-vm '$default' qubes.GetDate)"
+
+output_cmd "timestamp_from_qubes_original   : '$timestamp'"
+
+timediff=$(( $(date -u +'+%Y%m%d%H%M%S') - $(date -u -d "$timestamp" +'+%Y%m%d%H%M%S') ))
+
+output_cmd "timediff: '$timediff'"
+
+# if [ "$timediff" -le 2 ] && [ "$timediff" -ge -2 ]; then
+#     # don't bother
+#     output_cmd "Time difference not worthwhile to change, ok."
+#     exit 0
+# fi
+
+## End of copied from /etc/qubes-rpc/qubes.SetDateTime
+
+timestamp_from_qubes_to_unixtime="$(date --utc --date "$timestamp" +%s)"
+
+output_cmd "timestamp_from_qubes_to_unixtime: '$timestamp_from_qubes_to_unixtime'"
+
+timestamp_from_qubes_to_human="$(date --utc "+%Y-%m-%d %H:%M:%S" --date "@$timestamp_from_qubes_to_unixtime")"
+
+output_cmd "timestamp_from_qubes_to_human   : '$timestamp_from_qubes_to_human'"
+
+clock_random_manual_cli_output="$(echo "$timestamp_from_qubes_to_human" | clock-random-manual-cli)"
+
+output_cmd "clock_random_manual_cli_output  : '$clock_random_manual_cli_output'"
+
+output_cmd "$0: END"
