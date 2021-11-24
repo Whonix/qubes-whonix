@@ -1,3 +1,27 @@
+commit 1359ef3e47715c04d4a4d071b3ca0679a4020b01
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Nov 20 13:23:35 2021 -0500
+
+    qvm-sync-clock.anondist code simplification
+
+commit f2190c69cb5859b0f0b6242fc20a84811ef83fb3
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Nov 20 13:21:11 2021 -0500
+
+    initial version of qvm-sync-clock.anondist
+
+commit a5a81da0a6de53d8d3f63e4ef313ebd038fc5d97
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Nov 9 14:32:32 2021 -0500
+
+    readme
+
+commit d42e7eda5b67649f9b3086c7c904a8d5d50dca84
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 12 11:53:11 2021 -0400
+
+    bumped changelog version
+
 commit 8cd60ef77eb445738aa7acbc0243dc7478352771
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Sep 11 16:31:37 2021 -0400
