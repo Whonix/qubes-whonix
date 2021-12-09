@@ -11,6 +11,10 @@
 
 <body>
 
+<h1>tor proxy</h1>
+
+This customized file /usr/share/tinyproxy/default.html is stored on on a Tor proxy.
+
 <h1>{cause}</h1>
 
 <p>{detail}</p>
