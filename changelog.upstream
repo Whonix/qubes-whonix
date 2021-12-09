@@ -1,3 +1,17 @@
+commit 47fb073dae35b9e6b23b6c5a227a85ed7f129ee3
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Dec 9 05:08:01 2021 -0500
+
+    `/usr/share/tinyproxy/default.html.anondist`: also customize html body
+    
+    in case tinyproxy does not show html head
+
+commit ad8db5e568adce98984c024ca54dbe2fe7bd96ea
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Nov 24 15:04:55 2021 -0500
+
+    bumped changelog version
+
 commit 1359ef3e47715c04d4a4d071b3ca0679a4020b01
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Nov 20 13:23:35 2021 -0500
