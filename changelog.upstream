@@ -1,3 +1,35 @@
+commit 4b7579799c5cd7a4dc508cea40becf66bf56be58
+Merge: fd480e5 01bd0e1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 28 08:43:06 2023 -0400
+
+    Merge remote-tracking branch 'github-whonix/master'
+
+commit 01bd0e1d62d6bc0210ae423d82ad965785f7e522
+Merge: fd480e5 f3bd2aa
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 28 08:42:31 2023 -0400
+
+    Merge pull request #1 from marmarek/no-salt
+    
+    Drop salt dependency
+
+commit f3bd2aa4ea6e33248274bbb171c36eae618f8716
+Author: Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>
+Date:   Fri Jun 23 18:09:02 2023 +0200
+
+    Drop salt dependency
+    
+    It isn't available in bookworm
+    
+    QubesOS/qubes-issues#7896
+
+commit fd480e5ead64cd24a44e93b78562b7852d01ba36
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 21 09:43:55 2023 +0000
+
+    bumped changelog version
+
 commit 31b8316113239dd100277bfc4e69545fa459b3c6
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Jun 21 09:11:34 2023 +0000
