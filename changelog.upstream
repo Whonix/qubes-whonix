@@ -1,3 +1,19 @@
+commit 5d77f9d93c62997e3d85e892be604ae9f7f0b3aa
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jul 3 07:48:52 2023 -0400
+
+    fix: make sure replace-ips runs before restarting Tor
+    
+    This is useful to support `release-upgrade` script testing inside `sys-whonix`
+    
+    refactoring
+
+commit d0c4bc7dd2a48af6afe9c9ce8363c3406d31cc2c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 28 08:56:06 2023 -0400
+
+    bumped changelog version
+
 commit 4b7579799c5cd7a4dc508cea40becf66bf56be58
 Merge: fd480e5 01bd0e1
 Author: Patrick Schleizer <adrelanos@whonix.org>
