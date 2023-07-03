@@ -40,11 +40,13 @@ if [ -e /usr/share/anon-gw-base-files/gateway ]; then
     # Enable/Disable Tor if qubes-service is enabled
     if [ -e /run/qubes-service/whonix-tor-enable ]; then
          rm -f "$tor_disable_file"
-         echo "DisableNetwork 0" > "$tor_enable_file"
+         echo "DisableNetwork 0" | tee "$tor_enable_file" >/dev/null
 
     elif [ -e /run/qubes-service/whonix-tor-disable ]; then
          rm -f "$tor_enable_file"
-         echo "DisableNetwork 1" > "$tor_disable_file"
+         echo "DisableNetwork 1" | tee "$tor_disable_file" >/dev/null
     fi
 
 fi
+
+systemd-notify --ready

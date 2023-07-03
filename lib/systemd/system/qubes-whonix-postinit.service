@@ -46,7 +46,7 @@ After=qubes-mount-dirs.service
 After=qubes-mount-home.service
 
 [Service]
-Type=oneshot
+Type=notify
 RemainAfterExit=yes
 ExecStart=/usr/lib/qubes-whonix/init/qubes-whonix-postinit
 
