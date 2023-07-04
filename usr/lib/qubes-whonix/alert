@@ -44,7 +44,7 @@ class Messages():
         self.filename = filename
 
         try:
-            language = locale.getdefaultlocale()[0].split('_')[0]
+            language = locale.getlocale()[0].split('_')[0]
         except:
             language = DEFAULT_LANG
 
@@ -64,13 +64,13 @@ class Messages():
                 self.title = language.get('title', None)
                 self.message = language.get('message', None)
             else:
-                self.title = "alert script Whonix-Qubes"
+                self.title = "alert script Qubes-Whonix"
                 self.message = "section " + section + " not found! [...............................]"
 
         except:
             error_msg = "Unexpected error: " + str(sys.exc_info()[0])
             print(error_msg)
-            self.title = "alert script Whonix-Qubes"
+            self.title = "alert script Qubes-Whonix"
             self.message = error_msg
 
 
