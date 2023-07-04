@@ -52,7 +52,7 @@ class Messages():
 
         try:
             stream = open(filename, 'r')
-            data = yaml.load(stream)
+            data = yaml.load(stream, Loader=yaml.FullLoader)
 
             if section in data.keys():
                 section = data[section]
