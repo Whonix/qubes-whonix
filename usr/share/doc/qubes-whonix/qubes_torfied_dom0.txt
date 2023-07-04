@@ -1,14 +1,8 @@
 Please make sure Whonix-Gateway (commonly called sys-whonix) is running.
 
-- If you are using Qubes R3.2: The NetVM of this TemplateVM should be set to Whonix-Gateway (commonly called sys-whonix).
+Check your _dom0_ settings in the /etc/qubes/policy.d/ folder.
 
-- If you are using Qubes R4 or higher: Check your _dom0_ /etc/qubes-rpc/policy/qubes.UpdatesProxy settings.
-
-_At the very top_ of that file you should have the following:
-
-$tag:whonix-updatevm $default allow,target=sys-whonix
-
-To see if it is fixed, try running in Whonix TemplateVM:
+To see if it is fixed, try running in Whonix Template:
 
 sudo systemctl restart qubes-whonix-torified-updates-proxy-check
 
