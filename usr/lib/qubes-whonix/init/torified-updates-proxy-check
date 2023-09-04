@@ -30,7 +30,7 @@ fi
 who_ami="$(whoami)"
 
 if [ ! "$who_ami" = "updatesproxycheck" ]; then
-   true "$0: ERROR: This script is expected to be run under user updatesproxycheck by
+   echo "$0: ERROR: This script is expected to be run under user updatesproxycheck by
 /lib/systemd/system/qubes-whonix-torified-updates-proxy-check.service
 Instead this script is running under user '$who_ami'." >&2
    exit 1
