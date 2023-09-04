@@ -66,6 +66,7 @@ while true; do
    if curl_output="$(UWT_DEV_PASSTHROUGH="1" curl --silent "${PROXY_SERVER}")" ; then
       if echo "$curl_output" | grep -q "${PROXY_META}" ; then
           touch /run/updatesproxycheck/whonix-secure-proxy
+          echo "$0: INFO: Success."
       fi
       break
    fi
