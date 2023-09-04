@@ -67,8 +67,15 @@ while true; do
       if echo "$curl_output" | grep -q "${PROXY_META}" ; then
           touch /run/updatesproxycheck/whonix-secure-proxy
           echo "$0: INFO: Success."
+          exit 0
       fi
-      break
+      echo "\
+$0: ERROR: PROXY_SERVER reachable but does not contain PROXY_META.
+$0: Debugging information:
+PROXY_SERVER: $PROXY_SERVER
+PROXY_META: $PROXY_META
+curl_output: $curl_output" >&2
+      exit 1
    fi
    sleep 1
 done
