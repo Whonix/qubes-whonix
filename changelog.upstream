@@ -1,3 +1,27 @@
+commit 8a6fbc562ac283dda03b892f8cb0383b703e9aa4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 4 04:54:21 2023 -0400
+
+    torified-updates-proxy-check: improve exit codes and output
+
+commit aedd730428b96d6842dc154fef1c540daf6e0489
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 4 04:50:27 2023 -0400
+
+    output
+
+commit 563e76b0f0942c4a8bc4760069f58435a953f44e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 4 04:48:15 2023 -0400
+
+    output
+
+commit 17590b6ba0c1ef9bbb0508e610ec11248a37be3a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 29 16:09:30 2023 -0400
+
+    bumped changelog version
+
 commit edcb3ba51b48963a33d98a898279bdb8fd214bd9
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue Aug 29 16:03:25 2023 -0400
