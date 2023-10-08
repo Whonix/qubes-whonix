@@ -1,3 +1,15 @@
+commit 6637a67dbf3024da753431d67e31a8aa9a0dbd9e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 8 12:23:23 2023 -0400
+
+    move alert script to msgcollector
+
+commit b578e1d37151c581bb20b1ad8df6fb7b3bac3163
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 8 06:32:34 2023 -0400
+
+    bumped changelog version
+
 commit 8a0caa25eea40752f394336f2e91842bf7456d83
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Oct 8 06:27:50 2023 -0400
