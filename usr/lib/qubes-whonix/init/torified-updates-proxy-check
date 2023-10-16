@@ -60,35 +60,22 @@ rm -f /run/updatesproxycheck/whonix-secure-proxy-check-done
 
 source /usr/lib/qubes-whonix/utility_functions.sh
 
-check_output_curl() {
-   if echo "$curl_output" | grep --quiet "${PROXY_META}" ; then
-      touch /run/updatesproxycheck/whonix-secure-proxy
-      echo "$0: INFO: Success."
-      exit 0
-   fi
-   echo "\
+## Since curl does not timeout, handling timeout is left to the systemd unit.
+while true; do
+   ## Check if a secure Tor update server is available
+   if curl_output="$(UWT_DEV_PASSTHROUGH="1" curl --silent "${PROXY_SERVER}")" ; then
+      if echo "$curl_output" | grep -q "${PROXY_META}" ; then
+          touch /run/updatesproxycheck/whonix-secure-proxy
+          echo "$0: INFO: Success."
+          exit 0
+      fi
+      echo "\
 $0: ERROR: PROXY_SERVER reachable but does not contain PROXY_META.
 $0: Debugging information:
 PROXY_SERVER: $PROXY_SERVER
 PROXY_META: $PROXY_META
 curl_output: $curl_output" >&2
-   exit 1
-}
-
-## Since curl does not timeout, handling timeout is left to the systemd unit.
-while true; do
-   ## Check if a secure Tor update server is available
-
-   ## Due a bug possibly introduced by a Debian curl package upgrade,
-   ## curl option --http0.9 is required.
-   ## https://github.com/QubesOS/qubes-issues/issues/8606
-   if curl_output="$(UWT_DEV_PASSTHROUGH="1" curl --http0.9 --silent "${PROXY_SERVER}")" ; then
-      check_output_curl
-   fi
-   ## Also try without --http0.9 in case this bug if fixed for a higher chance that
-   ## it will not break then.
-   if curl_output="$(UWT_DEV_PASSTHROUGH="1" curl --silent "${PROXY_SERVER}")" ; then
-      check_output_curl
+      exit 1
    fi
    sleep 1
 done
