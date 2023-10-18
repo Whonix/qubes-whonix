@@ -1,3 +1,17 @@
+commit 87bd6c5fc93977319ae7b01303dab6afab61199d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Oct 16 08:34:23 2023 -0400
+
+    Revert "workaround a (likely) curl bug that breaks Qubes-Whonix updates"
+    
+    This reverts commit 3540eb790cc86c81983a2b88a6ae8b79cfa079c5.
+
+commit 1330408c7e9b2ce52998ae430d540304b4bd9f2b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Oct 13 12:27:30 2023 -0400
+
+    bumped changelog version
+
 commit 3540eb790cc86c81983a2b88a6ae8b79cfa079c5
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Oct 13 12:26:51 2023 -0400
