@@ -11,4 +11,4 @@ qubes-whonix: file-in-unusual-dir [var/cache/setup-dist/status-files/placeholder
 ## false positive lintian warning for static systemd unit file
 ## http://lists.alioth.debian.org/pipermail/pkg-systemd-maintainers/2017-March/014380.html
 ## https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=832771#32
-qubes-whonix: systemd-service-file-missing-install-key [lib/systemd/system/qubes-whonix-redirect-9050.service]
+qubes-whonix: systemd-service-file-missing-install-key [usr/lib/systemd/system/qubes-whonix-redirect-9050.service]
