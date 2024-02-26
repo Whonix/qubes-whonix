@@ -1,3 +1,17 @@
+commit 2978dd0a0a8afdfdf9578cfc3a53b5f1400796cc
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Feb 26 07:05:10 2024 -0500
+
+    `pulseaudio-qubes` -> `pipewire-qubes`
+    
+    https://forums.whonix.org/t/port-from-pulseaudio-to-pipewire-for-audio-support/16879/17
+
+commit 7a21b3a72eed6c8be03c3d28165d7dcc35b36314
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Feb 2 12:46:58 2024 +0000
+
+    bumped changelog version
+
 commit 2e0bba55565fe2108b9d272ed6c2caf3fce13a06
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Feb 2 07:33:05 2024 -0500
