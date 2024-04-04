@@ -71,6 +71,7 @@ Depends: qubes-thunderbird,
  qubes-pdf-converter,
  qubes-img-converter,
  pipewire-qubes,
+ pipewire-pulse,
  ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Workstation
  A metapackage, which installs packages, which are recommended for
