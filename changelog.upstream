@@ -1,3 +1,19 @@
+commit 1faae53c5b66f547282ae1334ec8b9b0f41ba213
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Apr 4 06:24:48 2024 -0400
+
+    add `pipewire-pulse` to `qubes-whonix-workstation-packages-recommended`
+    
+    Thanks to @marmarek for the bug report!
+    
+    https://forums.whonix.org/t/port-from-pulseaudio-to-pipewire-for-audio-support/16879/22
+
+commit fe87f8117024de853060667e588e32ac2b7268aa
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Feb 26 12:06:27 2024 +0000
+
+    bumped changelog version
+
 commit 2978dd0a0a8afdfdf9578cfc3a53b5f1400796cc
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Feb 26 07:05:10 2024 -0500
