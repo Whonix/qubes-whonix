@@ -70,8 +70,8 @@ Depends: qubes-thunderbird,
  qubes-gpg-split,
  qubes-pdf-converter,
  qubes-img-converter,
- pipewire-qubes,
- pipewire-pulse,
+ pipewire-qubes | pulseaudio-qubes,
+ pipewire-pulse | pulseaudio-qubes,
  ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Workstation
  A metapackage, which installs packages, which are recommended for
