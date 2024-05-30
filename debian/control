@@ -72,6 +72,8 @@ Depends: qubes-thunderbird,
  qubes-img-converter,
  pipewire-qubes | pulseaudio-qubes,
  pipewire-pulse | pulseaudio-qubes,
+ wireplumber | pipewire-media-session-pulseaudio | pulseaudio-qubes,
+ rtkit | pulseaudio-qubes,
  ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Workstation
  A metapackage, which installs packages, which are recommended for
