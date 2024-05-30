@@ -1,3 +1,22 @@
+commit 344c2fd2e71936f844bfd46ec73c535d5d84e339
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu May 30 10:16:49 2024 -0400
+
+    add to `qubes-whonix-workstation-packages-recommended`:
+    
+    ```
+    wireplumber | pipewire-media-session-pulseaudio | pulseaudio-qubes,
+    rtkit | pulseaudio-qubes,
+    ```
+    
+    https://forums.whonix.org/t/port-from-pulseaudio-to-pipewire-for-audio-support/16879/31
+
+commit 59dbe38edc1c4602f7058b18e74e0f6bd63148eb
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Apr 7 06:41:17 2024 +0000
+
+    bumped changelog version
+
 commit f320547d08da0c1a0826d467620121121dec430d
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Apr 7 02:40:34 2024 -0400
