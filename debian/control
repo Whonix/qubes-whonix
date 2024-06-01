@@ -26,6 +26,7 @@ Depends: adduser,
  curl,
  qubes-core-agent-networking,
  python3,
+ helper-scripts,
  ${misc:Depends}
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+## Copyright (C) 2024 - 2024 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+## https://github.com/QubesOS/qubes-issues/issues/8398
+
+set -x
+set -e
+
+## append-once is provided by package: helper-scripts
+
+append-once "
+## BEGIN: auto-generated configuration by $0
+
+Upstream socks5 127.0.0.1:9104
+
+## END: auto-generated configuration by $0
+" /etc/tinyproxy/tinyproxy-updates.conf
