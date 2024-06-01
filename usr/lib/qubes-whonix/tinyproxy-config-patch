@@ -8,12 +8,22 @@
 set -x
 set -e
 
+true "$0: START"
+
 ## append-once is provided by package: helper-scripts
 
-append-once "
+## XXX: append-once does not support multi-line (with empty lines) yet.
+
+#append-once "
 ## BEGIN: auto-generated configuration by $0
 
-Upstream socks5 127.0.0.1:9104
+#Upstream socks5 127.0.0.1:9104
 
 ## END: auto-generated configuration by $0
-" /etc/tinyproxy/tinyproxy-updates.conf
+#" /etc/tinyproxy/tinyproxy-updates.conf
+
+append-once "## BEGIN: auto-generated configuration by $0" /etc/tinyproxy/tinyproxy-updates.conf
+append-once "Upstream socks5 127.0.0.1:9104" /etc/tinyproxy/tinyproxy-updates.conf
+append-once "## END: auto-generated configuration by $0" /etc/tinyproxy/tinyproxy-updates.conf
+
+true "$0: END"
