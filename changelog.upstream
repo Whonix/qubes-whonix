@@ -1,3 +1,17 @@
+commit f29d5255e010d423a0d92db831970e8016c7599b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Jun 1 18:11:05 2024 -0400
+
+    fix tinyproxy-config-patch
+    
+    https://github.com/QubesOS/qubes-issues/issues/8398
+
+commit c25e200f4f8b583e6a993b652fefa4d4a3b07bbd
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Jun 1 20:26:12 2024 +0000
+
+    bumped changelog version
+
 commit ec6d4d035970e6ea203582327db184f3370d3ebc
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Jun 1 16:23:15 2024 -0400
