@@ -1,3 +1,27 @@
+commit ec6d4d035970e6ea203582327db184f3370d3ebc
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Jun 1 16:23:15 2024 -0400
+
+    use Qubes UpdatesProxy tinyproxy with socks instead of transparent torification
+    
+    https://github.com/QubesOS/qubes-issues/issues/8398
+
+commit f62b30f0e422efabbe9fa1643f98703e6160dc19
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Jun 1 14:27:19 2024 -0400
+
+    remove no longer required workaround
+    
+    https://github.com/QubesOS/qubes-issues/issues/1401
+    
+    https://github.com/QubesOS/qubes-issues/issues/8398
+
+commit 2cbbc7e9112d5ef6f9be553a74ebcf5c88dd6473
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Jun 1 17:35:33 2024 +0000
+
+    bumped changelog version
+
 commit 0c42f2d715acac70dc5946d17c66cab57b930bd9
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Jun 1 13:29:37 2024 -0400
