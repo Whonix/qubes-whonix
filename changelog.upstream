@@ -1,3 +1,17 @@
+commit c1117bc19fe19a274cad712d392adbec72d55097
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Jun 2 07:44:27 2024 -0400
+
+    Nowadays Qubes UpdatesProxy over qrexec only. Not over network.
+    
+    https://github.com/QubesOS/qubes-issues/issues/8398#issuecomment-2143573830
+
+commit ed8d567ae390662fbec408dc68727cd20cf96a3b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Jun 1 22:11:58 2024 +0000
+
+    bumped changelog version
+
 commit f29d5255e010d423a0d92db831970e8016c7599b
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Jun 1 18:11:05 2024 -0400
