@@ -1,3 +1,17 @@
+commit dd2561eb6cd06d586bff9c9300635603ad379cd1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Jun 2 08:06:02 2024 -0400
+
+    update comment
+    
+    https://github.com/QubesOS/qubes-issues/issues/8398#issuecomment-2143573830
+
+commit 930977d9c36ec4ba009452c085e7d8a6bd147d09
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Jun 2 11:47:39 2024 +0000
+
+    bumped changelog version
+
 commit c1117bc19fe19a274cad712d392adbec72d55097
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Jun 2 07:44:27 2024 -0400
