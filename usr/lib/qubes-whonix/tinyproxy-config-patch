@@ -14,16 +14,16 @@ true "$0: START"
 
 ## XXX: append-once does not support multi-line (with empty lines) yet.
 
-#append-once "
+#append-once /etc/tinyproxy/tinyproxy-updates.conf "
 ## BEGIN: auto-generated configuration by $0
 
 #Upstream socks5 127.0.0.1:9104
 
 ## END: auto-generated configuration by $0
-#" /etc/tinyproxy/tinyproxy-updates.conf
+#"
 
-append-once "## BEGIN: auto-generated configuration by $0" /etc/tinyproxy/tinyproxy-updates.conf
-append-once "Upstream socks5 127.0.0.1:9104" /etc/tinyproxy/tinyproxy-updates.conf
-append-once "## END: auto-generated configuration by $0" /etc/tinyproxy/tinyproxy-updates.conf
+append-once /etc/tinyproxy/tinyproxy-updates.conf "## BEGIN: auto-generated configuration by $0"
+append-once /etc/tinyproxy/tinyproxy-updates.conf "Upstream socks5 127.0.0.1:9104"
+append-once /etc/tinyproxy/tinyproxy-updates.conf "## END: auto-generated configuration by $0"
 
 true "$0: END"
