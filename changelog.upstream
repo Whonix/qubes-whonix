@@ -1,3 +1,15 @@
+commit 5364717417c24fb2efb0be212a97c27bb2152417
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Jul 28 14:14:04 2024 -0400
+
+    update for new append-once API
+
+commit 4b247c4d179a6ad4df1ca2b41b53aec867aa067b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Jun 2 12:07:11 2024 +0000
+
+    bumped changelog version
+
 commit dd2561eb6cd06d586bff9c9300635603ad379cd1
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Jun 2 08:06:02 2024 -0400
