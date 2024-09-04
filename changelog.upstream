@@ -1,3 +1,15 @@
+commit 729c23296d72bb3ca1c00b79bdb05a37ae14b7e7
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Sep 4 08:15:21 2024 -0400
+
+    delete no longer required skip file /usr/share/setup-dist/status-files/first_use_check.skip
+
+commit 18076a2f6252bdd1ff50e46b501c1c43cf36f37d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 2 21:24:43 2024 +0000
+
+    bumped changelog version
+
 commit c9f25712d5f3b99438e6fee5eeaf839b4175e5cc
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Sep 2 17:12:54 2024 -0400
