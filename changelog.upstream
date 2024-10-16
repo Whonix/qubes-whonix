@@ -1,3 +1,19 @@
+commit 7009e0b12c321dfb3422645badea7d6cc41fd043
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 15 05:43:19 2024 -0400
+
+    allow `qubes-firewall.service` running inside Qubes-Whonix VMs
+    
+    https://forums.whonix.org/t/qubes-sys-whonix-does-not-do-its-job-as-qubes-firewallvm/18937
+    
+    https://www.whonix.org/wiki/Qubes/Firewall
+
+commit 2f9e1d48858b81f78247bf11c14bb245ac0d750f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Sep 4 13:39:53 2024 +0000
+
+    bumped changelog version
+
 commit 729c23296d72bb3ca1c00b79bdb05a37ae14b7e7
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Sep 4 08:15:21 2024 -0400
