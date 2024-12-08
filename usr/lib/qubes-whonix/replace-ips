@@ -1,5 +1,3 @@
-
-
 #!/usr/bin/python3 -O
 # -*- coding: utf-8 -*-`
 # vim: set ts=4 sw=4 sts=4 et :
@@ -245,10 +243,10 @@ def main(args):
                 replace_ip(ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY)
 
             if IP6_ADDRESS.match(current_ip6_local) and IP6_ADDRESS.match(current_ip6_gateway):
-                ips_to_replace = [last_ip_local, 'fd19:c33d:88bc::11']
+                ips_to_replace = [last_ip6_local, 'fd19:c33d:88bc::11']
                 replace_ip(ips_to_replace, current_ip6_local, FILES, WHONIX_IP6_LOCAL)
 
-                ips_to_replace = [last_ip_gateway, 'fd19:c33d:88bc::10']
+                ips_to_replace = [last_ip6_gateway, 'fd19:c33d:88bc::10']
                 replace_ip(ips_to_replace, current_ip6_gateway, FILES, WHONIX_IP6_GATEWAY)
 
 
