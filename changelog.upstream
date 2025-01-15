@@ -1,3 +1,17 @@
+commit 56d09488c628eb1d8fbfbc4efd5eced52d8df37e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jan 15 12:16:01 2025 -0500
+
+    no longer install qubes-core-agent-passwordless-root by default
+    
+    https://www.kicksecure.com/wiki/Sysmaint
+
+commit 6182663ef5d98001675f1d357d5e1da855cb2c48
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Jan 10 15:35:30 2025 +0000
+
+    bumped changelog version
+
 commit 2350ebb9c3e1b6f335d06668e921f5a974e781ee
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Jan 9 09:29:27 2025 -0500
