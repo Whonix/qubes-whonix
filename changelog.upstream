@@ -1,3 +1,22 @@
+commit 116210553313b3237e6a612b1e3351f31fdbdff9
+Merge: 6a2ba16 01f51ab
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jan 20 05:08:53 2025 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/kicksecure-qubes-merge'
+
+commit 01f51ab6aa57b867ae15dc39d67b019a4cc8ad65
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Wed Jan 15 22:45:50 2025 -0600
+
+    Obsolete qubes-whonix-shared-packages-recommended and qubes-whonix-workstation-packages-recommended
+
+commit 6a2ba163e9835de718694e304800c85cb48f22f9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jan 15 17:17:27 2025 +0000
+
+    bumped changelog version
+
 commit 56d09488c628eb1d8fbfbc4efd5eced52d8df37e
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Jan 15 12:16:01 2025 -0500
