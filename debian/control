@@ -24,6 +24,7 @@ Depends: adduser,
  rsync,
  whonix-firewall,
  curl,
+ qubes-core-agent-networking,
  python3,
  helper-scripts,
  ${misc:Depends}
@@ -41,20 +42,21 @@ Description: Qubes Configuration for Whonix-Gateway and Whonix-Workstation
 
 Package: qubes-whonix-shared-packages-recommended
 Architecture: all
-Depends: kicksecure-qubes-cli,
+Depends: qubes-kernel-vm-support,
+ qubes-usb-proxy, qubes-input-proxy-sender,
+ qubes-core-agent-thunar, qubes-core-agent-nautilus,
  ${misc:Depends}
-Section: oldlibs
-Description: Recommended packages for Qubes-Whonix-Gateway and Qubes-Whonix-Workstation (transitional package)
- This is a transitional package, supporting the transition to
- kicksecure-qubes-cli. It can be removed.
+Description: Recommended packages for Qubes-Whonix-Gateway and Qubes-Whonix-Workstation
+ A metapackage, which includes recommended packages to ensure, Qubes-Whonix
+ standard tools are available and other useful recommended packages.
+ .
+ Safe to remove, if you know what you are doing.
 
 Package: qubes-whonix-gateway-packages-recommended
 Architecture: all
 Depends: tinyproxy,
  dnf,
  qubes-core-agent-dom0-updates,
- qubes-core-agent-thunar, qubes-core-agent-nautilus,
- kicksecure-qubes-cli,
  ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Gateway
  A metapackage, which installs packages, which are recommended for
@@ -64,9 +66,18 @@ Description: Recommended packages for Qubes-Whonix-Gateway
 
 Package: qubes-whonix-workstation-packages-recommended
 Architecture: all
-Depends: kicksecure-qubes-gui,
+Depends: qubes-thunderbird,
+ qubes-gpg-split,
+ qubes-pdf-converter,
+ qubes-img-converter,
+ pipewire-qubes | pulseaudio-qubes,
+ pipewire-pulse | pulseaudio-qubes,
+ wireplumber | pipewire-media-session-pulseaudio | pulseaudio-qubes,
+ rtkit | pulseaudio-qubes,
+ dbus-user-session,
  ${misc:Depends}
-Section: oldlibs
-Description: Recommended packages for Qubes-Whonix-Workstation (transitional package)
- This is a transitional package, supporting the transition to
- kicksecure-qubes-gui. It can be removed.
+Description: Recommended packages for Qubes-Whonix-Workstation
+ A metapackage, which installs packages, which are recommended for
+ Qubes-Whonix-Workstation.
+ .
+ Feel free to remove, if you know what you are doing.
