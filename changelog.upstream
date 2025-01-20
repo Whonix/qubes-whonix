@@ -1,3 +1,25 @@
+commit 1b8b3a13e1ca10d05bae95a061f50d44dd0d6749
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jan 20 05:24:31 2025 -0500
+
+    Revert "Obsolete qubes-whonix-shared-packages-recommended and qubes-whonix-workstation-packages-recommended"
+    
+    This reverts commit 01f51ab6aa57b867ae15dc39d67b019a4cc8ad65.
+
+commit 6929fd529fb12b3cd206d24fe912846461792b69
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jan 20 05:24:20 2025 -0500
+
+    Revert "lintian"
+    
+    This reverts commit 49d2555fe85178de52f4408c38d9486f45262f4c.
+
+commit 16db53b6c21ac84e30105a87f6029f1dae30419c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jan 20 10:14:29 2025 +0000
+
+    bumped changelog version
+
 commit 49d2555fe85178de52f4408c38d9486f45262f4c
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Jan 20 05:14:18 2025 -0500
