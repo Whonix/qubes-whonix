@@ -44,7 +44,7 @@ Architecture: all
 Depends: kicksecure-qubes-cli,
  ${misc:Depends}
 Section: oldlibs
-Description: Recommended packages for Qubes-Whonix (shared)
+Description: Recommended packages for Qubes-Whonix-Gateway and Qubes-Whonix-Workstation (transitional package)
  This is a transitional package, supporting the transition to
  kicksecure-qubes-cli. It can be removed.
 
