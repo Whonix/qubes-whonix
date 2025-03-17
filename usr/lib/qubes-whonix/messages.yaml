@@ -14,18 +14,3 @@ update:
       <p><B>Whonix-Gateway (sys-whonix) required for updates!</B></p>
       <p>Please ensure that whonix-gw TemplateBasedVM sys-whonix exists.</p>
       <p>No updates are possible without an active (running) Whonix-Gateway VM.</p>
-
-tor-disabled:
-  icon: Warning
-  en:
-    title: Tor has been permanently set to disabled
-    message: |
-      <p><b>Tor has been permanently set to disabled!</b></p>
-      <p>The qubes service option <b>whonix-tor-disable</b> is currently set which
-      means this Whonix-Gateway will always start with Tor disabled.</p>
-      <p>This feature is useful to ensure Tor will not start and provide an
-      opportunity to configure a proxy before connecting to Tor for the first
-      time. After configuring the gateway, be sure to remove the
-      <b>whonix-tor-disabled</b> service option before restarting the gateway
-      which will then proceed to boot the gateway with whatever settings have been
-      made and prevent this warning</p>
