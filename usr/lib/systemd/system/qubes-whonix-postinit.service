@@ -4,11 +4,6 @@
 ## On Whonix-Gateway or Whonix-Workstation (if /run/qubes-service/whonix-gateway or
 ## /run/qubes-service/whonix-workstation exists),
 ## - replaces IPs (/usr/lib/qubes-whonix/replace-ips)
-##
-## If running on Whonix-Gateway (if file status file
-## /run/qubes-service/whonix-gateway) exits, and if
-## /run/qubes-service/whonix-tor-enable or /run/qubes-service/whonix-tor-disable exists,
-## act enable/disable Tor using "DisableNetwork 0" / "DisableNetwork 1" accordingly using Tor config.
 
 [Unit]
 Description=Qubes-Whonix post init
