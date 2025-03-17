@@ -37,8 +37,8 @@ if test -f /run/qubes/this-is-templatevm ; then
       wait "$!"
    done
 
-    if [ ! -e '/run/updatesproxycheck/whonix-secure-proxy' ]; then
-         # Display warning that TemplateVM is not connected to a Tor update proxy.
-        /usr/libexec/msgcollector/alert update /usr/lib/qubes-whonix/messages.yaml
-    fi
+   if [ ! -e '/run/updatesproxycheck/whonix-secure-proxy' ]; then
+      ## Display warning that the Template is not connected to a Tor update proxy.
+      /usr/libexec/msgcollector/alert update /usr/lib/qubes-whonix/messages.yaml
+   fi
 fi
