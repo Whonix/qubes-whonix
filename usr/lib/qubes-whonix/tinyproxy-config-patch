@@ -26,4 +26,6 @@ append-once /etc/tinyproxy/tinyproxy-updates.conf "## BEGIN: auto-generated conf
 append-once /etc/tinyproxy/tinyproxy-updates.conf "Upstream socks5 127.0.0.1:9104"
 append-once /etc/tinyproxy/tinyproxy-updates.conf "## END: auto-generated configuration by $0"
 
+append-once /etc/tinyproxy/updates-blacklist "127.0.0.1"
+
 true "$0: END"
