@@ -30,7 +30,7 @@ fi
 who_ami="$(whoami)"
 
 if [ ! "$who_ami" = "updatesproxycheck" ]; then
-   echo "$0: ERROR: This script is expected to be run under user updatesproxycheck by
+   printf '%s\n' "$0: ERROR: This script is expected to be run under user updatesproxycheck by
 /lib/systemd/system/qubes-whonix-torified-updates-proxy-check.service
 Instead this script is running under user '$who_ami'." >&2
    exit 1
@@ -64,12 +64,12 @@ source /usr/lib/qubes-whonix/utility_functions.sh
 while true; do
    ## Check if a secure Tor update server is available
    if curl_output="$(UWT_DEV_PASSTHROUGH="1" curl --silent "${PROXY_SERVER}")" ; then
-      if echo "$curl_output" | grep -q "${PROXY_META}" ; then
+      if printf '%s\n' "$curl_output" | grep -q "${PROXY_META}" ; then
           touch /run/updatesproxycheck/whonix-secure-proxy
-          echo "$0: INFO: Success."
+          printf '%s\n' "$0: INFO: Success."
           exit 0
       fi
-      echo "\
+      printf '%s\n' "\
 $0: ERROR: PROXY_SERVER reachable but does not contain PROXY_META.
 $0: Debugging information:
 PROXY_SERVER: $PROXY_SERVER
