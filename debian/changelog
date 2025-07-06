@@ -1,3 +1,9 @@
+qubes-whonix (1:21.7-1) jessie; urgency=medium
+
+  * New upstream version (local package).
+
+ -- Patrick Schleizer <adrelanos@whonix.org>  Sun, 06 Jul 2025 16:14:54 +0000
+
 qubes-whonix (1:21.6-1) jessie; urgency=medium
 
   * New upstream version (local package).
