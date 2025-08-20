@@ -10,7 +10,7 @@ Build-Depends: debhelper (>= 13.11.6), debhelper-compat (= 13), config-package-d
 Homepage: https://github.com/Whonix/qubes-whonix
 Vcs-Browser: https://github.com/Whonix/qubes-whonix
 Vcs-Git: https://github.com/Whonix/qubes-whonix.git
-Standards-Version: 4.6.2
+Standards-Version: 4.7.2
 Rules-Requires-Root: no
 
 Package: qubes-whonix
