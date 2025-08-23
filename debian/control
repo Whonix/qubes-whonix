@@ -66,8 +66,7 @@ Description: Recommended packages for Qubes-Whonix-Gateway
 
 Package: qubes-whonix-workstation-packages-recommended
 Architecture: all
-Depends: thunderbird-qubes,
- qubes-gpg-split,
+Depends: qubes-gpg-split,
  qubes-pdf-converter,
  qubes-img-converter,
  pipewire-qubes | pulseaudio-qubes,
