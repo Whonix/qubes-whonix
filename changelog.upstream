@@ -1,3 +1,41 @@
+commit 6a2380bd7057d3212d4d229d6bf3bdb8c26a76f9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 26 05:40:44 2025 -0400
+
+    re-generate man pages (generated using "genmkfile manpages")
+
+commit 7870d56357e119ff83aa1d2cdeafb0ff5144b393
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Aug 23 05:50:12 2025 -0400
+
+    fix: no longer `Depends:` on `thunderbird-qubes` because it `Depends:` on `thunderbird`
+    
+    https://forums.whonix.org/t/thunderbird-no-longer-installed-by-default/6505/13
+
+commit de520cd9a96679e1e92194b6cbcf2732b846ebeb
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Aug 23 05:49:02 2025 -0400
+
+    update package name: thunderbird-qubes -> qubes-thunderbird
+
+commit f544c869dc73d527342d9e4dfb8e0f569f865745
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 20 06:57:33 2025 -0400
+
+    bumped Standards-Version
+
+commit 538734ffbba8827b895352e462758bf0dc42231b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 20 06:25:40 2025 -0400
+
+    readme
+
+commit 9e44379230e3232f96998e1a31527f73df05d937
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Jul 6 16:14:54 2025 +0000
+
+    bumped changelog version
+
 commit ede3ee73b533e29ca137b85b8a6d5cafb24caaf2
 Merge: 7d950e0 a3f7346
 Author: Patrick Schleizer <adrelanos@whonix.org>
