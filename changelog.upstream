@@ -1,3 +1,22 @@
+commit fbba027335942d652641d9782eff54a177a40672
+Merge: 515b20d 2f22fb4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Sep 9 11:51:48 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 2f22fb4c5c9d464251d9a6505b59ab04ae15fa02
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun Sep 7 10:03:05 2025 -0500
+
+    Avoid either/or dependency bug, force Pipewire support only
+
+commit 515b20d5aab9dec725a3dd44e1daf0f3296cf705
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Sep 2 15:37:03 2025 +0000
+
+    bumped changelog version
+
 commit 53486aecda6ea2c54a755a44b2b165c3ec0846fe
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue Aug 26 09:44:37 2025 +0000
