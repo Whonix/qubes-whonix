@@ -69,10 +69,10 @@ Architecture: all
 Depends: qubes-gpg-split,
  qubes-pdf-converter,
  qubes-img-converter,
- pipewire-qubes | pulseaudio-qubes,
- pipewire-pulse | pulseaudio-qubes,
- wireplumber | pipewire-media-session-pulseaudio | pulseaudio-qubes,
- rtkit | pulseaudio-qubes,
+ pipewire-qubes,
+ pipewire-pulse,
+ wireplumber,
+ rtkit,
  dbus-user-session,
  ${misc:Depends}
 Description: Recommended packages for Qubes-Whonix-Workstation
