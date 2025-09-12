@@ -1,3 +1,15 @@
+commit 47ab6872be6d417b84d872becc6e3215b761fbe6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 12 07:30:21 2025 -0400
+
+    python3 -su
+
+commit 2bfb174d8cbb2fda2d277c3d6febd6c2411a9675
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Sep 9 15:59:26 2025 +0000
+
+    bumped changelog version
+
 commit fbba027335942d652641d9782eff54a177a40672
 Merge: 515b20d 2f22fb4
 Author: Patrick Schleizer <adrelanos@whonix.org>
