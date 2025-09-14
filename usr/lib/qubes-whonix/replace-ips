@@ -190,6 +190,10 @@ def main(args):
     last_ip6_gateway = get_ip_address(WHONIX_IP6_GATEWAY, 'fd19:c33d:88bc::10')
     last_ip_local = get_ip_address(WHONIX_IP_LOCAL, '10.152.152.11')
     last_ip6_local = get_ip_address(WHONIX_IP6_LOCAL, 'fd19:c33d:88bc::11')
+    current_ip_local = None
+    current_ip_gateway = None
+    current_ip6_local = None
+    current_ip6_gateway = None
 
     if not os.path.isdir("/var/cache/qubes-whonix"):
         try:
@@ -201,53 +205,56 @@ def main(args):
         if whonix_mode() == 'gateway':
             try:
                 current_ip_gateway = subprocess.check_output(['qubesdb-read', '/qubes-netvm-gateway']).decode().rstrip()
+            except (OSError, subprocess.CalledProcessError):
+                print("WARNING: 'qubesdb-read /qubes-netvm-gateway' failed!")
+
+            try:
                 current_ip6_gateway = subprocess.check_output(['qubesdb-read', '/qubes-netvm-gateway6']).decode().rstrip()
             except (OSError, subprocess.CalledProcessError):
-                print("ERROR: 'qubesdb-read /qubes-netvm-gateway' or 'qubesdb-read /qubes-netvm-gateway6' failed!")
-                return
+                print("WARNING: 'qubesdb-read /qubes-netvm-gateway6' failed!")
 
-            if IP_ADDRESS.match(current_ip_gateway):
-                ips_to_replace = [last_ip_gateway, '10.152.152.10', '10.152.152.11']
-                if replace_ip(ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY):
-                    maybe_reload_tor()
+            if current_ip_gateway is not None:
+                if IP_ADDRESS.match(current_ip_gateway):
+                    ips_to_replace = [last_ip_gateway, '10.152.152.10', '10.152.152.11']
+                    if replace_ip(ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY):
+                        maybe_reload_tor()
 
-            if IP6_ADDRESS.match(current_ip6_gateway):
-                ips_to_replace = [last_ip6_gateway, 'fd19:c33d:88bc::10', 'fd19:c33d:88bc::11']
-                if replace_ip(ips_to_replace, current_ip6_gateway, FILES, WHONIX_IP6_GATEWAY):
-                    maybe_reload_tor()
+            if current_ip6_gateway is not None:
+                if IP6_ADDRESS.match(current_ip6_gateway):
+                    ips_to_replace = [last_ip6_gateway, 'fd19:c33d:88bc::10', 'fd19:c33d:88bc::11']
+                    if replace_ip(ips_to_replace, current_ip6_gateway, FILES, WHONIX_IP6_GATEWAY):
+                        maybe_reload_tor()
 
         if whonix_mode() == 'workstation' and last_ip_local:
             try:
-                ## FIXME: 'qubesdb-read /qubes-ip' could fail if NetVM is set to 'none'.
                 current_ip_local = subprocess.check_output(['qubesdb-read', '/qubes-ip']).decode().rstrip()
-                ## FIXME: 'qubesdb-read /qubes-gateway' could fail if NetVM is set to 'none'.
                 current_ip_gateway = subprocess.check_output(['qubesdb-read', '/qubes-gateway']).decode().rstrip()
             except (OSError, subprocess.CalledProcessError):
-                print("ERROR: 'qubesdb-read /qubes-ip' or 'qubesdb-read /qubes-gateway' failed!")
-                return
+                print("WARNING: 'qubesdb-read /qubes-ip' or 'qubesdb-read /qubes-gateway' failed!")
+                #return
 
             try:
-                ## FIXME: 'qubesdb-read /qubes-ip6' could fail if NetVM is set to 'none'.
                 current_ip6_local = subprocess.check_output(['qubesdb-read', '/qubes-ip6']).decode().rstrip()
-                ## FIXME: 'qubesdb-read /qubes-gateway6' could fail if NetVM is set to 'none'.
                 current_ip6_gateway = subprocess.check_output(['qubesdb-read', '/qubes-gateway6']).decode().rstrip()
             except (OSError, subprocess.CalledProcessError):
-                print("ERROR: 'qubesdb-read /qubes-ip6' or 'qubesdb-read /qubes-gateway6' failed!")
-                return
+                print("WARNING: 'qubesdb-read /qubes-ip6' or 'qubesdb-read /qubes-gateway6' failed!")
+                #return
 
-            if IP_ADDRESS.match(current_ip_local) and IP_ADDRESS.match(current_ip_gateway):
-                ips_to_replace = [last_ip_local, '10.152.152.11']
-                replace_ip(ips_to_replace, current_ip_local, FILES, WHONIX_IP_LOCAL)
+            if None not in (current_ip_local, current_ip_gateway):
+                if IP_ADDRESS.match(current_ip_local) and IP_ADDRESS.match(current_ip_gateway):
+                    ips_to_replace = [last_ip_local, '10.152.152.11']
+                    replace_ip(ips_to_replace, current_ip_local, FILES, WHONIX_IP_LOCAL)
 
-                ips_to_replace = [last_ip_gateway, '10.152.152.10']
-                replace_ip(ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY)
+                    ips_to_replace = [last_ip_gateway, '10.152.152.10']
+                    replace_ip(ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY)
 
-            if IP6_ADDRESS.match(current_ip6_local) and IP6_ADDRESS.match(current_ip6_gateway):
-                ips_to_replace = [last_ip6_local, 'fd19:c33d:88bc::11']
-                replace_ip(ips_to_replace, current_ip6_local, FILES, WHONIX_IP6_LOCAL)
+            if None not in (current_ip6_local, current_ip6_gateway):
+                if IP6_ADDRESS.match(current_ip6_local) and IP6_ADDRESS.match(current_ip6_gateway):
+                    ips_to_replace = [last_ip6_local, 'fd19:c33d:88bc::11']
+                    replace_ip(ips_to_replace, current_ip6_local, FILES, WHONIX_IP6_LOCAL)
 
-                ips_to_replace = [last_ip6_gateway, 'fd19:c33d:88bc::10']
-                replace_ip(ips_to_replace, current_ip6_gateway, FILES, WHONIX_IP6_GATEWAY)
+                    ips_to_replace = [last_ip6_gateway, 'fd19:c33d:88bc::10']
+                    replace_ip(ips_to_replace, current_ip6_gateway, FILES, WHONIX_IP6_GATEWAY)
 
 
 if __name__ == "__main__":
