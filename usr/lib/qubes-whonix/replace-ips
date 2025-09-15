@@ -110,7 +110,7 @@ def replace_ip(ips, current_ip, files, ip_file):
                 with open(filename, 'r') as infile:
                     text = infile.read()
             except (IOError):
-                print("ERROR: file existing but failed to open (IOError): " + filename)
+                print("ERROR: file existing but failed to open for reading: " + filename)
                 continue
 
             match = text
@@ -137,8 +137,9 @@ def replace_ip(ips, current_ip, files, ip_file):
                         outfile.writelines(match)
                     replaced = True
                 except (IOError):
-                    print("ERROR: cannot open filename: " + filename)
-                    return False
+                    print("ERROR: file existing but but failed to open filename for writing: " + filename)
+                    ## Probably better to fail open and try more files.
+                    #return False
             else:
                     print("INFO: file unchanged: " + filename)
     if replaced:
