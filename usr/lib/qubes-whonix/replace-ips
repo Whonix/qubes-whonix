@@ -1,5 +1,5 @@
 #!/usr/bin/python3 -su
-# -*- coding: utf-8 -*-`
+# -*- coding: utf-8 -*-
 # vim: set ts=4 sw=4 sts=4 et :
 '''
 replace-ips - Search and replace IP addresses in specified files.
