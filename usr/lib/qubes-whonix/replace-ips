@@ -162,7 +162,7 @@ def replace_ip(ips, current_ip, files, ip_file, protocol):
             with open(ip_file, 'w', encoding='utf-8') as outfile:
                 outfile.write(current_ip)
             replaced = True
-            print(f"INFO: {protocol}: file updated: {ip_file}")
+            print(f"INFO: {protocol}: ip_file updated: {ip_file}")
         except (IOError):
             print(f"ERROR: {protocol}: writing to ip_file failed: {ip_file}")
             return False
