@@ -218,14 +218,15 @@ def main(args):
             if current_ip_gateway is not None:
                 if IP_ADDRESS.match(current_ip_gateway):
                     ips_to_replace = [last_ip_gateway, '10.152.152.10', '10.152.152.11']
-                    if replace_ip(ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY):
-                        maybe_reload_tor()
+                    chg4 = replace_ip(ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY):
 
             if current_ip6_gateway is not None:
                 if IP6_ADDRESS.match(current_ip6_gateway):
                     ips_to_replace = [last_ip6_gateway, 'fd19:c33d:88bc::10', 'fd19:c33d:88bc::11']
-                    if replace_ip(ips_to_replace, current_ip6_gateway, FILES, WHONIX_IP6_GATEWAY):
-                        maybe_reload_tor()
+                    chg6 = replace_ip(ips_to_replace, current_ip6_gateway, FILES, WHONIX_IP6_GATEWAY):
+
+            if chg4 or chg6:
+                maybe_reload_tor()
 
         if whonix_mode() == 'workstation' and last_ip_local:
             try:
