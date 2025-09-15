@@ -151,12 +151,13 @@ def replace_ip(ips, current_ip, files, ip_file, protocol):
                     with open(filename, 'w', encoding='utf-8') as outfile:
                         outfile.write(match)
                     replaced = True
+                    print(f"INFO: {protocol}: filename from filelist updated: {filename}")
                 except (IOError):
-                    print(f"ERROR: {protocol}: file existing but failed to open filename for writing: {filename}")
+                    print(f"ERROR: {protocol}: filename from filelist existing but failed to open filename for writing: {filename}")
                     ## Probably better to fail open and try more files.
                     #return False
             else:
-                    print(f"INFO: {protocol}: file unchanged: {filename}")
+                    print(f"INFO: {protocol}: filename from filelist unchanged: {filename}")
     if replaced:
         try:
             with open(ip_file, 'w', encoding='utf-8') as outfile:
