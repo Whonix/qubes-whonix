@@ -80,6 +80,8 @@ def whonix_mode():
         mode = 'gateway'
     elif os.path.exists('/usr/share/anon-ws-base-files/workstation'):
         mode = 'workstation'
+    else
+        mode = 'unknown'
 
     return mode
 
