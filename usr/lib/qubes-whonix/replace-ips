@@ -145,7 +145,7 @@ def replace_ip(ips, current_ip, files, ip_file):
             with open(ip_file, 'w') as outfile:
                 outfile.writelines(current_ip)
             replaced = True
-            print("INFO: file updated: " + filename)
+            print("INFO: file updated: " + ip_file)
         except (IOError):
             print("ERROR: writing to ip_file failed: " + ip_file)
             return False
