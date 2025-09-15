@@ -198,6 +198,8 @@ def main(args):
     current_ip_gateway = None
     current_ip6_local = None
     current_ip6_gateway = None
+    chg4 = False
+    chg6 = False
 
     if not os.path.isdir("/var/cache/qubes-whonix"):
         try:
