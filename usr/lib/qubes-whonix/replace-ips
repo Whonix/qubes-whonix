@@ -156,8 +156,8 @@ def replace_ip(ips, current_ip, files, ip_file):
 def get_ip_address(filename, default=''):
     '''Retrieve an IP address from a file.
 
-    The last know IP address is saved in a file so it can be referenced and used
-    the next time system is booted to assist in a reliable search and replace.
+    The last known IP address is saved in a file so it can be referenced and used
+    the next time the system is booted to assist in a reliable search and replace.
     '''
     if os.path.exists(filename):
         try:
@@ -184,7 +184,7 @@ def maybe_reload_tor():
 
 
 def main(args):
-    ## IP HARDCODED but does not matter for Non-Qubes-Whonix. This script is
+    ## IP HARDCODED, but this does not matter for Non-Qubes-Whonix. This script is
     ## currently only used in Qubes-Whonix.
     last_ip_gateway = get_ip_address(WHONIX_IP_GATEWAY, '10.152.152.10')
     last_ip6_gateway = get_ip_address(WHONIX_IP6_GATEWAY, 'fd19:c33d:88bc::10')
