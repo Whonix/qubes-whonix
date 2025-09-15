@@ -135,7 +135,6 @@ def replace_ip(ips, current_ip, files, ip_file):
                 try:
                     with open(filename, 'w') as outfile:
                         outfile.writelines(match)
-
                     replaced = True
                 except (IOError):
                     print("ERROR: cannot open filename: " + filename)
