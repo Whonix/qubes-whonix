@@ -243,7 +243,7 @@ def main(args):
                 current_ip_gateway = subprocess.check_output(['qubesdb-read', '/qubes-netvm-gateway']).decode().rstrip()
             except (OSError, subprocess.CalledProcessError):
                 print("WARNING: 'qubesdb-read /qubes-netvm-gateway' failed!")
-            print(f"INFO: current_ip_gateway: {current_ip_gateway}")
+            print(f"INFO: current_ip_gateway : {current_ip_gateway}")
 
             try:
                 current_ip6_gateway = subprocess.check_output(['qubesdb-read', '/qubes-netvm-gateway6']).decode().rstrip()
