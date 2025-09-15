@@ -38,6 +38,7 @@ import os
 import sys
 import re
 import subprocess
+import ipaddress
 
 WHONIX_IP_GATEWAY = '/var/cache/qubes-whonix/whonix-ip-gateway'
 WHONIX_IP6_GATEWAY = '/var/cache/qubes-whonix/whonix-ip6-gateway'
@@ -162,20 +163,22 @@ def get_ip_address(filename, default=''):
     the next time the system is booted to assist in a reliable search and replace.
     '''
     if not os.path.exists(filename):
-        print("INFO: IP filename does not exit (returning default): " + filename)
+        print("INFO: IP filename does not exist (returning default): " + filename)
         return default
 
     try:
-        with open(filename, 'r') as infile:
-            ip_address = infile.read().strip()
-        if IP_ADDRESS.fullmatch(ip_address) or IP6_ADDRESS.fullmatch(ip_address):
-            print("INFO: IP filename reading succeeded and valid IP: " + filename)
-            return ip_address.rstrip()
-        else:
-            print("INFO: IP filename reading succeeded but not a valid IP (returning default): " + filename)
-            return default
-    except (IOError):
+        with open(filename, 'r', encoding='utf-8', errors='surrogateescape') as infile:
+            ip_txt = infile.read().strip()
+    except (OSError, IOError):
         print("INFO: IP filename exists but opening failed: " + filename)
+        return default
+
+    try:
+        ipaddress.ip_address(ip_txt)
+        print("INFO: IP filename reading succeeded and valid IP: " + filename)
+        return ip_txt
+    except ValueError:
+        print("INFO: IP filename reading succeeded but not a valid IP (returning default): " + filename)
         return default
 
 
