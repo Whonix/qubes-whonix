@@ -137,7 +137,7 @@ def replace_ip(ips, current_ip, files, ip_file):
                         outfile.write(match)
                     replaced = True
                 except (IOError):
-                    print("ERROR: file existing but but failed to open filename for writing: " + filename)
+                    print("ERROR: file existing but failed to open filename for writing: " + filename)
                     ## Probably better to fail open and try more files.
                     #return False
             else:
