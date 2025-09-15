@@ -161,15 +161,22 @@ def get_ip_address(filename, default=''):
     The last known IP address is saved in a file so it can be referenced and used
     the next time the system is booted to assist in a reliable search and replace.
     '''
-    if os.path.exists(filename):
-        try:
-            with open(filename, 'r') as infile:
-                ip_address = infile.read()
-            if IP_ADDRESS.match(ip_address) or IP6_ADDRESS.match(ip_address):
-                return ip_address.rstrip()
-        except (IOError):
+    if not os.path.exists(filename):
+        print("INFO: IP filename does not exit (returning default): " + filename)
+        return default
+
+    try:
+        with open(filename, 'r') as infile:
+            ip_address = infile.read().strip()
+        if IP_ADDRESS.fullmatch(ip_address) or IP6_ADDRESS.fullmatch(ip_address):
+            print("INFO: IP filename reading succeeded and valid IP: " + filename)
+            return ip_address.rstrip()
+        else:
+            print("INFO: IP filename reading succeeded but not a valid IP (returning default): " + filename)
             return default
-    return default
+    except (IOError):
+        print("INFO: IP filename exists but opening failed: " + filename)
+        return default
 
 
 def maybe_reload_tor():
@@ -194,6 +201,12 @@ def main(args):
     last_ip6_gateway = get_ip_address(WHONIX_IP6_GATEWAY, 'fd19:c33d:88bc::10')
     last_ip_local = get_ip_address(WHONIX_IP_LOCAL, '10.152.152.11')
     last_ip6_local = get_ip_address(WHONIX_IP6_LOCAL, 'fd19:c33d:88bc::11')
+
+    print("last_ip_gateway : " + last_ip_gateway)
+    print("last_ip6_gateway: " + last_ip6_gateway)
+    print("last_ip_local   : " + last_ip_local)
+    print("last_ip6_local  : " + last_ip6_local)
+
     current_ip_local = None
     current_ip_gateway = None
     current_ip6_local = None
@@ -222,12 +235,12 @@ def main(args):
             if current_ip_gateway is not None:
                 if IP_ADDRESS.match(current_ip_gateway):
                     ips_to_replace = [last_ip_gateway, '10.152.152.10', '10.152.152.11']
-                    chg4 = replace_ip(ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY):
+                    chg4 = replace_ip(ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY)
 
             if current_ip6_gateway is not None:
                 if IP6_ADDRESS.match(current_ip6_gateway):
                     ips_to_replace = [last_ip6_gateway, 'fd19:c33d:88bc::10', 'fd19:c33d:88bc::11']
-                    chg6 = replace_ip(ips_to_replace, current_ip6_gateway, FILES, WHONIX_IP6_GATEWAY):
+                    chg6 = replace_ip(ips_to_replace, current_ip6_gateway, FILES, WHONIX_IP6_GATEWAY)
 
             if chg4 or chg6:
                 maybe_reload_tor()
