@@ -199,7 +199,7 @@ def main(args):
         try:
             os.makedirs("/var/cache/qubes-whonix")
         except:
-            print("ERROR: could not create /var/cache/qubes-whonix")
+            print("ERROR: could not create folder '/var/cache/qubes-whonix'.")
 
     if last_ip_gateway:
         if whonix_mode() == 'gateway':
