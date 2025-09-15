@@ -178,10 +178,12 @@ def maybe_reload_tor():
     '''
     try:
         if subprocess.check_output(['systemctl', 'is-active', 'tor@default']):
+            print("INFO: executing: systemctl restart tor@default")
             # Restarting instead of reloading due to upstream Tor bug
             # https://trac.torproject.org/projects/tor/ticket/16161
             subprocess.call(['systemctl', 'restart', 'tor@default'])
     except (subprocess.CalledProcessError):
+        print("INFO: Systemd unit tor@default is not running, therefore not restarting.")
         pass
 
 
