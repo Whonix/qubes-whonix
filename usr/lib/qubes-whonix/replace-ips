@@ -86,7 +86,7 @@ def whonix_mode():
     return mode
 
 
-def replace_ip(ips, current_ip, files, ip_file):
+def replace_ip(ips, current_ip, files, ip_file, protocol):
     '''Searches and replaces IP addresses in the provided files.
 
     ips:
@@ -110,7 +110,7 @@ def replace_ip(ips, current_ip, files, ip_file):
                 with open(filename, 'r') as infile:
                     text = infile.read()
             except (IOError):
-                print("ERROR: file existing but failed to open for reading: " + filename)
+                print(f"ERROR: {protocol}: file existing but failed to open for reading: {filename}")
                 continue
 
             match = text
@@ -137,19 +137,19 @@ def replace_ip(ips, current_ip, files, ip_file):
                         outfile.write(match)
                     replaced = True
                 except (IOError):
-                    print("ERROR: file existing but failed to open filename for writing: " + filename)
+                    print(f"ERROR: {protocol}: file existing but failed to open filename for writing: {filename}")
                     ## Probably better to fail open and try more files.
                     #return False
             else:
-                    print("INFO: file unchanged: " + filename)
+                    print(f"INFO: {protocol}: file unchanged: {filename}")
     if replaced:
         try:
             with open(ip_file, 'w') as outfile:
                 outfile.write(current_ip)
             replaced = True
-            print("INFO: file updated: " + ip_file)
+            print(f"INFO: {protocol}: file updated: {ip_file}")
         except (IOError):
-            print("ERROR: writing to ip_file failed: " + ip_file)
+            print(f"ERROR: {protocol}: writing to ip_file failed: {ip_file}")
             return False
 
     return replaced
@@ -202,10 +202,10 @@ def main(args):
     last_ip_local = get_ip_address(WHONIX_IP_LOCAL, '10.152.152.11')
     last_ip6_local = get_ip_address(WHONIX_IP6_LOCAL, 'fd19:c33d:88bc::11')
 
-    print("last_ip_gateway : " + last_ip_gateway)
-    print("last_ip6_gateway: " + last_ip6_gateway)
-    print("last_ip_local   : " + last_ip_local)
-    print("last_ip6_local  : " + last_ip6_local)
+    print("INFO: last_ip_gateway    : " + last_ip_gateway)
+    print("INFO: last_ip6_gateway   : " + last_ip6_gateway)
+    print("INFO: last_ip_local      : " + last_ip_local)
+    print("INFO: last_ip6_local     : " + last_ip6_local)
 
     current_ip_local = None
     current_ip_gateway = None
@@ -226,11 +226,13 @@ def main(args):
                 current_ip_gateway = subprocess.check_output(['qubesdb-read', '/qubes-netvm-gateway']).decode().rstrip()
             except (OSError, subprocess.CalledProcessError):
                 print("WARNING: 'qubesdb-read /qubes-netvm-gateway' failed!")
+            print(f"INFO: current_ip_gateway: {current_ip_gateway}")
 
             try:
                 current_ip6_gateway = subprocess.check_output(['qubesdb-read', '/qubes-netvm-gateway6']).decode().rstrip()
             except (OSError, subprocess.CalledProcessError):
                 print("WARNING: 'qubesdb-read /qubes-netvm-gateway6' failed!")
+            print(f"INFO: current_ip6_gateway: {current_ip6_gateway}")
 
             if current_ip_gateway is not None:
                 if IP_ADDRESS.match(current_ip_gateway):
@@ -252,6 +254,8 @@ def main(args):
             except (OSError, subprocess.CalledProcessError):
                 print("WARNING: 'qubesdb-read /qubes-ip' or 'qubesdb-read /qubes-gateway' failed!")
                 #return
+            print(f"INFO: current_ip_local   : {current_ip_local}")
+            print(f"INFO: current_ip_gateway : {current_ip_gateway}")
 
             try:
                 current_ip6_local = subprocess.check_output(['qubesdb-read', '/qubes-ip6']).decode().rstrip()
@@ -259,22 +263,24 @@ def main(args):
             except (OSError, subprocess.CalledProcessError):
                 print("WARNING: 'qubesdb-read /qubes-ip6' or 'qubesdb-read /qubes-gateway6' failed!")
                 #return
+            print(f"INFO: current_ip6_local  : {current_ip6_local}")
+            print(f"INFO: current_ip6_gateway: {current_ip6_gateway}")
 
             if None not in (current_ip_local, current_ip_gateway):
                 if IP_ADDRESS.match(current_ip_local) and IP_ADDRESS.match(current_ip_gateway):
                     ips_to_replace = [last_ip_local, '10.152.152.11']
-                    replace_ip(ips_to_replace, current_ip_local, FILES, WHONIX_IP_LOCAL)
+                    replace_ip(ips_to_replace, current_ip_local, FILES, WHONIX_IP_LOCAL, "IPv4")
 
                     ips_to_replace = [last_ip_gateway, '10.152.152.10']
-                    replace_ip(ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY)
+                    replace_ip(ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY, "IPv4")
 
             if None not in (current_ip6_local, current_ip6_gateway):
                 if IP6_ADDRESS.match(current_ip6_local) and IP6_ADDRESS.match(current_ip6_gateway):
                     ips_to_replace = [last_ip6_local, 'fd19:c33d:88bc::11']
-                    replace_ip(ips_to_replace, current_ip6_local, FILES, WHONIX_IP6_LOCAL)
+                    replace_ip(ips_to_replace, current_ip6_local, FILES, WHONIX_IP6_LOCAL, "IPv6")
 
                     ips_to_replace = [last_ip6_gateway, 'fd19:c33d:88bc::10']
-                    replace_ip(ips_to_replace, current_ip6_gateway, FILES, WHONIX_IP6_GATEWAY)
+                    replace_ip(ips_to_replace, current_ip6_gateway, FILES, WHONIX_IP6_GATEWAY, "IPv6")
 
 
 if __name__ == "__main__":
