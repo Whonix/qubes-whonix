@@ -1,3 +1,172 @@
+commit 55ef696e448955d100cf8d8b350b28435ccade27
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 07:26:41 2025 -0400
+
+    output
+
+commit ca99af15552e6f53ebcfcf4fe1a6f5e3a920657c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 07:23:27 2025 -0400
+
+    output
+
+commit 0b3fde703ec094d9c6dc0acf02f316fe30508814
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 07:20:06 2025 -0400
+
+    output
+
+commit 0837455eaa419b4980735bf8636437dd70b1edd8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 07:15:20 2025 -0400
+
+    fix
+
+commit ebd13756b648d502fcbb5955f70be9347b464ebd
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 07:12:04 2025 -0400
+
+    port to python ipaddress
+
+commit 57f11c0e0eb484d383f4a3949cae46116d72cff8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 06:58:27 2025 -0400
+
+    port to python ipaddress
+
+commit 2be521d1f09a4c5e145c6f81ac3dc3a1a07dd5fb
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 06:48:02 2025 -0400
+
+    debugging
+
+commit aa9a201265205d921378f0627259c8468fb4bb30
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 06:33:14 2025 -0400
+
+    debugging
+
+commit d6b8d0f8fdf1280317f9dfbbab55c163ee4786d0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 06:21:11 2025 -0400
+
+    output
+
+commit aaf5b69d64f9ffec7707513f0b927870b201f9e6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 06:20:12 2025 -0400
+
+    fix
+
+commit a623c22f261c749c01097f3135f13cb5dd41a874
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 06:19:33 2025 -0400
+
+    output
+
+commit 9737a4e6859fb5e14a3030f75d754610cb0b5eaf
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 06:14:21 2025 -0400
+
+    replace-ips: fix, avoid duplicate restart of Tor
+
+commit 03039355ee7580b937d8329f0c6fb3a5b08b4e87
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 06:10:59 2025 -0400
+
+    comment
+
+commit 0aa3d173d3f1b9086a7f4f704c65757a2601e35a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 06:09:35 2025 -0400
+
+    fix
+
+commit 0ae975d1bcad3f0d87357cf8f2b9e8285377715b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 06:07:59 2025 -0400
+
+    fix
+
+commit 43fab238f10837cd936ac3a1adecb00e52da2913
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 06:06:01 2025 -0400
+
+    fix
+
+commit 9d08f79724e9d07d4d6934b1e7bfef52d7e839d8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 06:03:16 2025 -0400
+
+    minor
+
+commit 0779e3c54a41e08c374740b9c784f68429fb9e34
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 06:01:57 2025 -0400
+
+    fix
+
+commit 3abf574c10c953de3e9505daa9580187667d0316
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 05:53:23 2025 -0400
+
+    fix
+
+commit e9be645460fa3b3d9f3c049cf9c74347aca91a8e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 05:50:46 2025 -0400
+
+    fix
+
+commit 5f6e0c64866d665182c1c8b6dea4f0174f261b8e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 05:50:16 2025 -0400
+
+    output
+
+commit 56005545de6b8e68410470f95f9055063b3f1b79
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 05:48:37 2025 -0400
+
+    fix
+
+commit 8fcbbe4a532fb67fe312bca6215589e923536dd5
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 05:20:04 2025 -0400
+
+    comments
+
+commit 8dccdd734c83c8bfef03a29165ba0158911c9bb1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 05:16:45 2025 -0400
+
+    comments
+
+commit 1aa2a90d8d4b225ab10d86d7eed70d84a21a9ce8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 05:08:24 2025 -0400
+
+    output
+
+commit cf400c857a5a9e47e659092235f0bfc709b4b04e
+Merge: d455db3 2a2df0d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 04:05:21 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 2a2df0d32b4ab0f6541f0409adcd4553819d9de6
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun Sep 14 09:45:08 2025 -0500
+
+    Make replace-ips resilient against some qubesdb-read failures
+
+commit d455db34bc03f4a627bcedee7605131c054936bb
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 13 10:51:15 2025 +0000
+
+    bumped changelog version
+
 commit 30717cc3b164c8a2cf45a2ac2021beffcd1e649d
 Merge: 28f76bf 9d2cbba
 Author: Patrick Schleizer <adrelanos@whonix.org>
