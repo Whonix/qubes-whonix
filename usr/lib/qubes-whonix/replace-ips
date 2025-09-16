@@ -1,7 +1,7 @@
 #!/usr/bin/python3 -su
 # -*- coding: utf-8 -*-
 # vim: set ts=4 sw=4 sts=4 et :
-'''
+"""
 replace-ips - Search and replace IP addresses in specified files.
 
 All Whonix configuration files provided are searched for the last known occurrence
@@ -32,7 +32,7 @@ Authors: Jason Mehring
 
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-'''
+"""
 
 import os
 import sys
@@ -40,58 +40,58 @@ import re
 import subprocess
 import ipaddress
 
-WHONIX_IP_GATEWAY = '/var/cache/qubes-whonix/whonix-ip-gateway'
-WHONIX_IP6_GATEWAY = '/var/cache/qubes-whonix/whonix-ip6-gateway'
-WHONIX_IP_LOCAL = '/var/cache/qubes-whonix/whonix-ip-local'
-WHONIX_IP6_LOCAL = '/var/cache/qubes-whonix/whonix-ip6-local'
+WHONIX_IP_GATEWAY = "/var/cache/qubes-whonix/whonix-ip-gateway"
+WHONIX_IP6_GATEWAY = "/var/cache/qubes-whonix/whonix-ip6-gateway"
+WHONIX_IP_LOCAL = "/var/cache/qubes-whonix/whonix-ip-local"
+WHONIX_IP6_LOCAL = "/var/cache/qubes-whonix/whonix-ip6-local"
 
 # This is a list of all Whonix files that contain IP addresses that will
 # be searched and replaced with the currently assigned IP address
-FILES=[
-    '/usr/share/whonix-gw-network-conf/network_internal_ip.txt',
-    '/etc/resolv.conf',
-    '/etc/resolv.conf.whonix',
-    '/etc/resolv.conf.anondist',
-    '/etc/rinetd.conf.anondist',
-    '/etc/tor/torrc',
-    '/usr/local/etc/torrc.d/50_user.conf',
-    '/usr/share/anon-gw-anonymizer-config/torrc.examples',
-    '/home/user/.torchat/torchat.ini',
-    '/home/user/.xchat2/xchat.conf',
-    '/home/user/.config/hexchat/hexchat.conf',
-    '/usr/lib/leaktest-workstation/simple_ping.py',
-    '/usr/share/anon-apps-config/kioslaverc',
-    '/usr/share/anon-torchat/.torchat/torchat.ini',
-    '/usr/share/tor/tor-service-defaults-torrc.anondist',
+FILES = [
+    "/usr/share/whonix-gw-network-conf/network_internal_ip.txt",
+    "/etc/resolv.conf",
+    "/etc/resolv.conf.whonix",
+    "/etc/resolv.conf.anondist",
+    "/etc/rinetd.conf.anondist",
+    "/etc/tor/torrc",
+    "/usr/local/etc/torrc.d/50_user.conf",
+    "/usr/share/anon-gw-anonymizer-config/torrc.examples",
+    "/home/user/.torchat/torchat.ini",
+    "/home/user/.xchat2/xchat.conf",
+    "/home/user/.config/hexchat/hexchat.conf",
+    "/usr/lib/leaktest-workstation/simple_ping.py",
+    "/usr/share/anon-apps-config/kioslaverc",
+    "/usr/share/anon-torchat/.torchat/torchat.ini",
+    "/usr/share/tor/tor-service-defaults-torrc.anondist",
 ]
 
-default_ip_gateway = '10.152.152.10'
-default_ip6_gateway = 'fd19:c33d:88bc::10'
-default_ip_local = '10.152.152.11'
-default_ip6_local = 'fd19:c33d:88bc::11'
+default_ip_gateway = "10.152.152.10"
+default_ip6_gateway = "fd19:c33d:88bc::10"
+default_ip_local = "10.152.152.11"
+default_ip6_local = "fd19:c33d:88bc::11"
 
 
 def whonix_mode():
-    '''Determine Whonix mode.
+    """Determine Whonix mode.
 
     Can be either 'gateway', 'workstation', 'template', or 'unknown'.
-    '''
+    """
     mode = None
 
-    if os.path.exists('/run/qubes/this-is-templatevm'):
-        mode = 'template'
-    elif os.path.exists('/usr/share/anon-gw-base-files/gateway'):
-        mode = 'gateway'
-    elif os.path.exists('/usr/share/anon-ws-base-files/workstation'):
-        mode = 'workstation'
+    if os.path.exists("/run/qubes/this-is-templatevm"):
+        mode = "template"
+    elif os.path.exists("/usr/share/anon-gw-base-files/gateway"):
+        mode = "gateway"
+    elif os.path.exists("/usr/share/anon-ws-base-files/workstation"):
+        mode = "workstation"
     else:
-        mode = 'unknown'
+        mode = "unknown"
 
     return mode
 
 
 def replace_ip(ips, current_ip, files, ip_file):
-    '''Searches and replaces IP addresses in the provided files.
+    """Searches and replaces IP addresses in the provided files.
 
     ips:
         List of IP addresses to replace.
@@ -106,25 +106,25 @@ def replace_ip(ips, current_ip, files, ip_file):
         Full path to the filename used to store the last known value of the IP
         address. The `current_ip` is stored in this file and used the next
         time this module is executed.
-    '''
+    """
     replaced = False
 
     for ip_item in ips:
         try:
             ipaddress.ip_address(ip_item)
-            #print(f"INFO: ip_item variable valid: {ip_item}")
+            # print(f"INFO: ip_item variable valid: {ip_item}")
         except ValueError:
             print(f"ERROR: ip_item variable invalid: {ip_item}")
             return replaced
 
     try:
         ipaddress.ip_address(current_ip)
-        #print(f"INFO: current_ip variable valid: {current_ip}")
+        # print(f"INFO: current_ip variable valid: {current_ip}")
     except ValueError:
         print(f"ERROR: current_ip variable invalid: {current_ip}")
         return replaced
 
-    if ':' in current_ip:
+    if ":" in current_ip:
         protocol = "IPv6"
     else:
         protocol = "IPv4"
@@ -132,65 +132,83 @@ def replace_ip(ips, current_ip, files, ip_file):
     for filename in files:
         if os.path.exists(filename):
             try:
-                with open(filename, 'r', encoding='utf-8', errors='surrogateescape') as infile:
+                with open(
+                    filename, "r", encoding="utf-8", errors="surrogateescape"
+                ) as infile:
                     text = infile.read()
-            except (IOError):
-                print(f"ERROR: {protocol}: file existing but failed to open for reading: {filename}")
+            except IOError:
+                print(
+                    f"ERROR: {protocol}: file existing but failed to open for reading: {filename}"
+                )
                 continue
 
             match = text
             for last_ip in ips:
-                match = re.sub(r'(?m){0}'.
-                               format(re.escape(last_ip)),
-                               current_ip,
-                               match)
+                match = re.sub(
+                    r"(?m){0}".format(re.escape(last_ip)), current_ip, match
+                )
 
-                if ':' in last_ip:
-                    match = re.sub(r'(?m){0}[:]0'.
-                               format(re.escape(last_ip.rsplit(':', 1)[0])),
-                               current_ip.rsplit(':', 1)[0] + ':0',
-                               match)
+                if ":" in last_ip:
+                    match = re.sub(
+                        r"(?m){0}[:]0".format(
+                            re.escape(last_ip.rsplit(":", 1)[0])
+                        ),
+                        current_ip.rsplit(":", 1)[0] + ":0",
+                        match,
+                    )
                 else:
-                    match = re.sub(r'(?m){0}[.]0'.
-                               format(re.escape(last_ip.rsplit('.', 1)[0])),
-                               current_ip.rsplit('.', 1)[0] + '.0',
-                               match)
+                    match = re.sub(
+                        r"(?m){0}[.]0".format(
+                            re.escape(last_ip.rsplit(".", 1)[0])
+                        ),
+                        current_ip.rsplit(".", 1)[0] + ".0",
+                        match,
+                    )
 
             if text != match:
                 try:
-                    with open(filename, 'w', encoding='utf-8') as outfile:
+                    with open(filename, "w", encoding="utf-8") as outfile:
                         outfile.write(match)
                     replaced = True
-                    print(f"INFO: {protocol}: filename from filelist updated: {filename}")
-                except (IOError):
-                    print(f"ERROR: {protocol}: filename from filelist existing but failed to open filename for writing: {filename}")
+                    print(
+                        f"INFO: {protocol}: filename from filelist updated: {filename}"
+                    )
+                except IOError:
+                    print(
+                        f"ERROR: {protocol}: filename from filelist existing but failed to open filename for writing: {filename}"
+                    )
                     continue
                     ## Probably better to fail open and try more files.
-                    #return False
+                    # return False
             else:
-                    print(f"INFO: {protocol}: filename from filelist unchanged: {filename}")
+                print(
+                    f"INFO: {protocol}: filename from filelist unchanged: {filename}"
+                )
     if replaced:
         try:
-            with open(ip_file, 'w', encoding='utf-8') as outfile:
+            with open(ip_file, "w", encoding="utf-8") as outfile:
                 outfile.write(current_ip)
             replaced = True
             print(f"INFO: {protocol}: ip_file updated: {ip_file}")
-        except (IOError):
+        except IOError:
             print(f"ERROR: {protocol}: writing to ip_file failed: {ip_file}")
             return False
 
     return replaced
 
 
-def get_ip_address(filename, default=''):
-    '''Retrieve an IP address from a file.
-    '''
+def get_ip_address(filename, default=""):
+    """Retrieve an IP address from a file."""
     if not os.path.exists(filename):
-        print(f"INFO: IP filename does not exist (returning default): {filename}")
+        print(
+            f"INFO: IP filename does not exist (returning default): {filename}"
+        )
         return default
 
     try:
-        with open(filename, 'r', encoding='utf-8', errors='surrogateescape') as infile:
+        with open(
+            filename, "r", encoding="utf-8", errors="surrogateescape"
+        ) as infile:
             ip_txt = infile.read().strip()
     except (OSError, IOError):
         print(f"INFO: IP filename exists but opening failed: {filename}")
@@ -201,22 +219,26 @@ def get_ip_address(filename, default=''):
         print(f"INFO: IP filename reading succeeded and valid IP: {filename}")
         return ip_txt
     except ValueError:
-        print(f"INFO: IP filename reading succeeded but not a valid IP (returning default): {filename}")
+        print(
+            f"INFO: IP filename reading succeeded but not a valid IP (returning default): {filename}"
+        )
         return default
 
 
 def maybe_reload_tor():
-    '''Reload Tor's configuration files if Tor is currently active and not
+    """Reload Tor's configuration files if Tor is currently active and not
     disabled.
-    '''
+    """
     try:
-        if subprocess.check_output(['systemctl', 'is-active', 'tor@default']):
+        if subprocess.check_output(["systemctl", "is-active", "tor@default"]):
             print("INFO: executing: systemctl restart tor@default")
             # Restarting instead of reloading due to upstream Tor bug
             # https://trac.torproject.org/projects/tor/ticket/16161
-            subprocess.call(['systemctl', 'restart', 'tor@default'])
-    except (subprocess.CalledProcessError):
-        print("INFO: Systemd unit tor@default is not running, therefore not restarting.")
+            subprocess.call(["systemctl", "restart", "tor@default"])
+    except subprocess.CalledProcessError:
+        print(
+            "INFO: Systemd unit tor@default is not running, therefore not restarting."
+        )
         pass
 
 
@@ -247,60 +269,118 @@ def main(args):
             print("ERROR: could not create folder '/var/cache/qubes-whonix'.")
 
     if last_ip_gateway:
-        if whonix_mode() == 'gateway':
+        if whonix_mode() == "gateway":
             try:
-                current_ip_gateway = subprocess.check_output(['qubesdb-read', '/qubes-netvm-gateway']).decode().rstrip()
+                current_ip_gateway = (
+                    subprocess.check_output(
+                        ["qubesdb-read", "/qubes-netvm-gateway"]
+                    )
+                    .decode()
+                    .rstrip()
+                )
             except (OSError, subprocess.CalledProcessError):
                 print("WARNING: 'qubesdb-read /qubes-netvm-gateway' failed!")
             print(f"INFO: current_ip_gateway : {current_ip_gateway}")
 
             try:
-                current_ip6_gateway = subprocess.check_output(['qubesdb-read', '/qubes-netvm-gateway6']).decode().rstrip()
+                current_ip6_gateway = (
+                    subprocess.check_output(
+                        ["qubesdb-read", "/qubes-netvm-gateway6"]
+                    )
+                    .decode()
+                    .rstrip()
+                )
             except (OSError, subprocess.CalledProcessError):
                 print("WARNING: 'qubesdb-read /qubes-netvm-gateway6' failed!")
             print(f"INFO: current_ip6_gateway: {current_ip6_gateway}")
 
             if current_ip_gateway is not None:
-                ips_to_replace = [last_ip_gateway, default_ip_gateway, default_ip_local]
-                chg4 = replace_ip(ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY)
+                ips_to_replace = [
+                    last_ip_gateway,
+                    default_ip_gateway,
+                    default_ip_local,
+                ]
+                chg4 = replace_ip(
+                    ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY
+                )
 
             if current_ip6_gateway is not None:
-                ips_to_replace = [last_ip6_gateway, default_ip6_gateway, default_ip6_local]
-                chg6 = replace_ip(ips_to_replace, current_ip6_gateway, FILES, WHONIX_IP6_GATEWAY)
+                ips_to_replace = [
+                    last_ip6_gateway,
+                    default_ip6_gateway,
+                    default_ip6_local,
+                ]
+                chg6 = replace_ip(
+                    ips_to_replace,
+                    current_ip6_gateway,
+                    FILES,
+                    WHONIX_IP6_GATEWAY,
+                )
 
             if chg4 or chg6:
                 maybe_reload_tor()
 
-        if whonix_mode() == 'workstation' and last_ip_local:
+        if whonix_mode() == "workstation" and last_ip_local:
             try:
-                current_ip_local = subprocess.check_output(['qubesdb-read', '/qubes-ip']).decode().rstrip()
-                current_ip_gateway = subprocess.check_output(['qubesdb-read', '/qubes-gateway']).decode().rstrip()
+                current_ip_local = (
+                    subprocess.check_output(["qubesdb-read", "/qubes-ip"])
+                    .decode()
+                    .rstrip()
+                )
+                current_ip_gateway = (
+                    subprocess.check_output(["qubesdb-read", "/qubes-gateway"])
+                    .decode()
+                    .rstrip()
+                )
             except (OSError, subprocess.CalledProcessError):
-                print("WARNING: 'qubesdb-read /qubes-ip' or 'qubesdb-read /qubes-gateway' failed!")
-                #return
+                print(
+                    "WARNING: 'qubesdb-read /qubes-ip' or 'qubesdb-read /qubes-gateway' failed!"
+                )
+                # return
             print(f"INFO: current_ip_local   : {current_ip_local}")
             print(f"INFO: current_ip_gateway : {current_ip_gateway}")
 
             try:
-                current_ip6_local = subprocess.check_output(['qubesdb-read', '/qubes-ip6']).decode().rstrip()
-                current_ip6_gateway = subprocess.check_output(['qubesdb-read', '/qubes-gateway6']).decode().rstrip()
+                current_ip6_local = (
+                    subprocess.check_output(["qubesdb-read", "/qubes-ip6"])
+                    .decode()
+                    .rstrip()
+                )
+                current_ip6_gateway = (
+                    subprocess.check_output(["qubesdb-read", "/qubes-gateway6"])
+                    .decode()
+                    .rstrip()
+                )
             except (OSError, subprocess.CalledProcessError):
-                print("WARNING: 'qubesdb-read /qubes-ip6' or 'qubesdb-read /qubes-gateway6' failed!")
-                #return
+                print(
+                    "WARNING: 'qubesdb-read /qubes-ip6' or 'qubesdb-read /qubes-gateway6' failed!"
+                )
+                # return
             print(f"INFO: current_ip6_local  : {current_ip6_local}")
             print(f"INFO: current_ip6_gateway: {current_ip6_gateway}")
 
             if None not in (current_ip_local, current_ip_gateway):
                 ips_to_replace = [last_ip_local, default_ip_local]
-                replace_ip(ips_to_replace, current_ip_local, FILES, WHONIX_IP_LOCAL)
+                replace_ip(
+                    ips_to_replace, current_ip_local, FILES, WHONIX_IP_LOCAL
+                )
                 ips_to_replace = [last_ip_gateway, default_ip_gateway]
-                replace_ip(ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY)
+                replace_ip(
+                    ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY
+                )
 
             if None not in (current_ip6_local, current_ip6_gateway):
                 ips_to_replace = [last_ip6_local, default_ip6_local]
-                replace_ip(ips_to_replace, current_ip6_local, FILES, WHONIX_IP6_LOCAL)
+                replace_ip(
+                    ips_to_replace, current_ip6_local, FILES, WHONIX_IP6_LOCAL
+                )
                 ips_to_replace = [last_ip6_gateway, default_ip6_gateway]
-                replace_ip(ips_to_replace, current_ip6_gateway, FILES, WHONIX_IP6_GATEWAY)
+                replace_ip(
+                    ips_to_replace,
+                    current_ip6_gateway,
+                    FILES,
+                    WHONIX_IP6_GATEWAY,
+                )
 
 
 if __name__ == "__main__":
