@@ -4,14 +4,15 @@
 """
 replace-ips - Search and replace IP addresses in specified files.
 
-All Whonix configuration files provided are searched for the last known occurrence
-of an IP address that was used and replaced with the current IP address provided by
-Qubes.
+All Whonix configuration files provided are searched for the last known
+occurrence of an IP address that was used and replaced with the current IP
+address provided by Qubes.
 
-Initially, the known IP addresses are 10.152.152.10 and 10.152.152.11 as defaults
-in Whonix configuration files. They are also checked each time this module is
-run in case the configuration files were modified due to a system update. The
-default IPv6 addresses fd19:c33d:88bc::10 and fd19:c33d:88bc::11 are also checked.
+Initially, the known IP addresses are 10.152.152.10 and 10.152.152.11 as
+defaults in Whonix configuration files. They are also checked each time this
+module is run in case the configuration files were modified due to a system
+update. The default IPv6 addresses fd19:c33d:88bc::10 and fd19:c33d:88bc::11
+are also checked.
 
 Qubes feature request: optional static IP addresses
 https://github.com/QubesOS/qubes-issues/issues/1477
@@ -138,7 +139,8 @@ def replace_ip(ips, current_ip, files, ip_file):
                     text = infile.read()
             except IOError:
                 print(
-                    f"ERROR: {protocol}: file existing but failed to open for reading: {filename}"
+                    f"ERROR: {protocol}: file existing but failed to open for "
+                    f"reading: {filename}"
                 )
                 continue
 
@@ -171,18 +173,21 @@ def replace_ip(ips, current_ip, files, ip_file):
                         outfile.write(match)
                     replaced = True
                     print(
-                        f"INFO: {protocol}: filename from filelist updated: {filename}"
+                        f"INFO: {protocol}: filename from filelist updated: "
+                        f"{filename}"
                     )
                 except IOError:
                     print(
-                        f"ERROR: {protocol}: filename from filelist existing but failed to open filename for writing: {filename}"
+                        f"ERROR: {protocol}: filename from filelist existing "
+                        f"but failed to open filename for writing: {filename}"
                     )
                     continue
                     ## Probably better to fail open and try more files.
                     # return False
             else:
                 print(
-                    f"INFO: {protocol}: filename from filelist unchanged: {filename}"
+                    f"INFO: {protocol}: filename from filelist unchanged: "
+                    f"{filename}"
                 )
     if replaced:
         try:
@@ -220,7 +225,8 @@ def get_ip_address(filename, default=""):
         return ip_txt
     except ValueError:
         print(
-            f"INFO: IP filename reading succeeded but not a valid IP (returning default): {filename}"
+            f"INFO: IP filename reading succeeded but not a valid IP "
+            f"(returning default): {filename}"
         )
         return default
 
@@ -237,14 +243,15 @@ def maybe_reload_tor():
             subprocess.call(["systemctl", "restart", "tor@default"])
     except subprocess.CalledProcessError:
         print(
-            "INFO: Systemd unit tor@default is not running, therefore not restarting."
+            "INFO: Systemd unit tor@default is not running, therefore not "
+            "restarting."
         )
         pass
 
 
 def main(args):
-    ## IP HARDCODED, but this does not matter for Non-Qubes-Whonix. This script is
-    ## currently only used in Qubes-Whonix.
+    ## IP HARDCODED, but this does not matter for Non-Qubes-Whonix. This script
+    ## is currently only used in Qubes-Whonix.
     last_ip_gateway = get_ip_address(WHONIX_IP_GATEWAY, default_ip_gateway)
     last_ip6_gateway = get_ip_address(WHONIX_IP6_GATEWAY, default_ip6_gateway)
     last_ip_local = get_ip_address(WHONIX_IP_LOCAL, default_ip_local)
@@ -334,7 +341,8 @@ def main(args):
                 )
             except (OSError, subprocess.CalledProcessError):
                 print(
-                    "WARNING: 'qubesdb-read /qubes-ip' or 'qubesdb-read /qubes-gateway' failed!"
+                    "WARNING: 'qubesdb-read /qubes-ip' or 'qubesdb-read "
+                    "/qubes-gateway' failed!"
                 )
                 # return
             print(f"INFO: current_ip_local   : {current_ip_local}")
@@ -353,7 +361,8 @@ def main(args):
                 )
             except (OSError, subprocess.CalledProcessError):
                 print(
-                    "WARNING: 'qubesdb-read /qubes-ip6' or 'qubesdb-read /qubes-gateway6' failed!"
+                    "WARNING: 'qubesdb-read /qubes-ip6' or 'qubesdb-read "
+                    "/qubes-gateway6' failed!"
                 )
                 # return
             print(f"INFO: current_ip6_local  : {current_ip6_local}")
