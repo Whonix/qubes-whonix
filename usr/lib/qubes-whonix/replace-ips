@@ -147,12 +147,12 @@ def replace_ip(ips, current_ip, files, ip_file):
             match = text
             for last_ip in ips:
                 match = re.sub(
-                    r"(?m){0}".format(re.escape(last_ip)), current_ip, match
+                    r"(?m){0}(?=\D|$)".format(re.escape(last_ip)), current_ip, match
                 )
 
                 if ":" in last_ip:
                     match = re.sub(
-                        r"(?m){0}[:]0".format(
+                        r"(?m){0}[:]0(?=\D|$)".format(
                             re.escape(last_ip.rsplit(":", 1)[0])
                         ),
                         current_ip.rsplit(":", 1)[0] + ":0",
@@ -160,7 +160,7 @@ def replace_ip(ips, current_ip, files, ip_file):
                     )
                 else:
                     match = re.sub(
-                        r"(?m){0}[.]0".format(
+                        r"(?m){0}[.]0(?=\D|$)".format(
                             re.escape(last_ip.rsplit(".", 1)[0])
                         ),
                         current_ip.rsplit(".", 1)[0] + ".0",
