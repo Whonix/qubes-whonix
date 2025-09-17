@@ -65,6 +65,7 @@ FILES: list[str] = [
     "/usr/share/anon-apps-config/kioslaverc",
     "/usr/share/anon-torchat/.torchat/torchat.ini",
     "/usr/share/tor/tor-service-defaults-torrc.anondist.base",
+    "/usr/share/tor/tor-service-defaults-torrc.anondist",
 ]
 
 default_ip_gateway: str = "10.152.152.10"
