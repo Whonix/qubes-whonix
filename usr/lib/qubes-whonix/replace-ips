@@ -92,7 +92,7 @@ def whonix_mode() -> str:
 def ip_line_fixup(line: str, last_ip: str, current_ip: str) -> str:
     """Does low-level IP address replacement via regex matches.
     """
-    comment_regex: Pattern[str] = re.compile(r"\s+#")
+    comment_regex: Pattern[str] = re.compile(r"\s*#")
     if line == "":
         return line
     if comment_regex.match(line):
