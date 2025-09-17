@@ -40,6 +40,7 @@ import os
 import re
 import subprocess
 import ipaddress
+from typing import Pattern
 
 WHONIX_IP_GATEWAY: str = "/var/cache/qubes-whonix/whonix-ip-gateway"
 WHONIX_IP6_GATEWAY: str = "/var/cache/qubes-whonix/whonix-ip6-gateway"
@@ -88,7 +89,40 @@ def whonix_mode() -> str:
     return mode
 
 
-# pylint: disable=too-many-branches
+def ip_line_fixup(line: str, last_ip: str, current_ip: str) -> str:
+    """Does low-level IP address replacement via regex matches.
+    """
+    comment_regex: Pattern[str] = re.compile(r"\s+#")
+    if line == "":
+        return line
+    if comment_regex.match(line):
+        return line
+
+    if last_ip in line:
+        line = re.sub(
+            rf"(?m){re.escape(last_ip)}(?=\D|$)",
+            current_ip,
+            line,
+        )
+
+    if ":" in last_ip:
+        line = re.sub(
+            rf"(?m){re.escape(last_ip.rsplit(":", 1)[0])}[:]0"
+            r"(?=\D|$)",
+            current_ip.rsplit(":", 1)[0] + ":0",
+            line,
+        )
+    else:
+        line = re.sub(
+            rf"(?m){re.escape(last_ip.rsplit(".", 1)[0])}[.]0"
+            r"(?=\D|$)",
+            current_ip.rsplit(".", 1)[0] + ".0",
+            line,
+        )
+
+    return line
+
+# pylint: disable=too-many-locals,too-many-branches
 def replace_ip(
     ips: list[str],
     current_ip: str,
@@ -148,33 +182,18 @@ def replace_ip(
                 )
                 continue
 
-            match: str = text
-            for last_ip in ips:
-                match = re.sub(
-                    rf"(?m){re.escape(last_ip)}(?=\D|$)",
-                    current_ip,
-                    match,
-                )
+            line_list: list[str] = text.split("\n")
+            for idx, line in enumerate(line_list):
+                for last_ip in ips:
+                    line = ip_line_fixup(line, last_ip, current_ip)
+                    line_list[idx] = line
 
-                if ":" in last_ip:
-                    match = re.sub(
-                        rf"(?m){re.escape(last_ip.rsplit(":", 1)[0])}[:]0"
-                        r"(?=\D|$)",
-                        current_ip.rsplit(":", 1)[0] + ":0",
-                        match,
-                    )
-                else:
-                    match = re.sub(
-                        rf"(?m){re.escape(last_ip.rsplit(".", 1)[0])}[.]0"
-                        r"(?=\D|$)",
-                        current_ip.rsplit(".", 1)[0] + ".0",
-                        match,
-                    )
+            replaced_text: str = "\n".join(line_list)
 
-            if text != match:
+            if text != replaced_text:
                 try:
                     with open(filename, "w", encoding="utf-8") as outfile:
-                        outfile.write(match)
+                        outfile.write(replaced_text)
                     replaced = True
                     print(
                         f"INFO: {protocol}: filename from filelist updated: "
