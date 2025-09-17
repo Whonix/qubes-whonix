@@ -1,3 +1,89 @@
+commit f6409b9161d0732ed3013a9afeb04ae4d85eede5
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Sep 17 10:32:21 2025 -0400
+
+    fix: remove no longer required triggering of /usr/lib/qubes-whonix/init/qubes-whonix-sysinit
+
+commit b0b2b2712fa5d12748db85bab3dcc5b8896b3859
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Sep 17 10:31:49 2025 -0400
+
+    fix never matched trigger and fix shellcheck warning
+
+commit 67f9ce229a6121afa1ea05839ee7636f9f51c403
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Sep 17 10:22:29 2025 -0400
+
+    replace-ips: fix
+    work on /usr/share/tor/tor-service-defaults-torrc.anondist as well as /usr/share/tor/tor-service-defaults-torrc.anondist.base
+
+commit d73c189ef3cbc048a203951c7da41855dd2f621a
+Merge: 29cac74 e03bb0c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Sep 17 09:55:06 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit e03bb0c924d3b925e7daa0f23010aece9630af4c
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Sep 16 21:22:56 2025 -0500
+
+    Config file rename
+
+commit ab417fb2b05bdcfefd3808cf8de3a352c3bf1187
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Sep 16 20:21:39 2025 -0500
+
+    Fix replace-ips comment regex
+
+commit 0841b4229e6e0189b4ef76ddd95a0265dfb8417f
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Sep 16 19:59:11 2025 -0500
+
+    Avoid replacing IP addresses in comments
+
+commit cd213fec3b786ed4202a4254b41017d281d23abb
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Sep 16 19:44:12 2025 -0500
+
+    Make replace-ips mostly compliant with mypy and pylint
+
+commit 92e6110f1812708138bc8317291024b124d79963
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Sep 16 19:25:28 2025 -0500
+
+    Add lookahead assertions to replace-ips to avoid accidental matches
+
+commit c537d17d639a3f383ba480689ca4f5a1a97a2737
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Sep 16 18:50:07 2025 -0500
+
+    Truncate lines in replace-ips to 81 characters or shorter
+
+commit d5fc921b59a6d7c48268f243fe409a29d8f4bb7c
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Sep 16 18:43:28 2025 -0500
+
+    Reformat replace-ips with black
+
+commit 56e0557a48aa3b15904eaf7a689720468eabb0c9
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Sep 16 18:43:03 2025 -0500
+
+    Cleanup replace-ips a bit
+
+commit 3734c4dd5f5135a4c01a90b6e7dbc577b7e53c1f
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Sep 16 18:02:29 2025 -0500
+
+    Clarify looping construct
+
+commit 29cac742efd1483d46743132374b8ebcf2708d5f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 15 11:50:59 2025 +0000
+
+    bumped changelog version
+
 commit 55ef696e448955d100cf8d8b350b28435ccade27
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Sep 15 07:26:41 2025 -0400
