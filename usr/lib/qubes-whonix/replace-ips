@@ -64,7 +64,7 @@ FILES: list[str] = [
     "/usr/lib/leaktest-workstation/simple_ping.py",
     "/usr/share/anon-apps-config/kioslaverc",
     "/usr/share/anon-torchat/.torchat/torchat.ini",
-    "/usr/share/tor/tor-service-defaults-torrc.anondist",
+    "/usr/share/tor/tor-service-defaults-torrc.anondist.base",
 ]
 
 default_ip_gateway: str = "10.152.152.10"
