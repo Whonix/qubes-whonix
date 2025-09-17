@@ -35,7 +35,7 @@ case "${1}" in
                 /usr/lib/leaktest-workstation/simple_ping.py | \
                 /usr/share/anon-apps-config/kioslaverc | \
                 /usr/share/anon-torchat/.torchat/torchat.ini | \
-                /usr/share/tor/tor-service-defaults-torrc.anondist)
+                /usr/share/tor/tor-service-defaults-torrc.anondist.base)
                     ## Do not break in case qubesdb-vm is also upgraded and not running.
                     ## https://github.com/QubesOS/qubes-issues/issues/2497
                     /usr/lib/qubes-whonix/replace-ips || true
@@ -45,7 +45,7 @@ case "${1}" in
                 /usr/bin/whonix_firewall | \
                 /usr/bin/whonix-gateway-firewall | \
                 /usr/bin/whonix-workstation-firewall | \
-                /usr/share/tor/tor-service-defaults-torrc.anondist)
+                /usr/share/tor/tor-service-defaults-torrc.anondist.base)
                     /usr/lib/qubes-whonix/init/qubes-whonix-sysinit || true
                     /usr/libexec/whonix-firewall/enable-firewall || true
                     ;;

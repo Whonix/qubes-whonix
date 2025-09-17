@@ -20,4 +20,4 @@ interest-noawait /usr/share/anon-torchat/.torchat/torchat.ini
 
 ## Replace IP address and restart firewall
 interest-noawait /usr/bin/whonix_firewall
-interest-noawait /usr/share/tor/tor-service-defaults-torrc.anondist
+interest-noawait /usr/share/tor/tor-service-defaults-torrc.anondist.base
