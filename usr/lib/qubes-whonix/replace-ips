@@ -1,6 +1,7 @@
 #!/usr/bin/python3 -su
 # -*- coding: utf-8 -*-
 # vim: set ts=4 sw=4 sts=4 et :
+# pylint: disable=broad-exception-caught
 """
 replace-ips - Search and replace IP addresses in specified files.
 
@@ -36,19 +37,18 @@ Authors: Jason Mehring
 """
 
 import os
-import sys
 import re
 import subprocess
 import ipaddress
 
-WHONIX_IP_GATEWAY = "/var/cache/qubes-whonix/whonix-ip-gateway"
-WHONIX_IP6_GATEWAY = "/var/cache/qubes-whonix/whonix-ip6-gateway"
-WHONIX_IP_LOCAL = "/var/cache/qubes-whonix/whonix-ip-local"
-WHONIX_IP6_LOCAL = "/var/cache/qubes-whonix/whonix-ip6-local"
+WHONIX_IP_GATEWAY: str = "/var/cache/qubes-whonix/whonix-ip-gateway"
+WHONIX_IP6_GATEWAY: str = "/var/cache/qubes-whonix/whonix-ip6-gateway"
+WHONIX_IP_LOCAL: str = "/var/cache/qubes-whonix/whonix-ip-local"
+WHONIX_IP6_LOCAL: str = "/var/cache/qubes-whonix/whonix-ip6-local"
 
 # This is a list of all Whonix files that contain IP addresses that will
 # be searched and replaced with the currently assigned IP address
-FILES = [
+FILES: list[str] = [
     "/usr/share/whonix-gw-network-conf/network_internal_ip.txt",
     "/etc/resolv.conf",
     "/etc/resolv.conf.whonix",
@@ -66,32 +66,35 @@ FILES = [
     "/usr/share/tor/tor-service-defaults-torrc.anondist",
 ]
 
-default_ip_gateway = "10.152.152.10"
-default_ip6_gateway = "fd19:c33d:88bc::10"
-default_ip_local = "10.152.152.11"
-default_ip6_local = "fd19:c33d:88bc::11"
+default_ip_gateway: str = "10.152.152.10"
+default_ip6_gateway: str = "fd19:c33d:88bc::10"
+default_ip_local: str = "10.152.152.11"
+default_ip6_local: str = "fd19:c33d:88bc::11"
 
 
-def whonix_mode():
+def whonix_mode() -> str:
     """Determine Whonix mode.
 
     Can be either 'gateway', 'workstation', 'template', or 'unknown'.
     """
-    mode = None
-
+    mode: str = "unknown"
     if os.path.exists("/run/qubes/this-is-templatevm"):
         mode = "template"
     elif os.path.exists("/usr/share/anon-gw-base-files/gateway"):
         mode = "gateway"
     elif os.path.exists("/usr/share/anon-ws-base-files/workstation"):
         mode = "workstation"
-    else:
-        mode = "unknown"
 
     return mode
 
 
-def replace_ip(ips, current_ip, files, ip_file):
+# pylint: disable=too-many-branches
+def replace_ip(
+    ips: list[str],
+    current_ip: str,
+    files: list[str],
+    ip_file: str
+) -> bool:
     """Searches and replaces IP addresses in the provided files.
 
     ips:
@@ -108,7 +111,7 @@ def replace_ip(ips, current_ip, files, ip_file):
         address. The `current_ip` is stored in this file and used the next
         time this module is executed.
     """
-    replaced = False
+    replaced: bool = False
 
     for ip_item in ips:
         try:
@@ -125,6 +128,7 @@ def replace_ip(ips, current_ip, files, ip_file):
         print(f"ERROR: current_ip variable invalid: {current_ip}")
         return replaced
 
+    protocol: str
     if ":" in current_ip:
         protocol = "IPv6"
     else:
@@ -136,7 +140,7 @@ def replace_ip(ips, current_ip, files, ip_file):
                 with open(
                     filename, "r", encoding="utf-8", errors="surrogateescape"
                 ) as infile:
-                    text = infile.read()
+                    text: str = infile.read()
             except IOError:
                 print(
                     f"ERROR: {protocol}: file existing but failed to open for "
@@ -144,25 +148,25 @@ def replace_ip(ips, current_ip, files, ip_file):
                 )
                 continue
 
-            match = text
+            match: str = text
             for last_ip in ips:
                 match = re.sub(
-                    r"(?m){0}(?=\D|$)".format(re.escape(last_ip)), current_ip, match
+                    rf"(?m){re.escape(last_ip)}(?=\D|$)",
+                    current_ip,
+                    match,
                 )
 
                 if ":" in last_ip:
                     match = re.sub(
-                        r"(?m){0}[:]0(?=\D|$)".format(
-                            re.escape(last_ip.rsplit(":", 1)[0])
-                        ),
+                        rf"(?m){re.escape(last_ip.rsplit(":", 1)[0])}[:]0"
+                        r"(?=\D|$)",
                         current_ip.rsplit(":", 1)[0] + ":0",
                         match,
                     )
                 else:
                     match = re.sub(
-                        r"(?m){0}[.]0(?=\D|$)".format(
-                            re.escape(last_ip.rsplit(".", 1)[0])
-                        ),
+                        rf"(?m){re.escape(last_ip.rsplit(".", 1)[0])}[.]0"
+                        r"(?=\D|$)",
                         current_ip.rsplit(".", 1)[0] + ".0",
                         match,
                     )
@@ -202,7 +206,7 @@ def replace_ip(ips, current_ip, files, ip_file):
     return replaced
 
 
-def get_ip_address(filename, default=""):
+def get_ip_address(filename: str, default: str = "") -> str:
     """Retrieve an IP address from a file."""
     if not os.path.exists(filename):
         print(
@@ -214,7 +218,7 @@ def get_ip_address(filename, default=""):
         with open(
             filename, "r", encoding="utf-8", errors="surrogateescape"
         ) as infile:
-            ip_txt = infile.read().strip()
+            ip_txt: str = infile.read().strip()
     except (OSError, IOError):
         print(f"INFO: IP filename exists but opening failed: {filename}")
         return default
@@ -231,7 +235,7 @@ def get_ip_address(filename, default=""):
         return default
 
 
-def maybe_reload_tor():
+def maybe_reload_tor() -> None:
     """Reload Tor's configuration files if Tor is currently active and not
     disabled.
     """
@@ -246,153 +250,163 @@ def maybe_reload_tor():
             "INFO: Systemd unit tor@default is not running, therefore not "
             "restarting."
         )
-        pass
 
 
-def main(args):
+# pylint: disable=too-many-branches,too-many-statements
+def main() -> None:
+    """Main function.
+    """
     ## IP HARDCODED, but this does not matter for Non-Qubes-Whonix. This script
     ## is currently only used in Qubes-Whonix.
-    last_ip_gateway = get_ip_address(WHONIX_IP_GATEWAY, default_ip_gateway)
-    last_ip6_gateway = get_ip_address(WHONIX_IP6_GATEWAY, default_ip6_gateway)
-    last_ip_local = get_ip_address(WHONIX_IP_LOCAL, default_ip_local)
-    last_ip6_local = get_ip_address(WHONIX_IP6_LOCAL, default_ip6_local)
+    last_ip_gateway: str = get_ip_address(WHONIX_IP_GATEWAY, default_ip_gateway)
+    last_ip6_gateway: str = get_ip_address(
+        WHONIX_IP6_GATEWAY, default_ip6_gateway
+    )
+    last_ip_local: str = get_ip_address(WHONIX_IP_LOCAL, default_ip_local)
+    last_ip6_local: str = get_ip_address(WHONIX_IP6_LOCAL, default_ip6_local)
+    assert last_ip_gateway != ""
+    assert last_ip6_gateway != ""
+    assert last_ip_local != ""
+    assert last_ip6_local != ""
 
     print(f"INFO: last_ip_gateway    : {last_ip_gateway}")
     print(f"INFO: last_ip6_gateway   : {last_ip6_gateway}")
     print(f"INFO: last_ip_local      : {last_ip_local}")
     print(f"INFO: last_ip6_local     : {last_ip6_local}")
 
-    current_ip_local = None
-    current_ip_gateway = None
-    current_ip6_local = None
-    current_ip6_gateway = None
-    chg4 = False
-    chg6 = False
+    current_ip_local: str | None = None
+    current_ip_gateway: str | None = None
+    current_ip6_local: str | None = None
+    current_ip6_gateway: str | None = None
+    chg4: bool = False
+    chg6: bool = False
 
     if not os.path.isdir("/var/cache/qubes-whonix"):
         try:
             os.makedirs("/var/cache/qubes-whonix")
-        except:
+        except Exception:
             print("ERROR: could not create folder '/var/cache/qubes-whonix'.")
 
-    if last_ip_gateway:
-        if whonix_mode() == "gateway":
-            try:
-                current_ip_gateway = (
-                    subprocess.check_output(
-                        ["qubesdb-read", "/qubes-netvm-gateway"]
-                    )
-                    .decode()
-                    .rstrip()
+    if whonix_mode() == "gateway":
+        try:
+            current_ip_gateway = (
+                subprocess.check_output(
+                    ["qubesdb-read", "/qubes-netvm-gateway"]
                 )
-            except (OSError, subprocess.CalledProcessError):
-                print("WARNING: 'qubesdb-read /qubes-netvm-gateway' failed!")
-            print(f"INFO: current_ip_gateway : {current_ip_gateway}")
+                .decode()
+                .rstrip()
+            )
+        except (OSError, subprocess.CalledProcessError):
+            print("WARNING: 'qubesdb-read /qubes-netvm-gateway' failed!")
+        print(f"INFO: current_ip_gateway : {current_ip_gateway}")
 
-            try:
-                current_ip6_gateway = (
-                    subprocess.check_output(
-                        ["qubesdb-read", "/qubes-netvm-gateway6"]
-                    )
-                    .decode()
-                    .rstrip()
+        try:
+            current_ip6_gateway = (
+                subprocess.check_output(
+                    ["qubesdb-read", "/qubes-netvm-gateway6"]
                 )
-            except (OSError, subprocess.CalledProcessError):
-                print("WARNING: 'qubesdb-read /qubes-netvm-gateway6' failed!")
-            print(f"INFO: current_ip6_gateway: {current_ip6_gateway}")
+                .decode()
+                .rstrip()
+            )
+        except (OSError, subprocess.CalledProcessError):
+            print("WARNING: 'qubesdb-read /qubes-netvm-gateway6' failed!")
+        print(f"INFO: current_ip6_gateway: {current_ip6_gateway}")
 
-            if current_ip_gateway is not None:
-                ips_to_replace = [
-                    last_ip_gateway,
-                    default_ip_gateway,
-                    default_ip_local,
-                ]
-                chg4 = replace_ip(
-                    ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY
-                )
+        ips_to_replace: list[str]
+        if current_ip_gateway is not None:
+            ips_to_replace = [
+                last_ip_gateway,
+                default_ip_gateway,
+                default_ip_local,
+            ]
+            chg4 = replace_ip(
+                ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY
+            )
 
-            if current_ip6_gateway is not None:
-                ips_to_replace = [
-                    last_ip6_gateway,
-                    default_ip6_gateway,
-                    default_ip6_local,
-                ]
-                chg6 = replace_ip(
-                    ips_to_replace,
-                    current_ip6_gateway,
-                    FILES,
-                    WHONIX_IP6_GATEWAY,
-                )
+        if current_ip6_gateway is not None:
+            ips_to_replace = [
+                last_ip6_gateway,
+                default_ip6_gateway,
+                default_ip6_local,
+            ]
+            chg6 = replace_ip(
+                ips_to_replace,
+                current_ip6_gateway,
+                FILES,
+                WHONIX_IP6_GATEWAY,
+            )
 
-            if chg4 or chg6:
-                maybe_reload_tor()
+        if chg4 or chg6:
+            maybe_reload_tor()
 
-        if whonix_mode() == "workstation" and last_ip_local:
-            try:
-                current_ip_local = (
-                    subprocess.check_output(["qubesdb-read", "/qubes-ip"])
-                    .decode()
-                    .rstrip()
-                )
-                current_ip_gateway = (
-                    subprocess.check_output(["qubesdb-read", "/qubes-gateway"])
-                    .decode()
-                    .rstrip()
-                )
-            except (OSError, subprocess.CalledProcessError):
-                print(
-                    "WARNING: 'qubesdb-read /qubes-ip' or 'qubesdb-read "
-                    "/qubes-gateway' failed!"
-                )
-                # return
-            print(f"INFO: current_ip_local   : {current_ip_local}")
-            print(f"INFO: current_ip_gateway : {current_ip_gateway}")
+    if whonix_mode() == "workstation":
+        try:
+            current_ip_local = (
+                subprocess.check_output(["qubesdb-read", "/qubes-ip"])
+                .decode()
+                .rstrip()
+            )
+            current_ip_gateway = (
+                subprocess.check_output(["qubesdb-read", "/qubes-gateway"])
+                .decode()
+                .rstrip()
+            )
+        except (OSError, subprocess.CalledProcessError):
+            print(
+                "WARNING: 'qubesdb-read /qubes-ip' or 'qubesdb-read "
+                "/qubes-gateway' failed!"
+            )
+        print(f"INFO: current_ip_local   : {current_ip_local}")
+        print(f"INFO: current_ip_gateway : {current_ip_gateway}")
 
-            try:
-                current_ip6_local = (
-                    subprocess.check_output(["qubesdb-read", "/qubes-ip6"])
-                    .decode()
-                    .rstrip()
-                )
-                current_ip6_gateway = (
-                    subprocess.check_output(["qubesdb-read", "/qubes-gateway6"])
-                    .decode()
-                    .rstrip()
-                )
-            except (OSError, subprocess.CalledProcessError):
-                print(
-                    "WARNING: 'qubesdb-read /qubes-ip6' or 'qubesdb-read "
-                    "/qubes-gateway6' failed!"
-                )
-                # return
-            print(f"INFO: current_ip6_local  : {current_ip6_local}")
-            print(f"INFO: current_ip6_gateway: {current_ip6_gateway}")
+        try:
+            current_ip6_local = (
+                subprocess.check_output(["qubesdb-read", "/qubes-ip6"])
+                .decode()
+                .rstrip()
+            )
+            current_ip6_gateway = (
+                subprocess.check_output(["qubesdb-read", "/qubes-gateway6"])
+                .decode()
+                .rstrip()
+            )
+        except (OSError, subprocess.CalledProcessError):
+            print(
+                "WARNING: 'qubesdb-read /qubes-ip6' or 'qubesdb-read "
+                "/qubes-gateway6' failed!"
+            )
+        print(f"INFO: current_ip6_local  : {current_ip6_local}")
+        print(f"INFO: current_ip6_gateway: {current_ip6_gateway}")
 
-            if None not in (current_ip_local, current_ip_gateway):
-                ips_to_replace = [last_ip_local, default_ip_local]
-                replace_ip(
-                    ips_to_replace, current_ip_local, FILES, WHONIX_IP_LOCAL
-                )
-                ips_to_replace = [last_ip_gateway, default_ip_gateway]
-                replace_ip(
-                    ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY
-                )
+        if None not in (current_ip_local, current_ip_gateway):
+            assert current_ip_local is not None
+            assert current_ip_gateway is not None
+            ips_to_replace = [last_ip_local, default_ip_local]
+            replace_ip(
+                ips_to_replace, current_ip_local, FILES, WHONIX_IP_LOCAL
+            )
+            ips_to_replace = [last_ip_gateway, default_ip_gateway]
+            replace_ip(
+                ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY
+            )
 
-            if None not in (current_ip6_local, current_ip6_gateway):
-                ips_to_replace = [last_ip6_local, default_ip6_local]
-                replace_ip(
-                    ips_to_replace, current_ip6_local, FILES, WHONIX_IP6_LOCAL
-                )
-                ips_to_replace = [last_ip6_gateway, default_ip6_gateway]
-                replace_ip(
-                    ips_to_replace,
-                    current_ip6_gateway,
-                    FILES,
-                    WHONIX_IP6_GATEWAY,
-                )
+        if None not in (current_ip6_local, current_ip6_gateway):
+            assert current_ip6_local is not None
+            assert current_ip6_gateway is not None
+            ips_to_replace = [last_ip6_local, default_ip6_local]
+            replace_ip(
+                ips_to_replace, current_ip6_local, FILES, WHONIX_IP6_LOCAL
+            )
+            ips_to_replace = [last_ip6_gateway, default_ip6_gateway]
+            replace_ip(
+                ips_to_replace,
+                current_ip6_gateway,
+                FILES,
+                WHONIX_IP6_GATEWAY,
+            )
 
 
 if __name__ == "__main__":
     print("/usr/lib/qubes-whonix/replace-ips INFO: START")
-    main(sys.argv[1:])
+    main()
     print("/usr/lib/qubes-whonix/replace-ips INFO: END")
