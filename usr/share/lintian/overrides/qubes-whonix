@@ -1,10 +1,6 @@
 ## Copyright (C) 2017 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
-## These are triggers and need full path to be triggered
-## XXX: be more specific
-qubes-whonix: command-with-path-in-maintainer-script
-
 ## That is how setup-dist implements status files.
 qubes-whonix: file-in-unusual-dir [var/cache/setup-dist/status-files/placeholder]
 
