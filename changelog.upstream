@@ -1,3 +1,21 @@
+commit 30f5bcc6b2cbb170b43bdc45e073445252b52abd
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 19 14:13:10 2025 -0400
+
+    fix
+
+commit 73c5f285235a33362daa9509a6c42c6f47a9e7e7
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 19 14:12:39 2025 -0400
+
+    deprecate no longer needed trigger to restart whonix-firewall
+
+commit 0f08eadf48138dc6316a6e4805b4c198885ac82c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 19 16:27:46 2025 +0000
+
+    bumped changelog version
+
 commit 31401ddc201aa64d214524e5aad83e1516f1b859
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Sep 18 10:09:03 2025 -0400
