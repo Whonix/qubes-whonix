@@ -27,6 +27,7 @@ Depends: adduser,
  qubes-core-agent-networking,
  python3,
  helper-scripts,
+ socat,
  ${misc:Depends}
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
