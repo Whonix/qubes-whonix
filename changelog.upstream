@@ -1,3 +1,28 @@
+commit ce1c8607475ff53ec76a20b2e801a5719a261328
+Merge: ed28c5b 7dab636
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 9 12:57:45 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 7dab6369159b3be1adc4d1c6fd8f8fccf8fc1424
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Thu Oct 9 00:00:11 2025 -0500
+
+    Add socat as a dependency
+
+commit 34418e335c6ea8d09d018ebda871a2ead4f392c1
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Wed Oct 8 23:55:39 2025 -0500
+
+    Wait to allow update requests to sys-whonix until Tor is running
+
+commit ed28c5bb1d93c7e78a55013aa2db6f4c1a4f23c3
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 22 17:32:36 2025 +0000
+
+    bumped changelog version
+
 commit cf707a32088ea1ac3788721126b03b22510cdb52
 Merge: ac476f1 a5097c9
 Author: Patrick Schleizer <adrelanos@whonix.org>
