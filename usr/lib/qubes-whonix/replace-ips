@@ -37,6 +37,7 @@ Authors: Jason Mehring
 """
 
 import os
+import sys
 import re
 import subprocess
 import ipaddress
@@ -276,6 +277,15 @@ def maybe_reload_tor() -> None:
 def main() -> None:
     """Main function.
     """
+
+    if whonix_mode() == "template":
+        print("INFO: Not needed inside Template, skipping, ok.")
+        return
+
+    if whonix_mode() == "unknown":
+        print("ERROR: Neither Whonix-Gateway, nor Whonix-Workstation, nor Template detected. Please report this bug.")
+        sys.exit(1)
+
     ## IP HARDCODED, but this does not matter for Non-Qubes-Whonix. This script
     ## is currently only used in Qubes-Whonix.
     last_ip_gateway: str = get_ip_address(WHONIX_IP_GATEWAY, default_ip_gateway)
