@@ -1,3 +1,16 @@
+commit 9e344292fe1c536eed236e86ac67a2f5de923d8e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 19 07:53:28 2025 -0400
+
+    `/usr/lib/qubes-whonix/replace-ips`: skip inside Template (not needed) and report if mode detection
+    (Whonix-Gateway, Whonix-Workstation or Template) failed
+
+commit 6bcfeab8450bb3cd5cad2163a2885e2210534ebe
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Oct 10 08:32:42 2025 +0000
+
+    bumped changelog version
+
 commit ce1c8607475ff53ec76a20b2e801a5719a261328
 Merge: ed28c5b 7dab636
 Author: Patrick Schleizer <adrelanos@whonix.org>
