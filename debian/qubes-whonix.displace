@@ -1,6 +1,7 @@
 ## Copyright (C) 2012 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
+/etc/qubes/rpc-config/qubes.UpdatesProxy.anondist
 /etc/qubes-rpc/qubes.SyncNtpClock.anondist
 /etc/qubes-rpc/qubes.SetDateTime.anondist
 /etc/qubes-rpc/qubes.UpdatesProxy.anondist
