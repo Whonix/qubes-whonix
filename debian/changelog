@@ -1,3 +1,9 @@
+qubes-whonix (1:23.2-1) unstable; urgency=medium
+
+  * New upstream version (local package).
+
+ -- Patrick Schleizer <adrelanos@whonix.org>  Fri, 24 Oct 2025 04:34:42 +0000
+
 qubes-whonix (1:23.1-1) unstable; urgency=medium
 
   * New upstream version (local package).

@@ -1,3 +1,22 @@
+commit 4780bbbefef3f4bf8cf426c881bea66e644c581b
+Merge: db47f85 a8dfbfb
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Oct 24 00:25:12 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit a8dfbfb3acd5ef5c506ea3b52132fac2be3239ed
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Thu Oct 23 16:39:41 2025 -0500
+
+    Override qubes.UpdatesProxy configuration too, to omit exit-on-service-eof=true
+
+commit db47f85746f336ad36d1fd8c0c61c546248a3a6e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 19 11:54:21 2025 +0000
+
+    bumped changelog version
+
 commit 9e344292fe1c536eed236e86ac67a2f5de923d8e
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Oct 19 07:53:28 2025 -0400
