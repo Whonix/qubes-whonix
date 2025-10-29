@@ -3,19 +3,6 @@
 ## Copyright (C) 2024 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
-delay_ctr=0
-
-while (( delay_ctr < 120 )); do
-  tor_active_state="$(systemctl show tor@default.service \
-    --property ActiveState)"
-  case "${tor_active_state}" in
-    'ActiveState=active') break;;
-    'ActiveState=failed') break;;
-    *)
-      sleep 1
-      (( delay_ctr++ )) || true
-      ;;
-  esac
-done
+/usr/libexec/helper-scripts/try-wait-for-tor-service-running
 
 exec socat STDIO TCP:127.0.0.1:8082
