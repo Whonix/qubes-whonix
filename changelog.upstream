@@ -1,3 +1,21 @@
+commit 8dd762ea5a96b12d18498d7de1a77c2525b6b03a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Nov 1 05:12:26 2025 -0400
+
+    remove unnecessary dependency on systemd
+
+commit 26645e60345218b2e7ae09a9b03494c31d7b038d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Nov 1 03:35:54 2025 -0400
+
+    no longer depend on sudo
+
+commit cc53df1feb5797b955fbd94cca9c03b3b0a16328
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 29 07:39:18 2025 +0000
+
+    bumped changelog version
+
 commit 575dcdb237b0186470fed9a09cd193d27f6e02e0
 Merge: 41470b7 0310b69
 Author: Patrick Schleizer <adrelanos@whonix.org>
