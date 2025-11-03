@@ -1,9 +1,9 @@
 ## Intentionally empty.
 ##
 ## qubes.UpdatesProxy is a socket service on most other templates, but under
-## Whonix it is a normal executable service. Neither of the configuration
+## Whonix it is a regular executable service. Neither of the configuration
 ## options usually present in this file (`skip-service-descriptor=true` and
-## `exit-on-service-eof=true`) are applicable to executable services.
+## `exit-on-service-eof=true`) apply to executable services.
 ##
-## This file still exists to make it easy for Whonix to set configuration
+## This file still exists to make it easier for Whonix to set configuration
 ## options for this service should it become necessary in the future.
