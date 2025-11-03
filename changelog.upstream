@@ -1,3 +1,28 @@
+commit 98c9dfa497e938573f3cc89a37f2116199e18a5e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Nov 3 05:57:28 2025 -0500
+
+    comment
+
+commit 9d216f0f1a004647f63d15b94d5bbfbaec8ab3c5
+Merge: e0342f8 94262b4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Nov 3 05:56:08 2025 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 94262b4b66a9a4160452228e77138da98cd4699e
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun Nov 2 20:10:30 2025 -0600
+
+    Get rid of skip-service-descriptor=true in qubes.UpdatesProxy.anondist
+
+commit e0342f832961ec3d4d10dcb62f9e318729477c5c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Nov 1 09:45:34 2025 +0000
+
+    bumped changelog version
+
 commit 8dd762ea5a96b12d18498d7de1a77c2525b6b03a
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Nov 1 05:12:26 2025 -0400
