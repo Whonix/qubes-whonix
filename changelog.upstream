@@ -1,3 +1,15 @@
+commit c63246049e0b5aa6695356e2b94c2dd4867254b8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Nov 21 11:39:01 2025 -0500
+
+    fix: avoid duplicate replace-ips script run during boot on Whonix-Gateway
+
+commit 13ed58d9f181843aa14d0d5a07597d37cd19b958
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Nov 21 09:23:46 2025 +0000
+
+    bumped changelog version
+
 commit de15876f3dafe37fa76ef3b9221db200f0e48ee1
 Merge: 8e46643 4280f59
 Author: Patrick Schleizer <adrelanos@whonix.org>
