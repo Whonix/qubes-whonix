@@ -359,7 +359,10 @@ def main() -> None:
                 default_ip_local,
             ]
             chg4 = replace_ip(
-                ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY
+                ips_to_replace,
+                current_ip_gateway,
+                FILES,
+                WHONIX_IP_GATEWAY
             )
 
         if current_ip6_gateway is not None:
@@ -420,13 +423,25 @@ def main() -> None:
         if None not in (current_ip_local, current_ip_gateway):
             assert current_ip_local is not None
             assert current_ip_gateway is not None
-            ips_to_replace = [last_ip_local, default_ip_local]
+            ips_to_replace = [
+                last_ip_local,
+                default_ip_local
+            ]
             replace_ip(
-                ips_to_replace, current_ip_local, FILES, WHONIX_IP_LOCAL
+                ips_to_replace,
+                current_ip_local,
+                FILES,
+                WHONIX_IP_LOCAL
             )
-            ips_to_replace = [last_ip_gateway, default_ip_gateway]
+            ips_to_replace = [
+                last_ip_gateway,
+                default_ip_gateway
+            ]
             replace_ip(
-                ips_to_replace, current_ip_gateway, FILES, WHONIX_IP_GATEWAY
+                ips_to_replace,
+                current_ip_gateway,
+                FILES,
+                WHONIX_IP_GATEWAY
             )
 
         if None not in (current_ip6_local, current_ip6_gateway):
@@ -436,7 +451,10 @@ def main() -> None:
             replace_ip(
                 ips_to_replace, current_ip6_local, FILES, WHONIX_IP6_LOCAL
             )
-            ips_to_replace = [last_ip6_gateway, default_ip6_gateway]
+            ips_to_replace = [
+                last_ip6_gateway,
+                default_ip6_gateway
+            ]
             replace_ip(
                 ips_to_replace,
                 current_ip6_gateway,
