@@ -449,7 +449,10 @@ def main() -> None:
             assert current_ip6_gateway is not None
             ips_to_replace = [last_ip6_local, default_ip6_local]
             replace_ip(
-                ips_to_replace, current_ip6_local, SEARCH_AND_REPLACE_FILE_LIST, WHONIX_IP6_LOCAL_SAVE_FILE
+                ips_to_replace,
+                current_ip6_local,
+                SEARCH_AND_REPLACE_FILE_LIST,
+                WHONIX_IP6_LOCAL_SAVE_FILE
             )
             ips_to_replace = [
                 last_ip6_gateway,
