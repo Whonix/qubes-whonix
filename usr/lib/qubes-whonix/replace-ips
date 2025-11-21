@@ -43,10 +43,10 @@ import subprocess
 import ipaddress
 from typing import Pattern
 
-WHONIX_IP_GATEWAY: str = "/var/cache/qubes-whonix/whonix-ip-gateway"
-WHONIX_IP6_GATEWAY: str = "/var/cache/qubes-whonix/whonix-ip6-gateway"
-WHONIX_IP_LOCAL: str = "/var/cache/qubes-whonix/whonix-ip-local"
-WHONIX_IP6_LOCAL: str = "/var/cache/qubes-whonix/whonix-ip6-local"
+WHONIX_IP_GATEWAY_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip-gateway"
+WHONIX_IP6_GATEWAY_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip6-gateway"
+WHONIX_IP_LOCAL_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip-local"
+WHONIX_IP6_LOCAL_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip6-local"
 
 # This is a list of all Whonix files that contain IP addresses that will
 # be searched and replaced with the currently assigned IP address
@@ -297,12 +297,12 @@ def main() -> None:
 
     ## IP HARDCODED, but this does not matter for Non-Qubes-Whonix. This script
     ## is currently only used in Qubes-Whonix.
-    last_ip_gateway: str = get_ip_address(WHONIX_IP_GATEWAY, default_ip_gateway)
+    last_ip_gateway: str = get_ip_address(WHONIX_IP_GATEWAY_SAVE_FILE, default_ip_gateway)
     last_ip6_gateway: str = get_ip_address(
-        WHONIX_IP6_GATEWAY, default_ip6_gateway
+        WHONIX_IP6_GATEWAY_SAVE_FILE, default_ip6_gateway
     )
-    last_ip_local: str = get_ip_address(WHONIX_IP_LOCAL, default_ip_local)
-    last_ip6_local: str = get_ip_address(WHONIX_IP6_LOCAL, default_ip6_local)
+    last_ip_local: str = get_ip_address(WHONIX_IP_LOCAL_SAVE_FILE, default_ip_local)
+    last_ip6_local: str = get_ip_address(WHONIX_IP6_LOCAL_SAVE_FILE, default_ip6_local)
     assert last_ip_gateway != ""
     assert last_ip6_gateway != ""
     assert last_ip_local != ""
@@ -362,7 +362,7 @@ def main() -> None:
                 ips_to_replace,
                 current_ip_gateway,
                 FILES,
-                WHONIX_IP_GATEWAY
+                WHONIX_IP_GATEWAY_SAVE_FILE
             )
 
         if current_ip6_gateway is not None:
@@ -375,7 +375,7 @@ def main() -> None:
                 ips_to_replace,
                 current_ip6_gateway,
                 FILES,
-                WHONIX_IP6_GATEWAY,
+                WHONIX_IP6_GATEWAY_SAVE_FILE,
             )
 
         if chg4 or chg6:
@@ -431,7 +431,7 @@ def main() -> None:
                 ips_to_replace,
                 current_ip_local,
                 FILES,
-                WHONIX_IP_LOCAL
+                WHONIX_IP_LOCAL_SAVE_FILE
             )
             ips_to_replace = [
                 last_ip_gateway,
@@ -441,7 +441,7 @@ def main() -> None:
                 ips_to_replace,
                 current_ip_gateway,
                 FILES,
-                WHONIX_IP_GATEWAY
+                WHONIX_IP_GATEWAY_SAVE_FILE
             )
 
         if None not in (current_ip6_local, current_ip6_gateway):
@@ -449,7 +449,7 @@ def main() -> None:
             assert current_ip6_gateway is not None
             ips_to_replace = [last_ip6_local, default_ip6_local]
             replace_ip(
-                ips_to_replace, current_ip6_local, FILES, WHONIX_IP6_LOCAL
+                ips_to_replace, current_ip6_local, FILES, WHONIX_IP6_LOCAL_SAVE_FILE
             )
             ips_to_replace = [
                 last_ip6_gateway,
@@ -459,7 +459,7 @@ def main() -> None:
                 ips_to_replace,
                 current_ip6_gateway,
                 FILES,
-                WHONIX_IP6_GATEWAY,
+                WHONIX_IP6_GATEWAY_SAVE_FILE,
             )
 
 
