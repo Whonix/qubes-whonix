@@ -43,6 +43,8 @@ import subprocess
 import ipaddress
 from typing import Pattern
 
+IP_WAS_REPLACED: bool = False
+
 WHONIX_IP_GATEWAY_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip-gateway"
 WHONIX_IP6_GATEWAY_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip6-gateway"
 WHONIX_IP_LOCAL_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip-local"
@@ -156,6 +158,8 @@ def replace_ip(
         address. The `current_ip` is stored in this file and used the next
         time this module is executed.
     """
+    global IP_WAS_REPLACED
+
     replaced: bool = False
 
     for ip_item in ips:
@@ -229,6 +233,7 @@ def replace_ip(
                 outfile.write(current_ip)
             replaced = True
             print(f"INFO: {protocol}: ip_file updated: {ip_file}")
+            IP_WAS_REPLACED = True
         except IOError:
             print(f"ERROR: {protocol}: writing to ip_file failed: {ip_file}")
             return False
@@ -286,6 +291,7 @@ def maybe_reload_tor() -> None:
 def main() -> None:
     """Main function.
     """
+    global IP_WAS_REPLACED
 
     if whonix_mode() == "template":
         print("INFO: Not needed inside Template, skipping, ok.")
@@ -317,8 +323,6 @@ def main() -> None:
     current_ip_gateway: str | None = None
     current_ip6_local: str | None = None
     current_ip6_gateway: str | None = None
-    chg4: bool = False
-    chg6: bool = False
 
     if not os.path.isdir("/var/cache/qubes-whonix"):
         try:
@@ -358,7 +362,7 @@ def main() -> None:
                 default_ip_gateway,
                 default_ip_local,
             ]
-            chg4 = replace_ip(
+            replace_ip(
                 ips_to_replace,
                 current_ip_gateway,
                 SEARCH_AND_REPLACE_FILE_LIST,
@@ -371,14 +375,14 @@ def main() -> None:
                 default_ip6_gateway,
                 default_ip6_local,
             ]
-            chg6 = replace_ip(
+            replace_ip(
                 ips_to_replace,
                 current_ip6_gateway,
                 SEARCH_AND_REPLACE_FILE_LIST,
                 WHONIX_IP6_GATEWAY_SAVE_FILE,
             )
 
-        if chg4 or chg6:
+        if IP_WAS_REPLACED:
             maybe_reload_tor()
 
     if whonix_mode() == "workstation":
