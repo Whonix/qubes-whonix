@@ -1,14 +1,17 @@
 ## Copyright (C) 2015 Jason Mehring <nrgaway@gmail.com>
 ## License: GPL-2+
 
-## On Whonix-Gateway or Whonix-Workstation (if /run/qubes-service/whonix-gateway or
-## /run/qubes-service/whonix-workstation exists),
-## - replaces IPs (/usr/lib/qubes-whonix/replace-ips)
+## On Whonix-Workstation, if file '/run/qubes-service/whonix-workstation' exists:
+## - replaces IPs using '/usr/lib/qubes-whonix/replace-ips'
 
 [Unit]
 Description=Qubes-Whonix post init
 Documentation=https://github.com/Whonix/qubes-whonix
-ConditionPathExists=|/run/qubes-service/whonix-gateway
+
+## Not needed on Whonix-Gateway:
+## Calling 'replace-ips' is implemented in package 'anon-gw-anonymizer-config'.
+#ConditionPathExists=|/run/qubes-service/whonix-gateway
+
 ConditionPathExists=|/run/qubes-service/whonix-workstation
 
 ## So changes to for example,
