@@ -451,7 +451,10 @@ def main() -> None:
         if None not in (current_ip6_local, current_ip6_gateway):
             assert current_ip6_local is not None
             assert current_ip6_gateway is not None
-            ips_to_replace = [last_ip6_local, default_ip6_local]
+            ips_to_replace = [
+                last_ip6_local,
+                default_ip6_local
+            ]
             replace_ip(
                 ips_to_replace,
                 current_ip6_local,
