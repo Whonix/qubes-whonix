@@ -249,7 +249,7 @@ def replace_ip(
                         outfile.write(replaced_text)
                     replaced = True
                     print(
-                        f"INFO: '{protocol}': filename from filelist updated: "
+                        f"INFO: '{protocol}': filename from filelist updated : "
                         f"'{filename}'"
                     )
                 except IOError:
