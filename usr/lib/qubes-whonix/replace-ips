@@ -436,7 +436,7 @@ def main() -> None:
                 .decode()
                 .rstrip()
             )
-            qubes_ipv4_qubesdb_qubes_gateway_current = (
+            qubes_ipv4_qubesdb_qubes_gateway = (
                 subprocess.check_output(["qubesdb-read", "/qubes-gateway"])
                 .decode()
                 .rstrip()
@@ -446,8 +446,8 @@ def main() -> None:
                 "WARNING: 'qubesdb-read /qubes-ip' or 'qubesdb-read "
                 "/qubes-gateway' failed!"
             )
-        print(f"INFO: qubes_ipv4_qubesdb_qubes_ip             : {qubes_ipv4_qubesdb_qubes_ip}")
-        print(f"INFO: qubes_ipv4_qubesdb_qubes_gateway_current : {qubes_ipv4_qubesdb_qubes_gateway_current}")
+        print(f"INFO: qubes_ipv4_qubesdb_qubes_ip      : {qubes_ipv4_qubesdb_qubes_ip}")
+        print(f"INFO: qubes_ipv4_qubesdb_qubes_gateway : {qubes_ipv4_qubesdb_qubes_gateway}")
 
         try:
             qubes_ipv6_qubesdb_qubes_ip6 = (
@@ -465,12 +465,12 @@ def main() -> None:
                 "WARNING: 'qubesdb-read /qubes-ip6' or 'qubesdb-read "
                 "/qubes-gateway6' failed!"
             )
-        print(f"INFO: qubes_ipv6_qubesdb_qubes_ip6               : {qubes_ipv6_qubesdb_qubes_ip6}")
-        print(f"INFO: qubes_ipv6_qubesdb_qubes_ip6               : {qubes_ipv6_qubesdb_qubes_ip6}")
+        print(f"INFO: qubes_ipv6_qubesdb_qubes_ip6     : {qubes_ipv6_qubesdb_qubes_ip6}")
+        print(f"INFO: qubes_ipv6_qubesdb_qubes_ip6     : {qubes_ipv6_qubesdb_qubes_ip6}")
 
-        if None not in (qubes_ipv4_qubesdb_qubes_ip, qubes_ipv4_qubesdb_qubes_gateway_current):
+        if None not in (qubes_ipv4_qubesdb_qubes_ip, qubes_ipv4_qubesdb_qubes_gateway):
             assert qubes_ipv4_qubesdb_qubes_ip is not None
-            assert qubes_ipv4_qubesdb_qubes_gateway_current is not None
+            assert qubes_ipv4_qubesdb_qubes_gateway is not None
             replace_ip(
                 [whonix_workstation_ipv4_eth0_last, whonix_workstation_ipv4_eth0_default],
                 qubes_ipv4_qubesdb_qubes_ip,
@@ -479,7 +479,7 @@ def main() -> None:
             )
             replace_ip(
                 [whonix_gateway_ipv4_eth1_last, whonix_gateway_ipv4_eth1_default],
-                qubes_ipv4_qubesdb_qubes_gateway_current,
+                qubes_ipv4_qubesdb_qubes_gateway,
                 SEARCH_AND_REPLACE_FILE_LIST,
                 WHONIX_WORKSTATION_IP4_ETH0_SAVE_FILE,
             )
