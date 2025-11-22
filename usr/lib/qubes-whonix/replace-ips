@@ -499,6 +499,7 @@ def main() -> None:
             assert qubes_ipv4_qubesdb_qubes_ip is not None
             assert qubes_ipv4_qubesdb_qubes_gateway is not None
 
+            # Workstation's own IPv4 (10.152.152.11 -> /qubes-ip)
             workstation_ipv4_eth0_ips_to_replace: list[str] = [
                 whonix_workstation_ipv4_eth0_last,
                 whonix_workstation_ipv4_eth0_default,
@@ -510,6 +511,7 @@ def main() -> None:
                 WHONIX_WORKSTATION_IP4_ETH0_SAVE_FILE,
             )
 
+            # Gateway IPv4 as seen on workstation (10.152.152.10 -> /qubes-gateway)
             gateway_ipv4_eth1_ips_for_workstation: list[str] = [
                 whonix_gateway_ipv4_eth1_last,
                 whonix_gateway_ipv4_eth1_default,
@@ -518,13 +520,14 @@ def main() -> None:
                 gateway_ipv4_eth1_ips_for_workstation,
                 qubes_ipv4_qubesdb_qubes_gateway,
                 SEARCH_AND_REPLACE_FILE_LIST,
-                WHONIX_WORKSTATION_IP4_ETH0_SAVE_FILE,
+                WHONIX_GATEWAY_IP4_ETH1_SAVE_FILE,
             )
 
         if None not in (qubes_ipv6_qubesdb_qubes_ip6, qubes_ipv6_qubesdb_qubes_gateway6):
             assert qubes_ipv6_qubesdb_qubes_ip6 is not None
             assert qubes_ipv6_qubesdb_qubes_gateway6 is not None
 
+            # Workstation's own IPv6
             workstation_ipv6_eth0_ips_to_replace: list[str] = [
                 whonix_workstation_ipv6_eth0_last,
                 whonix_workstation_ipv6_eth0_default,
@@ -536,6 +539,7 @@ def main() -> None:
                 WHONIX_WORKSTATION_IP6_ETH0_SAVE_FILE,
             )
 
+            # Gateway IPv6 as seen on workstation
             gateway_ipv6_eth1_ips_for_workstation: list[str] = [
                 whonix_gateway_ipv6_eth1_last,
                 whonix_gateway_ipv6_eth1_default,
@@ -544,7 +548,7 @@ def main() -> None:
                 gateway_ipv6_eth1_ips_for_workstation,
                 qubes_ipv6_qubesdb_qubes_gateway6,
                 SEARCH_AND_REPLACE_FILE_LIST,
-                WHONIX_WORKSTATION_IP6_ETH0_SAVE_FILE,
+                WHONIX_GATEWAY_IP6_ETH1_SAVE_FILE,
             )
 
 
