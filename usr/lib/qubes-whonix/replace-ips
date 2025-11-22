@@ -407,7 +407,7 @@ def main() -> None:
             )
         except (OSError, subprocess.CalledProcessError):
             print("WARNING: 'qubesdb-read /qubes-netvm-gateway6' failed!")
-        print(f"INFO: qubes_ip6_netvm_gateway: {qubes_ip6_netvm_gateway}")
+        print(f"INFO: qubes_ip6_netvm_gateway          : {qubes_ip6_netvm_gateway}")
 
         ips_to_replace: list[str]
         if qubes_netvm_gateway_ipv4_current is not None:
@@ -446,7 +446,7 @@ def main() -> None:
                 "WARNING: 'qubesdb-read /qubes-ip' or 'qubesdb-read "
                 "/qubes-gateway' failed!"
             )
-        print(f"INFO: qubes_ipv4_current   : {qubes_ipv4_current}")
+        print(f"INFO: qubes_ipv4_current               : {qubes_ipv4_current}")
         print(f"INFO: qubes_netvm_gateway_ipv4_current : {qubes_netvm_gateway_ipv4_current}")
 
         try:
@@ -465,8 +465,8 @@ def main() -> None:
                 "WARNING: 'qubesdb-read /qubes-ip6' or 'qubesdb-read "
                 "/qubes-gateway6' failed!"
             )
-        print(f"INFO: qubes_ipv6_current  : {qubes_ipv6_current}")
-        print(f"INFO: qubes_ip6_gateway: {qubes_ip6_gateway}")
+        print(f"INFO: qubes_ipv6_current               : {qubes_ipv6_current}")
+        print(f"INFO: qubes_ip6_gateway                : {qubes_ip6_gateway}")
 
         if None not in (qubes_ipv4_current, qubes_netvm_gateway_ipv4_current):
             assert qubes_ipv4_current is not None
