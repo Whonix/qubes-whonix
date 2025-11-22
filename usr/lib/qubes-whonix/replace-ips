@@ -378,6 +378,7 @@ def main() -> None:
     qubes_ipv4_qubesdb_qubes_netvm_gateway: str | None = None
     qubes_ipv6_qubesdb_qubes_ip6: str | None = None
     qubes_ipv6_qubesdb_netvm_gateway: str | None = None
+    qubes_ipv6_qubesdb_qubes_gateway6: str | None = None
 
     if not os.path.isdir("/var/cache/qubes-whonix"):
         try:
@@ -456,7 +457,7 @@ def main() -> None:
                 .decode()
                 .rstrip()
             )
-            qubes_ipv6_qubesdb_qubes_ip6 = (
+            qubes_ipv6_qubesdb_qubes_gateway6 = (
                 subprocess.check_output(["qubesdb-read", "/qubes-gateway6"])
                 .decode()
                 .rstrip()
@@ -467,7 +468,7 @@ def main() -> None:
                 "/qubes-gateway6' failed!"
             )
         print(f"INFO: qubes_ipv6_qubesdb_qubes_ip6     : {qubes_ipv6_qubesdb_qubes_ip6}")
-        print(f"INFO: qubes_ipv6_qubesdb_qubes_ip6     : {qubes_ipv6_qubesdb_qubes_ip6}")
+        print(f"INFO: qubes_ipv6_qubesdb_qubes_gateway6: {qubes_ipv6_qubesdb_qubes_gateway6}")
 
         if None not in (qubes_ipv4_qubesdb_qubes_ip, qubes_ipv4_qubesdb_qubes_gateway):
             assert qubes_ipv4_qubesdb_qubes_ip is not None
@@ -485,9 +486,9 @@ def main() -> None:
                 WHONIX_WORKSTATION_IP4_ETH0_SAVE_FILE,
             )
 
-        if None not in (qubes_ipv6_qubesdb_qubes_ip6, qubes_ipv6_qubesdb_qubes_ip6):
+        if None not in (qubes_ipv6_qubesdb_qubes_ip6, qubes_ipv6_qubesdb_qubes_gateway6):
             assert qubes_ipv6_qubesdb_qubes_ip6 is not None
-            assert qubes_ipv6_qubesdb_qubes_ip6 is not None
+            assert qubes_ipv6_qubesdb_qubes_gateway6 is not None
             replace_ip(
                 [whonix_workstation_ipv6_eth0_last, whonix_workstation_ipv6_eth0_default],
                 qubes_ipv6_qubesdb_qubes_ip6,
@@ -496,7 +497,7 @@ def main() -> None:
             )
             replace_ip(
                 [whonix_gateway_ipv6_eth1_last, whonix_gateway_ipv6_eth1_default],
-                qubes_ipv6_qubesdb_qubes_ip6,
+                qubes_ipv6_qubesdb_qubes_gateway6,
                 SEARCH_AND_REPLACE_FILE_LIST,
                 WHONIX_WORKSTATION_IP6_ETH0_SAVE_FILE,
             )
