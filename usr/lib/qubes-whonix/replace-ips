@@ -198,6 +198,7 @@ def replace_ip(
     replaced: bool = False
 
     ip_file_varname = var_name(ip_file, up=3)
+    current_ip_varname = var_name(current_ip, up=3)
 
     for ip_item in ips:
         try:
@@ -209,9 +210,9 @@ def replace_ip(
 
     try:
         ipaddress.ip_address(current_ip)
-        # print(f"INFO: current_ip variable valid: {current_ip}")
+        # print(f"INFO: current_ip variable valid: '{current_ip_varname}' '{current_ip}'")
     except ValueError:
-        print(f"ERROR: current_ip variable invalid: {current_ip}")
+        print(f"ERROR: current_ip variable invalid: '{current_ip_varname}' '{current_ip}'")
         return replaced
 
     protocol: str
@@ -248,12 +249,12 @@ def replace_ip(
                         outfile.write(replaced_text)
                     replaced = True
                     print(
-                        f"INFO: {protocol}: filename from filelist updated: "
+                        f"INFO: '{protocol}': filename from filelist updated: "
                         f"'{filename}'"
                     )
                 except IOError:
                     print(
-                        f"ERROR: {protocol}: filename from filelist existing "
+                        f"ERROR: '{protocol}': filename from filelist existing "
                         f"but failed to open filename for writing: '{filename}'"
                     )
                     continue
@@ -261,7 +262,7 @@ def replace_ip(
                     # return False
             else:
                 print(
-                    f"INFO: {protocol}: filename from filelist unchanged: "
+                    f"INFO: '{protocol}': filename from filelist unchanged: "
                     f"'{filename}'"
                 )
     if replaced:
@@ -269,10 +270,10 @@ def replace_ip(
             with open(ip_file, "w", encoding="utf-8") as outfile:
                 outfile.write(current_ip)
             replaced = True
-            print(f"INFO: {protocol}: ip_file updated: '{ip_file_varname}' '{ip_file}'")
+            print(f"INFO: '{protocol}': ip_file updated: '{ip_file_varname}' '{ip_file}'")
             IP_WAS_REPLACED = True
         except IOError:
-            print(f"ERROR: {protocol}: writing to ip_file failed: '{ip_file_varname}' '{ip_file}'")
+            print(f"ERROR: '{protocol}': writing to ip_file failed: '{ip_file_varname}' '{ip_file}'")
             return False
 
     return replaced
