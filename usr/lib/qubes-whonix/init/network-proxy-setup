@@ -61,6 +61,7 @@ fi
 
 ## Now, assign it the netvm-gateway IP address
 ip="$(qubesdb-read /qubes-netvm-gateway)"
+ip6="$(qubesdb-read /qubes-netvm-gateway6)/128" || ip6=''
 
 if [ ! "$ip" = "" ]; then
    ## Create a dummy eth1 interface so Tor can bind to it if there
@@ -69,6 +70,9 @@ if [ ! "$ip" = "" ]; then
 
    netmask="$(qubesdb-read /qubes-netvm-netmask)"
    /sbin/ifconfig "$INTERFACE" "$ip" netmask "$netmask"
+   if [ -n "$ip6" ]; then
+     /sbin/ifconfig "$INTERFACE" inet6 add "$ip6"
+   fi
    /sbin/ifconfig "$INTERFACE" up
 
    ## TODO: https://phabricator.whonix.org/T857
