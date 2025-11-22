@@ -204,11 +204,9 @@ def replace_ip(
 
     replaced: bool = False
 
-    ips_varname = var_name(ips, up=3)
+    ips_varname = var_name(ips, up=2)
     ip_file_varname = var_name(ip_file, up=3)
     current_ip_varname = var_name(current_ip, up=2)
-
-    print(f"ips_varname: {ips_varname}")
 
     for ip_item in ips:
         try:
@@ -260,7 +258,7 @@ def replace_ip(
                     replaced = True
                     print(
                         f"INFO: '{protocol}': filename from filelist updated  : "
-                        f"'{filename}' '{current_ip_varname}' '{current_ip}'"
+                        f"'{filename}' '{ips_varname}' '{current_ip_varname}' '{current_ip}'"
                     )
                 except IOError:
                     print(
