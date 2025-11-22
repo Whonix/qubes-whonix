@@ -33,9 +33,19 @@ Initially, the known defaults in Whonix configuration files IP addresses are:
 - Whonix-Gateway    : eth1: 10.152.152.10 | fd19:c33d:88bc::10
 - Whonix-Workstation: eth0: 10.152.152.11 | fd19:c33d:88bc::11
 
-Tasks:
+Tasks of this script:
+
+- Whonix-Gateway (sys-whonix):
+  - Replace file '/usr/share/tor/tor-service-defaults-torrc.anondist.base' default 'eth1' IP '10.152.152.10' with qubes_ipv4_qubesdb_qubes_netvm_gateway (qubesdb-read /qubes-netvm-gateway).
+    Purpose: Tor can bind to 'eth1'.
+  - Replace file '/usr/local/etc/torrc.d/50_user.conf'. Same as above.
+    Purpose: Tor onion service can bind to 'eth1'.
+
 - Whonix-Workstation (anon-whonix):
-  Replace file '/etc/resolv.conf' default IP '10.152.152.10' with qubes_ipv4_qubesdb_qubes_gateway (qubesdb-read /qubes-gateway)
+  - Replace file '/etc/resolv.conf' default IP 'eth0' '10.152.152.10' with qubes_ipv4_qubesdb_qubes_gateway (qubesdb-read /qubes-gateway).
+    Purpose: faster DNS resolution.
+  - Replace Whonix-Workstation's own local IP '10.152.152.11' with qubes_ipv4_qubesdb_qubes_ip (qubesdb-read /qubes-ip).
+    Purpose: Onion services such as a HTTP server binding to eth0 IP address.
 
 They are also checked each time this module is run in case the configuration
 files were modified due to a system update.
