@@ -198,7 +198,7 @@ def replace_ip(
     replaced: bool = False
 
     ip_file_varname = var_name(ip_file, up=3)
-    current_ip_varname = var_name(current_ip, up=3)
+    current_ip_varname = var_name(current_ip, up=2)
 
     for ip_item in ips:
         try:
@@ -270,10 +270,10 @@ def replace_ip(
             with open(ip_file, "w", encoding="utf-8") as outfile:
                 outfile.write(current_ip)
             replaced = True
-            print(f"INFO: '{protocol}': ip_file updated: '{ip_file_varname}' '{ip_file}'")
+            print(f"INFO: '{protocol}': ip_file updated: '{ip_file_varname}' '{ip_file}' '{current_ip_varname}' '{current_ip}'")
             IP_WAS_REPLACED = True
         except IOError:
-            print(f"ERROR: '{protocol}': writing to ip_file failed: '{ip_file_varname}' '{ip_file}'")
+            print(f"ERROR: '{protocol}': writing to ip_file failed: '{ip_file_varname}' '{current_ip_varname}' '{current_ip}'")
             return False
 
     return replaced
