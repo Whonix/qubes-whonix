@@ -250,7 +250,7 @@ def replace_ip(
                     replaced = True
                     print(
                         f"INFO: '{protocol}': filename from filelist updated  : "
-                        f"'{filename}' '{ip_file}' '{current_ip_varname}' '{current_ip}'"
+                        f"'{filename}' '{current_ip_varname}' '{current_ip}'"
                     )
                 except IOError:
                     print(
