@@ -53,24 +53,31 @@ WHONIX_WORKSTATION_IP6_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip6-loca
 
 # This is a list of all Whonix files that contain IP addresses that will
 # be searched and replaced with the currently assigned IP address
-SEARCH_AND_REPLACE_FILE_LIST: list[str] = [
-    "/usr/share/whonix-gw-network-conf/network_internal_ip.txt",
-    "/etc/resolv.conf",
-    "/etc/resolv.conf.whonix",
-    "/etc/resolv.conf.anondist",
-    "/etc/rinetd.conf.anondist",
-    "/etc/tor/torrc",
-    "/usr/local/etc/torrc.d/50_user.conf",
-    "/usr/share/anon-gw-anonymizer-config/torrc.examples",
-    "/home/user/.torchat/torchat.ini",
-    "/home/user/.xchat2/xchat.conf",
-    "/home/user/.config/hexchat/hexchat.conf",
-    "/usr/lib/leaktest-workstation/simple_ping.py",
-    "/usr/share/anon-apps-config/kioslaverc",
-    "/usr/share/anon-torchat/.torchat/torchat.ini",
-    "/usr/share/tor/tor-service-defaults-torrc.anondist.base",
-    "/usr/share/tor/tor-service-defaults-torrc.anondist",
-]
+if os.path.exists("/usr/share/anon-gw-base-files/gateway"):
+    SEARCH_AND_REPLACE_FILE_LIST: list[str] = [
+        "/usr/share/whonix-gw-network-conf/network_internal_ip.txt",
+        "/etc/resolv.conf",
+        "/etc/resolv.conf.whonix",
+        "/etc/resolv.conf.anondist",
+        "/etc/tor/torrc",
+        "/usr/local/etc/torrc.d/50_user.conf",
+        "/usr/share/tor/tor-service-defaults-torrc.anondist.base",
+        "/usr/share/tor/tor-service-defaults-torrc.anondist",
+    ]
+elif os.path.exists("/usr/share/anon-ws-base-files/workstation"):
+    SEARCH_AND_REPLACE_FILE_LIST: list[str] = [
+        "/etc/resolv.conf",
+        "/etc/resolv.conf.whonix",
+        "/etc/resolv.conf.anondist",
+        "/home/user/.xchat2/xchat.conf",
+        "/home/user/.config/hexchat/hexchat.conf",
+        "/usr/lib/leaktest-workstation/simple_ping.py",
+        "/usr/share/anon-apps-config/kioslaverc",
+    ]
+else:
+    print("ERROR: Neither Whonix-Gateway nor Whonix-Workstation detected. Please report this bug.")
+    sys.exit(1)
+
 
 default_ip4_whonix_gateway_eth1: str = "10.152.152.10"
 default_ip6_whonix_gateway_eth1: str = "fd19:c33d:88bc::10"
