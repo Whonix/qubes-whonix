@@ -93,7 +93,7 @@ elif os.path.exists("/usr/share/anon-ws-base-files/workstation"):
         "/etc/resolv.conf.anondist",
         "/home/user/.xchat2/xchat.conf",
         "/home/user/.config/hexchat/hexchat.conf",
-        "/usr/lib/leaktest-workstation/simple_ping.py",
+        "/usr/libexec/helper-scripts/leak-tests/simple_ping.py",
         "/usr/share/anon-apps-config/kioslaverc",
     ]
 else:
