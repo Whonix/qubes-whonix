@@ -36,16 +36,20 @@ Initially, the known defaults in Whonix configuration files IP addresses are:
 Tasks of this script:
 
 - Whonix-Gateway (sys-whonix):
-  - Replace file '/usr/share/tor/tor-service-defaults-torrc.anondist.base' default 'eth1' IP '10.152.152.10' with qubes_ipv4_qubesdb_qubes_netvm_gateway (qubesdb-read /qubes-netvm-gateway).
+  - Replace file '/usr/share/tor/tor-service-defaults-torrc.anondist.base'
+    default 'eth1' IP '10.152.152.10' with qubes_ipv4_qubesdb_qubes_netvm_gateway
+    (qubesdb-read /qubes-netvm-gateway).
     Purpose: Tor can bind to 'eth1'.
   - Replace file '/usr/local/etc/torrc.d/50_user.conf'. Same as above.
     Purpose: Tor onion service can bind to 'eth1'.
 
 - Whonix-Workstation (anon-whonix):
-  - Replace file '/etc/resolv.conf' default IP 'eth0' '10.152.152.10' with qubes_ipv4_qubesdb_qubes_gateway (qubesdb-read /qubes-gateway).
+  - Replace file '/etc/resolv.conf' default IP 'eth0' '10.152.152.10' with
+    qubes_ipv4_qubesdb_qubes_gateway (qubesdb-read /qubes-gateway).
     Purpose: faster DNS resolution.
-  - Replace Whonix-Workstation's own local IP '10.152.152.11' with qubes_ipv4_qubesdb_qubes_ip (qubesdb-read /qubes-ip).
-    Purpose: Onion services such as a HTTP server binding to eth0 IP address.
+  - Replace Whonix-Workstation's own local IP '10.152.152.11' with
+    qubes_ipv4_qubesdb_qubes_ip (qubesdb-read /qubes-ip).
+    Purpose: onion services such as a HTTP server binding to eth0 IP address.
 
 They are also checked each time this module is run in case the configuration
 files were modified due to a system update.
@@ -187,6 +191,7 @@ def ip_line_fixup(line: str, last_ip: str, current_ip: str) -> str:
 
     return line
 
+
 # pylint: disable=too-many-locals,too-many-branches
 def replace_ip(
     ips: list[str],
@@ -276,7 +281,6 @@ def replace_ip(
                         f"but failed to open filename for writing: '{filename}'"
                     )
                     continue
-                    ## Probably better to fail open and try more files.
                     # return False
             else:
                 # print(
@@ -289,10 +293,16 @@ def replace_ip(
             with open(ip_file, "w", encoding="utf-8") as outfile:
                 outfile.write(current_ip)
             replaced = True
-            print(f"INFO: '{protocol}': ip_file updated: '{ip_file_varname}' '{ip_file}' '{current_ip_varname}' '{current_ip}'")
+            print(
+                f"INFO: '{protocol}': ip_file updated: "
+                f"'{ip_file_varname}' '{ip_file}' '{current_ip_varname}' '{current_ip}'"
+            )
             IP_WAS_REPLACED = True
         except IOError:
-            print(f"ERROR: '{protocol}': writing to ip_file failed: '{ip_file_varname}' '{current_ip_varname}' '{current_ip}'")
+            print(
+                f"ERROR: '{protocol}': writing to ip_file failed: "
+                f"'{ip_file_varname}' '{current_ip_varname}' '{current_ip}'"
+            )
             return False
 
     return replaced
@@ -301,11 +311,11 @@ def replace_ip(
 def get_ip_address(filename: str, default: str = "") -> str:
     """Retrieve an IP address from a file."""
     filename_varname = var_name(filename, up=3)
-    default_varname = var_name(default, up=3)
 
     if not os.path.exists(filename):
         print(
-            f"INFO: IP filename does not exist (returning default): '{filename_varname}' '{filename}'"
+            f"INFO: IP filename does not exist (returning default): "
+            f"'{filename_varname}' '{filename}'"
         )
         return default
 
@@ -315,12 +325,18 @@ def get_ip_address(filename: str, default: str = "") -> str:
         ) as infile:
             ip_txt: str = infile.read().strip()
     except (OSError, IOError):
-        print(f"INFO: IP filename exists but opening failed: '{filename_varname}' '{filename}'")
+        print(
+            f"INFO: IP filename exists but opening failed: "
+            f"'{filename_varname}' '{filename}'"
+        )
         return default
 
     try:
         ipaddress.ip_address(ip_txt)
-        print(f"INFO: IP filename reading succeeded and valid IP: '{filename_varname}' '{filename}'")
+        print(
+            f"INFO: IP filename reading succeeded and valid IP: "
+            f"'{filename_varname}' '{filename}'"
+        )
         return ip_txt
     except ValueError:
         print(
@@ -395,7 +411,7 @@ def main() -> None:
     qubes_ipv4_qubesdb_qubes_ip: str | None = None
     qubes_ipv4_qubesdb_qubes_netvm_gateway: str | None = None
     qubes_ipv6_qubesdb_qubes_ip6: str | None = None
-    qubes_ipv6_qubesdb_netvm_gateway: str | None = None
+    qubes_ipv6_qubesdb_qubes_netvm_gateway6: str | None = None
     qubes_ipv6_qubesdb_qubes_gateway6: str | None = None
 
     if not os.path.isdir("/var/cache/qubes-whonix"):
@@ -415,10 +431,13 @@ def main() -> None:
             )
         except (OSError, subprocess.CalledProcessError):
             print("WARNING: 'qubesdb-read /qubes-netvm-gateway' failed!")
-        print(f"INFO: qubes_ipv4_qubesdb_qubes_netvm_gateway : {qubes_ipv4_qubesdb_qubes_netvm_gateway}")
+        print(
+            "INFO: qubes_ipv4_qubesdb_qubes_netvm_gateway : "
+            f"{qubes_ipv4_qubesdb_qubes_netvm_gateway}"
+        )
 
         try:
-            qubes_ipv6_qubesdb_netvm_gateway = (
+            qubes_ipv6_qubesdb_qubes_netvm_gateway6 = (
                 subprocess.check_output(
                     ["qubesdb-read", "/qubes-netvm-gateway6"]
                 )
@@ -427,7 +446,10 @@ def main() -> None:
             )
         except (OSError, subprocess.CalledProcessError):
             print("WARNING: 'qubesdb-read /qubes-netvm-gateway6' failed!")
-        print(f"INFO: qubes_ipv6_qubesdb_netvm_gateway          : {qubes_ipv6_qubesdb_netvm_gateway}")
+        print(
+            "INFO: qubes_ipv6_qubesdb_qubes_netvm_gateway6: "
+            f"{qubes_ipv6_qubesdb_qubes_netvm_gateway6}"
+        )
 
         if qubes_ipv4_qubesdb_qubes_netvm_gateway is not None:
             gateway_ipv4_eth1_ips_to_replace: list[str] = [
@@ -441,14 +463,14 @@ def main() -> None:
                 WHONIX_GATEWAY_IP4_ETH1_SAVE_FILE,
             )
 
-        if qubes_ipv6_qubesdb_netvm_gateway is not None:
+        if qubes_ipv6_qubesdb_qubes_netvm_gateway6 is not None:
             gateway_ipv6_eth1_ips_to_replace: list[str] = [
                 whonix_gateway_ipv6_eth1_last,
                 whonix_gateway_ipv6_eth1_default,
             ]
             replace_ip(
                 gateway_ipv6_eth1_ips_to_replace,
-                qubes_ipv6_qubesdb_netvm_gateway,
+                qubes_ipv6_qubesdb_qubes_netvm_gateway6,
                 SEARCH_AND_REPLACE_FILE_LIST,
                 WHONIX_GATEWAY_IP6_ETH1_SAVE_FILE,
             )
@@ -474,7 +496,10 @@ def main() -> None:
                 "/qubes-gateway' failed!"
             )
         print(f"INFO: qubes_ipv4_qubesdb_qubes_ip      : {qubes_ipv4_qubesdb_qubes_ip}")
-        print(f"INFO: qubes_ipv4_qubesdb_qubes_gateway : {qubes_ipv4_qubesdb_qubes_gateway}")
+        print(
+            f"INFO: qubes_ipv4_qubesdb_qubes_gateway : "
+            f"{qubes_ipv4_qubesdb_qubes_gateway}"
+        )
 
         try:
             qubes_ipv6_qubesdb_qubes_ip6 = (
@@ -493,9 +518,15 @@ def main() -> None:
                 "/qubes-gateway6' failed!"
             )
         print(f"INFO: qubes_ipv6_qubesdb_qubes_ip6     : {qubes_ipv6_qubesdb_qubes_ip6}")
-        print(f"INFO: qubes_ipv6_qubesdb_qubes_gateway6: {qubes_ipv6_qubesdb_qubes_gateway6}")
+        print(
+            f"INFO: qubes_ipv6_qubesdb_qubes_gateway6: "
+            f"{qubes_ipv6_qubesdb_qubes_gateway6}"
+        )
 
-        if None not in (qubes_ipv4_qubesdb_qubes_ip, qubes_ipv4_qubesdb_qubes_gateway):
+        if None not in (
+            qubes_ipv4_qubesdb_qubes_ip,
+            qubes_ipv4_qubesdb_qubes_gateway,
+        ):
             assert qubes_ipv4_qubesdb_qubes_ip is not None
             assert qubes_ipv4_qubesdb_qubes_gateway is not None
 
@@ -523,7 +554,10 @@ def main() -> None:
                 WHONIX_GATEWAY_IP4_ETH1_SAVE_FILE,
             )
 
-        if None not in (qubes_ipv6_qubesdb_qubes_ip6, qubes_ipv6_qubesdb_qubes_gateway6):
+        if None not in (
+            qubes_ipv6_qubesdb_qubes_ip6,
+            qubes_ipv6_qubesdb_qubes_gateway6,
+        ):
             assert qubes_ipv6_qubesdb_qubes_ip6 is not None
             assert qubes_ipv6_qubesdb_qubes_gateway6 is not None
 
