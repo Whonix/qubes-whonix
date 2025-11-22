@@ -250,7 +250,7 @@ def replace_ip(
                     replaced = True
                     print(
                         f"INFO: '{protocol}': filename from filelist updated : "
-                        f"'{filename}'"
+                        f"'{filename}' '{ip_file}' '{current_ip_varname}' '{current_ip}'"
                     )
                 except IOError:
                     print(
@@ -373,10 +373,10 @@ def main() -> None:
     print(f"INFO: whonix_workstation_ipv4_eth0_last: {whonix_workstation_ipv4_eth0_last}")
     print(f"INFO: whonix_workstation_ipv6_eth0_last: {whonix_workstation_ipv6_eth0_last}")
 
-    qubes_ipv4_current: str | None = None
-    qubes_netvm_gateway_ipv4_current: str | None = None
-    qubes_ipv6_current: str | None = None
-    qubes_ip6_netvm_gateway: str | None = None
+    qubes_ipv4_qubesdb_qubes_ip: str | None = None
+    qubes_ipv4_qubesdb_qubes_netvm_gateway: str | None = None
+    qubes_ipv6_qubesdb_qubes_ip6: str | None = None
+    qubes_ipv6_qubesdb_netvm_gateway: str | None = None
 
     if not os.path.isdir("/var/cache/qubes-whonix"):
         try:
@@ -386,7 +386,7 @@ def main() -> None:
 
     if mode == "gateway":
         try:
-            qubes_netvm_gateway_ipv4_current = (
+            qubes_ipv4_qubesdb_qubes_netvm_gateway = (
                 subprocess.check_output(
                     ["qubesdb-read", "/qubes-netvm-gateway"]
                 )
@@ -395,10 +395,10 @@ def main() -> None:
             )
         except (OSError, subprocess.CalledProcessError):
             print("WARNING: 'qubesdb-read /qubes-netvm-gateway' failed!")
-        print(f"INFO: qubes_netvm_gateway_ipv4_current : {qubes_netvm_gateway_ipv4_current}")
+        print(f"INFO: qubes_ipv4_qubesdb_qubes_netvm_gateway : {qubes_ipv4_qubesdb_qubes_netvm_gateway}")
 
         try:
-            qubes_ip6_netvm_gateway = (
+            qubes_ipv6_qubesdb_netvm_gateway = (
                 subprocess.check_output(
                     ["qubesdb-read", "/qubes-netvm-gateway6"]
                 )
@@ -407,21 +407,21 @@ def main() -> None:
             )
         except (OSError, subprocess.CalledProcessError):
             print("WARNING: 'qubesdb-read /qubes-netvm-gateway6' failed!")
-        print(f"INFO: qubes_ip6_netvm_gateway          : {qubes_ip6_netvm_gateway}")
+        print(f"INFO: qubes_ipv6_qubesdb_netvm_gateway          : {qubes_ipv6_qubesdb_netvm_gateway}")
 
         ips_to_replace: list[str]
-        if qubes_netvm_gateway_ipv4_current is not None:
+        if qubes_ipv4_qubesdb_qubes_netvm_gateway is not None:
             replace_ip(
                 [whonix_gateway_ipv4_eth1_last, whonix_gateway_ipv4_eth1_default],
-                qubes_netvm_gateway_ipv4_current,
+                qubes_ipv4_qubesdb_qubes_netvm_gateway,
                 SEARCH_AND_REPLACE_FILE_LIST,
                 WHONIX_GATEWAY_IP4_ETH1_SAVE_FILE,
             )
 
-        if qubes_ip6_netvm_gateway is not None:
+        if qubes_ipv6_qubesdb_netvm_gateway is not None:
             replace_ip(
                 [whonix_gateway_ipv6_eth1_last, whonix_gateway_ipv6_eth1_default],
-                qubes_ip6_netvm_gateway,
+                qubes_ipv6_qubesdb_netvm_gateway,
                 SEARCH_AND_REPLACE_FILE_LIST,
                 WHONIX_GATEWAY_IP6_ETH1_SAVE_FILE,
             )
@@ -431,12 +431,12 @@ def main() -> None:
 
     if mode == "workstation":
         try:
-            qubes_ipv4_current = (
+            qubes_ipv4_qubesdb_qubes_ip = (
                 subprocess.check_output(["qubesdb-read", "/qubes-ip"])
                 .decode()
                 .rstrip()
             )
-            qubes_netvm_gateway_ipv4_current = (
+            qubes_ip4_qubesdb_qubes_gateway_current = (
                 subprocess.check_output(["qubesdb-read", "/qubes-gateway"])
                 .decode()
                 .rstrip()
@@ -446,16 +446,16 @@ def main() -> None:
                 "WARNING: 'qubesdb-read /qubes-ip' or 'qubesdb-read "
                 "/qubes-gateway' failed!"
             )
-        print(f"INFO: qubes_ipv4_current               : {qubes_ipv4_current}")
-        print(f"INFO: qubes_netvm_gateway_ipv4_current : {qubes_netvm_gateway_ipv4_current}")
+        print(f"INFO: qubes_ipv4_qubesdb_qubes_ip             : {qubes_ipv4_qubesdb_qubes_ip}")
+        print(f"INFO: qubes_ip4_qubesdb_qubes_gateway_current : {qubes_ip4_qubesdb_qubes_gateway_current}")
 
         try:
-            qubes_ipv6_current = (
+            qubes_ipv6_qubesdb_qubes_ip6 = (
                 subprocess.check_output(["qubesdb-read", "/qubes-ip6"])
                 .decode()
                 .rstrip()
             )
-            qubes_ip6_gateway = (
+            qubes_ipv6_qubesdb_qubes_ip6 = (
                 subprocess.check_output(["qubesdb-read", "/qubes-gateway6"])
                 .decode()
                 .rstrip()
@@ -465,37 +465,37 @@ def main() -> None:
                 "WARNING: 'qubesdb-read /qubes-ip6' or 'qubesdb-read "
                 "/qubes-gateway6' failed!"
             )
-        print(f"INFO: qubes_ipv6_current               : {qubes_ipv6_current}")
-        print(f"INFO: qubes_ip6_gateway                : {qubes_ip6_gateway}")
+        print(f"INFO: qubes_ipv6_qubesdb_qubes_ip6               : {qubes_ipv6_qubesdb_qubes_ip6}")
+        print(f"INFO: qubes_ipv6_qubesdb_qubes_ip6               : {qubes_ipv6_qubesdb_qubes_ip6}")
 
-        if None not in (qubes_ipv4_current, qubes_netvm_gateway_ipv4_current):
-            assert qubes_ipv4_current is not None
-            assert qubes_netvm_gateway_ipv4_current is not None
+        if None not in (qubes_ipv4_qubesdb_qubes_ip, qubes_ip4_qubesdb_qubes_gateway_current):
+            assert qubes_ipv4_qubesdb_qubes_ip is not None
+            assert qubes_ip4_qubesdb_qubes_gateway_current is not None
             replace_ip(
                 [whonix_workstation_ipv4_eth0_last, whonix_workstation_ipv4_eth0_default],
-                qubes_ipv4_current,
+                qubes_ipv4_qubesdb_qubes_ip,
                 SEARCH_AND_REPLACE_FILE_LIST,
                 WHONIX_WORKSTATION_IP4_ETH0_SAVE_FILE,
             )
             replace_ip(
                 [whonix_gateway_ipv4_eth1_last, whonix_gateway_ipv4_eth1_default],
-                qubes_netvm_gateway_ipv4_current,
+                qubes_ip4_qubesdb_qubes_gateway_current,
                 SEARCH_AND_REPLACE_FILE_LIST,
                 WHONIX_WORKSTATION_IP4_ETH0_SAVE_FILE,
             )
 
-        if None not in (qubes_ipv6_current, qubes_ip6_gateway):
-            assert qubes_ipv6_current is not None
-            assert qubes_ip6_gateway is not None
+        if None not in (qubes_ipv6_qubesdb_qubes_ip6, qubes_ipv6_qubesdb_qubes_ip6):
+            assert qubes_ipv6_qubesdb_qubes_ip6 is not None
+            assert qubes_ipv6_qubesdb_qubes_ip6 is not None
             replace_ip(
                 [whonix_workstation_ipv6_eth0_last, whonix_workstation_ipv6_eth0_default],
-                qubes_ipv6_current,
+                qubes_ipv6_qubesdb_qubes_ip6,
                 SEARCH_AND_REPLACE_FILE_LIST,
                 WHONIX_WORKSTATION_IP4_ETH0_SAVE_FILE,
             )
             replace_ip(
                 [whonix_gateway_ipv6_eth1_last, whonix_gateway_ipv6_eth1_default],
-                qubes_ip6_gateway,
+                qubes_ipv6_qubesdb_qubes_ip6,
                 SEARCH_AND_REPLACE_FILE_LIST,
                 WHONIX_WORKSTATION_IP6_ETH0_SAVE_FILE,
             )
