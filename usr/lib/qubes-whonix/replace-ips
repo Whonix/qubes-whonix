@@ -47,10 +47,10 @@ from typing import Pattern
 
 IP_WAS_REPLACED: bool = False
 
-WHONIX_GATEWAY_IP4_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip-gateway"
-WHONIX_GATEWAY_IP6_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip6-gateway"
-WHONIX_WORKSTATION_IP4_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip-local"
-WHONIX_WORKSTATION_IP6_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip6-local"
+WHONIX_GATEWAY_IP4_ETH1_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip-gateway"
+WHONIX_GATEWAY_IP6_ETH1_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip6-gateway"
+WHONIX_WORKSTATION_IP4_ETH0_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip-local"
+WHONIX_WORKSTATION_IP6_ETH0_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip6-local"
 
 # This is a list of all Whonix files that contain IP addresses that will
 # be searched and replaced with the currently assigned IP address
@@ -348,16 +348,16 @@ def main() -> None:
     ## IP HARDCODED, but this does not matter for Non-Qubes-Whonix. This script
     ## is currently only used in Qubes-Whonix.
     whonix_gateway_ipv4_eth1_last: str = get_ip_address(
-        WHONIX_GATEWAY_IP4_SAVE_FILE, default_ip4_whonix_gateway_eth1
+        WHONIX_GATEWAY_IP4_ETH1_SAVE_FILE, default_ip4_whonix_gateway_eth1
     )
     whonix_gateway_ipv6_eth1_last: str = get_ip_address(
-        WHONIX_GATEWAY_IP6_SAVE_FILE, default_ip6_whonix_gateway_eth1
+        WHONIX_GATEWAY_IP6_ETH1_SAVE_FILE, default_ip6_whonix_gateway_eth1
     )
     whonix_workstation_ipv4_eth0_last: str = get_ip_address(
-        WHONIX_WORKSTATION_IP6_SAVE_FILE, default_ip4_whonix_workstation_eth0
+        WHONIX_WORKSTATION_IP4_ETH0_SAVE_FILE, default_ip4_whonix_workstation_eth0
     )
     whonix_workstation_ipv6_eth0_last: str = get_ip_address(
-        WHONIX_WORKSTATION_IP6_SAVE_FILE, default_ip6_whonix_workstation_eth0
+        WHONIX_WORKSTATION_IP6_ETH0_SAVE_FILE, default_ip6_whonix_workstation_eth0
     )
 
     assert whonix_gateway_ipv4_eth1_last != ""
@@ -412,7 +412,7 @@ def main() -> None:
                 [whonix_gateway_ipv4_eth1_last, default_ip4_whonix_gateway_eth1],
                 current_ip_gateway,
                 SEARCH_AND_REPLACE_FILE_LIST,
-                WHONIX_GATEWAY_IP4_SAVE_FILE,
+                WHONIX_GATEWAY_IP4_ETH1_SAVE_FILE,
             )
 
         if current_ip6_gateway is not None:
@@ -420,7 +420,7 @@ def main() -> None:
                 [whonix_gateway_ipv6_eth1_last, default_ip6_whonix_gateway_eth1],
                 current_ip6_gateway,
                 SEARCH_AND_REPLACE_FILE_LIST,
-                WHONIX_GATEWAY_IP6_SAVE_FILE,
+                WHONIX_GATEWAY_IP6_ETH1_SAVE_FILE,
             )
 
         if IP_WAS_REPLACED:
@@ -488,13 +488,13 @@ def main() -> None:
                 [whonix_workstation_ipv6_eth0_last, default_ip6_whonix_workstation_eth0],
                 current_ip6_local,
                 SEARCH_AND_REPLACE_FILE_LIST,
-                WHONIX_WORKSTATION_IP6_SAVE_FILE,
+                WHONIX_WORKSTATION_IP4_ETH0_SAVE_FILE,
             )
             replace_ip(
                 [whonix_gateway_ipv6_eth1_last, default_ip6_whonix_gateway_eth1],
                 current_ip6_gateway,
                 SEARCH_AND_REPLACE_FILE_LIST,
-                WHONIX_WORKSTATION_IP6_SAVE_FILE,
+                WHONIX_WORKSTATION_IP6_ETH0_SAVE_FILE,
             )
 
 
