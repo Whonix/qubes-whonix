@@ -2,23 +2,8 @@
 # -*- coding: utf-8 -*-
 # vim: set ts=4 sw=4 sts=4 et :
 # pylint: disable=broad-exception-caught
+
 """
-replace-ips - Search and replace IP addresses in specified files.
-
-All Whonix configuration files provided are searched for the last known
-occurrence of an IP address that was used and replaced with the current IP
-address provided by Qubes.
-
-Initially, the known defaults in Whonix configuration files IP addresses are:
-- Whonix-Gateway    : eth1: 10.152.152.10 | fd19:c33d:88bc::10
-- Whonix-Workstation: eth0: 10.152.152.11 | fd19:c33d:88bc::11
-
-They are also checked each time this module is run in case the configuration
-files were modified due to a system update.
-
-Qubes feature request: optional static IP addresses
-https://github.com/QubesOS/qubes-issues/issues/1477
-
 Copyright (C) 2014 - 2015 Jason Mehring <nrgaway@gmail.com>
 License: GPL-2+
 Authors: Jason Mehring
@@ -35,6 +20,24 @@ Authors: Jason Mehring
 
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
+
+"""
+replace-ips - Search and replace IP addresses in specified files.
+
+All Whonix configuration files provided are searched for the last known
+occurrence of an IP address that was used and replaced with the current IP
+address provided by Qubes.
+
+Initially, the known defaults in Whonix configuration files IP addresses are:
+- Whonix-Gateway    : eth1: 10.152.152.10 | fd19:c33d:88bc::10
+- Whonix-Workstation: eth0: 10.152.152.11 | fd19:c33d:88bc::11
+
+They are also checked each time this module is run in case the configuration
+files were modified due to a system update.
+
+Qubes feature request: optional static IP addresses
+https://github.com/QubesOS/qubes-issues/issues/1477
 """
 
 import os
