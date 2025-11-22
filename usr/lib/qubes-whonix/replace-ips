@@ -421,18 +421,25 @@ def main() -> None:
             print("WARNING: 'qubesdb-read /qubes-netvm-gateway6' failed!")
         print(f"INFO: qubes_ipv6_qubesdb_netvm_gateway          : {qubes_ipv6_qubesdb_netvm_gateway}")
 
-        ips_to_replace: list[str]
         if qubes_ipv4_qubesdb_qubes_netvm_gateway is not None:
+            gateway_ipv4_eth1_ips_to_replace: list[str] = [
+                whonix_gateway_ipv4_eth1_last,
+                whonix_gateway_ipv4_eth1_default,
+            ]
             replace_ip(
-                [whonix_gateway_ipv4_eth1_last, whonix_gateway_ipv4_eth1_default],
+                gateway_ipv4_eth1_ips_to_replace,
                 qubes_ipv4_qubesdb_qubes_netvm_gateway,
                 SEARCH_AND_REPLACE_FILE_LIST,
                 WHONIX_GATEWAY_IP4_ETH1_SAVE_FILE,
             )
 
         if qubes_ipv6_qubesdb_netvm_gateway is not None:
+            gateway_ipv6_eth1_ips_to_replace: list[str] = [
+                whonix_gateway_ipv6_eth1_last,
+                whonix_gateway_ipv6_eth1_default,
+            ]
             replace_ip(
-                [whonix_gateway_ipv6_eth1_last, whonix_gateway_ipv6_eth1_default],
+                gateway_ipv6_eth1_ips_to_replace,
                 qubes_ipv6_qubesdb_netvm_gateway,
                 SEARCH_AND_REPLACE_FILE_LIST,
                 WHONIX_GATEWAY_IP6_ETH1_SAVE_FILE,
@@ -483,14 +490,24 @@ def main() -> None:
         if None not in (qubes_ipv4_qubesdb_qubes_ip, qubes_ipv4_qubesdb_qubes_gateway):
             assert qubes_ipv4_qubesdb_qubes_ip is not None
             assert qubes_ipv4_qubesdb_qubes_gateway is not None
+
+            workstation_ipv4_eth0_ips_to_replace: list[str] = [
+                whonix_workstation_ipv4_eth0_last,
+                whonix_workstation_ipv4_eth0_default,
+            ]
             replace_ip(
-                [whonix_workstation_ipv4_eth0_last, whonix_workstation_ipv4_eth0_default],
+                workstation_ipv4_eth0_ips_to_replace,
                 qubes_ipv4_qubesdb_qubes_ip,
                 SEARCH_AND_REPLACE_FILE_LIST,
                 WHONIX_WORKSTATION_IP4_ETH0_SAVE_FILE,
             )
+
+            gateway_ipv4_eth1_ips_for_workstation: list[str] = [
+                whonix_gateway_ipv4_eth1_last,
+                whonix_gateway_ipv4_eth1_default,
+            ]
             replace_ip(
-                [whonix_gateway_ipv4_eth1_last, whonix_gateway_ipv4_eth1_default],
+                gateway_ipv4_eth1_ips_for_workstation,
                 qubes_ipv4_qubesdb_qubes_gateway,
                 SEARCH_AND_REPLACE_FILE_LIST,
                 WHONIX_WORKSTATION_IP4_ETH0_SAVE_FILE,
@@ -499,14 +516,24 @@ def main() -> None:
         if None not in (qubes_ipv6_qubesdb_qubes_ip6, qubes_ipv6_qubesdb_qubes_gateway6):
             assert qubes_ipv6_qubesdb_qubes_ip6 is not None
             assert qubes_ipv6_qubesdb_qubes_gateway6 is not None
+
+            workstation_ipv6_eth0_ips_to_replace: list[str] = [
+                whonix_workstation_ipv6_eth0_last,
+                whonix_workstation_ipv6_eth0_default,
+            ]
             replace_ip(
-                [whonix_workstation_ipv6_eth0_last, whonix_workstation_ipv6_eth0_default],
+                workstation_ipv6_eth0_ips_to_replace,
                 qubes_ipv6_qubesdb_qubes_ip6,
                 SEARCH_AND_REPLACE_FILE_LIST,
                 WHONIX_WORKSTATION_IP6_ETH0_SAVE_FILE,
             )
+
+            gateway_ipv6_eth1_ips_for_workstation: list[str] = [
+                whonix_gateway_ipv6_eth1_last,
+                whonix_gateway_ipv6_eth1_default,
+            ]
             replace_ip(
-                [whonix_gateway_ipv6_eth1_last, whonix_gateway_ipv6_eth1_default],
+                gateway_ipv6_eth1_ips_for_workstation,
                 qubes_ipv6_qubesdb_qubes_gateway6,
                 SEARCH_AND_REPLACE_FILE_LIST,
                 WHONIX_WORKSTATION_IP6_ETH0_SAVE_FILE,
