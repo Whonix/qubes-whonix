@@ -10,8 +10,8 @@ occurrence of an IP address that was used and replaced with the current IP
 address provided by Qubes.
 
 Initially, the known defaults in Whonix configuration files IP addresses are:
-- Whonix-Gateway: eth1: 10.152.152.10 | fd19:c33d:88bc::10
-- Whonix-Workstation: eth0 10.152.152.11 | fd19:c33d:88bc::11
+- Whonix-Gateway    : eth1: 10.152.152.10 | fd19:c33d:88bc::10
+- Whonix-Workstation: eth0: 10.152.152.11 | fd19:c33d:88bc::11
 
 They are also checked each time this module is run in case the configuration
 files were modified due to a system update.
