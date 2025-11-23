@@ -26,7 +26,7 @@ Before=anon-ws-disable-stacked-tor.service
 ## Probably already implicitly added.
 After=qubes-whonix-sysinit.service
 
-## For Qubes R3.2 and above.
+## Probably already implicitly added.
 After=local-fs.target
 
 [Service]
