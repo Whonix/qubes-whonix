@@ -1,3 +1,22 @@
+commit 729621ec85c29646fd596fd3ee70abc36a666c78
+Merge: 1386040 763675b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 04:10:40 2025 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 763675bf44890a76e24aa94d7a663de76dd3876c
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sat Nov 22 20:00:28 2025 -0600
+
+    replace-ips minor cleanup, make compliant with pylint and mypy
+
+commit 13860405f27a28704adb813fffa3bb1b44486c83
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Nov 22 11:43:07 2025 +0000
+
+    bumped changelog version
+
 commit ac4d3a9d22c108bdcee59e846651522a46bf8fa8
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Nov 22 06:38:47 2025 -0500
