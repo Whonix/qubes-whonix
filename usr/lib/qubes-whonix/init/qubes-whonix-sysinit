@@ -1,27 +1,27 @@
 #!/bin/bash -e
 # vim: set ts=4 sw=4 sts=4 et :
 
-# Copyright (C) 2014 - 2015 Jason Mehring <nrgaway@gmail.com>
-# License: GPL-2+
-# Authors: Jason Mehring
-#
-#   This program is free software; you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License
-#   as published by the Free Software Foundation; either version 2
-#   of the License, or (at your option) any later version.
-#
-#   This program is distributed in the hope that it will be useful,
-#   but WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#   GNU General Public License for more details.
-#
-#   You should have received a copy of the GNU General Public License
-#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+## Copyright (C) 2014 - 2015 Jason Mehring <nrgaway@gmail.com>
+## License: GPL-2+
+## Authors: Jason Mehring
+##
+##   This program is free software; you can redistribute it and/or
+##   modify it under the terms of the GNU General Public License
+##   as published by the Free Software Foundation; either version 2
+##   of the License, or (at your option) any later version.
+##
+##   This program is distributed in the hope that it will be useful,
+##   but WITHOUT ANY WARRANTY; without even the implied warranty of
+##   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##   GNU General Public License for more details.
+##
+##   You should have received a copy of the GNU General Public License
+##   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# This script should run after qubes-sysinit and should not need to create the
-# qubes-service directory as it should have already been created.  This is only
-# a defensive action since we rely on certain services being present to determine
-# the overall boot status of Whonix.
+## This script should run after qubes-sysinit and should not need to create the
+## qubes-service directory as it should have already been created.  This is only
+## a defensive action since we rely on certain services being present to determine
+## the overall boot status of Whonix.
 
 if ! test -d /run/qubes-service ; then
     mkdir --parents -- /run/qubes-service
@@ -30,13 +30,13 @@ fi
 if test -f /run/qubes/this-is-templatevm ; then
     true
 
-# Gateway
+## Gateway
 elif [ -e /usr/share/anon-gw-base-files/gateway ]; then
     if [ -f /run/qubes/this-is-netvm ] || [ -f /run/qubes/this-is-proxyvm ]; then
         touch -- /run/qubes-service/whonix-gateway
     fi
 
-# Workstation
+## Workstation
 elif [ -e /usr/share/anon-ws-base-files/workstation ]; then
     if [ -f /run/qubes/this-is-appvm ]; then
         touch -- /run/qubes-service/whonix-workstation
