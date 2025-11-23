@@ -24,21 +24,21 @@
 ## the overall boot status of Whonix.
 
 if ! test -d /run/qubes-service ; then
-    mkdir --parents -- /run/qubes-service
+  mkdir --parents -- /run/qubes-service
 fi
 
 if test -f /run/qubes/this-is-templatevm ; then
-    true
+  true
 elif [ -e /usr/share/anon-gw-base-files/gateway ]; then
-    ## Gateway
-    if [ -f /run/qubes/this-is-netvm ] || [ -f /run/qubes/this-is-proxyvm ]; then
-        touch -- /run/qubes-service/whonix-gateway
-    fi
+  ## Gateway
+  if [ -f /run/qubes/this-is-netvm ] || [ -f /run/qubes/this-is-proxyvm ]; then
+    touch -- /run/qubes-service/whonix-gateway
+  fi
 elif [ -e /usr/share/anon-ws-base-files/workstation ]; then
-    ## Workstation
-    if [ -f /run/qubes/this-is-appvm ]; then
-        touch -- /run/qubes-service/whonix-workstation
-    fi
+  ## Workstation
+  if [ -f /run/qubes/this-is-appvm ]; then
+    touch -- /run/qubes-service/whonix-workstation
+  fi
 fi
 
 exit 0
