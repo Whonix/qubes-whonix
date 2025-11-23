@@ -21,7 +21,6 @@ Before=qubes-gui-agent.service
 
 Before=tor.service
 Before=tor@default.service
-Before=rinetd.service
 Before=onion-grater.service
 Before=canary.service
 Before=sdwdate.service
