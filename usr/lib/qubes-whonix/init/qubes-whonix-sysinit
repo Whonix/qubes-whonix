@@ -22,7 +22,7 @@
 # qubes-service directory as it should have already been created.  This is only
 # a defensive action since we rely on certain services being present to determine
 # the overall boot status of Whonix.
-mkdir -p /run/qubes-service
+mkdir --parents -- /run/qubes-service
 
 if test -f /run/qubes/this-is-templatevm ; then
     true
@@ -30,13 +30,13 @@ if test -f /run/qubes/this-is-templatevm ; then
 # Gateway
 elif [ -e /usr/share/anon-gw-base-files/gateway ]; then
     if [ -f /run/qubes/this-is-netvm ] || [ -f /run/qubes/this-is-proxyvm ]; then
-        touch /run/qubes-service/whonix-gateway
+        touch -- /run/qubes-service/whonix-gateway
     fi
 
 # Workstation
 elif [ -e /usr/share/anon-ws-base-files/workstation ]; then
     if [ -f /run/qubes/this-is-appvm ]; then
-        touch /run/qubes-service/whonix-workstation
+        touch -- /run/qubes-service/whonix-workstation
     fi
 fi
 
