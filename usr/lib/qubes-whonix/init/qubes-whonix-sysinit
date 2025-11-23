@@ -29,15 +29,13 @@ fi
 
 if test -f /run/qubes/this-is-templatevm ; then
     true
-
-## Gateway
 elif [ -e /usr/share/anon-gw-base-files/gateway ]; then
+    ## Gateway
     if [ -f /run/qubes/this-is-netvm ] || [ -f /run/qubes/this-is-proxyvm ]; then
         touch -- /run/qubes-service/whonix-gateway
     fi
-
-## Workstation
 elif [ -e /usr/share/anon-ws-base-files/workstation ]; then
+    ## Workstation
     if [ -f /run/qubes/this-is-appvm ]; then
         touch -- /run/qubes-service/whonix-workstation
     fi
