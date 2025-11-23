@@ -1,7 +1,7 @@
 #!/usr/bin/python3 -su
 # -*- coding: utf-8 -*-
 # vim: set ts=4 sw=4 sts=4 et :
-# pylint: disable=broad-exception-caught
+# pylint: disable=invalid-name,broad-exception-caught,global-statement
 
 """
 Copyright (C) 2014 - 2015 Jason Mehring <nrgaway@gmail.com>
@@ -20,9 +20,7 @@ Authors: Jason Mehring
 
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-"""
 
-"""
 replace-ips - Search and replace IP addresses in specified files.
 
 All Whonix configuration files provided are searched for the last known
@@ -64,7 +62,8 @@ import re
 import subprocess
 import ipaddress
 import inspect
-from typing import Pattern
+from typing import Pattern, Any
+from types import FrameType
 
 IP_WAS_REPLACED: bool = False
 
@@ -73,10 +72,11 @@ WHONIX_GATEWAY_IP6_ETH1_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip6-gat
 WHONIX_WORKSTATION_IP4_ETH0_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip-local"
 WHONIX_WORKSTATION_IP6_ETH0_SAVE_FILE: str = "/var/cache/qubes-whonix/whonix-ip6-local"
 
+SEARCH_AND_REPLACE_FILE_LIST: list[str]
 # This is a list of all Whonix files that contain IP addresses that will
 # be searched and replaced with the currently assigned IP address
 if os.path.exists("/usr/share/anon-gw-base-files/gateway"):
-    SEARCH_AND_REPLACE_FILE_LIST: list[str] = [
+    SEARCH_AND_REPLACE_FILE_LIST = [
         "/usr/share/whonix-gw-network-conf/network_internal_ip.txt",
         "/etc/resolv.conf",
         "/etc/resolv.conf.whonix",
@@ -87,7 +87,7 @@ if os.path.exists("/usr/share/anon-gw-base-files/gateway"):
         "/usr/share/tor/tor-service-defaults-torrc.anondist",
     ]
 elif os.path.exists("/usr/share/anon-ws-base-files/workstation"):
-    SEARCH_AND_REPLACE_FILE_LIST: list[str] = [
+    SEARCH_AND_REPLACE_FILE_LIST = [
         "/etc/resolv.conf",
         "/etc/resolv.conf.whonix",
         "/etc/resolv.conf.anondist",
@@ -107,30 +107,31 @@ whonix_workstation_ipv4_eth0_default: str = "10.152.152.11"
 whonix_workstation_ipv6_eth0_default: str = "fd19:c33d:88bc::11"
 
 
-def var_name(obj, up: int = 1):
+def var_name(obj: Any, up: int = 1) -> str | None:
     """
     Best-effort: return the name of `obj` in a frame `up` levels above this one.
 
     up = 1 -> immediate caller
     up = 2 -> caller's caller, etc.
     """
-    frame = inspect.currentframe()
+    frame_arr: list[FrameType | None] = [inspect.currentframe()]
     try:
         # walk `up` frames back starting from this helper's frame
         for _ in range(up):
-            if frame is None:
+            if frame_arr[-1] is None:
                 return None
-            frame = frame.f_back
-        if frame is None:
+            frame_arr.append(frame_arr[-1].f_back)
+        if frame_arr[-1] is None:
             return None
 
-        for name, value in frame.f_locals.items():
+        for name, value in frame_arr[-1].f_locals.items():
             if value is obj:
                 return name
         return None
     finally:
         # avoid reference cycles
-        del frame
+        for frame in reversed(frame_arr):
+            del frame
 
 
 def whonix_mode() -> str:
@@ -176,14 +177,14 @@ def ip_line_fixup(line: str, last_ip: str, current_ip: str) -> str:
 
     if ":" in last_ip:
         line = re.sub(
-            rf"(?m){re.escape(last_ip.rsplit(":", 1)[0])}[:]0"
+            rf"(?m){re.escape(last_ip.rsplit(":", 1)[0])}:0"
             r"(?=\D|$)",
             current_ip.rsplit(":", 1)[0] + ":0",
             line,
         )
     else:
         line = re.sub(
-            rf"(?m){re.escape(last_ip.rsplit(".", 1)[0])}[.]0"
+            rf"(?m){re.escape(last_ip.rsplit(".", 1)[0])}\.0"
             r"(?=\D|$)",
             current_ip.rsplit(".", 1)[0] + ".0",
             line,
@@ -245,49 +246,49 @@ def replace_ip(
         protocol = "IPv4"
 
     for filename in files:
-        if os.path.exists(filename):
+        if not os.path.exists(filename):
+            continue
+        try:
+            with open(
+                filename, "r", encoding="utf-8", errors="surrogateescape"
+            ) as infile:
+                text: str = infile.read()
+        except IOError:
+            print(
+                f"ERROR: {protocol}: file existing but failed to open for "
+                f"reading: '{filename}'"
+            )
+            continue
+
+        line_list: list[str] = text.split("\n")
+        for idx, line in enumerate(line_list):
+            for last_ip in ips:
+                line = ip_line_fixup(line, last_ip, current_ip)
+                line_list[idx] = line
+
+        replaced_text: str = "\n".join(line_list)
+
+        if text != replaced_text:
             try:
-                with open(
-                    filename, "r", encoding="utf-8", errors="surrogateescape"
-                ) as infile:
-                    text: str = infile.read()
+                with open(filename, "w", encoding="utf-8") as outfile:
+                    outfile.write(replaced_text)
+                replaced = True
+                print(
+                    f"INFO: '{protocol}': filename from filelist updated  : "
+                    f"'{filename}' '{ips_varname}' '{current_ip_varname}' '{current_ip}'"
+                )
             except IOError:
                 print(
-                    f"ERROR: {protocol}: file existing but failed to open for "
-                    f"reading: '{filename}'"
+                    f"ERROR: '{protocol}': filename from filelist existing "
+                    f"but failed to open filename for writing: '{filename}'"
                 )
                 continue
-
-            line_list: list[str] = text.split("\n")
-            for idx, line in enumerate(line_list):
-                for last_ip in ips:
-                    line = ip_line_fixup(line, last_ip, current_ip)
-                    line_list[idx] = line
-
-            replaced_text: str = "\n".join(line_list)
-
-            if text != replaced_text:
-                try:
-                    with open(filename, "w", encoding="utf-8") as outfile:
-                        outfile.write(replaced_text)
-                    replaced = True
-                    print(
-                        f"INFO: '{protocol}': filename from filelist updated  : "
-                        f"'{filename}' '{ips_varname}' '{current_ip_varname}' '{current_ip}'"
-                    )
-                except IOError:
-                    print(
-                        f"ERROR: '{protocol}': filename from filelist existing "
-                        f"but failed to open filename for writing: '{filename}'"
-                    )
-                    continue
-                    # return False
-            else:
-                # print(
-                #     f"INFO: '{protocol}': filename from filelist unchanged: "
-                #     f"'{filename}'"
-                # )
-                pass
+                # return False
+        # else:
+            # print(
+            #     f"INFO: '{protocol}': filename from filelist unchanged: "
+            #     f"'{filename}'"
+            # )
     if replaced:
         try:
             with open(ip_file, "w", encoding="utf-8") as outfile:
@@ -410,6 +411,7 @@ def main() -> None:
 
     qubes_ipv4_qubesdb_qubes_ip: str | None = None
     qubes_ipv4_qubesdb_qubes_netvm_gateway: str | None = None
+    qubes_ipv4_qubesdb_qubes_gateway: str | None = None
     qubes_ipv6_qubesdb_qubes_ip6: str | None = None
     qubes_ipv6_qubesdb_qubes_netvm_gateway6: str | None = None
     qubes_ipv6_qubesdb_qubes_gateway6: str | None = None
