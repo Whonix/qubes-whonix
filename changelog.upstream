@@ -1,3 +1,90 @@
+commit 8cec660c571802d38d1c782c4e5c37aec23c3a2d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 04:55:48 2025 -0500
+
+    comment
+
+commit 88b3b8791b4ff55331a4ec347c090572b34932d9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 04:52:41 2025 -0500
+
+    cleanup
+    
+    qubes-mount-dirs.service already runs Before=local-fs.target
+    so After=local-fs.target is unneeded
+
+commit dd8ec0cefb0c09f897f7f9ae7a437695e72ab9ad
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 04:51:27 2025 -0500
+
+    cleanup
+
+commit f9f6c469568291e5305cf20d754f88f12ead430c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 04:49:55 2025 -0500
+
+    cleanup systemd After=, qubes-whonix-postinit.service is no longer running on Whonix-Gateway
+
+commit a9fa85405217bd21b993b343c6b56dac96994588
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 04:49:32 2025 -0500
+
+    rinetd no longer in use
+
+commit 6ece75bbb17474d2266aef7c70e7cef3554b903e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 04:47:33 2025 -0500
+
+    delete `/usr/lib/systemd/system/whonix-initializer.service.d/40_qubes.conf` because `whonix-initializer.service` (or even `initializer-dist.service`) no longer exists
+
+commit c39774e545664a92fd973ec60232588c431bd4dc
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 04:27:26 2025 -0500
+
+    minor
+
+commit 5ee72d32a430cdbaa138fb8746fd002b520b6ea6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 04:26:56 2025 -0500
+
+    indent
+
+commit be1d6812372122388a4b5fbda3a8c2121ae61ae1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 04:26:06 2025 -0500
+
+    refactoring
+
+commit 6abece27b60b2a4ea8ba9b46d2b2d653e4ddf630
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 04:25:17 2025 -0500
+
+    comments
+
+commit 6ecdf41e75093ce8264050c7af969a19076c8f20
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 04:24:38 2025 -0500
+
+    comments
+
+commit bcace5f296dd6761afaa5c4edc48c3bcce138afa
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 04:24:04 2025 -0500
+
+    performance
+
+commit cb666d5ab12c3a955ff916c8b12953d9275b8049
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 04:23:02 2025 -0500
+
+    refactoring
+
+commit 842aeb79bc6c45c170229f32e3267caf006c26b4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 09:12:59 2025 +0000
+
+    bumped changelog version
+
 commit 729621ec85c29646fd596fd3ee70abc36a666c78
 Merge: 1386040 763675b
 Author: Patrick Schleizer <adrelanos@whonix.org>
