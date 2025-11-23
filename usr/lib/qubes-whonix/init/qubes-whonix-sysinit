@@ -22,7 +22,9 @@
 # qubes-service directory as it should have already been created.  This is only
 # a defensive action since we rely on certain services being present to determine
 # the overall boot status of Whonix.
-mkdir --parents -- /run/qubes-service
+if ! test -d /run/qubes-service ; then
+    mkdir --parents -- /run/qubes-service
+fi
 
 if test -f /run/qubes/this-is-templatevm ; then
     true
