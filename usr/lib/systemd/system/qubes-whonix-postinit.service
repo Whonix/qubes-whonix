@@ -19,9 +19,6 @@ ConditionPathExists=|/run/qubes-service/whonix-workstation
 ## - /home/user/.torchat/torchat.ini are applied before these start.
 Before=qubes-gui-agent.service
 
-Before=tor.service
-Before=tor@default.service
-Before=onion-grater.service
 Before=canary.service
 Before=sdwdate.service
 Before=anon-ws-disable-stacked-tor.service
