@@ -29,9 +29,6 @@ After=qubes-whonix-sysinit.service
 ## For Qubes R3.2 and above.
 After=local-fs.target
 
-## Legacy. (Versions lower than Qubes R3.2-rc2)
-After=qubes-mount-dirs.service
-
 [Service]
 Type=notify
 RemainAfterExit=yes
