@@ -17,11 +17,30 @@ ConditionPathExists=/usr/share/anon-ws-base-files/workstation
 ## So changes to for example,
 ## - /usr/share/anon-apps-config/kioslaverc or
 ## - /home/user/.torchat/torchat.ini are applied before these start.
-Before=qubes-gui-agent.service
+## Not worth it.
+##
+# [workstation user ~]% qubesdb-read /qubes-gateway
+# > 10.137.0.8
+##
+# [workstation user ~]% curl.anondist-orig --proxy socks5h://10.137.0.8:9050 --output - -- https://check.torproject.org/api/ip
+# > {"IsTor":true
+##
+# [workstation user ~]% curl.anondist-orig --proxy socks5h://10.137.5.5:9050 --output - -- https://check.torproject.org/api/ip
+# {"IsTor":true
+#Before=qubes-gui-agent.service
+## This is thanks to Whonix-Gateway 'vif*' nftables rules.
 
-Before=canary.service
-Before=sdwdate.service
-Before=anon-ws-disable-stacked-tor.service
+## Same as above.
+#Before=sdwdate.service
+
+## Same as above.
+## Does not run on Whonix-Workstation by default.
+## Uses 127.0.0.1. Therefore does not rely on any updated IP address in any file.
+#Before=canary.service
+
+## Unnecessary. 'anon-ws-disable-stacked-tor.service' detects the IP address itself
+## using 'qubesdb-read' and does not rely on any updated IP address in any file.
+#Before=anon-ws-disable-stacked-tor.service
 
 After=qubes-sysinit.service
 
