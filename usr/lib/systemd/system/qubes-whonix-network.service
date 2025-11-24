@@ -20,6 +20,7 @@ Wants=network.target
 After=sysinit.target
 After=network-pre.target
 
+## Because using 'DefaultDependencies=no'.
 Before=shutdown.target
 Conflicts=shutdown.target
 
