@@ -14,9 +14,6 @@ DefaultDependencies=no
 After=whonix-firewall.service
 Requires=whonix-firewall.service
 
-## There is no iptables.service as of recent Debian releases.
-#After=iptables.service
-
 Before=network.target
 Wants=network.target
 
