@@ -37,7 +37,7 @@ RemainAfterExit=yes
 # with qvm-service or the Qubes VM Manager's Services tab. The same applies if
 # the user wants to enable the non-caching proxy on workstations, so as not to
 # waste 4 MB memory everywhere.
-ExecStart=/bin/touch /run/qubes-service/qubes-updates-proxy
+ExecStart=/usr/bin/touch /run/qubes-service/qubes-updates-proxy
 
 [Install]
 WantedBy=multi-user.target
