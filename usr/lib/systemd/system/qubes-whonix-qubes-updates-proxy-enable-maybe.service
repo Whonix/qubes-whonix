@@ -3,6 +3,7 @@
 
 ## If not running inside a Qubes TemplateVM,
 ## and if running inside Whonix-Gateway (i.e. if file /usr/share/anon-gw-base-files/gateway exists),
+## and if running as a NetVM or ProxyVM (i.e. if file /run/qubes/this-is-netvm or /run/qubes/this-is-proxyvm exists),
 ## and if qubes-updates-cache is not enabled (i.e. if file /run/qubes-service/qubes-updates-cache does not exist),
 ## create qubes-updates-proxy (i.e. create file /run/qubes-service/qubes-updates-proxy).
 
