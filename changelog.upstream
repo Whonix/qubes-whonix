@@ -1,3 +1,33 @@
+commit 857dfda3def1e07d8b03fe6fe327e95ab8e597f8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Nov 24 06:55:54 2025 -0500
+
+    comment
+
+commit d8fabbf997627692ea8e09bad35118adc6cebe2f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Nov 24 06:55:16 2025 -0500
+
+    cleanup
+
+commit ca4940996dc2482ead96ce0caa196b81a175c1c3
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Nov 24 06:54:50 2025 -0500
+
+    /usr/bin/touch
+
+commit cba50ae2475c8a5262054c9dc736e768aaef51a0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Nov 24 06:51:14 2025 -0500
+
+    `qubes-whonix-postinit.service`: Drop no longer required `Before=`
+
+commit 3c9f157fe29a87e0a4b8aeccf7925ad51a1f09b6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Nov 24 08:46:21 2025 +0000
+
+    bumped changelog version
+
 commit 0a4590b2ba41af96465c21637a37640d6a755bb6
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Nov 24 03:38:14 2025 -0500
