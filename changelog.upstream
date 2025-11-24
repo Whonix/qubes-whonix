@@ -1,3 +1,28 @@
+commit 0a4590b2ba41af96465c21637a37640d6a755bb6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Nov 24 03:38:14 2025 -0500
+
+    comment
+
+commit 209f91ed7fde7bc7d980bbd9a5ea26cbdaa8965e
+Merge: 3e4524b ccfc92f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Nov 24 03:34:25 2025 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit ccfc92fef660100d747a4b8684a69df2dca127f2
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun Nov 23 11:24:17 2025 -0600
+
+    Remove qubes-whonix-sysinit.service, slight optimization for qubes-whonix-postinit.service
+
+commit 3e4524bf379fdb993602e49a2659c7e4a4e13f3c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 10:27:40 2025 +0000
+
+    bumped changelog version
+
 commit 8cec660c571802d38d1c782c4e5c37aec23c3a2d
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Nov 23 04:55:48 2025 -0500
