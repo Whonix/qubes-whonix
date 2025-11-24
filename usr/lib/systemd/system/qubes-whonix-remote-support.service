@@ -4,7 +4,15 @@
 [Unit]
 Description=Qubes-Whonix Remote Support
 Documentation=https://github.com/Whonix/qubes-whonix
-ConditionPathExists=|/run/qubes-service/whonix-gateway
+After=qubes-sysinit.service
+
+## Not inside TemplateVM.
+ConditionPathExists=!/run/qubes/this-is-templatevm
+## Whonix-Gateway
+ConditionPathExists=/usr/share/anon-gw-base-files/gateway
+## And ( NetVM OR ProxyVM )
+ConditionPathExists=|/run/qubes/this-is-netvm
+ConditionPathExists=|/run/qubes/this-is-proxyvm
 
 [Service]
 Type=forking

@@ -31,5 +31,3 @@ fi
 ## Replace IP addresses in known configuration files / scripts with
 ## currently discovered IP address
 /usr/lib/qubes-whonix/replace-ips
-
-systemd-notify --ready

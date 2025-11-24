@@ -14,25 +14,17 @@ Before=qubes-updates-proxy.service
 
 After=qubes-sysinit.service
 
-## Legacy.
-After=qubes-whonix-sysinit.service
-
 ## Do not enable qubes-updates-proxy if qubes-updates-cache is already enabled
 ## to avoid these conflicting with each other.
 ConditionPathExists=!/run/qubes-service/qubes-updates-cache
 
-## Do not needlessly enable qubes-updates-proxy in Qubes TemplateVMs.
+## Not inside TemplateVM.
 ConditionPathExists=!/run/qubes/this-is-templatevm
-
+## Whonix-Gateway
+ConditionPathExists=/usr/share/anon-gw-base-files/gateway
+## And ( NetVM OR ProxyVM )
 ConditionPathExists=|/run/qubes/this-is-netvm
 ConditionPathExists=|/run/qubes/this-is-proxyvm
-## Legacy.
-## The following condition can be removed once we can rely on
-## /run/qubes/this-is-proxyvm / /run/qubes/this-is-netvm
-## i.e. when we can assume that everyone upgraded to Qubes R3.2.
-## (/run/qubes-service/whonix-gateway gets created conditionally by
-## qubes-whonix-sysinit.)
-ConditionPathExists=|/run/qubes-service/whonix-gateway
 
 [Service]
 Type=oneshot

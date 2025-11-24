@@ -1,18 +1,18 @@
 ## Copyright (C) 2015 Jason Mehring <nrgaway@gmail.com>
 ## License: GPL-2+
 
-## On Whonix-Workstation, if file '/run/qubes-service/whonix-workstation' exists:
+## On Whonix-Workstation AppVMs:
 ## - replaces IPs using '/usr/lib/qubes-whonix/replace-ips'
+## On Whonix-Gateway:
+## - does nothing. Calling 'replace-ips' is implemented in package 'anon-gw-anonymizer-config'.
 
 [Unit]
 Description=Qubes-Whonix post init
 Documentation=https://github.com/Whonix/qubes-whonix
 
-## Not needed on Whonix-Gateway:
-## Calling 'replace-ips' is implemented in package 'anon-gw-anonymizer-config'.
-#ConditionPathExists=|/run/qubes-service/whonix-gateway
-
-ConditionPathExists=|/run/qubes-service/whonix-workstation
+ConditionPathExists=!/run/qubes/this-is-templatevm
+ConditionPathExists=/run/qubes/this-is-appvm
+ConditionPathExists=/usr/share/anon-ws-base-files/workstation
 
 ## So changes to for example,
 ## - /usr/share/anon-apps-config/kioslaverc or
@@ -23,14 +23,13 @@ Before=canary.service
 Before=sdwdate.service
 Before=anon-ws-disable-stacked-tor.service
 
-## Probably already implicitly added.
-After=qubes-whonix-sysinit.service
+After=qubes-sysinit.service
 
 ## Probably already implicitly added.
 After=local-fs.target
 
 [Service]
-Type=notify
+Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/lib/qubes-whonix/init/qubes-whonix-postinit
 
