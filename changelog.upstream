@@ -1,3 +1,28 @@
+commit 985a6aa08461f4e32305e945efb59b61084fe1b6
+Merge: 2f1d4f7 fd9ef4d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Dec 3 03:23:37 2025 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie' into HEAD
+
+commit fd9ef4d38314c4f371d13011a250daa9b12fd7ae
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Dec 2 23:17:37 2025 -0600
+
+    Integrate misc small fixes from ChatGPT Codex
+
+commit 6b33322d1c147ee591ad104e8d189ef1a87e61d0
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Dec 2 00:09:18 2025 -0600
+
+    Add Requires/After on qubes-qrexec-agent.service to qubes-whonix-remote-support.service (from ChatGPT Codex)
+
+commit 2f1d4f78c38a79efce80e6be384fdc3e2fd8155b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Nov 25 19:06:00 2025 +0000
+
+    bumped changelog version
+
 commit 17ec17fa548ce94b3c80b4e66187437d7dc62f58
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Nov 24 13:08:53 2025 -0500
