@@ -4,7 +4,8 @@
 [Unit]
 Description=Qubes-Whonix Remote Support
 Documentation=https://github.com/Whonix/qubes-whonix
-After=qubes-sysinit.service
+Requires=qubes-qrexec-agent.service
+After=qubes-sysinit.service qubes-qrexec-agent.service
 
 ## Not inside TemplateVM.
 ConditionPathExists=!/run/qubes/this-is-templatevm
