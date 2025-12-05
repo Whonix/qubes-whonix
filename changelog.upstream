@@ -1,3 +1,18 @@
+commit 905ca65d302e5413542e2058681e4c466c36e789
+Merge: 2f1d4f7 92d74ca
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Dec 4 22:31:31 2025 -0500
+
+    Merge tag '24.4-1'
+    
+    .
+
+commit 92d74ca6e8df1beb65a3a90a75fb89e718dce0f8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Dec 3 08:37:00 2025 +0000
+
+    bumped changelog version
+
 commit 985a6aa08461f4e32305e945efb59b61084fe1b6
 Merge: 2f1d4f7 fd9ef4d
 Author: Patrick Schleizer <adrelanos@whonix.org>
