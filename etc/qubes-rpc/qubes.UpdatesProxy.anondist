@@ -3,6 +3,8 @@
 ## Copyright (C) 2024 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
-/usr/libexec/helper-scripts/try-wait-for-tor-service-running
+set -e
+
+/usr/libexec/helper-scripts/try-wait-for-tor-service-running || true
 
 exec socat STDIO TCP:127.0.0.1:8082

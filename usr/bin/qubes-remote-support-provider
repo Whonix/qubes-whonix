@@ -248,12 +248,14 @@ while true ; do
    if test -o xtrace ; then
       if ssh "$hostname" ; then
          true "INFO: SSH success."
+         break
       else
          sleep 10
       fi
    else
       if ssh "$hostname" 2>/dev/null ; then
          true "INFO: SSH success."
+         break
       else
          sleep 10
       fi
