@@ -1,3 +1,31 @@
+commit 2c21cea57c151924aa91b6f26f7c6d008c45d800
+Merge: a11e79d a925dc4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Jan 6 10:28:13 2026 -0500
+
+    Merge remote-tracking branch 'github-whonix/master'
+
+commit a925dc48c80931a56ede7888716570aea80595a9
+Merge: a11e79d 569b724
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Jan 6 09:19:23 2026 -0500
+
+    Merge pull request #5 from Nurmagoz/patch-2
+    
+    Update replace-ips links
+
+commit 569b724583be3df7ef52f85f48e25354e0383013
+Author: Nurmagoz <11895339+Nurmagoz@users.noreply.github.com>
+Date:   Mon Jan 5 15:11:02 2026 +0000
+
+    Update replace-ips links
+
+commit a11e79d3f213482257204322496242aca3018d69
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Dec 5 04:08:11 2025 +0000
+
+    bumped changelog version
+
 commit 905ca65d302e5413542e2058681e4c466c36e789
 Merge: 2f1d4f7 92d74ca
 Author: Patrick Schleizer <adrelanos@whonix.org>
