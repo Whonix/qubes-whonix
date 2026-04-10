@@ -1,5 +1,4 @@
 #!/bin/bash -e
-# vim: set ts=4 sw=4 sts=4 et :
 #
 # qubes-whonixsetup - Called by /etc/xdg/autostart/qubes-whonixsetup.desktop
 #

@@ -1,5 +1,3 @@
-# vim: set syntax=yaml ts=2 sw=2 sts=2 et :
-#
 # messages.yaml - /usr/lib/qubes-whonix/qubes-whonixsetup uses the alert module
 #                 and uses the message id's created in this YAML configuration.
 #
