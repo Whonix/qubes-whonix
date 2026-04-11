@@ -1,3 +1,22 @@
+commit a9d2f413ab7b138d083078296efe15ab0ab1a2d8
+Merge: 27c61dd 95eff06
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Apr 11 04:29:02 2026 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 95eff068864a674c9cfea2732effa628d11aecf4
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Fri Apr 10 18:07:58 2026 -0400
+
+    Remove Vim and Emacs modelines
+
+commit 27c61dd34da538c951069845efee2824c215d471
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Mar 28 09:59:12 2026 +0000
+
+    bumped changelog version
+
 commit 1e25eea06876f563244d3aa170e844bc1fceaa39
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Mar 28 05:31:32 2026 -0400
