@@ -1,5 +1,4 @@
 #!/bin/bash -e
-# vim: set ts=4 sw=4 sts=4 et :
 #
 # qubes-whonix-postinit - Called by systemd used to setup other required
 #                         configurations before network is started.
