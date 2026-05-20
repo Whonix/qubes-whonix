@@ -1,3 +1,9 @@
+commit 881763104f6dff28de9e9b502be62174af8bf043
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Apr 11 08:40:43 2026 +0000
+
+    bumped changelog version
+
 commit a9d2f413ab7b138d083078296efe15ab0ab1a2d8
 Merge: 27c61dd 95eff06
 Author: Patrick Schleizer <adrelanos@whonix.org>
@@ -60,7 +66,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue Jan 6 09:19:23 2026 -0500
 
     Merge pull request #5 from Nurmagoz/patch-2
-    
+
     Update replace-ips links
 
 commit 569b724583be3df7ef52f85f48e25354e0383013
@@ -81,7 +87,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Dec 4 22:31:31 2025 -0500
 
     Merge tag '24.4-1'
-    
+
     .
 
 commit 92d74ca6e8df1beb65a3a90a75fb89e718dce0f8
@@ -193,7 +199,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Nov 23 04:52:41 2025 -0500
 
     cleanup
-    
+
     qubes-mount-dirs.service already runs Before=local-fs.target
     so After=local-fs.target is unneeded
 
@@ -1020,7 +1026,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Sep 13 05:03:24 2025 -0400
 
     Merge pull request #2 from DanWin/ipv6
-    
+
     Add IPv6 replacements
 
 commit 28f76bfc7c42dc4612c62cd8e9f180d4c5d29d69
@@ -1095,7 +1101,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Aug 23 05:50:12 2025 -0400
 
     fix: no longer `Depends:` on `thunderbird-qubes` because it `Depends:` on `thunderbird`
-    
+
     https://forums.whonix.org/t/thunderbird-no-longer-installed-by-default/6505/13
 
 commit de520cd9a96679e1e92194b6cbcf2732b846ebeb
@@ -1230,7 +1236,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Jan 20 05:24:31 2025 -0500
 
     Revert "Obsolete qubes-whonix-shared-packages-recommended and qubes-whonix-workstation-packages-recommended"
-    
+
     This reverts commit 01f51ab6aa57b867ae15dc39d67b019a4cc8ad65.
 
 commit 6929fd529fb12b3cd206d24fe912846461792b69
@@ -1238,7 +1244,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Jan 20 05:24:20 2025 -0500
 
     Revert "lintian"
-    
+
     This reverts commit 49d2555fe85178de52f4408c38d9486f45262f4c.
 
 commit 16db53b6c21ac84e30105a87f6029f1dae30419c
@@ -1283,7 +1289,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Jan 15 12:16:01 2025 -0500
 
     no longer install qubes-core-agent-passwordless-root by default
-    
+
     https://www.kicksecure.com/wiki/Sysmaint
 
 commit 6182663ef5d98001675f1d357d5e1da855cb2c48
@@ -1339,9 +1345,9 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue Oct 15 05:43:19 2024 -0400
 
     allow `qubes-firewall.service` running inside Qubes-Whonix VMs
-    
+
     https://forums.whonix.org/t/qubes-sys-whonix-does-not-do-its-job-as-qubes-firewallvm/18937
-    
+
     https://www.whonix.org/wiki/Qubes/Firewall
 
 commit 2f9e1d48858b81f78247bf11c14bb245ac0d750f
@@ -1391,7 +1397,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Jun 2 08:06:02 2024 -0400
 
     update comment
-    
+
     https://github.com/QubesOS/qubes-issues/issues/8398#issuecomment-2143573830
 
 commit 930977d9c36ec4ba009452c085e7d8a6bd147d09
@@ -1405,7 +1411,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Jun 2 07:44:27 2024 -0400
 
     Nowadays Qubes UpdatesProxy over qrexec only. Not over network.
-    
+
     https://github.com/QubesOS/qubes-issues/issues/8398#issuecomment-2143573830
 
 commit ed8d567ae390662fbec408dc68727cd20cf96a3b
@@ -1419,7 +1425,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Jun 1 18:11:05 2024 -0400
 
     fix tinyproxy-config-patch
-    
+
     https://github.com/QubesOS/qubes-issues/issues/8398
 
 commit c25e200f4f8b583e6a993b652fefa4d4a3b07bbd
@@ -1433,7 +1439,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Jun 1 16:23:15 2024 -0400
 
     use Qubes UpdatesProxy tinyproxy with socks instead of transparent torification
-    
+
     https://github.com/QubesOS/qubes-issues/issues/8398
 
 commit f62b30f0e422efabbe9fa1643f98703e6160dc19
@@ -1441,9 +1447,9 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Jun 1 14:27:19 2024 -0400
 
     remove no longer required workaround
-    
+
     https://github.com/QubesOS/qubes-issues/issues/1401
-    
+
     https://github.com/QubesOS/qubes-issues/issues/8398
 
 commit 2cbbc7e9112d5ef6f9be553a74ebcf5c88dd6473
@@ -1457,7 +1463,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Jun 1 13:29:37 2024 -0400
 
     add `Depends:` `dbus-user-session` to `qubes-whonix-workstation-packages-recommended`
-    
+
     https://forums.whonix.org/t/port-from-pulseaudio-to-pipewire-for-audio-support/16879/36
 
 commit 39e7b961fba01b28df9be58063c82c3a06b8890d
@@ -1471,12 +1477,12 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu May 30 10:16:49 2024 -0400
 
     add to `qubes-whonix-workstation-packages-recommended`:
-    
+
     ```
     wireplumber | pipewire-media-session-pulseaudio | pulseaudio-qubes,
     rtkit | pulseaudio-qubes,
     ```
-    
+
     https://forums.whonix.org/t/port-from-pulseaudio-to-pipewire-for-audio-support/16879/31
 
 commit 59dbe38edc1c4602f7058b18e74e0f6bd63148eb
@@ -1490,7 +1496,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Apr 7 02:40:34 2024 -0400
 
     fix pulseaudio -> pipewire package upgrade migration path
-    
+
     https://forums.whonix.org/t/port-from-pulseaudio-to-pipewire-for-audio-support/16879/24
 
 commit 20e12e1c99ecbe7af3f9012a6eeac211a098aff2
@@ -1504,9 +1510,9 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Apr 4 06:24:48 2024 -0400
 
     add `pipewire-pulse` to `qubes-whonix-workstation-packages-recommended`
-    
+
     Thanks to @marmarek for the bug report!
-    
+
     https://forums.whonix.org/t/port-from-pulseaudio-to-pipewire-for-audio-support/16879/22
 
 commit fe87f8117024de853060667e588e32ac2b7268aa
@@ -1520,7 +1526,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Feb 26 07:05:10 2024 -0500
 
     `pulseaudio-qubes` -> `pipewire-qubes`
-    
+
     https://forums.whonix.org/t/port-from-pulseaudio-to-pipewire-for-audio-support/16879/17
 
 commit 7a21b3a72eed6c8be03c3d28165d7dcc35b36314
@@ -1582,7 +1588,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Oct 16 08:34:23 2023 -0400
 
     Revert "workaround a (likely) curl bug that breaks Qubes-Whonix updates"
-    
+
     This reverts commit 3540eb790cc86c81983a2b88a6ae8b79cfa079c5.
 
 commit 1330408c7e9b2ce52998ae430d540304b4bd9f2b
@@ -1596,7 +1602,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Oct 13 12:26:51 2023 -0400
 
     workaround a (likely) curl bug that breaks Qubes-Whonix updates
-    
+
     https://github.com/QubesOS/qubes-issues/issues/8606
 
 commit f87770b92204eaeac48ee04e30714eaf55bd6b80
@@ -1712,9 +1718,9 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Jul 3 07:48:52 2023 -0400
 
     fix: make sure replace-ips runs before restarting Tor
-    
+
     This is useful to support `release-upgrade` script testing inside `sys-whonix`
-    
+
     refactoring
 
 commit d0c4bc7dd2a48af6afe9c9ce8363c3406d31cc2c
@@ -1736,17 +1742,17 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Jun 28 08:42:31 2023 -0400
 
     Merge pull request #1 from marmarek/no-salt
-    
+
     Drop salt dependency
 
 commit f3bd2aa4ea6e33248274bbb171c36eae618f8716
-Author: Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>
+Author: Marek Marczykowski-G_recki <marmarek@invisiblethingslab.com>
 Date:   Fri Jun 23 18:09:02 2023 +0200
 
     Drop salt dependency
-    
+
     It isn't available in bookworm
-    
+
     QubesOS/qubes-issues#7896
 
 commit fd480e5ead64cd24a44e93b78562b7852d01ba36
@@ -1874,7 +1880,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Dec 9 05:08:01 2021 -0500
 
     `/usr/share/tinyproxy/default.html.anondist`: also customize html body
-    
+
     in case tinyproxy does not show html head
 
 commit ad8db5e568adce98984c024ca54dbe2fe7bd96ea
@@ -1924,11 +1930,11 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Sep 1 11:16:03 2021 -0400
 
     drop initramfs-tools from qubes-whonix-shared-packages-recommended
-    
+
     leave that to Qubes
-    
+
     for dracut support
-    
+
     https://forums.whonix.org/t/replacing-initramfs-tools-with-dracut/4487/13
 
 commit 6cd8e2ec1e0917fd7ced33dadef7d7515b14517b
@@ -1972,7 +1978,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Aug 4 07:49:54 2021 -0400
 
     lintian --suppress-tags executable-in-usr-lib
-    
+
     keeping /usr/lib/qubes-whonix since Qubes also has /usr/lib/qubes
 
 commit e60ce302df00c71c2979617a7b43220fef38e151
@@ -2024,9 +2030,9 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Jul 9 17:57:07 2021 +0000
 
     Merge branch 'backcompat' into 'master'
-    
+
     Honor skip-torified-updates-proxy-check qvm-service
-    
+
     See merge request whonix/qubes-whonix!1
 
 commit 07367f83fbbea9c9a1811c88e0fd12b0d0e615d4
@@ -2034,10 +2040,10 @@ Author: Rusty Bird <rustybird@net-c.com>
 Date:   Fri Jul 9 16:51:04 2021 +0000
 
     Honor skip-torified-updates-proxy-check qvm-service
-    
+
     Reintroduce the ability (from qubes-whonix < 15.4) to skip the
     torified-updates-proxy-check script by enabling a qvm-service.
-    
+
     This allows a Whonix template to be updated through a non-Whonix
     qubes.UpdatesProxy VM if necessary.
 
@@ -2160,7 +2166,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Jan 27 04:45:20 2021 -0500
 
     binds+=( '/var/lib/sdwdate' )
-    
+
     Time Replay Protection
     /var/lib/sdwdate/time-replay-protection-utc-unixtime
     https://www.whonix.org/wiki/Sdwdate#sdwdate_Time_Replay_Protection
@@ -2224,7 +2230,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Jan 9 01:22:47 2021 -0500
 
     port from qubesdb-read to /run/qubes/this-is-templatevm
-    
+
     to be more robust during upgrades when qubesdb is updated
 
 commit 53ff72ab6ce59cb2c98401fd701ae782ca100e37
@@ -2232,14 +2238,14 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Jan 9 01:06:24 2021 -0500
 
     Run torified-updates-proxy-check under user `updatesproxycheck`.
-    
+
     No longer use sudo inside `torified-updates-proxy-check`.
     No longer run `torified-updates-proxy-check` as root.
-    
+
     This is to avoid some corner cases with authentication / PAM.
-    
+
     Thanks to @marmarek for the suggestion!
-    
+
     https://phabricator.whonix.org/T1001
 
 commit e52ef06ad2d13138d81bf0c515df15bc0223e325
@@ -2253,7 +2259,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Dec 24 08:19:29 2020 -0500
 
     simplify removal of package `qubes-core-agent-passwordless-root`
-    
+
     (through package `dummy-dependency`)
 
 commit 5c39c342f0a1a91e5edeadaa74e283da5cac2294
@@ -2411,7 +2417,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Sep 18 07:28:26 2020 -0400
 
     no timeout needed to enter wormhole code
-    
+
     no security harm if user waits forever
 
 commit f539ef6ebfd8e3ab487e71c39aedf68490be9f06
@@ -2569,15 +2575,15 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Jul 21 12:50:20 2020 -0400
 
     no longer depend on `qubes-core-agent` / `qubes-gui-agent`
-    
+
     qubes-vm-dependencies already `Depends`: on it
-    
+
     https://github.com/QubesOS/qubes-builder-debian/blob/master/template_debian/packages_qubes.list
-    
+
     in preparation of
     - removal of dependency on `qubes-core-agent-passwordless-root`
     - support of VM sudo
-    
+
     https://www.qubes-os.org/doc/vm-sudo/
 
 commit f392f406ad1990583dde3fed57c53efa8dcae1a8
@@ -2603,7 +2609,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Jul 11 14:57:39 2020 -0400
 
     qubes-whonix-remote-support.service: SuccessExitStatus=143
-    
+
     required to not show the service as failed after systemctl stop qubes-whonix-remote-support.service
 
 commit dc4b86914ecfc8e660a6c65f236754084cc3dec8
@@ -2661,11 +2667,11 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jun 7 12:35:01 2020 +0000
 
     Merge pull request #7 from marmarek/python3
-    
+
     Convert replace-ips to python3
 
 commit 9d363213598b452c03ca5e73b594f26dfcfd2ee6
-Author: Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>
+Author: Marek Marczykowski-G_recki <marmarek@invisiblethingslab.com>
 Date:   Sat Jun 6 15:44:37 2020 +0200
 
     Convert replace-ips to python3
@@ -2685,7 +2691,7 @@ Date:   Sat Jun 6 08:20:13 2020 -0400
     if files were immutable, we ought to just leave them as is and not run
     'chattr -i' on these
     * add debug output
-    
+
     https://github.com/Whonix/updates-status/issues/27
 
 commit 1be804642734cc4d6416f58244b719d9b9bfa404
@@ -2873,7 +2879,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Feb 13 07:38:04 2020 -0500
 
     do not start i2p and privoxy systemd services in Qubes TemplateVMs by default
-    
+
     https://forums.whonix.org/t/installation-and-fix-of-i2p-inside-whonix-workstation-by-default/8610
 
 commit 381a11cb005b1f646c90e25af3a256f19bb06e7c
@@ -2905,11 +2911,11 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Dec 22 10:54:45 2019 -0500
 
     remove comment
-    
+
     XXX: Should check for qubes_vm_type being 'ProxyVM' or 'NetVM'?
-    
+
     Qubes uses only provides_network anymore and not 'ProxyVM' or 'NetVM'.
-    
+
     https://www.qubes-os.org/news/2017/10/03/core3/
 
 commit e08f217e55a393448279f091d989ef9fb81816f8
@@ -2947,11 +2953,11 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Dec 22 05:29:51 2019 -0500
 
     no need to use modprobe as module loading happens automatically
-    
+
     no need to disable IP forwarding as this is default anyhow and https://github.com/Whonix/ipv4-forward-disable does it as well
-    
+
     improve output on error
-    
+
     refactoring
 
 commit bdf2b22394439443cba2656dec3f092846848d67
@@ -3001,11 +3007,11 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Aug 30 04:03:33 2019 -0400
 
     cleanup, remove useradd / groupadd user to group debian-tor
-    
+
     since nothing in this package depends on user "user" being in group debian-tor
-    
+
     thereby avoid use off useradd / groupadd
-    
+
     https://forums.whonix.org/t/port-from-useradd-groupadd-and-usermod-to-adduser-and-addgroup/7977
 
 commit 04dd386aba7bd1ea86f5cb01f00e704500941bca
@@ -3151,7 +3157,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Jun 14 10:14:30 2019 +0000
 
     qubes-whonix-shared-packages-recommended `Depends:` on initramfs-tools
-    
+
     since qubes-kernel-vm-support `Recommends:` initramfs-tools and since it is
     installed by default in Qubes Debian templates too
 
@@ -3169,7 +3175,7 @@ Date:   Tue Jun 11 01:41:10 2019 -0400
      qubes-kernel-vm-support, qubes-mgmt-salt-vm-connector,
      qubes-usb-proxy, qubes-input-proxy-sender,
      qubes-core-agent-thunar, qubes-core-agent-nautilus
-    
+
     qubes-whonix-workstation-packages-recommended add dependency on:
      qubes-img-converter
 
@@ -3184,9 +3190,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jun 9 10:09:16 2019 +0000
 
     qubes-whonix-shared-packages-recommended depend on qubes-core-agent-thunar
-    
+
     Thanks to @TNTBOMBOM for the bug report!
-    
+
     http://forums.whonix.org/t/qubes-whonix-version-14-debian-stretch-based-can-be-upgraded-to-version-15-debian-buster-based-testers-wanted/7143/23
 
 commit 79b7d4492fc35e5b0b084247b710fa4a05ff8094
@@ -3314,18 +3320,18 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Mar 1 14:32:40 2019 +0000
 
     add improved legal protections clauses
-    
+
     The license for software created by Whonix is the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version with additional terms applicable per GNU GPL version 3 section 7.
-    
+
     The additional terms are based on the Doom 3 license which is Debian refers to as `GPL-3+-with-id-software-additional-terms`, which is Debian DFSG [1] (The Debian Free Software Guidelines) approved and which is therefore suitable for Debian `main`. Whonix made applied minimal changes to it:
-    
+
     * Rewrite `The Doom 3 BFG Edition GPL Source Code` to the more common `this program` which is used throughout the GPL.
     * Added a "trump clause" [2], in other words, any conflicts or disputes between the additional terms and the GPLv3 shall be resolved in favor of the GPLv3 by adding `Notwithstanding any other provision of this License` (as mentioned in GPL FAQ [3]) at the beginning of the additional terms.
-    
+
     [1] https://www.debian.org/social_contract#guidelines
     [2] https://www.fsf.org/news/canonical-updated-licensing-terms
     [3] https://www.gnu.org/licenses/gpl-faq.html#v3Notwithstanding
-    
+
     For more considerations, see also:
     https://www.whonix.org/wiki/Dev/Licensing
 
@@ -3382,7 +3388,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Aug 23 06:27:41 2018 -0400
 
     improve Qubes detection
-    
+
     if command -v "qubesdb-read" >/dev/null 2>&1 ; then
 
 commit 99a431397fcc8edbd71efe386ba5f2f651eded23
@@ -3402,7 +3408,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Jul 17 18:57:53 2018 +0800
 
     avoid starting qubes-sync-time.service
-    
+
     https://github.com/QubesOS/qubes-issues/issues/4097
 
 commit 1d488a2651b938e97016765661c3843a0bf8399b
@@ -3440,9 +3446,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Jun 19 07:17:33 2018 +0000
 
     fix, blocked upgrade issue
-    
+
     https://forums.whonix.org/t/whonix14-qubes3-2-latest-upgrades-block-apt-networking
-    
+
     Thanks to @qubenix for the bug report!
 
 commit 9f906390a7c03140b6f304391d61bed66271db91
@@ -3456,7 +3462,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Jun 14 06:00:28 2018 +0000
 
     create /var/run/qubes-service/whonix-secure-proxy-check-done also on failure
-    
+
     when Qubes torified updates proxy test times out and gets killed  with signal
     sigterm by systemd
 
@@ -3477,7 +3483,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Jun 13 15:46:33 2018 +0000
 
     uwt for apt in Qubes TemplateVM: wait for Qubes torified updates proxy check
-    
+
     to finish before showing an error message that Qubes torified updates proxy
     detection failed.
 
@@ -3516,7 +3522,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed May 9 10:30:31 2018 +0000
 
     fix, run "qvm-features-request whonix-ws=1" only on Whonix-Workstation
-    
+
     https://github.com/QubesOS/qubes-issues/issues/3765#issuecomment-386805491
 
 commit 75ef3de0731377002729dcf65e8268a191743394
@@ -3530,7 +3536,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun May 6 15:37:52 2018 +0200
 
     fix path to etc/qubes/post-install.d/
-    
+
     https://github.com/QubesOS/qubes-issues/issues/3765#issuecomment-386805491
 
 commit cc007a0b986fcb31fcd3a55ed9caaea94994ea1d
@@ -3538,9 +3544,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun May 6 15:35:48 2018 +0200
 
     add etc/post-install.d/30-whonix-ws.sh
-    
+
     qvm-features-request whonix-ws 1
-    
+
     https://github.com/QubesOS/qubes-issues/issues/3765#issuecomment-386805491
 
 commit d68d25f2eabc49527d1024ba00e9755e65b08973
@@ -3560,7 +3566,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Feb 20 16:16:39 2018 +0000
 
     remove 'mkdir -p /usr/local/etc/torrc.d'
-    
+
     will be done by systemd unit file anon-gw-anonymizer-config.service
 
 commit 8ee0b893357b2cba90466d0b8ccbc1b9139c7921
@@ -3568,7 +3574,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Feb 20 16:14:40 2018 +0000
 
     remove /etc/tor from bind dirs
-    
+
     since we have torrc.d now
 
 commit a234b54e33cb94118fef85da803adc6e81f47f57
@@ -3582,7 +3588,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Feb 10 15:33:01 2018 +0000
 
     remove unneeded dependency on whonix-setup-wizard
-    
+
     so it doesn't have to be installed on the workstation
 
 commit 086647b507991e48fca11bc29d401edca66eda06
@@ -3782,7 +3788,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Dec 21 22:58:53 2017 +0000
 
     run curl torified updates proxy check as user updatesproxycheck
-    
+
     so it will be let through Whonix firewall
 
 commit dea1e02c0e1c1a4e686328e56df9deba17208c5d
@@ -3868,7 +3874,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Dec 19 11:45:30 2017 +0000
 
     add missing dependency python3 to qubes-whonix package
-    
+
     to fix lintian warning
 
 commit e6658eb5d85ffa8dfac6854ff737dd68f2da3d57
@@ -3890,7 +3896,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Dec 19 01:08:36 2017 +0000
 
     add missing dependency python3-pyqt5
-    
+
     required by alert script
 
 commit 3f5e5778e91c4e3f58c11d7a775b2914edf91629
@@ -3910,7 +3916,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Dec 3 13:27:31 2017 +0000
 
     install pulseaudio-qubes in Whonix 14 for audio support
-    
+
     https://phabricator.whonix.org/T641
 
 commit 7363cd74f3f36b548cad8d282c17fd634322a4f9
@@ -3924,9 +3930,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Oct 20 14:13:53 2017 +0000
 
     update "Whonix-Gateway NetVM required for updates" popup message
-    
+
     for Qubes R4 updates proxy and default non-networked TemplateVMs
-    
+
     https://phabricator.whonix.org/T723
 
 commit d9c9646f29ae0dff7d77629d062c035d1a011e7d
@@ -3940,9 +3946,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Sep 24 14:14:41 2017 +0200
 
     remove /etc/resolv.conf from Qubes protected files
-    
+
     to make Whonix-Gateway DNS functional
-    
+
     to make meek (meek-lite) functional
 
 commit 909aa6cb3218b846bd463fba48484980d4e7b813
@@ -3962,13 +3968,13 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Sep 12 02:44:53 2017 +0200
 
     Include qubes-core-agent-passwordless-root on Qubes 4.0
-    
+
     https://phabricator.whonix.org/T697
-    
+
     Credits:
-    
+
     Emulate commit by @marmarek from Whonix 13 branch.
-    
+
     https://github.com/marmarek/qubes-whonix/commit/e5a50d037f7646bc10716f6aeecb7773cd99ac8b
 
 commit 34ec385b851b055a1da3be14ccbdd2993abf7deb
@@ -3990,29 +3996,29 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Sep 11 16:34:58 2017 +0000
 
     Merge pull request #4 from marmarek/qubes4
-    
+
     Make qubes-whonix package compatible with Qubes 4.0
 
 commit 65818d5da96e88f6f8311ded46354504f446ece3
-Author: Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>
+Author: Marek Marczykowski-G_recki <marmarek@invisiblethingslab.com>
 Date:   Sat Sep 9 14:48:13 2017 +0200
 
     Add dependency on appropriate qubes-core-agent-* subpackages
-    
+
     In Qubes 4.0 qubes-core-agent is split into multiple smaller packages.
     qubes-core-agent-networking is needed for proper networking support.
-    
+
     qubes-core-agent-dom0-updates is needed for Whonix Gateway to function
     as UpdateVM.
-    
+
     https://phabricator.whonix.org/T697
 
 commit 01964e3c8c53b49aa14e56f7924fce5e88b5a448
-Author: Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>
+Author: Marek Marczykowski-G_recki <marmarek@invisiblethingslab.com>
 Date:   Sat Sep 9 14:25:00 2017 +0200
 
     Use appropriate updates proxy if it is qrexec based
-    
+
     In Qubes 4.0, updates proxy runs on qrexec and templates have no other
     network access. This is accompanied with local TCP listener redirecting
     the traffic to the proxy.
@@ -4022,18 +4028,18 @@ Date:   Sat Sep 9 14:25:00 2017 +0200
     scripts.
 
 commit 3cad28fdff4445f85062fd4672017dd0a37aae31
-Author: Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>
+Author: Marek Marczykowski-G_recki <marmarek@invisiblethingslab.com>
 Date:   Sat Sep 9 04:36:24 2017 +0200
 
     network: use `qubes-primary-dns` QubesDB entry if present
-    
+
     For a long time the DNS address was the same as default gateway. This is
     still the case in R3.x, but using `qubes-gateway` configuration
     parameter for it is misleading. It should be up to dom0 to provide DNS
     address (whether the value is the same as gateway or not).
-    
+
     QubesOS/qubes-issues#1817
-    
+
     (manually cherry-picked from
      qubes-core-agent-linux@fb9b3b62c02427b80657056805a9bac7756c98b3)
 
@@ -4096,11 +4102,11 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Mar 2 16:39:15 2017 +0000
 
     add Requires=qubes-whonix-redirect-9050.socket
-    
+
     override lintian false positive
-    
+
     remove [Install] section since static unit
-    
+
     https://phabricator.whonix.org/T610
 
 commit 3344c64e6d622a5c429c8a1b56a394e5864e39d1
@@ -4114,7 +4120,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Mar 1 20:18:25 2017 +0000
 
     redirect 9050 to in Qubes TemplateVM to sys-whonix for apt-transport-tor support
-    
+
     https://phabricator.whonix.org/T610
 
 commit f31cc8d4e17b0efed3d97be96acff039199bb476
@@ -4128,7 +4134,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Feb 21 22:15:47 2017 +0000
 
     use systemctl --no-pager to prevent blocking due to systemctl interactivity
-    
+
     https://phabricator.whonix.org/T637
 
 commit 9c3193278440b7dec20984cb589e55e2d83cb887
@@ -4154,7 +4160,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Feb 10 15:47:51 2017 +0000
 
     remove faketime from Build-Depends:
-    
+
     since no longer used for reproducible builds
 
 commit a5433af53fd9cdcd47e98d5d0560e683c48f5319
@@ -4186,7 +4192,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Jan 31 14:42:34 2017 +0100
 
     cups and system-config-printer from qubes-whonix-workstation-packages-recommended
-    
+
     https://phabricator.whonix.org/T619
 
 commit 1ca38f484e907b6fac857e432d81040b1cfd5cb3
@@ -4230,7 +4236,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Jan 27 12:42:05 2017 +0100
 
     clean up dependencies to resolve issues upgrading to stretch
-    
+
     xsettingsd
     gnome-themes-standard
     xinit (not up to qubes-whonix)
@@ -4272,7 +4278,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Jan 9 03:50:59 2017 +0000
 
     Documentation=https://github.com/Whonix/qubes-whonix
-    
+
     to fix stretch lintian warning
 
 commit 6afa69962e5bc1a02ec74e8ac628b8129f881cb6
@@ -4286,9 +4292,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Dec 25 02:25:44 2016 +0000
 
     torified-updates-proxy-check: leave timeout to systemd unit
-    
+
     since curl does not timeout and simpler to implement
-    
+
     https://phabricator.whonix.org/T533
 
 commit 170fe0941c9c287d0a1c28e5cc9ab32844c728e5
@@ -4296,9 +4302,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Dec 24 20:12:08 2016 +0100
 
     torified-updates-proxy-check: fix, instant exit when connected to non-Torified updates proxy
-    
+
     Thanks to @marmarek for the suggestion!
-    
+
     https://github.com/Whonix/qubes-whonix/commit/1c99edbbce1f375591f2e42aaf679ba7492b4dd8#commitcomment-20288662
 
 commit 1c99edbbce1f375591f2e42aaf679ba7492b4dd8
@@ -4306,9 +4312,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Dec 23 23:41:54 2016 +0100
 
     torified-updates-proxy-check: wait up to 120 seconds
-    
+
     So it does not timeout if Whonix-Gateway is still in timesync-fail-closed mode.
-    
+
     https://phabricator.whonix.org/T533
 
 commit 921754dc39dddab4072be942f8a3374c9c8c16e8
@@ -4316,7 +4322,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Dec 18 16:23:41 2016 +0100
 
     fix sdwdate.service.d/40_qubes.conf and whonixcheck.service.d/40_qubes.conf
-    
+
     ConditionPathExists=!/var/run/qubes-service/updates-proxy-setup
     ->
     ConditionPathExists=!/var/run/qubes/this-is-templatevm
@@ -4326,7 +4332,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Dec 18 16:17:53 2016 +0100
 
     fix, delete lib/systemd/system/swap-file-creator.d/40_qubes.conf
-    
+
     ineffective and there is a correct file
     lib/systemd/system/swap-file-creator.service.d/40_qubes.conf
     anyhow
@@ -4342,7 +4348,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Dec 9 20:18:20 2016 +0100
 
     qubes-whonix add dependency on qubesdb-vm
-    
+
     https://github.com/QubesOS/qubes-issues/issues/2497
 
 commit 0f1fed96ed94db38822946bd64a75fd81893604e
@@ -4350,7 +4356,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Dec 9 20:14:59 2016 +0100
 
     postinst: Do not break in case qubesdb-vm is also upgraded and not running.
-    
+
     https://github.com/QubesOS/qubes-issues/issues/2497
 
 commit d054640facbb7df9dfe0b486d7fdbc4b455e40f5
@@ -4358,7 +4364,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Dec 7 22:51:19 2016 +0000
 
     Before=tor-controlport-filter.service
-    
+
     https://phabricator.whonix.org/T573
 
 commit 1e69c6a34c67ab843444bf21e69ccb1fc8a3692f
@@ -4379,7 +4385,7 @@ Date:   Wed Dec 7 22:40:24 2016 +0000
 
     - adjust for control port filter by Tails
     - IP replace /usr/share/whonix-gw-network-conf/network_internal_ip.txt
-    
+
     https://phabricator.whonix.org/T573
 
 commit cdf26f1f0ca1fbb7425edcf852b42d73d2e7c6d9
@@ -4387,7 +4393,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Nov 27 00:58:35 2016 +0100
 
     sudoers
-    
+
     https://github.com/QubesOS/qubes-doc/pull/228#issuecomment-263093115
 
 commit 2cb07ad6b703592240c1b682e0f53c102d3a9b57
@@ -4401,11 +4407,11 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Sep 9 16:09:14 2016 +0000
 
     Comment out /var/lib/whonixcheck permission fix.
-    
+
     This cannot work the legacy function since it is run before function bind_dirs.
-    
+
     Will be reimplemented in whonix-legacy.
-    
+
     https://phabricator.whonix.org/T533
 
 commit 920e1592e9d54e213c3a84d06752ea1dc6f238d2
@@ -4427,7 +4433,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Aug 25 16:25:03 2016 +0000
 
     sudo --non-interactive
-    
+
     https://phabricator.whonix.org/T549
 
 commit aedc2574f02e8d73812ea2b7bdab69639ee84b2d
@@ -4435,7 +4441,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Aug 25 02:37:21 2016 +0000
 
     fix, do not restart whonixcheck in redundant cases
-    
+
     comments
 
 commit 88279e6061eff33dceeb21f92fe27ff13aee8dbe
@@ -4449,7 +4455,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Aug 25 01:15:22 2016 +0000
 
     legacy, change /var/lib/whonixcheck permissions to user 'whonixcheck'
-    
+
     https://phabricator.whonix.org/T533
 
 commit e6c261f1a2aba563696b5f8eac10070ca0bad9ab
@@ -4457,7 +4463,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Aug 14 23:06:05 2016 +0000
 
     removed Whonix firewall notice because this was merged into whonixcheck
-    
+
     https://phabricator.whonix.org/T488
 
 commit ffe508a7c18bc09be20d4344369fb1114cde38f8
@@ -4471,10 +4477,10 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Aug 14 22:59:25 2016 +0000
 
     cleanup
-    
+
     no longer required:
     ConditionPathExists=!/var/run/qubes-service/whonix-firewall-failed
-    
+
     because network will no longer come up on Whonix firewall error.
 
 commit edd95e52b935029bca89642bba86f29a59ebbf45
@@ -4482,12 +4488,12 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Aug 14 20:19:00 2016 +0000
 
     Add Fail Closed Mechanism.
-    
+
     When the Whonix firewall systemd service failed, do not bring up the network.
-    
+
     After=whonix-firewall.service
     Requires=whonix-firewall.service
-    
+
     Related:
     https://github.com/QubesOS/qubes-issues/issues/2248
 
@@ -4562,7 +4568,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Aug 13 02:05:27 2016 +0200
 
     drop also IPv6 traffic in firewall_lockdown function
-    
+
     not required right now, because IPv6 is disabled in Whonix by default, but good to have for the future
 
 commit 5fad8972687a476526c5b99b5c157d34c9a6dd6d
@@ -4576,7 +4582,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Aug 13 02:01:27 2016 +0200
 
     refactor enable-firewall script
-    
+
     useful to implement firewall on-failure network lockdown feature
 
 commit 233b7fd11c14fec58204d513747d496aaefcb386
@@ -4596,9 +4602,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Aug 10 14:36:48 2016 +0000
 
     fix, allow qubes-whonixsetup restarting whonixcheck in /etc/sudoers.d
-    
+
     Thanks to @crat0z for reporting this bug!
-    
+
     https://github.com/QubesOS/qubes-doc/pull/176
 
 commit 23850a28e5947f81957a249bbeab1fdf3794cbed
@@ -4612,9 +4618,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Aug 1 01:28:10 2016 +0000
 
     added Conflicts=shutdown.target to qubes-whonix-(firewall|network)
-    
+
     since we are now using DefaultDependencies=no
-    
+
     https://phabricator.whonix.org/T528
 
 commit f0d3995a70eb3b03f11e22057b45477fb59dd787
@@ -4628,11 +4634,11 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jul 31 20:03:24 2016 +0000
 
     Qubes R3.2 compatibility fixes
-    
+
     fix systemd dependencies
-    
+
     start Qubes-Whonix firewall earlier
-    
+
     start qubes-torified-updates-check before qubes-updates-(proxy|cache)
 
 commit bdc51b231790fbc017df02ec6ea4ec18273005b7
@@ -4682,7 +4688,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jul 24 01:08:19 2016 +0000
 
     Qubes Whonix Torified Updates Proxy Check: wait for network-online.target
-    
+
     rather than network.target
 
 commit fa6fe8cea58706652d0ac15188612f75c3f84f19
@@ -4690,7 +4696,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jul 24 00:46:38 2016 +0000
 
     override with  || true, just in case
-    
+
     https://github.com/QubesOS/qubes-issues/issues/2191
 
 commit cce19fd1fdf08056a428cadddb817365208337f0
@@ -4698,7 +4704,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jul 24 00:44:47 2016 +0000
 
     bind-dirs.sh legacy snippet: add shebang for syntax highlighting
-    
+
     https://github.com/QubesOS/qubes-issues/issues/2191
 
 commit 2660abb14fbf77ec60adebd5207c537542910af5
@@ -4706,7 +4712,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jul 24 00:43:03 2016 +0000
 
     only run bind-dirs.sh legacy function on mount, not on unmount
-    
+
     https://github.com/QubesOS/qubes-issues/issues/2191
 
 commit f3acd5d78f28864505a405b5db275aba33876d7a
@@ -4714,7 +4720,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jul 24 00:20:51 2016 +0000
 
     run bind-dirs.sh legacy function only once
-    
+
     https://github.com/QubesOS/qubes-issues/issues/2191
 
 commit 4f09e149ea7e4975037f8389267fb385d5ab3a2b
@@ -4722,9 +4728,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Jul 22 21:03:32 2016 +0000
 
     qubes-whonix-network.service: remove Before=qubes-update-check.service qubes-update-check.timer
-    
+
     for simplification
-    
+
     this is up to qubes-update-check
 
 commit e4869c40461c14168531cf83acdb8281cdf302d1
@@ -4750,7 +4756,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Jul 22 19:13:35 2016 +0200
 
     bind-directories: also exit if qubes-core-agent version is equal or higher than 3.2.8-1+deb8u1
-    
+
     https://github.com/QubesOS/qubes-issues/issues/2191
 
 commit cf92e9ec33550225a7e173a08b89e23223687988
@@ -4758,7 +4764,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Jul 22 19:03:36 2016 +0200
 
     fix bind-dirs.sh legacy function
-    
+
     https://github.com/QubesOS/qubes-issues/issues/2191
 
 commit b3e659b09b5b84b9f4e62c33ec296e07523be8d4
@@ -4772,7 +4778,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Jul 22 17:47:20 2016 +0200
 
     bind-dirs.sh path change fix
-    
+
     https://github.com/QubesOS/qubes-issues/issues/2191#issuecomment-234579680
 
 commit 3df330ec898f5867fc208cd5b06950e335222f97
@@ -4780,9 +4786,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Jul 7 21:24:58 2016 +0200
 
     fix, run qubes-whonix-postinit systemd service after tor@default systemd service
-    
+
     Thanks to claudi8b6 for the bug report!
-    
+
     https://forums.whonix.org/t/no-connectivity-in-gw
 
 commit f2b70404f6a735872b707684bf634ee1577b0d2c
@@ -4796,7 +4802,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Jun 29 14:24:07 2016 +0000
 
     cleanup ConditionPathExists for qubes-whonix-qubes-updates-proxy-enable-maybe
-    
+
     https://github.com/Whonix/qubes-whonix/pull/2
 
 commit 064bc2b32d7f985d37501d884722a2f79a715500
@@ -4804,9 +4810,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Jun 29 13:57:33 2016 +0000
 
     improve qubes-whonix-qubes-updates-proxy-enable-maybe.service
-    
+
     As per suggestions by @rustybird.
-    
+
     https://github.com/Whonix/qubes-whonix/commit/4d9e38304050c4fd1ea49b08078298da10939d5c#commitcomment-18060234
 
 commit 4d9e38304050c4fd1ea49b08078298da10939d5c
@@ -4814,12 +4820,12 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Jun 28 17:01:34 2016 +0000
 
     add separate qubes-whonix-qubes-updates-proxy-enable-maybe.service
-    
+
     No longer mix up with qubes-whonix-sysinit.
-    
+
     Refactoring, renamed
     usr/lib/qubes-whonix/init/enable-services -> usr/lib/qubes-whonix/init/qubes-whonix-sysinit
-    
+
     https://github.com/Whonix/qubes-whonix/pull/2
 
 commit 4166437a4bc5bf80d01f6f87d9d12caf4bddbea7
@@ -4835,7 +4841,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Jun 28 17:03:42 2016 +0200
 
     Merge pull request #2 from rustybird/qubes-updates-cache
-    
+
     qubes-updates-cache: Signal torified proxy to client
 
 commit c1371ed2219aad88b0b3ff9f6056f0efeed50b62
@@ -4843,7 +4849,7 @@ Author: Rusty Bird <rustybird@openmailbox.org>
 Date:   Fri Jun 24 15:27:49 2016 +0000
 
     Ship premodified tinyproxy/squid error pages
-    
+
     This way, the user won't have to restart qubes-whonix-sysinit.service
     after updating tinyproxy or qubes-updates-cache, and system startup will
     speed up a little.
@@ -4853,7 +4859,7 @@ Author: Rusty Bird <rustybird@openmailbox.org>
 Date:   Fri Jun 24 15:27:48 2016 +0000
 
     qubes-updates-cache: Signal torified proxy to client
-    
+
     Also allow users to manually enable the non-caching proxy on
     workstations, though both proxy and cache currently cannot function
     there because the necessary firewall rules are missing.
@@ -4863,7 +4869,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Jun 11 13:57:12 2016 +0000
 
     tor systemd service: After=qubes-sysinit.service
-    
+
     Before fix lands in Qubes R3.2 and above.
 
 commit abf337f50d0b69b76e26b3f7d7f87d1cfa7092d3
@@ -4871,9 +4877,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Jun 11 13:38:19 2016 +0000
 
     Do not start tor@default service in TemplateVM.
-    
+
     Not doing that already for the tor service.
-    
+
     Since the actual tor service was renamed to tor@default by upstream.
 
 commit d4eb18a03a8e60b9cb985062619aae775271660a
@@ -4881,7 +4887,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Jun 2 11:52:30 2016 +0000
 
     do not use tput if variable TERM is empty
-    
+
     https://phabricator.whonix.org/T505
 
 commit 1ea8a3e857b4e57a3ed86860850d9cc94ec4a4f1
@@ -4889,11 +4895,11 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue May 17 16:23:02 2016 +0000
 
     fixed 'double terminals shortcuts with one right click' in Nautilus bug
-    
+
     by no longer installing nautilus-open-terminal by default.
-    
+
     Fixes https://github.com/QubesOS/qubes-issues/issues/1670
-    
+
     Thanks to @TNTBOMBOM for the bug report!
 
 commit dd766de131925ad23fbb4ba087688cadb09d8416
@@ -4907,7 +4913,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Apr 27 23:58:32 2016 +0000
 
     removed /usr/share/xchat-improved-privacy/.xchat2/xchat.conf from replace-ips
-    
+
     since that location is now obsolete and we better not replace files in
     /etc/skel to avoid dpkg changed configuration prompts
 
@@ -4940,7 +4946,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Apr 25 19:54:24 2016 +0000
 
     Use Qubes bind-dirs.sh rather than Whonix bind-directories once available.
-    
+
     https://phabricator.whonix.org/T501
 
 commit ffa9fe882a3c760290960b791be58c6a481adc97
@@ -4954,9 +4960,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Apr 25 19:41:15 2016 +0000
 
     SetDateTime / SyncNtpClock do not echo to stderr / exit 1
-    
+
     to prevent systemd (logs) getting confused
-    
+
     https://phabricator.whonix.org/T384
 
 commit c0c3875c32c2f17358ef7e4a7cbb15ee48d8041d
@@ -4964,9 +4970,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Apr 25 19:38:26 2016 +0000
 
     prevent running /usr/lib/qubes/qubes-setup-dnat-to-ns in Qubes-Whonix
-    
+
     to stop it from modifying firewall rules
-    
+
     https://phabricator.whonix.org/T502
 
 commit 8b07868af03c8db810eec1ccd40b92cfc559759e
@@ -4980,7 +4986,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Apr 21 21:38:56 2016 +0000
 
     made /var/cache/anon-base-files persistent
-    
+
     https://phabricator.whonix.org/T419
 
 commit ff93b8f77754e377128947be9042febce378ea04
@@ -5000,13 +5006,13 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Apr 18 21:58:23 2016 +0000
 
     fixed 'Templates incorrectly think they're not connected to a Whonix gateway.'
-    
+
     Created qubes-whonix-torified-updates-check.service that runs after the network is up.
-    
+
     Thanks to qubenix for this report!
-    
+
     https://forums.whonix.org/t/templates-incorrectly-think-theyre-not-connected-to-a-whonix-gateway/2258/7
-    
+
     https://phabricator.whonix.org/T496
 
 commit 9bba8f220d42c1fc536c984131d9fe587abe3ad3
@@ -5020,7 +5026,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Mar 19 16:19:31 2016 +0100
 
     no more tabs
-    
+
     https://github.com/Whonix/qubes-whonix/pull/1
 
 commit 8b90b035aac8e0c8c2fdeca415a73010c4f7bb92
@@ -5028,9 +5034,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Mar 19 16:05:32 2016 +0100
 
     manually merged pull request '[network-proxy-setup] Permit !CONFIG_MODuLES'
-    
+
     by @loveithateit
-    
+
     https://github.com/Whonix/qubes-whonix/pull/1
 
 commit a3160466b318acc8e8f2397ac42d287b34b3c617
@@ -5038,10 +5044,10 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Mar 19 15:58:58 2016 +0100
 
     refactoring, more similarity to Qubes implementation
-    
+
     preparation to merge pull request
     '[network-proxy-setup] Permit !CONFIG_MODuLES'
-    
+
     https://github.com/Whonix/qubes-whonix/pull/1
 
 commit 716b4551c67825de13f3fb331a163882c01e1894
@@ -5049,9 +5055,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Jan 6 23:05:56 2016 +0000
 
     also exit from bind-directories if file /var/run/qubes-service/qubes-dvm exists
-    
+
     Thanks to @marmarek for the suggestion!
-    
+
     https://github.com/QubesOS/qubes-issues/issues/1328#issuecomment-169483029
 
 commit 267e26cec9c50aa115af52254629931346766588
@@ -5059,7 +5065,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Jan 6 19:34:39 2016 +0000
 
     fixed '/bin/sync hangs forever in whonix-ws-dvm'
-    
+
     https://github.com/QubesOS/qubes-issues/issues/1328
 
 commit deabdc2456beaca3fb23ca616608ed59a69b9f77
@@ -5091,7 +5097,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Dec 1 21:12:04 2015 +0000
 
     no more need for /etc/sdwdate.d/32_timesync_plugin_disable.conf
-    
+
     since sdwdate-python will no longer dispatch hooks to interact with the
     timesync application
 
@@ -5100,7 +5106,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Dec 1 21:11:18 2015 +0000
 
     no need to reintroduce /etc/sdwdate.d/40_qubes_stream_isolation_plugin.conf
-    
+
     because sdwdate-python has native Qubes support
 
 commit b337e3d7c89c5790f63e9e1bbf9e2c702af47610
@@ -5138,9 +5144,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Nov 30 19:43:28 2015 +0000
 
     Only source configuration files that end with the '.conf' extension.
-    
+
     Thanks to @nrgaway for the suggestion!
-    
+
     https://phabricator.whonix.org/T286
 
 commit d18ef98206bdbc1a83b3d94b872e66969878c4b5
@@ -5148,7 +5154,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Nov 23 10:20:54 2015 +0000
 
     comment
-    
+
     https://github.com/marmarek/qubes-core-agent-linux/pull/53
 
 commit 5696071c29eb854dc3161797d7fdcef9377116f5
@@ -5156,7 +5162,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Nov 23 10:16:17 2015 +0000
 
     less dependency on /var/run/qubes-service status files
-    
+
     https://phabricator.whonix.org/T432
 
 commit 201b50cba24d19639d69cdf172f1f5483897ed5f
@@ -5164,7 +5170,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Nov 22 23:59:52 2015 +0000
 
     usr/lib/qubes-whonix/replace-ips: no longer depend on /var/run/qubes-service/
-    
+
     https://phabricator.whonix.org/T432
 
 commit 26afe297282f8979db6610b4d3558e1e26641664
@@ -5178,7 +5184,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Nov 22 21:46:51 2015 +0000
 
     removed unneeded qubes-update-check systemd service Whonix specificness
-    
+
     https://phabricator.whonix.org/T433
 
 commit 5c6d7223f4b2d7d540aa69384a6308160aef5b5a
@@ -5198,7 +5204,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Nov 12 16:54:36 2015 +0100
 
     prevent qubes-updates-proxy.service from possibly modifying Whonix's firewall
-    
+
     https://phabricator.whonix.org/T427
 
 commit e1ec07d10dea497ed0840ea68103820fedfa7183
@@ -5206,9 +5212,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Nov 11 13:29:48 2015 +0000
 
     Start qubes-whonix-postinit.service and thereby replace-ips early enough.
-    
+
     Fixes https://github.com/QubesOS/qubes-issues/issues/1398.
-    
+
     Thanks to @qubesuser for reporting this issue!
 
 commit 1d7c2793dbe6aec350f30b56674dd5b9f1b94de4
@@ -5325,7 +5331,7 @@ Date:   Tue Sep 22 13:41:01 2015 +0000
 
     User perspective:
     Implemented whonixcheck showing a progress bar at first boot while Tor is still bootstrapping and showing a passive popup when successfully done, otherwise an active error popup with troubleshooting instructions.
-    
+
     Technical perspective:
     When whonixcheck is automatically started at boot, while Tor is disabled in /etc/tor/torrc, whonixcheck exits silently.
     (whonixcheck does this because it is assumed, that in these cases Whonix
@@ -5895,7 +5901,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Mon Jul 27 15:59:33 2015 -0400
 
     Merge branch 'Whonix11'
-    
+
     Conflicts:
             usr/lib/qubes-whonix/messages.yaml
 
@@ -5917,7 +5923,7 @@ Author: nrgaway <nrgaway@gmail.com>
 Date:   Mon Jul 6 16:27:12 2015 -0400
 
     Merge pull request #12 from adrelanos/patch-2
-    
+
     removed spaces
 
 commit b983f3e946d1f74d74cdb555ff914e282576d871
@@ -5940,7 +5946,7 @@ Author: nrgaway <nrgaway@gmail.com>
 Date:   Fri Jul 3 04:28:16 2015 -0400
 
     Merge pull request #11 from adrelanos/patch-1
-    
+
     improved 'Whonix-Gateway NetVM required for updates' message
 
 commit e1c493e6d82e8ab0a3270265f07c1940a1de1dea
@@ -5967,7 +5973,7 @@ Author: nrgaway <nrgaway@gmail.com>
 Date:   Tue Jun 23 17:41:22 2015 -0400
 
     Merge pull request #10 from adrelanos/network-manger-systemd-fix_4
-    
+
     network manger systemd fix
 
 commit 38d59bf608f593aa51c495befc9b5a4e28003a82
@@ -5983,7 +5989,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Tue Jun 23 17:38:04 2015 -0400
 
     Merge branch 'iptables_wait' of https://github.com/adrelanos/qubes-whonix into adrelanos-iptables_wait
-    
+
     Conflicts:
             usr/lib/qubes-whonix/init/enable-firewall
             usr/lib/qubes-whonix/init/whonix-firewall-plugin
@@ -6090,7 +6096,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Sat Jun 6 09:35:55 2015 -0400
 
     qubes-whonixsetup: Added code to deal with firewall failure and tor-disable serivce
-    
+
     and copyright
 
 commit 03ee8dfe63e0d2e427a69db64b51f613ef630ddb
@@ -6122,7 +6128,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Sat Jun 6 09:28:45 2015 -0400
 
     enable-firewall: Added whonix-firewall-failed service, removed sudo
-    
+
     - whonix-firewall-failed gets set if firewall fails to load and user
       will be shown a dialog stating this, then VM will poweroff
     - Removed unneeded sudo
@@ -6157,7 +6163,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Sat Jun 6 09:17:05 2015 -0400
 
     qubes-whonix-sysinit: Added/moved additional init code
-    
+
     - Enable/Disable Tor if qubes-service is enabled
     - Make sure we remove whonixsetup.{skip, done} if Tor is not enabled so
       whonix-setup-wizard will prompt to enable
@@ -6194,7 +6200,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Sat Jun 6 09:02:09 2015 -0400
 
     Restarting instead of reloading due to upstream Tor bug
-    
+
     https://trac.torproject.org/projects/tor/ticket/16161
 
 commit 5366b91cfcd0896bfe79d557b9e238c664b35621
@@ -6232,7 +6238,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Wed Jun 3 18:15:55 2015 -0400
 
     postinst: Removed sdwdate and whonixcheck from being disabled
-    
+
     Updated anything that was renamed
 
 commit f48207b97cf1c644cb5371364153bf632175e9ed
@@ -6246,7 +6252,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Wed Jun 3 18:06:51 2015 -0400
 
     whonix_firewall: Switched to use qubes-services, added whonix-template 'rule'
-    
+
     Cleaned; Removed unneeded code
 
 commit 182a283d1ba3144d78f6d83b86b796792e3a9917
@@ -6272,7 +6278,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Wed Jun 3 17:59:23 2015 -0400
 
     qubes-whonix-sysinit.service: Added to create required preconfigurations
-    
+
     and enable qubes-services during boot stage before multi-user target.
 
 commit 4f967e268f5a44512b84df7c48269df41789665e
@@ -6280,7 +6286,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Wed Jun 3 17:54:02 2015 -0400
 
     qubes-whonix-network.service: Removed/added depends and Pre/Posr starts
-    
+
     - Removed qubes-whonix-firewall depend (was incorrect as well; should have
       has .service appended to name) since firewall already has depend on this
     - Added depend on qubes-update-check.service and qubes-update-check.timer
@@ -6299,7 +6305,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Wed Jun 3 17:50:38 2015 -0400
 
     qubes-whonixsetup: Removed all manual start code for tor, sdwdate and whonixcheck
-    
+
     Switched to use qubes-services
 
 commit 06c3ece201c16eccda81261aa72ee68b61e0784a
@@ -6313,7 +6319,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Wed Jun 3 17:48:06 2015 -0400
 
     utility_functions: Removed code that created $QUBES_WHONIX ENV var
-    
+
     Using qubes-services instead
 
 commit dea95827ec7e1d477b82a841317a1aa53a321988
@@ -6327,7 +6333,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Wed Jun 3 17:43:32 2015 -0400
 
     enable-servides: Script added; called in sysinit boot stage
-    
+
     - Adds service modes (whonix-gateway, whonix-workstation, whonix-template) to
       /var/run/qubes-services used to identify whonix mode
     - All related source/configurations changes to use instead of old $QUBES_WHONIX
@@ -6356,7 +6362,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Wed Jun 3 17:35:20 2015 -0400
 
     renamed: init -> qubes-whonix-sysinit
-    
+
     - Now called in sysinit target stage
     - handles all pre-configurations required before networking and firewall started
 
@@ -6365,7 +6371,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Wed Jun 3 17:33:29 2015 -0400
 
     renamed: whonix-firewall -> whonix-firewall-plugin
-    
+
     + Added an iptable rules to allow TemplateVM access to secure update proxy
 
 commit f9d65d2e188e601651b462ce59fa3155e4179df9
@@ -6374,7 +6380,7 @@ Author: nrgaway <nrgaway@gmail.com>
 Date:   Tue Jun 2 10:26:54 2015 -0400
 
     Merge pull request #8 from adrelanos/remove_whonixcheck_tmpfiles
-    
+
     remove whonixcheck tmpfiles
 
 commit ad4369894d2820a541ef47c3bfa1bdc1dce2a821
@@ -6396,7 +6402,7 @@ Author: nrgaway <nrgaway@gmail.com>
 Date:   Fri May 29 04:29:13 2015 -0400
 
     Merge pull request #7 from adrelanos/fix_true
-    
+
     fix, '| true' -> '|| true'
 
 commit 010e34bf39513fbeac41a8f8f516c22f362cca9b
@@ -6405,7 +6411,7 @@ Author: nrgaway <nrgaway@gmail.com>
 Date:   Fri May 29 04:28:28 2015 -0400
 
     Merge pull request #6 from adrelanos/status_files_instead_of_using_touch_in_postinst
-    
+
     use status files instead of 'touch' in postinst; use skip files rather than faking done files
 
 commit fce271a1f6c2db2a2cb0309845c0dd77d7662e75
@@ -6414,7 +6420,7 @@ Author: nrgaway <nrgaway@gmail.com>
 Date:   Fri May 29 04:27:35 2015 -0400
 
     Merge pull request #5 from adrelanos/services_skip_2
-    
+
     services skip
 
 commit 6fc7f5a3bb05df018c0ac2dff3255b4e50d0f69b
@@ -6485,7 +6491,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Sat May 16 17:37:06 2015 -0400
 
     Remove qubes-whonix-control-port-filter-python and rename add / rename Whonix config files
-    
+
     - Removed qubes-whonix-control-port-filter-python systemd unit file since Whonix 11 provides
       one.  Effected files:
         debian/qubes-whonix.postinst
@@ -6493,23 +6499,23 @@ Date:   Sat May 16 17:37:06 2015 -0400
         etc/systemd/system/qubes-whonix-control-port-filter-python.service
         etc/tmpfiles.d/qubes-whonix-control-port-filter-python.conf
         usr/lib/qubes-whonix/init/replace-ips
-    
+
     - Renamed all whonix related configuration files to use 40_qubes scheme.  Files:
         Common files modified
              debian/qubes-whonix.postinst
              debian/qubes-whonix.triggers
              usr/lib/qubes-whonix/init/replace-ips
-    
+
         Renamed etc/cpfpy.d/32_qubes -> etc/cpfpy.d/40_qubes
         Renamed etc/sdwdate.d/35_qubes_stream_isolation_plugin -> etc/sdwdate.d/40_qubes_stream_isolation_plugin
         Renamed etc/uwt.d/32_qubes -> etc/uwt.d/40_qubes
-    
+
         Renamed etc/whonix_firewall.d/32_qubes -> etc/whonix_firewall.d/40_qubes
              Related: usr/lib/qubes-whonix/init/whonix-firewall
-    
+
         Added etc/whonix.d/40_whonixcheck_qubes
             WHONIXCHECK_NO_EXIT_ON_UNSUPPORTED_VIRTUALIZER="1"
-    
+
         Added etc/systemd/system/whonix-initializer.service.d/40_qubes.conf
             Prevent startup in Qubes
 
@@ -6754,7 +6760,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Apr 24 13:00:52 2015 +0000
 
     Merge remote-tracking branch 'nrgaway/master' into mergetest
-    
+
     Conflicts:
             debian/rules
 
@@ -6927,7 +6933,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Mon Apr 20 02:31:38 2015 -0400
 
     Remove chattr +i and replace with a protected files routine
-    
+
     Cleanup and Improve enable/disable serivces
     Cleanup Debian maintainers scripts removing unneeded reporting on systemd status
 
@@ -7002,7 +7008,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Mon Mar 23 11:58:47 2015 -0400
 
     Added a update test script that will install a local repo and perform an update of package
-    
+
     The test suite is excluded from built package
 
 commit ae3b93320bbf38a556e4376cbdc7ee87d2fe4c87
@@ -7035,7 +7041,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Feb 22 21:32:31 2015 +0000
 
     Merge remote-tracking branch 'nrgaway/master'
-    
+
     Conflicts:
             debian/changelog
 
@@ -7252,7 +7258,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Tue Jan 13 23:46:50 2015 -0500
 
     Removed qubes-whonix-init.service and added it as a ExecStartPost to qubes-whonix-network.service
-    
+
     Changed WHONIX to QUBES_WHONIX in 32_uwt_default
     Set QUBES_WHONIX to unknown if /var/lib/qubes is not available
     Added a profile for unknown to allow override of UWT
@@ -7328,7 +7334,7 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Mon Jan 5 16:38:10 2015 -0500
 
     Package rename fixes
-    
+
     Some text got changed to qubes-whonix when it should have remained just whonix
 
 commit 7a3d8d6e7f54acbb5392701e4885735073ac6d79
@@ -7336,12 +7342,12 @@ Author: Jason Mehring <nrgaway@gmail.com>
 Date:   Mon Jan 5 00:03:32 2015 -0500
 
     Changed package name to qubes-whonix
-    
+
     Moved custom config files into their own directory to prevent future conflicts
     /usr/lib/qubes-whonix
-    
+
     Refactored lots.
-    
+
     Wrote some Debian helper scripts to help get this building in Qubes as well
      as Whonix development environment
 
