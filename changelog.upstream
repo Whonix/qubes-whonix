@@ -1,3 +1,28 @@
+commit dcc95c2bbe555b915f9e9f9aee1865376f5b6b4a
+Merge: 37a1e41 16805dd
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Jul 23 08:20:40 2026 -0400
+
+    Merge remote-tracking branch 'refs/remotes/org-ai-assisted/master'
+
+commit 16805dd68fcf1d42787396d829715a3f0a025dc7
+Author: assisted-by-ai (Bot Account) (Machine Account) <228987186+assisted-by-ai@users.noreply.github.com>
+Date:   Tue Jul 21 07:46:23 2026 -0400
+
+    qubes-whonixsetup: use generic_gui_message.py instead of alert.py (#2)
+
+    Port the single alert.py caller to generic_gui_message.py (Critical->error, message inlined, ok button) and drop the now-dead messages.yaml.
+
+    AI-Assisted
+
+    Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+
+commit 37a1e41f2429b3c1f46c2d24eede72e9a1920418
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Jul 21 11:14:55 2026 +0000
+
+    bumped changelog version
+
 commit 11b64f9b96d1dc129480068045e1a5426f6402ef
 Merge: abf5691 f070277
 Author: Patrick Schleizer <adrelanos@whonix.org>
