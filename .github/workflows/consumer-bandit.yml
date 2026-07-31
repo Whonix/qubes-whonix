@@ -1,0 +1,42 @@
+## Copyright (C) 2026 - 2026 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+## AI-Assisted
+
+## Managed by pkg_update_consumer_workflows. Byte-identical
+## across consumers; this file is `cp`-ed from
+## developer-meta-files/consumer-templates/.github/workflows/consumer-bandit.yml.
+## DO NOT hand-edit this file in the consumer repo - changes
+## will be overwritten on the next propagation pass.
+##
+## Universal wrapper - no per-repo state required. The reusable
+## does its own Python discovery (`.py` extension + shebang
+## scan) so consumers don't need a `paths:` or `prepare-command`
+## entry. Per-repo suppressions use bandit's `# nosec` inline
+## comments. Install only in repos that contain Python (opt-in
+## by file presence).
+##
+## Reusable docs:
+## https://github.com/org-ai-assisted/developer-meta-files/blob/master/.github/workflows/reusable-bandit.yml
+
+name: bandit
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  bandit:
+    uses: org-ai-assisted/developer-meta-files/.github/workflows/reusable-bandit.yml@master
+    permissions:
+      contents: read
