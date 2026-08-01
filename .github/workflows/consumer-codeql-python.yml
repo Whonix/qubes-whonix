@@ -1,0 +1,61 @@
+## Copyright (C) 2026 - 2026 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+## AI-Assisted
+
+## Managed by pkg_update_consumer_workflows. Byte-identical
+## across consumers; this file is `cp`-ed from
+## developer-meta-files/consumer-templates/.github/workflows/consumer-codeql-python.yml.
+## DO NOT hand-edit this file in the consumer repo - changes
+## will be overwritten on the next propagation pass.
+##
+## Consumer wrapper for the 'python' CodeQL language. Cronless
+## on purpose (same rationale as consumer-codeql-actions.yml):
+## byte-identical propagation forbids per-repo cron rewrites.
+## Push / PR / workflow_dispatch triggers cover the
+## scan-on-change cases.
+##
+## Also clears a flaky GHAS behavior: github-advanced-security
+## speculatively creates a queued 'CodeQL' check-run when it
+## detects Python in the repo. Without a workflow that submits
+## Python SARIF, that check-run can stay queued forever and keep
+## the PR's mergeable_state as 'unstable'. Installing this
+## wrapper gives GHAS the Python analysis it expects.
+##
+## Install only in repos that contain Python (opt-in by file
+## presence). Repos with no Python should not install this; the
+## reusable would scan nothing and the GHAS speculative stub
+## would not be created in the first place.
+##
+## Reusable docs:
+## https://github.com/org-ai-assisted/developer-meta-files/blob/master/.github/workflows/reusable-codeql.yml
+
+name: CodeQL Python
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python:
+    uses: org-ai-assisted/developer-meta-files/.github/workflows/reusable-codeql.yml@master
+    with:
+      language: python
+      ## Read .github/dm-consumer.yml `codeql-python:` section for
+      ## optional prepare-command (e.g. ci/codeql-prepare.sh for
+      ## genmkfile-tagged source-tree symlinks). Soft-skip if the
+      ## file or section is absent.
+      dm-consumer-section: codeql-python
+    permissions:
+      security-events: write
+      contents: read
