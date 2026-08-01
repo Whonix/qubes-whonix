@@ -1,3 +1,40 @@
+commit f9b402dd05622add1a3af544ec998d8b752c1730
+Merge: 1447e07 17d4bdd
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Aug 1 04:35:06 2026 -0400
+
+    Merge remote-tracking branch 'refs/remotes/org-ai-assisted/master'
+
+commit 17d4bdd71f0397bbbc3b95608a42c8b696922c72
+Merge: 1447e07 4b9f89b
+Author: assisted-by-ai (Bot Account) (Machine Account) <228987186+assisted-by-ai@users.noreply.github.com>
+Date:   Fri Jul 31 15:46:13 2026 -0400
+
+    Merge pull request #3 from org-ai-assisted/ai/codeql-python
+
+    ci: add file-based CodeQL python lane
+
+commit 4b9f89b3a5e478e569f228ac84e54842921217e3
+Author: claude (dev142 b93fb2c6-e15f-4d45-8566-f3ded893b70e) <noreply@anthropic.com>
+Date:   Fri Jul 31 15:06:04 2026 -0400
+
+    ci: add file-based CodeQL python lane
+
+    Propagate consumer-codeql-python.yml byte-identically from
+    developer-meta-files/consumer-templates. qubes-whonix ships real product Python (usr/lib/qubes-whonix/replace-ips, rewrites IPs in Qubes net config) that had no python CodeQL
+    analysis.
+
+    build-mode none; push/PR/workflow_dispatch triggers. No dm-consumer.yml
+    section required (reusable soft-skips an absent section).
+
+    Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+
+commit 1447e07ab95d230903bb77cedcd91bcf34c363df
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Jul 28 13:24:23 2026 +0000
+
+    bumped changelog version
+
 commit dcc95c2bbe555b915f9e9f9aee1865376f5b6b4a
 Merge: 37a1e41 16805dd
 Author: Patrick Schleizer <adrelanos@whonix.org>
