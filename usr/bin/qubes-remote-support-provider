@@ -135,7 +135,7 @@ file_size="$(stat --printf="%s" remote-support-keys.tar.gz)"
 ## 818
 
 if [ "${file_size}" -ge 1000 ]; then
-   ${output_command} "ERROR: file_size of ${temp_dir}/qubes-remote-support/remote-support-keys.tar.gz larger than 1000. file_size: ${file_size}"
+   ${output_command} "ERROR: file_size of ${temp_dir}/remote-support-keys.tar.gz larger than 1000. file_size: ${file_size}"
    exit 102
 fi
 

@@ -14,11 +14,11 @@ shopt -s inherit_errexit
 shopt -s shift_verbose
 
 if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
-   qvm-features-request whonix-gw=1
+   qvm-features-request whonix-gw=1 || true
 fi
 
 if [ -f "/usr/share/anon-ws-base-files/workstation" ]; then
-   qvm-features-request whonix-ws=1
+   qvm-features-request whonix-ws=1 || true
 fi
 
 ## Exit success even in case above command failed to avoid breaking the apt-get
