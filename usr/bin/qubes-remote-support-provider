@@ -1,64 +1,87 @@
 #!/bin/bash
 
-set -e
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o errtrace
+shopt -s inherit_errexit
+shopt -s shift_verbose
+
+## qubes-whonix Depends on helper-scripts.
+# shellcheck source=../../../../kicksecure/helper-scripts/usr/libexec/helper-scripts/has.sh
+## Sibling repo: absent in an isolated CI checkout, so shellcheck cannot follow
+## it there. The source= path above still documents where it lives.
+# shellcheck disable=SC1091
+source /usr/libexec/helper-scripts/has.sh
+
+## Read by preparation() before anything assigns it -- the '[ ! "${temp_dir}" = "" ]'
+## test exists precisely so a caller can preset it.
+temp_dir="${temp_dir:-}"
 
 preparation() {
-   if [ ! "$temp_dir" = "" ]; then
+   if [ ! "${temp_dir}" = "" ]; then
       true "INFO: custom temp_dir"
       return 0
    fi
    temp_dir="$(mktemp --directory)"
-   mkdir -p "$temp_dir/keys"
+   mkdir -p "${temp_dir}/keys"
 }
 
 no_ssh_found_exit() {
-   $output_command "ERROR: ssh client not installed" >&2
-   $output_command ""
-   $output_command "INFO: To install:"
-   $output_command ""
-   $output_command "sudo apt update"
-   $output_command "sudo apt install --no-install-recommends openssh-client"
-   $output_command ""
-   $output_command "ERROR: Stop." >&2
+   ${output_command} "ERROR: ssh client not installed" >&2
+   ${output_command} ""
+   ${output_command} "INFO: To install:"
+   ${output_command} ""
+   ${output_command} "sudo apt update"
+   ${output_command} "sudo apt install --no-install-recommends openssh-client"
+   ${output_command} ""
+   ${output_command} "ERROR: Stop." >&2
    exit 101
 }
 
 hostname_malicious() {
-   $output_command "File $temp_dir/qubes-remote-support/keys/hostname might be malicious." >&2
-   $output_command "Do not look at it unless you know what you are doing." >&2
+   ${output_command} "File ${temp_dir}/qubes-remote-support/keys/hostname might be malicious." >&2
+   ${output_command} "Do not look at it unless you know what you are doing." >&2
+}
+
+## R-034 forbids 'echo', but this is 'echo' used as a COMMAND NAME held in a
+## variable, so it cannot simply be rewritten at each call site. A wrapper keeps
+## the indirection the script relies on.
+print_line() {
+   printf '%s\n' "$@"
 }
 
 if test -o xtrace ; then
    output_command=true
 else
-   output_command=echo
+   output_command=print_line
 fi
 
-$output_command "INFO: Starting Qubes Remote Support Provider."
-$output_command "INFO: This tool is supposed to be run by those who wish to provide remote support."
-$output_command "INFO: Setting up... This will take a moment..."
+${output_command} "INFO: Starting Qubes Remote Support Provider."
+${output_command} "INFO: This tool is supposed to be run by those who wish to provide remote support."
+${output_command} "INFO: Setting up... This will take a moment..."
 
 if test -d ~/.ssh ; then
-   $output_command "ERROR: Folder ~/.ssh already exists" >&2
-   $output_command ""
-   $output_command "INFO: Highly recommended to update your ~/.ssh folder!"
-   $output_command ""
-   $output_command "INFO: To move the existing ~/.ssh folder out of the way:"
-   $output_command ""
-   $output_command "mv --backup ~/.ssh ~/.ssh_my_backup"
-   $output_command ""
-   $output_command "ERROR: Stop." >&2
+   ${output_command} "ERROR: Folder ~/.ssh already exists" >&2
+   ${output_command} ""
+   ${output_command} "INFO: Highly recommended to update your ~/.ssh folder!"
+   ${output_command} ""
+   ${output_command} "INFO: To move the existing ~/.ssh folder out of the way:"
+   ${output_command} ""
+   ${output_command} "mv --backup ~/.ssh ~/.ssh_my_backup"
+   ${output_command} ""
+   ${output_command} "ERROR: Stop." >&2
    exit 100
 fi
 
 if test -h /usr/bin/ssh ; then
    ## Whonix
-   if ! command -v /usr/bin/ssh.anondist-orig &>/dev/null ; then
+   if ! has /usr/bin/ssh.anondist-orig ; then
       no_ssh_found_exit
    fi
 else
    ## Non-Whonix or no uwt installed.
-   if ! command -v ssh &>/dev/null ; then
+   if ! has ssh ; then
       no_ssh_found_exit
    fi
 fi
@@ -66,14 +89,14 @@ fi
 my_vm_name="$(qubesdb-read /name)"
 
 preparation
-cd "$temp_dir"
-mkdir -p "$temp_dir/qubes-remote-support"
+cd "${temp_dir}"
+mkdir -p "${temp_dir}/qubes-remote-support"
 ## Test if could create file.
-touch "$temp_dir/qubes-remote-support/remote-support-keys.tar.gz"
+touch "${temp_dir}/qubes-remote-support/remote-support-keys.tar.gz"
 ## Test if could delete files.
-rm "$temp_dir/qubes-remote-support/remote-support-keys.tar.gz"
+safe-rm -- "${temp_dir}/qubes-remote-support/remote-support-keys.tar.gz"
 
-$output_command "INFO: Ask the remote support receiver for the wormhole code phrase and enter it below."
+${output_command} "INFO: Ask the remote support receiver for the wormhole code phrase and enter it below."
 
 ## input wormhole code and press enter
 ## to confirm, press y and press enter
@@ -90,16 +113,16 @@ wormhole receive
 
 ## As seen in output above, wormhole points out the file size beforehand.
 
-if ! test -f "$temp_dir/remote-support-keys.tar.gz" ; then
-   $output_command "ERROR: error receiving file!"
-   $output_command "ERROR: file $temp_dir/remote-support-keys.tar.gz does not exist!"
+if ! test -f "${temp_dir}/remote-support-keys.tar.gz" ; then
+   ${output_command} "ERROR: error receiving file!"
+   ${output_command} "ERROR: file ${temp_dir}/remote-support-keys.tar.gz does not exist!"
    exit 102
 fi
 
-$output_command "INFO: Success, received remote support archive file '$temp_dir/remote-support-keys.tar.gz'."
-$output_command "INFO: (That file allows a Qubes Remote Support Provider to connect to this machine.)"
-$output_command "INFO: (No need to do anything with that file.)"
-$output_command "INFO: Setting up... This will take a moment..."
+${output_command} "INFO: Success, received remote support archive file '${temp_dir}/remote-support-keys.tar.gz'."
+${output_command} "INFO: (That file allows a Qubes Remote Support Provider to connect to this machine.)"
+${output_command} "INFO: (No need to do anything with that file.)"
+${output_command} "INFO: Setting up... This will take a moment..."
 
 ## Debugging.
 if test -o xtrace ; then
@@ -111,98 +134,103 @@ file_size="$(stat --printf="%s" remote-support-keys.tar.gz)"
 ## example output:
 ## 818
 
-if [ "$file_size" -ge 1000 ]; then
-   $output_command "ERROR: file_size of $temp_dir/qubes-remote-support/remote-support-keys.tar.gz larger than 1000. file_size: $file_size"
+if [ "${file_size}" -ge 1000 ]; then
+   ${output_command} "ERROR: file_size of ${temp_dir}/remote-support-keys.tar.gz larger than 1000. file_size: ${file_size}"
    exit 102
 fi
 
 if test -o xtrace ; then
-   tar --warning=no-timestamp -xvf remote-support-keys.tar.gz -C "$temp_dir/qubes-remote-support"
+   tar --warning=no-timestamp -xvf remote-support-keys.tar.gz -C "${temp_dir}/qubes-remote-support"
 else
-   tar --warning=no-timestamp -xvf remote-support-keys.tar.gz -C "$temp_dir/qubes-remote-support" >/dev/null
+   tar --warning=no-timestamp -xvf remote-support-keys.tar.gz -C "${temp_dir}/qubes-remote-support" >/dev/null
 fi
 
 ## Debugging.
 if test -o xtrace ; then
    ls -la
-   ls -la "$temp_dir/qubes-remote-support/keys"
+   ls -la "${temp_dir}/qubes-remote-support/keys"
 fi
 
-hostname="$(cat "$temp_dir/qubes-remote-support/keys/hostname")"
+hostname="$(cat "${temp_dir}/qubes-remote-support/keys/hostname")"
 ## Example hostname:
 ## pp3nxkdbekhaac6r57blbrgniramltvriuukw6g6vqpbudymk33mpnyd.onion
 
 string_length_ofhostname="${#hostname}"
-if [ ! "$string_length_ofhostname" = "62" ]; then
-   $output_command "ERROR: hostname string string is not 62. it is: $string_length_ofhostname" >&2
+if [ ! "${string_length_ofhostname}" = "62" ]; then
+   ${output_command} "ERROR: hostname string string is not 62. it is: ${string_length_ofhostname}" >&2
    hostname_malicious
    exit 200
 fi
-if ! [[ "$hostname" =~ ^[.0-9a-zA-Z_-]+$ ]]; then
-   $output_command "ERROR: hostname contains invalid character!" >&2
+if ! [[ "${hostname}" =~ ^[.0-9a-zA-Z_-]+$ ]]; then
+   ${output_command} "ERROR: hostname contains invalid character!" >&2
    hostname_malicious
    exit 201
 fi
-if ! [[ "$hostname" == *.onion ]]; then
-   $output_command "ERROR: hostname does not end with '.onion'!" >&2
+if ! [[ "${hostname}" == *.onion ]]; then
+   ${output_command} "ERROR: hostname does not end with '.onion'!" >&2
    hostname_malicious
    exit 202
 fi
 
 ## Rely on ssh for sanitation.
-ssh_algorithm="$(cat "$temp_dir/qubes-remote-support/keys/ssh_algorithm")"
+ssh_algorithm="$(cat "${temp_dir}/qubes-remote-support/keys/ssh_algorithm")"
 ## Example ssh_algorithm:
 ## ssh-ed25519
 
 ## Rely on ssh for sanitation.
-ssh_fingerprint="$(cat "$temp_dir/qubes-remote-support/keys/ssh_fingerprint")"
+ssh_fingerprint="$(cat "${temp_dir}/qubes-remote-support/keys/ssh_fingerprint")"
 ## Example ssh_fingerprint:
 ## AAAAC3NzaC1lZDI1NTE5AAAAICF7BLyxUHVzpwD9DVcG5+H+1TydgvcQlTQdKrXqNgFF
 
-ssh_known_keys_line="$hostname $ssh_algorithm $ssh_fingerprint"
+ssh_known_keys_line="${hostname} ${ssh_algorithm} ${ssh_fingerprint}"
 
 mkdir -p ~/.ssh
 ## Rely on ssh for sanitation of id_ed25519.pub.
-cp "$temp_dir/qubes-remote-support/keys/id_ed25519.pub" ~/.ssh/
+cp "${temp_dir}/qubes-remote-support/keys/id_ed25519.pub" ~/.ssh/
 ## Rely on ssh for sanitation of id_ed25519.
-cp "$temp_dir/qubes-remote-support/keys/id_ed25519" ~/.ssh/
-echo "$ssh_known_keys_line" > ~/.ssh/known_hosts
+cp "${temp_dir}/qubes-remote-support/keys/id_ed25519" ~/.ssh/
+printf '%s\n' "${ssh_known_keys_line}" > ~/.ssh/known_hosts
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/*
 
-## example id_ed25519:
-## -----BEGIN OPENSSH PRIVATE KEY-----
-## b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
-## QyNTUxOQAAACAEJ82o4Knq4gSJAr0Mke+5y2fdl6vo8v+dBlz5bKfSyQAAALDJ/1Ulyf9V
-## JQAAAAtzc2gtZWQyNTUxOQAAACAEJ82o4Knq4gSJAr0Mke+5y2fdl6vo8v+dBlz5bKfSyQ
-## AAAEBFm5blNb/E4K9WL6NhqyffoPrbuwtiGkCs0hOyHsb4cAQnzajgqeriBIkCvQyR77nL
-## Z92Xq+jy/50GXPlsp9LJAAAALHF1YmVzLXJlbW90ZS1zdXBwb3J0LXJlY2VpdmVyLWF1dG
-## 8tZ2VuZXJhdGVkAQ==
-## -----END OPENSSH PRIVATE KEY-----
+## example id_ed25519 -- REDACTED.
+##
+## A complete, usable ed25519 private key was written out here in full. It is a
+## throwaway generated for the documentation, but a private key pasted into a
+## shipped script is a key someone will eventually reuse, and nothing in the
+## surrounding text stopped them.
+##
+## The file is an OpenSSH ed25519 private key: the usual BEGIN/END armour around
+## roughly six lines of base64. The armour lines are not reproduced here either
+## -- the gate's detect-private-key hook matches on those markers, and it is
+## right to: a shipped script has no business containing them, example or not.
+##
+## The matching id_ed25519.pub below is left as-is: a public key is not secret,
+## and without its private half it is inert.
 
 ## example id_ed25519.pub:
 #ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAQnzajgqeriBIkCvQyR77nLZ92Xq+jy/50GXPlsp9LJ qubes-remote-support-receiver-auto-generated
 
-$output_command ""
-$output_command "Success. Please continue as instructed below."
-$output_command ""
+${output_command} ""
+${output_command} "Success. Please continue as instructed below."
+${output_command} ""
 
-$output_command "INFO: To avoid confusion, it is advised your delete folder ~/QubesIncoming in sys-whonix if it exists. In most cases no such folder exists."
-$output_command "INFO: If there is nothing you need to backup, you could run the following command in sys-whonix:"
-$output_command ""
-$output_command "rm -rf ~/QubesIncoming"
-$output_command ""
-$output_command "INFO: When done, press enter to continue."
-read press_enter_to_continue
-$output_command ""
+${output_command} "INFO: To avoid confusion, it is advised your delete folder ~/QubesIncoming in sys-whonix if it exists. In most cases no such folder exists."
+${output_command} "INFO: If there is nothing you need to backup, you could run the following command in sys-whonix:"
+${output_command} ""
+${output_command} "rm -rf ~/QubesIncoming"
+${output_command} ""
+${output_command} "INFO: When done, press enter to continue."
+read -r
+${output_command} ""
 
-$output_command "INFO: Will ask to copy 1.auth_private to sys-whonix."
+${output_command} "INFO: Will ask to copy 1.auth_private to sys-whonix."
 true "INFO: In other words, will run the following command:"
-true "qvm-copy $temp_dir/qubes-remote-support/keys/1.auth_private"
-$output_command "INFO: When Qubes dom0 asks, answer to copy to sys-whonix."
-$output_command "INFO: Press enter to continue."
-read press_enter_to_continue
-$output_command ""
+true "qvm-copy ${temp_dir}/qubes-remote-support/keys/1.auth_private"
+${output_command} "INFO: When Qubes dom0 asks, answer to copy to sys-whonix."
+${output_command} "INFO: Press enter to continue."
+read -r
+${output_command} ""
 
 ## Example 1.auth_private contents:
 ## pp3nxkdbekhaac6r57blbrgniramltvriuukw6g6vqpbudymk33mpnyd:descriptor:x25519:CC2Z373LXU36QEKG5JIFCFMUDOYB73U26MZ6FAQDGLOWYQAGWBBA
@@ -211,26 +239,26 @@ $output_command ""
 ##       Is there any elegant way to automate that?
 ##
 ## Rely on Tor for sanitation of 1.auth_private.
-qvm-copy "$temp_dir/qubes-remote-support/keys/1.auth_private"
-$output_command ""
+qvm-copy "${temp_dir}/qubes-remote-support/keys/1.auth_private"
+${output_command} ""
 
-$output_command "INFO: Install authenticated Tor onion v3 service private key by running the following command in sys-whonix:"
-$output_command ""
-$output_command "sudo sourcefile=~/QubesIncoming/${my_vm_name}/1.auth_private anon-server-to-client-install"
-$output_command ""
-$output_command "INFO: When done, press enter to continue."
-read press_enter_to_continue
-$output_command ""
+${output_command} "INFO: Install authenticated Tor onion v3 service private key by running the following command in sys-whonix:"
+${output_command} ""
+${output_command} "sudo sourcefile=~/QubesIncoming/${my_vm_name}/1.auth_private anon-server-to-client-install"
+${output_command} ""
+${output_command} "INFO: When done, press enter to continue."
+read -r
+${output_command} ""
 
-$output_command "INFO: Do you want to SSH to '$hostname'?"
-$output_command "INFO: Press enter to continue."
-read press_enter_to_continue
-$output_command ""
+${output_command} "INFO: Do you want to SSH to '${hostname}'?"
+${output_command} "INFO: Press enter to continue."
+read -r
+${output_command} ""
 
-$output_command "INFO: Trying SSH..."
-$output_command "INFO: Will keep trying to run the following command..."
-$output_command "ssh '$hostname'"
-$output_command "INFO: This can take up to 10 minutes."
+${output_command} "INFO: Trying SSH..."
+${output_command} "INFO: Will keep trying to run the following command..."
+${output_command} "ssh '${hostname}'"
+${output_command} "INFO: This can take up to 10 minutes."
 
 counter=0
 
@@ -241,19 +269,19 @@ counter=0
 ## Took 5:30 minutes.
 while true ; do
    counter="$((counter + 1))"
-   if [ "$counter" -ge "500" ]; then
-      $output_command "ERROR: SSH connection unsuccessful!"
+   if [ "${counter}" -ge "500" ]; then
+      ${output_command} "ERROR: SSH connection unsuccessful!"
       exit 1
    fi
    if test -o xtrace ; then
-      if ssh "$hostname" ; then
+      if ssh "${hostname}" ; then
          true "INFO: SSH success."
          break
       else
          sleep 10
       fi
    else
-      if ssh "$hostname" 2>/dev/null ; then
+      if ssh "${hostname}" 2>/dev/null ; then
          true "INFO: SSH success."
          break
       else

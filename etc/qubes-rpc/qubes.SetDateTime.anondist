@@ -6,6 +6,13 @@
 ## dom0 should not tell us its time.
 ## But if it does, create a file, so systemcheck could warn in case this
 ## file exists.
-read timestamp
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o errtrace
+shopt -s inherit_errexit
+shopt -s shift_verbose
+
+read -r timestamp
 mkdir -p "/run/qubes-whonix"
-echo "$timestamp" > "/run/qubes-whonix/qubes.SetDateTime"
+printf '%s\n' "${timestamp}" > "/run/qubes-whonix/qubes.SetDateTime"

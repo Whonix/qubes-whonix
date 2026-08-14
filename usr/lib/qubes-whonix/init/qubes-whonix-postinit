@@ -21,6 +21,12 @@
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 set -x
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o errtrace
+shopt -s inherit_errexit
+shopt -s shift_verbose
 
 if test -f /run/qubes/this-is-templatevm ; then
    ## Do none of the following in a TemplateVM.

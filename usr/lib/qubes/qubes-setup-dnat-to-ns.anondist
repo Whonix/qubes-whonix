@@ -6,4 +6,11 @@
 ## prevent running /usr/lib/qubes/qubes-setup-dnat-to-ns in Qubes-Whonix to stop it from modifying firewall rules
 ## https://phabricator.whonix.org/T502
 
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o errtrace
+shopt -s inherit_errexit
+shopt -s shift_verbose
+
 exit 0

@@ -6,7 +6,12 @@
 ## https://github.com/QubesOS/qubes-issues/issues/8398
 
 set -x
-set -e
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o errtrace
+shopt -s inherit_errexit
+shopt -s shift_verbose
 
 true "$0: START"
 

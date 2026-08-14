@@ -4,11 +4,17 @@
 ## See the file COPYING for copying conditions.
 
 set -x
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o errtrace
+shopt -s inherit_errexit
+shopt -s shift_verbose
 
 output_cmd() {
-   local msg="$@"
-   echo "$msg"
-   echo "$msg" | systemd-cat --identifier="qvm-sync-clock.anondist" || true
+   local msg="$*"
+   printf '%s\n' "${msg}"
+   printf '%s\n' "${msg}" | systemd-cat --identifier="qvm-sync-clock.anondist" || true
 }
 
 output_cmd "$0: START"
@@ -31,12 +37,12 @@ output_cmd "whoami: $(whoami)"
 randomized_unix_time="$(timeout --kill-after="5" "5" /usr/lib/qubes/qrexec-client-vm dom0 qubes.GetRandomizedTime)" || \
    output_cmd "ERROR - /usr/lib/qubes/qrexec-client-vm had non-zero exit code."
 
-if [[ "$randomized_unix_time" =~ ^[+-]?[0-9]+\.?[0-9]*$ ]]; then
+if [[ "${randomized_unix_time}" =~ ^[+-]?[0-9]+\.?[0-9]*$ ]]; then
    output_cmd "INFO - date before roughly fixing it: $(date --utc)"
-   date --utc --set "@$randomized_unix_time" >/dev/null
+   date --utc --set "@${randomized_unix_time}" >/dev/null
    output_cmd "INFO - date after roughly fixing it : $(date --utc)"
 else
-   output_cmd "ERROR - randomized_unix_time: '$randomized_unix_time'"
+   output_cmd "ERROR - randomized_unix_time: '${randomized_unix_time}'"
 fi
 
 output_cmd "$0: END"
