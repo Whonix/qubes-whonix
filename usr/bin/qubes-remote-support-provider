@@ -7,15 +7,14 @@ set -o errtrace
 shopt -s inherit_errexit
 shopt -s shift_verbose
 
-## qubes-whonix Depends on helper-scripts.
 # shellcheck source=../../../../kicksecure/helper-scripts/usr/libexec/helper-scripts/has.sh
 ## Sibling repo: absent in an isolated CI checkout, so shellcheck cannot follow
 ## it there. The source= path above still documents where it lives.
+##
+## TODO: Don't run shellcheck unless in a full derivative-maker source tree.
 # shellcheck disable=SC1091
 source /usr/libexec/helper-scripts/has.sh
 
-## Read by preparation() before anything assigns it -- the '[ ! "${temp_dir}" = "" ]'
-## test exists precisely so a caller can preset it.
 temp_dir="${temp_dir:-}"
 
 preparation() {
@@ -44,17 +43,12 @@ hostname_malicious() {
    ${output_command} "Do not look at it unless you know what you are doing." >&2
 }
 
-## R-034 forbids 'echo', but this is 'echo' used as a COMMAND NAME held in a
-## variable, so it cannot simply be rewritten at each call site. A wrapper keeps
-## the indirection the script relies on.
-print_line() {
-   printf '%s\n' "$@"
-}
-
 if test -o xtrace ; then
    output_command=true
 else
-   output_command=print_line
+   ## "%s\n" is intentionally unquoted, so that it functions correctly after
+   ## word-splitting.
+   output_command="printf %s\n"
 fi
 
 ${output_command} "INFO: Starting Qubes Remote Support Provider."
@@ -193,20 +187,15 @@ printf '%s\n' "${ssh_known_keys_line}" > ~/.ssh/known_hosts
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/*
 
-## example id_ed25519 -- REDACTED.
-##
-## A complete, usable ed25519 private key was written out here in full. It is a
-## throwaway generated for the documentation, but a private key pasted into a
-## shipped script is a key someone will eventually reuse, and nothing in the
-## surrounding text stopped them.
-##
-## The file is an OpenSSH ed25519 private key: the usual BEGIN/END armour around
-## roughly six lines of base64. The armour lines are not reproduced here either
-## -- the gate's detect-private-key hook matches on those markers, and it is
-## right to: a shipped script has no business containing them, example or not.
-##
-## The matching id_ed25519.pub below is left as-is: a public key is not secret,
-## and without its private half it is inert.
+## example id_ed25519, do NOT reuse this:
+## -----BEGIN OPENSSH PRIVATE KEY-----
+## abcdefghijklmnopqrxtuvwxyz1234567890qwertyuiopasdfghjklzxcvbnm09876543
+## 21!!!DO NOT REUSE THIS FOR ANYTHING THIS IS AN EXAMPLE ONLY !!!abcdefg
+## hijklmnopqrstuvwxyz1234567890qwertyuiopasdfghjklzxcvbnm0987654321!!!DO
+## NOT REUSE THIS FOR ANYTHING THIS IS AN EXAMPLE ONLY !!!abcdefghijklmno
+## pqrstuvwxyz1234567890qwertyuiopasdfghjklzxcvbnm0987654321!!!DO NOT REU
+## SE THIS FOR ANYTHI
+## -----END OPENSSH PRIVATE KEY-----
 
 ## example id_ed25519.pub:
 #ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAQnzajgqeriBIkCvQyR77nLZ92Xq+jy/50GXPlsp9LJ qubes-remote-support-receiver-auto-generated

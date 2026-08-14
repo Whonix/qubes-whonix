@@ -12,7 +12,5 @@ shopt -s shift_verbose
 
 /usr/libexec/helper-scripts/try-wait-for-tor-service-running || true
 
-## style-ok: allow-exec -- this is a qrexec RPC service: socat must BECOME
-## the process wired to the RPC stdio channel, so replacing this shell is
-## the point rather than an optimisation.
+## style-ok: allow-exec -- simple wrapper for qrexec.
 exec socat STDIO TCP:127.0.0.1:8082

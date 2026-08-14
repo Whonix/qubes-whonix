@@ -10,4 +10,4 @@ set -o errtrace
 shopt -s inherit_errexit
 shopt -s shift_verbose
 
-true "Whonix cannot be used as ClockVM yet. Contributions happily considered. Read more: https://phabricator.whonix.org/T387"
+true "Whonix cannot be used as ClockVM yet. Contributions happily considered. Read more: https://forums.whonix.org/t/qubes-whonix-gateway-as-clockvm/19015"
