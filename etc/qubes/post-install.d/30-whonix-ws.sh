@@ -7,7 +7,8 @@
 ## https://github.com/QubesOS/qubes-issues/issues/4080#issuecomment-405100531
 
 ## FIXME: This file is poorly named, it is useful on both the gateway and
-## workstation and contains code for both.
+## workstation and contains code for both. Requires rename and rm_conffile in
+## debian/qubes-whonix.maintscript
 
 if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
    qvm-features-request whonix-gw=1 || true
