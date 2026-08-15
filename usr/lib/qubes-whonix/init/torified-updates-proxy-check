@@ -22,16 +22,23 @@
 
 #set -x
 
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o errtrace
+shopt -s inherit_errexit
+shopt -s shift_verbose
+
 if ! test -f /run/qubes/this-is-templatevm ; then
    exit 0
 fi
 
 who_ami="$(whoami)"
 
-if [ ! "$who_ami" = "updatesproxycheck" ]; then
+if [ ! "${who_ami}" = "updatesproxycheck" ]; then
    printf '%s\n' "$0: ERROR: This script is expected to be run under user updatesproxycheck by
 /lib/systemd/system/qubes-whonix-torified-updates-proxy-check.service
-Instead this script is running under user '$who_ami'." >&2
+Instead this script is running under user '${who_ami}'." >&2
    exit 1
 fi
 
@@ -55,7 +62,7 @@ if [ -e /run/updatesproxycheck/whonix-secure-proxy ]; then
    exit 0
 fi
 
-rm -f -- /run/updatesproxycheck/whonix-secure-proxy-check-done
+safe-rm -f -- /run/updatesproxycheck/whonix-secure-proxy-check-done
 
 source /usr/lib/qubes-whonix/utility_functions.sh
 
@@ -63,7 +70,7 @@ source /usr/lib/qubes-whonix/utility_functions.sh
 while true; do
    ## Check if a secure Tor update server is available
    if curl_output="$(UWT_DEV_PASSTHROUGH="1" curl --silent -- "${PROXY_SERVER}")" ; then
-      if printf '%s\n' "$curl_output" | grep -q -- "${PROXY_META}" ; then
+      if printf '%s\n' "${curl_output}" | grep -q -- "${PROXY_META}" ; then
           touch -- /run/updatesproxycheck/whonix-secure-proxy
           printf '%s\n' "$0: INFO: Success."
           exit 0
@@ -71,9 +78,9 @@ while true; do
       printf '%s\n' "\
 $0: ERROR: PROXY_SERVER reachable but does not contain PROXY_META.
 $0: Debugging information:
-PROXY_SERVER: $PROXY_SERVER
-PROXY_META: $PROXY_META
-curl_output: $curl_output" >&2
+PROXY_SERVER: ${PROXY_SERVER}
+PROXY_META: ${PROXY_META}
+curl_output: ${curl_output}" >&2
       exit 1
    fi
    sleep -- 1

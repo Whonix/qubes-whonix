@@ -3,8 +3,14 @@
 ## Copyright (C) 2024 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
-set -e
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o errtrace
+shopt -s inherit_errexit
+shopt -s shift_verbose
 
 /usr/libexec/helper-scripts/try-wait-for-tor-service-running || true
 
+## style-ok: allow-exec -- simple wrapper for qrexec.
 exec socat STDIO TCP:127.0.0.1:8082

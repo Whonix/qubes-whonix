@@ -20,6 +20,12 @@
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 set -x
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o errtrace
+shopt -s inherit_errexit
+shopt -s shift_verbose
 
 source /usr/lib/qubes-whonix/utility_functions.sh
 
@@ -54,7 +60,7 @@ fi
 
 INTERFACE="eth1"
 
-if ip link show "$INTERFACE" ; then
+if ip link show "${INTERFACE}" ; then
    exit 0
 fi
 
@@ -62,21 +68,21 @@ fi
 ip="$(qubesdb-read /qubes-netvm-gateway)"
 ip6="$(qubesdb-read /qubes-netvm-gateway6)/128" || ip6=''
 
-if [ ! "$ip" = "" ]; then
+if [ ! "${ip}" = "" ]; then
    ## Create a dummy eth1 interface so Tor can bind to it if there
    ## are no DOMU virtual machines connected at the moment
-   ip link add "$INTERFACE" type dummy || true
+   ip link add "${INTERFACE}" type dummy || true
 
    netmask="$(qubesdb-read /qubes-netvm-netmask)"
-   /sbin/ifconfig "$INTERFACE" "$ip" netmask "$netmask"
-   if [ -n "$ip6" ]; then
-     /sbin/ifconfig "$INTERFACE" inet6 add "$ip6"
+   /sbin/ifconfig "${INTERFACE}" "${ip}" netmask "${netmask}"
+   if [ -n "${ip6}" ]; then
+     /sbin/ifconfig "${INTERFACE}" inet6 add "${ip6}"
    fi
-   /sbin/ifconfig "$INTERFACE" up
+   /sbin/ifconfig "${INTERFACE}" up
 
    ## TODO: https://phabricator.whonix.org/T857
-   /sbin/ethtool -K "$INTERFACE" sg off || true
-   /sbin/ethtool -K "$INTERFACE" tx off || true
+   /sbin/ethtool -K "${INTERFACE}" sg off || true
+   /sbin/ethtool -K "${INTERFACE}" tx off || true
 
-   ip link set "$INTERFACE" up
+   ip link set "${INTERFACE}" up
 fi
