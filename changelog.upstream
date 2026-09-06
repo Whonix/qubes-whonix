@@ -1,9 +1,213 @@
+commit f53661d36023f260fac51e5e02567dfeceacdb5a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Aug 15 11:05:13 2026 -0400
+
+    comment
+
+commit 4f39f47fd7e489ae29d3c36ff1a084be4eede651
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Aug 15 11:04:27 2026 -0400
+
+    fix
+
+commit 1b2c706e2c884d865a805cf3049daa75b951e8ab
+Merge: 1ff3934 b301ff2
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Aug 15 11:01:44 2026 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit b301ff22e4523630c6d62eb81c2758360e7ee680
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Fri Aug 14 16:40:03 2026 -0400
+
+    Fixes, FIXMEs, TODOs
+
+commit 5bf7cc5e51fb207535656a5abb0ebfbb3b52500b
+Merge: 1447e07 222f70f
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Fri Aug 14 15:43:34 2026 -0400
+
+    Merge branch 'ai' into arraybolt3/trixie
+
+commit 222f70f90598fab4662658f7229c8e48d9c83e1c
+Author: claude (dev182 e09ec5cf-4ebf-4e1b-88e5-55fbac6ef1d3) <noreply@anthropic.com>
+Date:   Mon Aug 10 13:50:11 2026 -0400
+
+    qubes-whonix: fix errexit abort and wrong error-message path
+
+    30-whonix-ws.sh runs under 'set -o errexit'; a failing
+    qvm-features-request aborts before the trailing 'true', defeating the
+    stated intent of exiting success so apt-get is not broken. Guard both
+    invocations with '|| true'.
+
+    qubes-remote-support-provider: the file_size >= 1000 error names
+    '${temp_dir}/qubes-remote-support/remote-support-keys.tar.gz', the tar
+    extraction target dir, not the archive that was actually received and
+    stat'd at '${temp_dir}/remote-support-keys.tar.gz'. Report the real path.
+
+    Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+
+commit 83566037bbd2db5051058807c3060ccce4e5db82
+Author: claude (dev163 38f9745c-aed1-4fb4-b6ae-9899f20f8de2) <noreply@anthropic.com>
+Date:   Sat Aug 8 03:43:43 2026 -0400
+
+    qubes-remote-support-provider: redact the example private key; R-010
+
+    Redaction
+    ---------
+
+    A complete, usable OpenSSH ed25519 private key was written out in full in a
+    comment, as an example of what the generated file looks like. It is a throwaway
+    made for the documentation, but a private key pasted into a shipped script is a
+    key someone will eventually reuse, and nothing in the surrounding text stopped
+    them.
+
+    The armour lines are gone too, not just the base64. The gate's detect-private-key
+    hook matches on those markers and is right to: a shipped script has no business
+    containing them, example or not. The shape is described in prose instead.
+
+    The matching id_ed25519.pub is left as-is -- a public key is not secret, and
+    without its private half it is inert.
+
+    NOTE: this removes the key from the working tree, NOT from git history. It was
+    generated for documentation and is worthless as a secret, but anyone auditing
+    should know the difference.
+
+    The detector never fired on this file before, because the gate only checks
+    CHANGED files and nothing had touched it.
+
+    Conversion, forced by the same rule
+    ------------------------------------
+
+    Touching the file brought it into the gate's changed-file scope, so it needed
+    the R-010 work it had never had:
+
+    - the full preamble, replacing a bare 'set -e'
+    - temp_dir defaulted: preparation() reads it via '[ ! "$temp_dir" = "" ]',
+      the idiom that exists so a caller can preset it, which under nounset aborted
+    - R-090: two 'command -v' -> has, with has.sh sourced
+    - R-120: rm -> safe-rm
+    - R-034: the last direct 'echo', plus the indirect one below
+    - SC2250 braces, SC2162 'read -r'
+    - the four 'read -r press_enter_to_continue' pauses became a bare 'read -r'.
+      The value was deliberately discarded -- which is why shellcheck called the
+      variable unused -- so it reads into REPLY now and says "wait for enter"
+      without inventing a variable nothing reads.
+
+    The echo that could not be rewritten in place
+    ----------------------------------------------
+
+    Messages go through '${output_command} "msg"', so 'echo' was the COMMAND NAME
+    held in a variable, not a call. It is a print_line wrapper now.
+
+    That indirection is the part worth checking: if the variable ever holds
+    something bash cannot execute, bash runs the MESSAGE as a command. That is not
+    hypothetical -- defaulting it to empty did exactly that in vm-config-dist
+    earlier in this pass.
+
+    Testing
+    -------
+
+    Gate exit 0 in an ISOLATED checkout.
+
+      2 value(s) checked
+      PASS: 'print_line' is a function defined in the script
+      PASS: 'true' is a real command
+
+    master assigned 'echo' and 'true'; both replacements are executable, so the
+    indirection is intact.
+
+    Canary: setting one value to "" reports it as not executable and exits 1.
+
+    This is a STRUCTURAL check and the test says so in its header: it asserts the
+    values are executable, not that the script produces particular output. Driving
+    the message path end to end needs the key-copying and ssh steps stubbed, which
+    is a bigger fixture than the property warrants.
+
+commit 4438828b43fede02441d3b04766b280cfe5fa48c
+Merge: 51880d7 775a0c4
+Author: claude (dev163 38f9745c-aed1-4fb4-b6ae-9899f20f8de2) <noreply@anthropic.com>
+Date:   Sat Aug 8 03:43:43 2026 -0400
+
+    Merge remote-tracking branch 'org-ai-assisted/master' into ai
+
+commit 51880d77c80859e9f8b0618cce0edfb8b7e57171
+Author: claude (dev163 38f9745c-aed1-4fb4-b6ae-9899f20f8de2) <noreply@anthropic.com>
+Date:   Fri Aug 7 06:46:07 2026 -0400
+
+    qubes-whonix: R-010 strict for 11 standalone scripts
+
+    usr/bin/qubes-remote-support-provider is deliberately NOT included -- see
+    below.
+
+    Seven of these already carried '#!/bin/bash -e', so errexit was in force
+    before this change; the preamble adds nounset, pipefail, errtrace and the
+    two shopts on top.
+
+    Both hook directories are safe to convert: each ships a README stating
+    that executable files there are EXECUTED as root -- etc/qubes/post-install.d
+    after template install, and the qubes-rpc services by qrexec. Nothing here
+    is sourced. 30-whonix-ws.sh moves from '#!/bin/sh' to bash accordingly.
+
+    qubes.UpdatesProxy carries an allow-exec waiver: it is an RPC service, so
+    socat must BECOME the process wired to the qrexec stdio channel.
+
+    Also: 'read -r' on the RPC input from another VM, so a backslash in the
+    payload is not eaten (SC2162); SC2124 '$@' -> '$*' in a log message;
+    SC2004; safe-rm (R-120); echo -> printf (R-034); SC2250 braces.
+
+    Sandbox differential vs the pre-change scripts, comparing output AND exit
+    code: 11 cases, all identical -- including qubes.SetDateTime still
+    exiting 1 on empty RPC input.
+
+    Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
+
+commit 775a0c4d3f046f37fc3b650d3e06dc2b66c28da7
+Merge: 1ff3934 e32afe2
+Author: assisted-by-ai (Bot Account) (Machine Account) <228987186+assisted-by-ai@users.noreply.github.com>
+Date:   Sat Aug 1 05:00:43 2026 -0400
+
+    Merge pull request #4 from org-ai-assisted/ai
+
+    CI: add bandit, codeql-actions, secrets-audit scanner workflows
+
+commit 1ff39345071872547b900f5c110408e7c11e6033
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Aug 1 08:47:27 2026 +0000
+
+    bumped changelog version
+
 commit f9b402dd05622add1a3af544ec998d8b752c1730
 Merge: 1447e07 17d4bdd
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Aug 1 04:35:06 2026 -0400
 
     Merge remote-tracking branch 'refs/remotes/org-ai-assisted/master'
+
+commit e32afe263faefe709260af29830f824b9860d87d
+Author: claude (dev142 b93fb2c6-e15f-4d45-8566-f3ded893b70e) <noreply@anthropic.com>
+Date:   Fri Jul 31 16:23:29 2026 -0400
+
+    CI: propagate bandit, codeql-actions, secrets-audit workflows
+
+    Byte-identical propagation from developer-meta-files
+    consumer-templates. Closes scanner-coverage gaps:
+
+    - consumer-bandit.yml: Python security lint, universal
+      self-discovery (extension + shebang scan), no per-repo config.
+    - consumer-codeql-actions.yml: CodeQL 'actions' language --
+      workflow-YAML security analysis (script-injection, missing
+      permissions, unpinned actions).
+    - consumer-secrets-audit.yml: manual-dispatch secrets surface
+      audit (presence flags only, values never emitted).
+
+    Managed files -- do not hand-edit; regenerated on the next
+    propagation pass.
+
+    ## AI-Assisted
+
+    Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
 
 commit 17d4bdd71f0397bbbc3b95608a42c8b696922c72
 Merge: 1447e07 4b9f89b
