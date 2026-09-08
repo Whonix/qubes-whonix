@@ -1,3 +1,48 @@
+commit 8e050101186e7f0d0cb0dd34c79ec4574871e6e8
+Merge: d865eea 55814af
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Sep 8 10:28:59 2026 -0400
+
+    Merge remote-tracking branch 'refs/remotes/ArrayBolt3/arraybolt3/trixie'
+
+commit 55814af60990d67345649b1a18e654e98bc0e65d
+Merge: 56ebf34 d865eea
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Sat Sep 5 22:52:45 2026 -0400
+
+    Merge branch 'master' into arraybolt3/trixie
+
+commit 56ebf34930ace9beedeb8306a3068e724e0ec19d
+Merge: b301ff2 1d4832d
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Sat Sep 5 22:50:54 2026 -0400
+
+    Merge branch 'ai' into arraybolt3/trixie
+
+commit 1d4832dbdeff6a1e6509a128aa3470725d2bb0e9
+Author: assisted-by-ai (Bot Account) (Machine Account) <228987186+assisted-by-ai@users.noreply.github.com>
+Date:   Mon Aug 24 23:31:07 2026 -0400
+
+    ci: drop orphaned consumer-secrets-audit.yml (reusable decommissioned)
+
+commit 3c485aeb3323138755b15edb585c71d3c92a51c8
+Author: claude (dev272 e8b76afb-795c-4739-8ebd-023de854021e) <noreply@anthropic.com>
+Date:   Fri Aug 21 04:32:10 2026 -0400
+
+    qubes-whonix: source helper-scripts via HELPER_SCRIPTS_PATH, drop SC1091 disable
+
+    - usr/bin/qubes-remote-support-provider: use source "${HELPER_SCRIPTS_PATH:-}"/usr/libexec/helper-scripts/has.sh;
+      drop the dead '# shellcheck disable=SC1091' and the stale sibling note.
+    - completed pre-existing whole-file style debt (R-010: add export LC_ALL=C).
+
+    Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+
+commit d865eeaf72653f8914ae650895902e0c27951a45
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Aug 17 05:00:24 2026 +0000
+
+    bumped changelog version
+
 commit f53661d36023f260fac51e5e02567dfeceacdb5a
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Aug 15 11:05:13 2026 -0400
